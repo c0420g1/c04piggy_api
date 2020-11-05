@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+.idea/workspace.xml
+demo.iml
+.idea/workspace.xml
+.idea/c04piggy_api.iml
+.idea/workspace.xml
