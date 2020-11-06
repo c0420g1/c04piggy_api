@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `account`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `account` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `password` varchar(250) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -41,7 +41,7 @@ DROP TABLE IF EXISTS `cote`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cote` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
   `export_date` date DEFAULT NULL,
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS `diseases`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `diseases` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -83,7 +83,7 @@ DROP TABLE IF EXISTS `employee`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `employee` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `card_id` varchar(255) DEFAULT NULL,
@@ -107,7 +107,7 @@ DROP TABLE IF EXISTS `feed`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `feed` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `amount` int NOT NULL,
   `code` varchar(255) DEFAULT NULL,
@@ -131,7 +131,7 @@ DROP TABLE IF EXISTS `feed_type`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `feed_type` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -147,7 +147,7 @@ DROP TABLE IF EXISTS `herd`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `herd` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -163,7 +163,7 @@ DROP TABLE IF EXISTS `history_export`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `history_export` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `company` varchar(255) DEFAULT NULL,
   `export_date` date DEFAULT NULL,
@@ -193,7 +193,7 @@ DROP TABLE IF EXISTS `notification`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `notification` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   `create_date` date DEFAULT NULL,
@@ -214,7 +214,7 @@ DROP TABLE IF EXISTS `other`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `other` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `is_other` tinyint NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -235,7 +235,7 @@ DROP TABLE IF EXISTS `permission`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `permission` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -251,7 +251,7 @@ DROP TABLE IF EXISTS `pig`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pig` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
   `color` varchar(255) DEFAULT NULL,
@@ -284,7 +284,7 @@ DROP TABLE IF EXISTS `pig_associate_status`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pig_associate_status` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `pig_id` int DEFAULT NULL,
   `pig_status_id` int DEFAULT NULL,
@@ -305,7 +305,7 @@ DROP TABLE IF EXISTS `pig_status`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pig_status` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -321,7 +321,7 @@ DROP TABLE IF EXISTS `role`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -337,7 +337,7 @@ DROP TABLE IF EXISTS `role_account`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role_account` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `account_id` int DEFAULT NULL,
   `role_id` int DEFAULT NULL,
@@ -358,7 +358,7 @@ DROP TABLE IF EXISTS `role_permission`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role_permission` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `permission_id` int DEFAULT NULL,
   `role_id` int DEFAULT NULL,
@@ -379,7 +379,7 @@ DROP TABLE IF EXISTS `stock`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `exp_date` date DEFAULT NULL,
   `import_date` date DEFAULT NULL,
@@ -406,7 +406,7 @@ DROP TABLE IF EXISTS `treatment_vacxin`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `treatment_vacxin` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `treat_date` date DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
@@ -436,7 +436,7 @@ DROP TABLE IF EXISTS `vacxin`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vacxin` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -452,7 +452,7 @@ DROP TABLE IF EXISTS `vendor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vendor` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` tinyint NOT NULL,
+  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -469,4 +469,4 @@ CREATE TABLE `vendor` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-06 16:46:17
+-- Dump completed on 2020-11-06 18:48:41
