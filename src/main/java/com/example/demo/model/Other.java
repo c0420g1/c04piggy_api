@@ -16,4 +16,5 @@ public class Other extends BaseEntity {
     private String type;
     private String url;
     private byte isOther;
+    private int refId;
 }

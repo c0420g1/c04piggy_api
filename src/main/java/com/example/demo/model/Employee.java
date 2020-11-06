@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 
@@ -16,6 +17,7 @@ import java.util.Date;
 public class Employee extends BaseEntity {
     private String code;
     private String name;
+    @Column(columnDefinition="DATE")
     private Date birthday;
     private String email;
     private byte gender;
@@ -36,4 +38,9 @@ public class Employee extends BaseEntity {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Collection<HistoryExport> historyExports;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Collection<Notification> notifications;
 }

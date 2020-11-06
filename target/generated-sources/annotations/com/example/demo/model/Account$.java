@@ -15,12 +15,12 @@ import java.util.Collection;
 public final class Account$ {
     
     /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
+     * This Field corresponds to the {@link Account} field password.
      */
-    public static final ReferenceField<Account, Collection<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final StringField<Account> password = StringField.create(
         Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "password",
+        Account::getPassword,
         false
     );
     /**
@@ -33,12 +33,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field password.
+     * This Field corresponds to the {@link Account} field roleAccounts.
      */
-    public static final StringField<Account> password = StringField.create(
+    public static final ReferenceField<Account, Collection<RoleAccount>> roleAccounts = ReferenceField.create(
         Account.class,
-        "password",
-        Account::getPassword,
+        "roleAccounts",
+        Account::getRoleAccounts,
         false
     );
 }

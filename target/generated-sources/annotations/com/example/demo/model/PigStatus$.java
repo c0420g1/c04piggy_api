@@ -15,6 +15,15 @@ import java.util.Collection;
 public final class PigStatus$ {
     
     /**
+     * This Field corresponds to the {@link PigStatus} field name.
+     */
+    public static final StringField<PigStatus> name = StringField.create(
+        PigStatus.class,
+        "name",
+        PigStatus::getName,
+        false
+    );
+    /**
      * This Field corresponds to the {@link PigStatus} field
      * pigAssociateStatuses.
      */
@@ -22,15 +31,6 @@ public final class PigStatus$ {
         PigStatus.class,
         "pigAssociateStatuses",
         PigStatus::getPigAssociateStatuses,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigStatus} field name.
-     */
-    public static final StringField<PigStatus> name = StringField.create(
-        PigStatus.class,
-        "name",
-        PigStatus::getName,
         false
     );
 }

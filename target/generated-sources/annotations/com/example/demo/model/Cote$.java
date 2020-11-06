@@ -27,12 +27,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field code.
+     * This Field corresponds to the {@link Cote} field historyExports.
      */
-    public static final StringField<Cote> code = StringField.create(
+    public static final ReferenceField<Cote, Collection<HistoryExport>> historyExports = ReferenceField.create(
         Cote.class,
-        "code",
-        Cote::getCode,
+        "historyExports",
+        Cote::getHistoryExports,
         false
     );
     /**
@@ -45,21 +45,21 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field employee.
-     */
-    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
-        Cote.class,
-        "employee",
-        Cote::getEmployee,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Cote} field quantity.
      */
     public static final IntField<Cote> quantity = IntField.create(
         Cote.class,
         "quantity",
         Cote::getQuantity,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field code.
+     */
+    public static final StringField<Cote> code = StringField.create(
+        Cote.class,
+        "code",
+        Cote::getCode,
         false
     );
     /**
@@ -81,12 +81,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field historyExports.
+     * This Field corresponds to the {@link Cote} field employee.
      */
-    public static final ReferenceField<Cote, Collection<HistoryExport>> historyExports = ReferenceField.create(
+    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
         Cote.class,
-        "historyExports",
-        Cote::getHistoryExports,
+        "employee",
+        Cote::getEmployee,
         false
     );
     /**

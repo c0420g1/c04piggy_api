@@ -16,12 +16,12 @@ import java.util.Collection;
 public final class Feed$ {
     
     /**
-     * This Field corresponds to the {@link Feed} field unit.
+     * This Field corresponds to the {@link Feed} field herd.
      */
-    public static final StringField<Feed> unit = StringField.create(
+    public static final ReferenceField<Feed, Herd> herd = ReferenceField.create(
         Feed.class,
-        "unit",
-        Feed::getUnit,
+        "herd",
+        Feed::getHerd,
         false
     );
     /**
@@ -34,21 +34,12 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field code.
+     * This Field corresponds to the {@link Feed} field unit.
      */
-    public static final StringField<Feed> code = StringField.create(
+    public static final StringField<Feed> unit = StringField.create(
         Feed.class,
-        "code",
-        Feed::getCode,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field herd.
-     */
-    public static final ReferenceField<Feed, Herd> herd = ReferenceField.create(
-        Feed.class,
-        "herd",
-        Feed::getHerd,
+        "unit",
+        Feed::getUnit,
         false
     );
     /**
@@ -67,6 +58,15 @@ public final class Feed$ {
         Feed.class,
         "feedType",
         Feed::getFeedType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field code.
+     */
+    public static final StringField<Feed> code = StringField.create(
+        Feed.class,
+        "code",
+        Feed::getCode,
         false
     );
 }

@@ -18,18 +18,7 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(columnDefinition = "boolean default false")
-    private boolean deleted = false;
-
-    @CreatedDate
-    private Date createdAt;
-
-    @LastModifiedDate
-    private Date updatedAt;
-
-    private Long createdBy;
-
-    private Long updatedBy;
+    private byte deleted;
 
     @Column(length = 1000)
     private String description;

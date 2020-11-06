@@ -1,6 +1,10 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.ComparableField;
+import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
+
+import java.time.LocalDate;
 
 /**
  * The generated base for entity {@link Notification} representing entities of
@@ -21,12 +25,30 @@ public final class Notification$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Notification} field employee.
+     */
+    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
+        Notification.class,
+        "employee",
+        Notification::getEmployee,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Notification} field content.
      */
     public static final StringField<Notification> content = StringField.create(
         Notification.class,
         "content",
         Notification::getContent,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field createDate.
+     */
+    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
+        Notification.class,
+        "createDate",
+        Notification::getCreateDate,
         false
     );
 }
