@@ -15,6 +15,15 @@ import java.util.Collection;
 public final class Role$ {
     
     /**
+     * This Field corresponds to the {@link Role} field roleAccounts.
+     */
+    public static final ReferenceField<Role, Collection<RoleAccount>> roleAccounts = ReferenceField.create(
+        Role.class,
+        "roleAccounts",
+        Role::getRoleAccounts,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Role} field name.
      */
     public static final StringField<Role> name = StringField.create(
@@ -30,15 +39,6 @@ public final class Role$ {
         Role.class,
         "rolePermissions",
         Role::getRolePermissions,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Role} field roleAccounts.
-     */
-    public static final ReferenceField<Role, Collection<RoleAccount>> roleAccounts = ReferenceField.create(
-        Role.class,
-        "roleAccounts",
-        Role::getRoleAccounts,
         false
     );
 }

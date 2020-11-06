@@ -15,15 +15,6 @@ import java.util.Collection;
 public final class FeedType$ {
     
     /**
-     * This Field corresponds to the {@link FeedType} field name.
-     */
-    public static final StringField<FeedType> name = StringField.create(
-        FeedType.class,
-        "name",
-        FeedType::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link FeedType} field feeds.
      */
     public static final ReferenceField<FeedType, Collection<Feed>> feeds = ReferenceField.create(
@@ -39,6 +30,15 @@ public final class FeedType$ {
         FeedType.class,
         "stocks",
         FeedType::getStocks,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field name.
+     */
+    public static final StringField<FeedType> name = StringField.create(
+        FeedType.class,
+        "name",
+        FeedType::getName,
         false
     );
 }

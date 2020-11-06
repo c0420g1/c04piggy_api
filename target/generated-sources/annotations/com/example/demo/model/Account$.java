@@ -24,21 +24,21 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field username.
-     */
-    public static final StringField<Account> username = StringField.create(
-        Account.class,
-        "username",
-        Account::getUsername,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Account} field roleAccounts.
      */
     public static final ReferenceField<Account, Collection<RoleAccount>> roleAccounts = ReferenceField.create(
         Account.class,
         "roleAccounts",
         Account::getRoleAccounts,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field username.
+     */
+    public static final StringField<Account> username = StringField.create(
+        Account.class,
+        "username",
+        Account::getUsername,
         false
     );
 }
