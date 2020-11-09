@@ -18,7 +18,7 @@ public class HistoryExport extends BaseEntity {
     private String company;
     private int receivedEmployeeId;
 
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name = "export_date")
     private LocalDate exportDate;
 
     @ManyToOne

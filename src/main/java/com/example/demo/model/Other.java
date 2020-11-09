@@ -5,8 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +21,10 @@ public class Other extends BaseEntity {
     private String title;
     private String type;
     private String url;
-    private byte isOther;
+    @Column(columnDefinition="DATE", name="create_date")
+    private LocalDate createDate;
+    @Column(columnDefinition = "integer default 0", name = "is_other")
+    private int isOther=0;
+    @Column(columnDefinition = "integer default 0", name = "ref_id")
     private int refId;
 }

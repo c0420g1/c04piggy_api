@@ -15,10 +15,11 @@ import java.util.Date;
 public class Employee extends BaseEntity {
     private String code;
     private String name;
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name="birthday")
     private Date birthday;
     private String email;
     private byte gender;
+    @Column(columnDefinition="varchar(45)", name = "card_id")
     private String cardId;
 
     @ManyToOne
@@ -41,4 +42,9 @@ public class Employee extends BaseEntity {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Collection<Notification> notifications;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Collection<NotificationEmployee> notificationEmployees;
 }

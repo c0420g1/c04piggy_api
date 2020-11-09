@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class TreatmentVacxin extends BaseEntity {
     private String veterinary;
     private String type;
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name= "treat_date")
     private LocalDate treatDate;
 
     @ManyToOne

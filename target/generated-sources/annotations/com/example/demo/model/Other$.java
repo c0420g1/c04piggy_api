@@ -1,8 +1,10 @@
 package com.example.demo.model;
 
-import com.speedment.jpastreamer.field.ByteField;
+import com.speedment.jpastreamer.field.ComparableField;
 import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.StringField;
+
+import java.time.LocalDate;
 
 /**
  * The generated base for entity {@link Other} representing entities of the
@@ -14,12 +16,12 @@ import com.speedment.jpastreamer.field.StringField;
 public final class Other$ {
     
     /**
-     * This Field corresponds to the {@link Other} field isOther.
+     * This Field corresponds to the {@link Other} field createDate.
      */
-    public static final ByteField<Other> isOther = ByteField.create(
+    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
         Other.class,
-        "isOther",
-        Other::getIsOther,
+        "createDate",
+        Other::getCreateDate,
         false
     );
     /**
@@ -32,12 +34,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field title.
+     * This Field corresponds to the {@link Other} field isOther.
      */
-    public static final StringField<Other> title = StringField.create(
+    public static final IntField<Other> isOther = IntField.create(
         Other.class,
-        "title",
-        Other::getTitle,
+        "isOther",
+        Other::getIsOther,
         false
     );
     /**
@@ -65,6 +67,15 @@ public final class Other$ {
         Other.class,
         "url",
         Other::getUrl,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field title.
+     */
+    public static final StringField<Other> title = StringField.create(
+        Other.class,
+        "title",
+        Other::getTitle,
         false
     );
 }

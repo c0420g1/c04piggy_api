@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,7 +15,8 @@ import java.time.LocalDate;
 public class Notification extends BaseEntity {
     private String title;
     private String content;
-    @Column(columnDefinition="DATE")
+    private String type;
+    @Column(columnDefinition="DATE", name="create_date")
     private LocalDate createDate;
 
     @ManyToOne
@@ -22,4 +24,9 @@ public class Notification extends BaseEntity {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Employee employee;
+
+    @OneToMany(mappedBy = "notification", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Collection<NotificationEmployee> notificationEmployees;
 }

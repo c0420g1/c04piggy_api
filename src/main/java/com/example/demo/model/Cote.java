@@ -16,9 +16,9 @@ public class Cote extends BaseEntity {
     private String code;
     private String type;
     private int quantity;
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name = "import_date")
     private LocalDate importDate;
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name = "export_date")
     private LocalDate exportDate;
 
     @ManyToOne

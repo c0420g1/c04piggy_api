@@ -18,12 +18,12 @@ import java.util.Date;
 public final class Employee$ {
     
     /**
-     * This Field corresponds to the {@link Employee} field account.
+     * This Field corresponds to the {@link Employee} field cardId.
      */
-    public static final ReferenceField<Employee, Account> account = ReferenceField.create(
+    public static final StringField<Employee> cardId = StringField.create(
         Employee.class,
-        "account",
-        Employee::getAccount,
+        "cardId",
+        Employee::getCardId,
         false
     );
     /**
@@ -36,30 +36,12 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field cardId.
+     * This Field corresponds to the {@link Employee} field code.
      */
-    public static final StringField<Employee> cardId = StringField.create(
+    public static final StringField<Employee> code = StringField.create(
         Employee.class,
-        "cardId",
-        Employee::getCardId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Employee} field email.
-     */
-    public static final StringField<Employee> email = StringField.create(
-        Employee.class,
-        "email",
-        Employee::getEmail,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Employee} field gender.
-     */
-    public static final ByteField<Employee> gender = ByteField.create(
-        Employee.class,
-        "gender",
-        Employee::getGender,
+        "code",
+        Employee::getCode,
         false
     );
     /**
@@ -90,12 +72,13 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field code.
+     * This Field corresponds to the {@link Employee} field
+     * notificationEmployees.
      */
-    public static final StringField<Employee> code = StringField.create(
+    public static final ReferenceField<Employee, Collection<NotificationEmployee>> notificationEmployees = ReferenceField.create(
         Employee.class,
-        "code",
-        Employee::getCode,
+        "notificationEmployees",
+        Employee::getNotificationEmployees,
         false
     );
     /**
@@ -105,6 +88,33 @@ public final class Employee$ {
         Employee.class,
         "historyExports",
         Employee::getHistoryExports,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field email.
+     */
+    public static final StringField<Employee> email = StringField.create(
+        Employee.class,
+        "email",
+        Employee::getEmail,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field account.
+     */
+    public static final ReferenceField<Employee, Account> account = ReferenceField.create(
+        Employee.class,
+        "account",
+        Employee::getAccount,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field gender.
+     */
+    public static final ByteField<Employee> gender = ByteField.create(
+        Employee.class,
+        "gender",
+        Employee::getGender,
         false
     );
 }
