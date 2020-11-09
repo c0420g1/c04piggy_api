@@ -23,8 +23,8 @@ public class NotificationController {
     }
 
     @GetMapping("/hai")
-    public List<Cote> haiCote(){
-        List<Cote> r= jpaStreamer.stream(Cote.class).collect(Collectors.toList());
+    public List<Account> haiCote(){
+        List<Account> r= jpaStreamer.stream(Account.class).collect(Collectors.toList());
         return r;
     }
 }

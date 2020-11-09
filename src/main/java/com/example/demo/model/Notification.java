@@ -1,15 +1,18 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "notification")
 public class Notification extends BaseEntity {
@@ -25,8 +28,9 @@ public class Notification extends BaseEntity {
     @ToString.Exclude
     private Employee employee;
 
-    @OneToMany(mappedBy = "notification", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "notification")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<NotificationEmployee> notificationEmployees;
+    @JsonIgnore
+    private Set<NotificationEmployee> notificationEmployees;
 }

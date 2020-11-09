@@ -7,7 +7,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "notification_employee")
 public class NotificationEmployee extends BaseEntity {

@@ -1,6 +1,5 @@
 
--- Insert Herd--
-
+-- Insert Herd
 insert into herd values (1,"Bầy heo ngày 10/10/2020", 0,"H101020");
 insert into herd values (2,"Bầy heo ngày 15/10/2020", 0,"H151020");
 insert into herd values (3,"Bầy heo ngày 30/09/2020", 0,"H300920");
@@ -19,7 +18,6 @@ insert into herd values (15,"Bầy heo ngày 16/08/2020", 0,"H160820");
 
 
 -- Insert Account
-
 insert into account (username, password) values ('quoc', '$2a$10$kumXdI7LpK.1yTmmixTOq.YMDyEPg3P.UKdFEpK42MF88zQmXY0h.');
 insert into account (username, password) values ('huy', '$2a$10$kumXdI7LpK.1yTmmixTOq.YMDyEPg3P.UKdFEpK42MF88zQmXY0h.');
 insert into account (username, password) values ('thinh', '$2a$10$kumXdI7LpK.1yTmmixTOq.YMDyEPg3P.UKdFEpK42MF88zQmXY0h.');
@@ -30,8 +28,8 @@ insert into account (username, password) values ('hieu', '$2a$10$kumXdI7LpK.1yTm
 insert into account (username, password) values ('trung', '$2a$10$kumXdI7LpK.1yTmmixTOq.YMDyEPg3P.UKdFEpK42MF88zQmXY0h.');
 insert into account (username, password) values ('tuong', '$2a$10$kumXdI7LpK.1yTmmixTOq.YMDyEPg3P.UKdFEpK42MF88zQmXY0h.');
 
--- Insert Employee
 
+-- Insert Employee
 insert into employee values (1,"",0,"1984-09-23","123456789","NV1234","abc@abc.com",1,"Anh Quốc",1);
 insert into employee values (2,"",0,"1992-02-05","123456789","NV1235","abc@abc.com",1,"Nhật Huy",2);
 insert into employee values (3,"",0,"1995-10-12","123456789","NV1236","abc@abc.com",1,"Văn Thịnh",3);
@@ -42,8 +40,49 @@ insert into employee values (7,"",0,"1999-10-10","123456789","NV2345","abc@abc.c
 insert into employee values (8,"",0,"1995-10-10","123456789","NV2346","abc@abc.com",1,"Quang Trung",8);
 insert into employee values (9,"",0,"1994-10-10","123456789","NV2347","abc@abc.com",1,"Lê Tường",9);
 
--- Insert Cote--
 
+-- Insert Permission
+INSERT INTO `c04piggy`.`permission` (`is_deleted`, `name`) VALUES ('0', 'create');
+INSERT INTO `c04piggy`.`permission` (`is_deleted`, `name`) VALUES ('0', 'read');
+INSERT INTO `c04piggy`.`permission` (`is_deleted`, `name`) VALUES ('0', 'update');
+INSERT INTO `c04piggy`.`permission` (`is_deleted`, `name`) VALUES ('0', 'delete');
+
+
+-- Insert Role
+INSERT INTO `c04piggy`.`role` (`name`) VALUES ('user');
+INSERT INTO `c04piggy`.`role` (`name`) VALUES ('manager');
+INSERT INTO `c04piggy`.`role` (`name`) VALUES ('leader');
+INSERT INTO `c04piggy`.`role` (`name`) VALUES ('admin');
+INSERT INTO `c04piggy`.`role` (`name`) VALUES ('super admin');
+
+
+-- Insert Role_Permision
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('2', '1');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('1', '2');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('2', '2');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('1', '3');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('2', '3');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('3', '3');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('1', '4');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('2', '4');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('3', '4');
+INSERT INTO `c04piggy`.`role_permission` (`permission_id`, `role_id`) VALUES ('4', '4');
+
+
+-- Insert Role_Account
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('1', '4');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('2', '4');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('5', '3');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('6', '3');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('3', '2');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('4', '1');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('5', '1');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('7', '1');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('8', '1');
+INSERT INTO `c04piggy`.`role_account` (`account_id`, `role_id`) VALUES ('9', '1');
+
+
+-- Insert Cote
 insert into cote values (1,"",0,"A01","2020-10-10",null,5,"",1,1);
 insert into cote values (2,"",0,"A02","2020-10-15",null,5,"",2,2);
 insert into cote values (3,"",0,"A03","2020-09-30",null,5,"",3,3);
@@ -70,6 +109,7 @@ INSERT INTO `c04piggy`.`feed_type` (`description`, `name`) VALUES ('wheat bran',
 INSERT INTO `c04piggy`.`feed_type` (`description`, `name`) VALUES ('corn bran', 'Corn bran');
 INSERT INTO `c04piggy`.`feed_type` (`description`, `name`) VALUES ('fish poder', 'Fish poder');
 
+
 -- Insert vendor
 INSERT INTO `c04piggy`.`vendor` (`description`,`code`,`name`) VALUES ('cty so 1','CPVN','CP. Viet Nam');
 INSERT INTO `c04piggy`.`vendor` (`description`,`code`,`name`) VALUES ('cty so 2','CARGILLVN','CARGILL Viet Nam');
@@ -80,7 +120,8 @@ INSERT INTO `c04piggy`.`vendor` (`description`,`code`,`name`) VALUES ('cty so 6'
 INSERT INTO `c04piggy`.`vendor` (`description`,`code`,`name`) VALUES ('cty so 7','DEHEUSVN','DE HEUS Viet Nam');
 INSERT INTO `c04piggy`.`vendor` (`description`,`code`,`name`) VALUES ('cty so 8','MAVINAUSTFEED','MAVIN AUSTFEED Viet Nam');
 
--- Insert Stock --
+
+-- Insert Stock
 INSERT INTO `c04piggy`.`stock` (`description`, `exp_date`, `import_date`, `mfg_date`, `quantity`, `shipment_code`, `unit`, `feed_type_id`, `vendor_id`) VALUES ('special', '2021-01-01', '2020-11-07', '2020-11-01', '1000', '12344323', 'kilogam', '1', '1');
 INSERT INTO `c04piggy`.`stock` (`description`, `exp_date`, `import_date`, `mfg_date`, `quantity`, `shipment_code`, `unit`, `feed_type_id`, `vendor_id`) VALUES ('very good', '2021-01-02', '2020-11-07', '2020-11-02', '1500', '00987687', 'kilogam', '2', '2');
 INSERT INTO `c04piggy`.`stock` (`description`, `exp_date`, `import_date`, `mfg_date`, `quantity`, `shipment_code`, `unit`, `feed_type_id`, `vendor_id`) VALUES ('wonderful', '2021-01-03', '2020-11-07', '2020-11-03', '1250', '00007612', 'kilogam', '3', '3');
@@ -94,7 +135,8 @@ INSERT INTO `c04piggy`.`stock` (`description`, `exp_date`, `import_date`, `mfg_d
 INSERT INTO `c04piggy`.`stock` (`description`, `exp_date`, `import_date`, `mfg_date`, `quantity`, `shipment_code`, `unit`, `feed_type_id`, `vendor_id`) VALUES ('special', '2021-01-11', '2020-11-10', '2020-11-10', '900', '54732452', 'kilogam', '7', '6');
 INSERT INTO `c04piggy`.`stock` (`description`, `exp_date`, `import_date`, `mfg_date`, `quantity`, `shipment_code`, `unit`, `feed_type_id`, `vendor_id`) VALUES ('special', '2021-01-12', '2020-11-10', '2020-11-11', '2500', '70878475', 'kilogam', '4', '7');
 
--- Insert history_export --
+
+-- Insert history_export
 INSERT INTO `c04piggy`.`history_export` (`export_date`, `quantity`, `received_employee_id`, `type`, `employee_id`, `stock_id`) VALUES ('2020-11-12', '100', '3', 'stock', '1', '1');
 INSERT INTO `c04piggy`.`history_export` (`export_date`, `quantity`, `received_employee_id`, `type`, `unit`, `employee_id`, `stock_id`) VALUES ('2020-11-12', '200', '3', 'stock', 'kilogam', '1', '2');
 INSERT INTO `c04piggy`.`history_export` (`export_date`, `quantity`, `received_employee_id`, `type`, `unit`, `employee_id`, `stock_id`) VALUES ('2020-11-12', '200', '2', 'stock', 'kilogam', '3', '3');

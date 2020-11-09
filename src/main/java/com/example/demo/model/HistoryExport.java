@@ -8,7 +8,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "history_export")
 public class HistoryExport extends BaseEntity {

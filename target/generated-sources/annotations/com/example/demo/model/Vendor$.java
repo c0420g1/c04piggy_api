@@ -3,7 +3,7 @@ package com.example.demo.model;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * The generated base for entity {@link Vendor} representing entities of the
@@ -15,15 +15,6 @@ import java.util.Collection;
 public final class Vendor$ {
     
     /**
-     * This Field corresponds to the {@link Vendor} field code.
-     */
-    public static final StringField<Vendor> code = StringField.create(
-        Vendor.class,
-        "code",
-        Vendor::getCode,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Vendor} field name.
      */
     public static final StringField<Vendor> name = StringField.create(
@@ -33,9 +24,18 @@ public final class Vendor$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Vendor} field code.
+     */
+    public static final StringField<Vendor> code = StringField.create(
+        Vendor.class,
+        "code",
+        Vendor::getCode,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Vendor} field stocks.
      */
-    public static final ReferenceField<Vendor, Collection<Stock>> stocks = ReferenceField.create(
+    public static final ReferenceField<Vendor, Set<Stock>> stocks = ReferenceField.create(
         Vendor.class,
         "stocks",
         Vendor::getStocks,

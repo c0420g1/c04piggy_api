@@ -1,14 +1,17 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "feed")
 public class Feed extends BaseEntity {
@@ -16,10 +19,11 @@ public class Feed extends BaseEntity {
     private int amount;
     private String unit;
 
-    @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "feed")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<Pig> pigs;
+    @JsonIgnore
+    private Set<Pig> pigs;
 
     @ManyToOne
     @JoinColumn(name = "feed_type_id")

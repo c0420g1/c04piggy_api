@@ -8,7 +8,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "treatment_vacxin")
 public class TreatmentVacxin extends BaseEntity {

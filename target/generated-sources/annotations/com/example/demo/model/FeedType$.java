@@ -3,7 +3,7 @@ package com.example.demo.model;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * The generated base for entity {@link FeedType} representing entities of the
@@ -17,7 +17,7 @@ public final class FeedType$ {
     /**
      * This Field corresponds to the {@link FeedType} field feeds.
      */
-    public static final ReferenceField<FeedType, Collection<Feed>> feeds = ReferenceField.create(
+    public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
         FeedType.class,
         "feeds",
         FeedType::getFeeds,
@@ -26,7 +26,7 @@ public final class FeedType$ {
     /**
      * This Field corresponds to the {@link FeedType} field stocks.
      */
-    public static final ReferenceField<FeedType, Collection<Stock>> stocks = ReferenceField.create(
+    public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
         FeedType.class,
         "stocks",
         FeedType::getStocks,

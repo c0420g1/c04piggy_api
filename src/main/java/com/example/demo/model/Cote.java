@@ -1,15 +1,18 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "cote")
 public class Cote extends BaseEntity {
@@ -33,14 +36,16 @@ public class Cote extends BaseEntity {
     @ToString.Exclude
     private Employee employee;
 
-    @OneToMany(mappedBy = "cote", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cote")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<HistoryExport> historyExports;
+    @JsonIgnore
+    private Set<HistoryExport> historyExports;
 
-    @OneToMany(mappedBy = "cote", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cote")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<TreatmentVacxin> treatmentVacxins;
+    @JsonIgnore
+    private Set<TreatmentVacxin> treatmentVacxins;
 
 }

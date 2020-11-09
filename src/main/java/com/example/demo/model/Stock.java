@@ -1,15 +1,18 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "stock")
 public class Stock extends BaseEntity {
@@ -35,8 +38,9 @@ public class Stock extends BaseEntity {
     @ToString.Exclude
     private Vendor vendor;
 
-    @OneToMany(mappedBy = "stock", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "stock")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<HistoryExport> historyExports;
+    @JsonIgnore
+    private Set<HistoryExport> historyExports;
 }

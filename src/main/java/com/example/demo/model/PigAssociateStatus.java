@@ -10,7 +10,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "pig_associate_status")
 public class PigAssociateStatus extends BaseEntity {

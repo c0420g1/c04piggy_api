@@ -6,7 +6,7 @@ import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
 import java.time.LocalDate;
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * The generated base for entity {@link Cote} representing entities of the
@@ -17,15 +17,6 @@ import java.util.Collection;
  */
 public final class Cote$ {
     
-    /**
-     * This Field corresponds to the {@link Cote} field historyExports.
-     */
-    public static final ReferenceField<Cote, Collection<HistoryExport>> historyExports = ReferenceField.create(
-        Cote.class,
-        "historyExports",
-        Cote::getHistoryExports,
-        false
-    );
     /**
      * This Field corresponds to the {@link Cote} field type.
      */
@@ -45,12 +36,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field importDate.
+     * This Field corresponds to the {@link Cote} field exportDate.
      */
-    public static final ComparableField<Cote, LocalDate> importDate = ComparableField.create(
+    public static final ComparableField<Cote, LocalDate> exportDate = ComparableField.create(
         Cote.class,
-        "importDate",
-        Cote::getImportDate,
+        "exportDate",
+        Cote::getExportDate,
         false
     );
     /**
@@ -65,19 +56,28 @@ public final class Cote$ {
     /**
      * This Field corresponds to the {@link Cote} field treatmentVacxins.
      */
-    public static final ReferenceField<Cote, Collection<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+    public static final ReferenceField<Cote, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Cote.class,
         "treatmentVacxins",
         Cote::getTreatmentVacxins,
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field exportDate.
+     * This Field corresponds to the {@link Cote} field historyExports.
      */
-    public static final ComparableField<Cote, LocalDate> exportDate = ComparableField.create(
+    public static final ReferenceField<Cote, Set<HistoryExport>> historyExports = ReferenceField.create(
         Cote.class,
-        "exportDate",
-        Cote::getExportDate,
+        "historyExports",
+        Cote::getHistoryExports,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field importDate.
+     */
+    public static final ComparableField<Cote, LocalDate> importDate = ComparableField.create(
+        Cote.class,
+        "importDate",
+        Cote::getImportDate,
         false
     );
     /**
