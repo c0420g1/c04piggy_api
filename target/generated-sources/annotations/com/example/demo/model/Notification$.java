@@ -16,12 +16,12 @@ import java.time.LocalDate;
 public final class Notification$ {
     
     /**
-     * This Field corresponds to the {@link Notification} field title.
+     * This Field corresponds to the {@link Notification} field content.
      */
-    public static final StringField<Notification> title = StringField.create(
+    public static final StringField<Notification> content = StringField.create(
         Notification.class,
-        "title",
-        Notification::getTitle,
+        "content",
+        Notification::getContent,
         false
     );
     /**
@@ -34,21 +34,21 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field content.
-     */
-    public static final StringField<Notification> content = StringField.create(
-        Notification.class,
-        "content",
-        Notification::getContent,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Notification} field createDate.
      */
     public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
         Notification.class,
         "createDate",
         Notification::getCreateDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field title.
+     */
+    public static final StringField<Notification> title = StringField.create(
+        Notification.class,
+        "title",
+        Notification::getTitle,
         false
     );
 }

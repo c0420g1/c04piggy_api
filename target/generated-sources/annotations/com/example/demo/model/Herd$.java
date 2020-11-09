@@ -15,6 +15,15 @@ import java.util.Collection;
 public final class Herd$ {
     
     /**
+     * This Field corresponds to the {@link Herd} field feeds.
+     */
+    public static final ReferenceField<Herd, Collection<Feed>> feeds = ReferenceField.create(
+        Herd.class,
+        "feeds",
+        Herd::getFeeds,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Herd} field cotes.
      */
     public static final ReferenceField<Herd, Collection<Cote>> cotes = ReferenceField.create(
@@ -30,15 +39,6 @@ public final class Herd$ {
         Herd.class,
         "name",
         Herd::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field feeds.
-     */
-    public static final ReferenceField<Herd, Collection<Feed>> feeds = ReferenceField.create(
-        Herd.class,
-        "feeds",
-        Herd::getFeeds,
         false
     );
 }

@@ -15,21 +15,21 @@ import java.util.Collection;
 public final class Permission$ {
     
     /**
-     * This Field corresponds to the {@link Permission} field name.
-     */
-    public static final StringField<Permission> name = StringField.create(
-        Permission.class,
-        "name",
-        Permission::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Permission} field rolePermissions.
      */
     public static final ReferenceField<Permission, Collection<RolePermission>> rolePermissions = ReferenceField.create(
         Permission.class,
         "rolePermissions",
         Permission::getRolePermissions,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Permission} field name.
+     */
+    public static final StringField<Permission> name = StringField.create(
+        Permission.class,
+        "name",
+        Permission::getName,
         false
     );
 }

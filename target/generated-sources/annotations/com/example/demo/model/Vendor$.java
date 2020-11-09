@@ -15,12 +15,12 @@ import java.util.Collection;
 public final class Vendor$ {
     
     /**
-     * This Field corresponds to the {@link Vendor} field stocks.
+     * This Field corresponds to the {@link Vendor} field code.
      */
-    public static final ReferenceField<Vendor, Collection<Stock>> stocks = ReferenceField.create(
+    public static final StringField<Vendor> code = StringField.create(
         Vendor.class,
-        "stocks",
-        Vendor::getStocks,
+        "code",
+        Vendor::getCode,
         false
     );
     /**
@@ -33,12 +33,12 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field code.
+     * This Field corresponds to the {@link Vendor} field stocks.
      */
-    public static final StringField<Vendor> code = StringField.create(
+    public static final ReferenceField<Vendor, Collection<Stock>> stocks = ReferenceField.create(
         Vendor.class,
-        "code",
-        Vendor::getCode,
+        "stocks",
+        Vendor::getStocks,
         false
     );
 }

@@ -14,24 +14,6 @@ import com.speedment.jpastreamer.field.StringField;
 public final class Other$ {
     
     /**
-     * This Field corresponds to the {@link Other} field url.
-     */
-    public static final StringField<Other> url = StringField.create(
-        Other.class,
-        "url",
-        Other::getUrl,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field title.
-     */
-    public static final StringField<Other> title = StringField.create(
-        Other.class,
-        "title",
-        Other::getTitle,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Other} field isOther.
      */
     public static final ByteField<Other> isOther = ByteField.create(
@@ -50,12 +32,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field refId.
+     * This Field corresponds to the {@link Other} field title.
      */
-    public static final IntField<Other> refId = IntField.create(
+    public static final StringField<Other> title = StringField.create(
         Other.class,
-        "refId",
-        Other::getRefId,
+        "title",
+        Other::getTitle,
         false
     );
     /**
@@ -65,6 +47,24 @@ public final class Other$ {
         Other.class,
         "type",
         Other::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field refId.
+     */
+    public static final IntField<Other> refId = IntField.create(
+        Other.class,
+        "refId",
+        Other::getRefId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field url.
+     */
+    public static final StringField<Other> url = StringField.create(
+        Other.class,
+        "url",
+        Other::getUrl,
         false
     );
 }

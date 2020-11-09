@@ -16,12 +16,12 @@ import java.util.Collection;
 public final class Feed$ {
     
     /**
-     * This Field corresponds to the {@link Feed} field amount.
+     * This Field corresponds to the {@link Feed} field code.
      */
-    public static final IntField<Feed> amount = IntField.create(
+    public static final StringField<Feed> code = StringField.create(
         Feed.class,
-        "amount",
-        Feed::getAmount,
+        "code",
+        Feed::getCode,
         false
     );
     /**
@@ -34,12 +34,12 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field pigs.
+     * This Field corresponds to the {@link Feed} field unit.
      */
-    public static final ReferenceField<Feed, Collection<Pig>> pigs = ReferenceField.create(
+    public static final StringField<Feed> unit = StringField.create(
         Feed.class,
-        "pigs",
-        Feed::getPigs,
+        "unit",
+        Feed::getUnit,
         false
     );
     /**
@@ -52,21 +52,21 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field unit.
+     * This Field corresponds to the {@link Feed} field amount.
      */
-    public static final StringField<Feed> unit = StringField.create(
+    public static final IntField<Feed> amount = IntField.create(
         Feed.class,
-        "unit",
-        Feed::getUnit,
+        "amount",
+        Feed::getAmount,
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field code.
+     * This Field corresponds to the {@link Feed} field pigs.
      */
-    public static final StringField<Feed> code = StringField.create(
+    public static final ReferenceField<Feed, Collection<Pig>> pigs = ReferenceField.create(
         Feed.class,
-        "code",
-        Feed::getCode,
+        "pigs",
+        Feed::getPigs,
         false
     );
 }

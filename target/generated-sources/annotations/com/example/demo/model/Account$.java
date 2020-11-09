@@ -15,21 +15,21 @@ import java.util.Collection;
 public final class Account$ {
     
     /**
-     * This Field corresponds to the {@link Account} field password.
-     */
-    public static final StringField<Account> password = StringField.create(
-        Account.class,
-        "password",
-        Account::getPassword,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Account} field roleAccounts.
      */
     public static final ReferenceField<Account, Collection<RoleAccount>> roleAccounts = ReferenceField.create(
         Account.class,
         "roleAccounts",
         Account::getRoleAccounts,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field password.
+     */
+    public static final StringField<Account> password = StringField.create(
+        Account.class,
+        "password",
+        Account::getPassword,
         false
     );
     /**
