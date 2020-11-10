@@ -18,57 +18,21 @@ import java.util.Set;
 public final class Stock$ {
     
     /**
-     * This Field corresponds to the {@link Stock} field historyExports.
-     */
-    public static final ReferenceField<Stock, Set<HistoryExport>> historyExports = ReferenceField.create(
-        Stock.class,
-        "historyExports",
-        Stock::getHistoryExports,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Stock} field quantity.
-     */
-    public static final IntField<Stock> quantity = IntField.create(
-        Stock.class,
-        "quantity",
-        Stock::getQuantity,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Stock} field shipmentCode.
-     */
-    public static final StringField<Stock> shipmentCode = StringField.create(
-        Stock.class,
-        "shipmentCode",
-        Stock::getShipmentCode,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Stock} field mfgDate.
-     */
-    public static final ComparableField<Stock, LocalDate> mfgDate = ComparableField.create(
-        Stock.class,
-        "mfgDate",
-        Stock::getMfgDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Stock} field vendor.
-     */
-    public static final ReferenceField<Stock, Vendor> vendor = ReferenceField.create(
-        Stock.class,
-        "vendor",
-        Stock::getVendor,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Stock} field feedType.
      */
     public static final ReferenceField<Stock, FeedType> feedType = ReferenceField.create(
         Stock.class,
         "feedType",
         Stock::getFeedType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field historyExports.
+     */
+    public static final ReferenceField<Stock, Set<HistoryExport>> historyExports = ReferenceField.create(
+        Stock.class,
+        "historyExports",
+        Stock::getHistoryExports,
         false
     );
     /**
@@ -81,12 +45,12 @@ public final class Stock$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Stock} field importDate.
+     * This Field corresponds to the {@link Stock} field vendor.
      */
-    public static final ComparableField<Stock, LocalDate> importDate = ComparableField.create(
+    public static final ReferenceField<Stock, Vendor> vendor = ReferenceField.create(
         Stock.class,
-        "importDate",
-        Stock::getImportDate,
+        "vendor",
+        Stock::getVendor,
         false
     );
     /**
@@ -96,6 +60,42 @@ public final class Stock$ {
         Stock.class,
         "unit",
         Stock::getUnit,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field importDate.
+     */
+    public static final ComparableField<Stock, LocalDate> importDate = ComparableField.create(
+        Stock.class,
+        "importDate",
+        Stock::getImportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field quantity.
+     */
+    public static final IntField<Stock> quantity = IntField.create(
+        Stock.class,
+        "quantity",
+        Stock::getQuantity,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field mfgDate.
+     */
+    public static final ComparableField<Stock, LocalDate> mfgDate = ComparableField.create(
+        Stock.class,
+        "mfgDate",
+        Stock::getMfgDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field shipmentCode.
+     */
+    public static final StringField<Stock> shipmentCode = StringField.create(
+        Stock.class,
+        "shipmentCode",
+        Stock::getShipmentCode,
         false
     );
 }

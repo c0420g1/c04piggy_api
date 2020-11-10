@@ -1,17 +1,16 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Cote;
-import com.example.demo.model.Cote$;
+import com.example.demo.model.*;
 import com.example.demo.repository.CoteRepository;
 import com.example.demo.service.CoteService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static com.example.demo.common.GlobalUtil.pageSize;
 
 @Service
 public class CoteServiceImpl implements CoteService {
@@ -31,25 +30,34 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public Optional<Cote> getById(int id) {
-<<<<<<< HEAD
-        return Optional.empty();
-=======
-        return jpaStreamer.stream(Cote.class).filter(e-> e.getId()==id).findFirst();
->>>>>>> develop
+        return jpaStreamer.stream(Cote.class).filter(e -> e.getId() == id).findFirst();
     }
 
     @Override
     public void save(Cote cote) {
-
+        coteRepository.save(cote);
     }
 
     @Override
     public void delete(int[] ids) {
+        Arrays.stream(ids).forEach(e ->
+        {
+            Cote a = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
+            a.setIsDeleted(1);
+            coteRepository.save(a);
 
+        });
     }
 
     @Override
-    public List<Cote> search(int pageNum, String search) {
-        return null;
+    public List<CoteDTO> search(int pageNumber, String search) {
+        List<CoteDTO> res = new ArrayList<>();
+        jpaStreamer.stream(Cote.class).filter(e -> e.getEmployee().getName().contains(search) ||
+                e.getHerd().getName().contains(search)).skip(pageNumber).limit(pageSize).forEach(e -> {
+            CoteDTO coteDTO = new CoteDTO(e.getId(), e.getQuantity(), e.getHerd().getName(), e.getEmployee().getName());
+            res.add(coteDTO);
+        });
+
+        return res;
     }
 }

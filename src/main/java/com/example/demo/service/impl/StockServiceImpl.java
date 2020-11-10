@@ -34,9 +34,4 @@ public class StockServiceImpl implements StockService {
     public void delete(int[] ids) {
 
     }
-
-    @Override
-    public List<Stock> search(int pageNum, String search) {
-        return null;
-    }
 }

@@ -18,12 +18,21 @@ import java.util.Set;
 public final class Cote$ {
     
     /**
-     * This Field corresponds to the {@link Cote} field code.
+     * This Field corresponds to the {@link Cote} field importDate.
      */
-    public static final StringField<Cote> code = StringField.create(
+    public static final ComparableField<Cote, LocalDate> importDate = ComparableField.create(
         Cote.class,
-        "code",
-        Cote::getCode,
+        "importDate",
+        Cote::getImportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field quantity.
+     */
+    public static final IntField<Cote> quantity = IntField.create(
+        Cote.class,
+        "quantity",
+        Cote::getQuantity,
         false
     );
     /**
@@ -36,15 +45,6 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field type.
-     */
-    public static final StringField<Cote> type = StringField.create(
-        Cote.class,
-        "type",
-        Cote::getType,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Cote} field treatmentVacxins.
      */
     public static final ReferenceField<Cote, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
@@ -54,12 +54,30 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field quantity.
+     * This Field corresponds to the {@link Cote} field employee.
      */
-    public static final IntField<Cote> quantity = IntField.create(
+    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
         Cote.class,
-        "quantity",
-        Cote::getQuantity,
+        "employee",
+        Cote::getEmployee,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field type.
+     */
+    public static final StringField<Cote> type = StringField.create(
+        Cote.class,
+        "type",
+        Cote::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field code.
+     */
+    public static final StringField<Cote> code = StringField.create(
+        Cote.class,
+        "code",
+        Cote::getCode,
         false
     );
     /**
@@ -78,24 +96,6 @@ public final class Cote$ {
         Cote.class,
         "exportDate",
         Cote::getExportDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field importDate.
-     */
-    public static final ComparableField<Cote, LocalDate> importDate = ComparableField.create(
-        Cote.class,
-        "importDate",
-        Cote::getImportDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field employee.
-     */
-    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
-        Cote.class,
-        "employee",
-        Cote::getEmployee,
         false
     );
 }

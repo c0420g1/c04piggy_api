@@ -26,9 +26,4 @@ public class NotificationServiceImpl implements NotificationService {
     public void delete(int[] ids) {
 
     }
-
-    @Override
-    public List<Notification> search(int pageNum, String search) {
-        return null;
-    }
 }
