@@ -57,15 +57,15 @@ public class FeedServiceImpl implements FeedService {
     @Override
     public List<Feed> search(int pageNumber, String search) {
         List<Feed> res = new ArrayList<>();
-        int amount = Integer.parseInt(search);
-        jpaStreamer.stream(Feed.class)
-                .filter(Feed$.amount.equal(amount))
-                .filter(Feed$.code.contains())
-                .skip(pageNumber).limit(pageSize)
-                .forEach(e -> {
-                 Feed feed = com.example.demo.model.Feed.builder().amount();
-                 res.add(feed);
-                });
+//        int amount = Integer.parseInt(search);
+//        jpaStreamer.stream(Feed.class)
+//                .filter(Feed$.amount.equal(amount))
+//                .filter(Feed$.code.contains())
+//                .skip(pageNumber).limit(pageSize)
+//                .forEach(e -> {
+//                 Feed feed = com.example.demo.model.Feed.builder().amount();
+//                 res.add(feed);
+//                });
 
         return res;
     }
