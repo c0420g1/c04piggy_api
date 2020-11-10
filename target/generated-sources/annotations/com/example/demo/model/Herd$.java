@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -16,30 +15,12 @@ import java.util.Set;
 public final class Herd$ {
     
     /**
-     * This Field corresponds to the {@link Herd} field description.
+     * This Field corresponds to the {@link Herd} field cotes.
      */
-    public static final StringField<Herd> description = StringField.create(
+    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
         Herd.class,
-        "description",
-        Herd::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field feeds.
-     */
-    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
-        Herd.class,
-        "feeds",
-        Herd::getFeeds,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field isDeleted.
-     */
-    public static final IntField<Herd> isDeleted = IntField.create(
-        Herd.class,
-        "isDeleted",
-        Herd::getIsDeleted,
+        "cotes",
+        Herd::getCotes,
         false
     );
     /**
@@ -52,21 +33,12 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field id.
+     * This Field corresponds to the {@link Herd} field feeds.
      */
-    public static final IntField<Herd> id = IntField.create(
+    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
         Herd.class,
-        "id",
-        Herd::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field cotes.
-     */
-    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
-        Herd.class,
-        "cotes",
-        Herd::getCotes,
+        "feeds",
+        Herd::getFeeds,
         false
     );
 }

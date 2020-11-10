@@ -2,7 +2,9 @@ package com.example.demo.model;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -12,16 +14,7 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "other")
-public class Other {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(columnDefinition = "integer default 0", name ="is_deleted")
-    private int isDeleted=0;
-
-    @Column(length = 1000)
-    private String description;
+public class Other extends BaseEntity {
     private String name;
     private String title;
     private String type;
