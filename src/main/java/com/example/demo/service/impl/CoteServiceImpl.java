@@ -48,17 +48,21 @@ public class CoteServiceImpl implements CoteService {
         });
     }
 
+
+    // a.quoc
     @Override
     public List<CoteDTO> search(int pageNumber, String search) {
         List<CoteDTO> res = new ArrayList<>();
         jpaStreamer.stream(Cote.class).filter(e -> e.getEmployee().getName().contains(search) ||
-                e.getHerd().getName().contains(search)).skip(pageNumber).limit(pageSize).forEach(e -> {
+                e.getHerd().getName().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
             CoteDTO coteDTO = new CoteDTO(e.getId(), e.getQuantity(), e.getHerd().getName(), e.getEmployee().getName());
             res.add(coteDTO);
         });
         return res;
     }
 
+
+    //hai
     @Override
     public List<Cote> searchCote(int pageNum, String search){
         List<Cote> coteList;
