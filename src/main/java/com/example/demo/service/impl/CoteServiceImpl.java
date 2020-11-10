@@ -6,8 +6,10 @@ import com.example.demo.service.CoteService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.*;
 import java.util.stream.Collectors;
+
 import static com.example.demo.common.GlobalUtil.pageSize;
 
 @Service
@@ -28,7 +30,7 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public Optional<Cote> getById(int id) {
-        return jpaStreamer.stream(Cote.class).filter(e-> e.getId()==id).findFirst();
+        return jpaStreamer.stream(Cote.class).filter(e -> e.getId() == id).findFirst();
     }
 
     @Override
@@ -38,15 +40,21 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public void delete(int[] ids) {
-        Arrays.stream(ids).forEach(e-> coteRepository.deleteById(e));
+        Arrays.stream(ids).forEach(e ->
+        {
+            Cote a = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
+            a.setIsDeleted(1);
+            coteRepository.save(a);
+
+        });
     }
 
     @Override
     public List<CoteDTO> search(int pageNumber, String search) {
-        List<CoteDTO> res= new ArrayList<>();
-        jpaStreamer.stream(Cote.class).filter(e-> e.getEmployee().getName().contains(search) ||
-                e.getHerd().getName().contains(search)).skip(pageNumber).limit(pageSize).forEach(e->{
-            CoteDTO coteDTO= new CoteDTO(e.getId(), e.getQuantity(), e.getHerd().getName(), e.getEmployee().getName());
+        List<CoteDTO> res = new ArrayList<>();
+        jpaStreamer.stream(Cote.class).filter(e -> e.getEmployee().getName().contains(search) ||
+                e.getHerd().getName().contains(search)).skip(pageNumber).limit(pageSize).forEach(e -> {
+            CoteDTO coteDTO = new CoteDTO(e.getId(), e.getQuantity(), e.getHerd().getName(), e.getEmployee().getName());
             res.add(coteDTO);
         });
 
