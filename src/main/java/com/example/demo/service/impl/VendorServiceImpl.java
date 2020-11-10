@@ -28,9 +28,4 @@ public class VendorServiceImpl implements VendorService {
     public void delete(int[] ids) {
 
     }
-
-    @Override
-    public List<Vendor> search(int pageNum, String search) {
-        return null;
-    }
 }

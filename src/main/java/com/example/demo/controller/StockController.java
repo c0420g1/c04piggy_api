@@ -12,10 +12,5 @@ import java.util.stream.Collectors;
 
 @RestController
 public class StockController {
-    @Autowired
-    CoteService coteService;
-    @GetMapping("/haicote")
-    public Cote getById(){
-        return coteService.getById(1).orElse(null);
-    }
+
 }
