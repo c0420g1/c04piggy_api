@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -24,6 +25,24 @@ public final class Vendor$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Vendor} field description.
+     */
+    public static final StringField<Vendor> description = StringField.create(
+        Vendor.class,
+        "description",
+        Vendor::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vendor} field id.
+     */
+    public static final IntField<Vendor> id = IntField.create(
+        Vendor.class,
+        "id",
+        Vendor::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Vendor} field name.
      */
     public static final StringField<Vendor> name = StringField.create(
@@ -39,6 +58,15 @@ public final class Vendor$ {
         Vendor.class,
         "code",
         Vendor::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vendor} field isDeleted.
+     */
+    public static final IntField<Vendor> isDeleted = IntField.create(
+        Vendor.class,
+        "isDeleted",
+        Vendor::getIsDeleted,
         false
     );
 }

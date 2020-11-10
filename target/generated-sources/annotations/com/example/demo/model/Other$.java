@@ -16,12 +16,36 @@ import java.time.LocalDate;
 public final class Other$ {
     
     /**
+<<<<<<< HEAD
+=======
+     * This Field corresponds to the {@link Other} field url.
+     */
+    public static final StringField<Other> url = StringField.create(
+        Other.class,
+        "url",
+        Other::getUrl,
+        false
+    );
+    /**
+>>>>>>> develop
      * This Field corresponds to the {@link Other} field name.
      */
     public static final StringField<Other> name = StringField.create(
         Other.class,
         "name",
         Other::getName,
+<<<<<<< HEAD
+=======
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field createDate.
+     */
+    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+        Other.class,
+        "createDate",
+        Other::getCreateDate,
+>>>>>>> develop
         false
     );
     /**
@@ -34,12 +58,21 @@ public final class Other$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Other} field title.
      */
     public static final StringField<Other> title = StringField.create(
         Other.class,
         "title",
         Other::getTitle,
+=======
+     * This Field corresponds to the {@link Other} field id.
+     */
+    public static final IntField<Other> id = IntField.create(
+        Other.class,
+        "id",
+        Other::getId,
+>>>>>>> develop
         false
     );
     /**
@@ -52,12 +85,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field createDate.
+     * This Field corresponds to the {@link Other} field description.
      */
-    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+    public static final StringField<Other> description = StringField.create(
         Other.class,
-        "createDate",
-        Other::getCreateDate,
+        "description",
+        Other::getDescription,
         false
     );
     /**
@@ -76,6 +109,24 @@ public final class Other$ {
         Other.class,
         "type",
         Other::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field type.
+     */
+    public static final StringField<Other> type = StringField.create(
+        Other.class,
+        "type",
+        Other::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field isDeleted.
+     */
+    public static final IntField<Other> isDeleted = IntField.create(
+        Other.class,
+        "isDeleted",
+        Other::getIsDeleted,
         false
     );
 }
