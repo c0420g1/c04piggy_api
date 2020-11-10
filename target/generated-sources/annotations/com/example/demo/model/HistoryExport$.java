@@ -17,21 +17,22 @@ import java.time.LocalDate;
 public final class HistoryExport$ {
     
     /**
-     * This Field corresponds to the {@link HistoryExport} field cote.
+<<<<<<< HEAD
+     * This Field corresponds to the {@link HistoryExport} field
+     * receivedEmployeeId.
      */
-    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
+    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
         HistoryExport.class,
-        "cote",
-        HistoryExport::getCote,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field stock.
+        "receivedEmployeeId",
+        HistoryExport::getReceivedEmployeeId,
+=======
+     * This Field corresponds to the {@link HistoryExport} field employee.
      */
-    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
+    public static final ReferenceField<HistoryExport, Employee> employee = ReferenceField.create(
         HistoryExport.class,
-        "stock",
-        HistoryExport::getStock,
+        "employee",
+        HistoryExport::getEmployee,
+>>>>>>> hai-BE-10-11
         false
     );
     /**
@@ -44,31 +45,29 @@ public final class HistoryExport$ {
         false
     );
     /**
-     * This Field corresponds to the {@link HistoryExport} field
-     * receivedEmployeeId.
+<<<<<<< HEAD
+     * This Field corresponds to the {@link HistoryExport} field quantity.
      */
-    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
+    public static final IntField<HistoryExport> quantity = IntField.create(
         HistoryExport.class,
-        "receivedEmployeeId",
-        HistoryExport::getReceivedEmployeeId,
+        "quantity",
+        HistoryExport::getQuantity,
         false
     );
     /**
-     * This Field corresponds to the {@link HistoryExport} field unit.
+     * This Field corresponds to the {@link HistoryExport} field stock.
      */
-    public static final StringField<HistoryExport> unit = StringField.create(
+    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
         HistoryExport.class,
-        "unit",
-        HistoryExport::getUnit,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field company.
+        "stock",
+        HistoryExport::getStock,
+=======
+     * This Field corresponds to the {@link HistoryExport} field cote.
      */
-    public static final StringField<HistoryExport> company = StringField.create(
+    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
         HistoryExport.class,
-        "company",
-        HistoryExport::getCompany,
+        "cote",
+        HistoryExport::getCote,
         false
     );
     /**
@@ -78,6 +77,80 @@ public final class HistoryExport$ {
         HistoryExport.class,
         "quantity",
         HistoryExport::getQuantity,
+>>>>>>> hai-BE-10-11
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field isDeleted.
+     */
+    public static final IntField<HistoryExport> isDeleted = IntField.create(
+        HistoryExport.class,
+        "isDeleted",
+        HistoryExport::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field type.
+     */
+    public static final StringField<HistoryExport> type = StringField.create(
+        HistoryExport.class,
+        "type",
+        HistoryExport::getType,
+        false
+    );
+    /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link HistoryExport} field id.
+     */
+    public static final IntField<HistoryExport> id = IntField.create(
+        HistoryExport.class,
+        "id",
+        HistoryExport::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field description.
+     */
+    public static final StringField<HistoryExport> description = StringField.create(
+        HistoryExport.class,
+        "description",
+        HistoryExport::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field cote.
+     */
+    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
+        HistoryExport.class,
+        "cote",
+        HistoryExport::getCote,
+=======
+     * This Field corresponds to the {@link HistoryExport} field company.
+     */
+    public static final StringField<HistoryExport> company = StringField.create(
+        HistoryExport.class,
+        "company",
+        HistoryExport::getCompany,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field
+     * receivedEmployeeId.
+     */
+    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
+        HistoryExport.class,
+        "receivedEmployeeId",
+        HistoryExport::getReceivedEmployeeId,
+>>>>>>> hai-BE-10-11
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field stock.
+     */
+    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
+        HistoryExport.class,
+        "stock",
+        HistoryExport::getStock,
         false
     );
     /**
@@ -90,12 +163,12 @@ public final class HistoryExport$ {
         false
     );
     /**
-     * This Field corresponds to the {@link HistoryExport} field type.
+     * This Field corresponds to the {@link HistoryExport} field unit.
      */
-    public static final StringField<HistoryExport> type = StringField.create(
+    public static final StringField<HistoryExport> unit = StringField.create(
         HistoryExport.class,
-        "type",
-        HistoryExport::getType,
+        "unit",
+        HistoryExport::getUnit,
         false
     );
 }

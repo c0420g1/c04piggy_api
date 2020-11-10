@@ -14,7 +14,16 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "feed")
-public class Feed extends BaseEntity {
+public class Feed {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(columnDefinition = "integer default 0", name ="is_deleted")
+    private int isDeleted=0;
+
+    @Column(length = 1000)
+    private String description;
     private String code;
     private int amount;
     private String unit;
