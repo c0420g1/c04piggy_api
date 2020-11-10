@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,6 +94,32 @@ public class StockServiceImpl implements StockService {
                 res.add(stockDTO);
             });
             return res;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    // creator: Tuong
+    // tim kiem nhieu truong
+    @Override
+    public List<Stock> searchStock(int pageNum, String search) {
+        List<Stock> stockList;
+        String temp ="";
+        try {
+            if (temp.equals(search)){
+                stockList = jpaStreamer.stream(Stock.class).skip((pageNum - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
+            } else{
+                stockList = jpaStreamer.stream(Stock.class).filter(e -> e.getShipmentCode().contains(search)
+                        || e.getFeedType().getName().contains(search)
+                        || e.getVendor().getName().contains(search)
+                        || e.getExpDate().toString().contains(search)
+                        || String.valueOf(e.getQuantity()).contains(search)
+                        || e.getUnit().contains(search)).skip((pageNum - 1) * pageSize).limit(pageSize)
+                        .collect(Collectors.toList());
+            }
+            return stockList;
         } catch (Exception e) {
             e.printStackTrace();
         }
