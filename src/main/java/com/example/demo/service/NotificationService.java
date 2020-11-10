@@ -1,4 +1,6 @@
 package com.example.demo.service;
 
-public interface NotificationService extends BaseService {
+import com.example.demo.model.Notification;
+
+public interface NotificationService extends BaseService<Notification> {
 }
