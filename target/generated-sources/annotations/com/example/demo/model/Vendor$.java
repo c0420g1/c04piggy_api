@@ -15,12 +15,12 @@ import java.util.Set;
 public final class Vendor$ {
     
     /**
-     * This Field corresponds to the {@link Vendor} field code.
+     * This Field corresponds to the {@link Vendor} field name.
      */
-    public static final StringField<Vendor> code = StringField.create(
+    public static final StringField<Vendor> name = StringField.create(
         Vendor.class,
-        "code",
-        Vendor::getCode,
+        "name",
+        Vendor::getName,
         false
     );
     /**
@@ -33,12 +33,12 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field name.
+     * This Field corresponds to the {@link Vendor} field code.
      */
-    public static final StringField<Vendor> name = StringField.create(
+    public static final StringField<Vendor> code = StringField.create(
         Vendor.class,
-        "name",
-        Vendor::getName,
+        "code",
+        Vendor::getCode,
         false
     );
 }

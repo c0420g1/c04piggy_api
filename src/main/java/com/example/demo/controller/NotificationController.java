@@ -22,10 +22,4 @@ public class NotificationController {
         List<Account> a= jpaStreamer.stream(Account.class).filter(Account$.username.contains("2")).collect(Collectors.toList());
         return a;
     }
-
-    @GetMapping("/hai")
-    public List<Account> haiCote(){
-        List<Account> r= jpaStreamer.stream(Account.class).collect(Collectors.toList());
-        return r;
-    }
 }

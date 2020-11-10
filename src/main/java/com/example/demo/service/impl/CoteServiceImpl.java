@@ -31,7 +31,11 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public Optional<Cote> getById(int id) {
+<<<<<<< HEAD
         return Optional.empty();
+=======
+        return jpaStreamer.stream(Cote.class).filter(e-> e.getId()==id).findFirst();
+>>>>>>> develop
     }
 
     @Override

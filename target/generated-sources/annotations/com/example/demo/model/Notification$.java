@@ -17,24 +17,6 @@ import java.util.Set;
 public final class Notification$ {
     
     /**
-     * This Field corresponds to the {@link Notification} field createDate.
-     */
-    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
-        Notification.class,
-        "createDate",
-        Notification::getCreateDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Notification} field employee.
-     */
-    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
-        Notification.class,
-        "employee",
-        Notification::getEmployee,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Notification} field title.
      */
     public static final StringField<Notification> title = StringField.create(
@@ -69,6 +51,24 @@ public final class Notification$ {
         Notification.class,
         "notificationEmployees",
         Notification::getNotificationEmployees,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field createDate.
+     */
+    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
+        Notification.class,
+        "createDate",
+        Notification::getCreateDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field employee.
+     */
+    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
+        Notification.class,
+        "employee",
+        Notification::getEmployee,
         false
     );
 }
