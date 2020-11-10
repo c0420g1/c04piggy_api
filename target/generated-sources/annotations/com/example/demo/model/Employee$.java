@@ -36,21 +36,12 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field email.
+     * This Field corresponds to the {@link Employee} field code.
      */
-    public static final StringField<Employee> email = StringField.create(
+    public static final StringField<Employee> code = StringField.create(
         Employee.class,
-        "email",
-        Employee::getEmail,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Employee} field cotes.
-     */
-    public static final ReferenceField<Employee, Set<Cote>> cotes = ReferenceField.create(
-        Employee.class,
-        "cotes",
-        Employee::getCotes,
+        "code",
+        Employee::getCode,
         false
     );
     /**
@@ -63,22 +54,21 @@ public final class Employee$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Employee} field cotes.
+     */
+    public static final ReferenceField<Employee, Set<Cote>> cotes = ReferenceField.create(
+        Employee.class,
+        "cotes",
+        Employee::getCotes,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Employee} field gender.
      */
     public static final ByteField<Employee> gender = ByteField.create(
         Employee.class,
         "gender",
         Employee::getGender,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Employee} field
-     * notificationEmployees.
-     */
-    public static final ReferenceField<Employee, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
-        Employee.class,
-        "notificationEmployees",
-        Employee::getNotificationEmployees,
         false
     );
     /**
@@ -100,21 +90,31 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field code.
-     */
-    public static final StringField<Employee> code = StringField.create(
-        Employee.class,
-        "code",
-        Employee::getCode,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Employee} field notifications.
      */
     public static final ReferenceField<Employee, Set<Notification>> notifications = ReferenceField.create(
         Employee.class,
         "notifications",
         Employee::getNotifications,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field email.
+     */
+    public static final StringField<Employee> email = StringField.create(
+        Employee.class,
+        "email",
+        Employee::getEmail,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field
+     * notificationEmployees.
+     */
+    public static final ReferenceField<Employee, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
+        Employee.class,
+        "notificationEmployees",
+        Employee::getNotificationEmployees,
         false
     );
 }

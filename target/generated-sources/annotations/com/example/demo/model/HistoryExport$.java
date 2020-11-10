@@ -53,6 +53,34 @@ public final class HistoryExport$ {
         false
     );
     /**
+     * This Field corresponds to the {@link HistoryExport} field employee.
+     */
+    public static final ReferenceField<HistoryExport, Employee> employee = ReferenceField.create(
+        HistoryExport.class,
+        "employee",
+        HistoryExport::getEmployee,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field type.
+     */
+    public static final StringField<HistoryExport> type = StringField.create(
+        HistoryExport.class,
+        "type",
+        HistoryExport::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field
+     * receivedEmployeeId.
+     */
+    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
+        HistoryExport.class,
+        "receivedEmployeeId",
+        HistoryExport::getReceivedEmployeeId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link HistoryExport} field company.
      */
     public static final StringField<HistoryExport> company = StringField.create(
@@ -68,34 +96,6 @@ public final class HistoryExport$ {
         HistoryExport.class,
         "cote",
         HistoryExport::getCote,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field type.
-     */
-    public static final StringField<HistoryExport> type = StringField.create(
-        HistoryExport.class,
-        "type",
-        HistoryExport::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field employee.
-     */
-    public static final ReferenceField<HistoryExport, Employee> employee = ReferenceField.create(
-        HistoryExport.class,
-        "employee",
-        HistoryExport::getEmployee,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field
-     * receivedEmployeeId.
-     */
-    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
-        HistoryExport.class,
-        "receivedEmployeeId",
-        HistoryExport::getReceivedEmployeeId,
         false
     );
 }

@@ -25,30 +25,12 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field pigs.
-     */
-    public static final ReferenceField<Feed, Set<Pig>> pigs = ReferenceField.create(
-        Feed.class,
-        "pigs",
-        Feed::getPigs,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Feed} field herd.
      */
     public static final ReferenceField<Feed, Herd> herd = ReferenceField.create(
         Feed.class,
         "herd",
         Feed::getHerd,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field amount.
-     */
-    public static final IntField<Feed> amount = IntField.create(
-        Feed.class,
-        "amount",
-        Feed::getAmount,
         false
     );
     /**
@@ -61,12 +43,30 @@ public final class Feed$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Feed} field amount.
+     */
+    public static final IntField<Feed> amount = IntField.create(
+        Feed.class,
+        "amount",
+        Feed::getAmount,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Feed} field code.
      */
     public static final StringField<Feed> code = StringField.create(
         Feed.class,
         "code",
         Feed::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field pigs.
+     */
+    public static final ReferenceField<Feed, Set<Pig>> pigs = ReferenceField.create(
+        Feed.class,
+        "pigs",
+        Feed::getPigs,
         false
     );
 }

@@ -24,21 +24,21 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field cotes.
-     */
-    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
-        Herd.class,
-        "cotes",
-        Herd::getCotes,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Herd} field name.
      */
     public static final StringField<Herd> name = StringField.create(
         Herd.class,
         "name",
         Herd::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field cotes.
+     */
+    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
+        Herd.class,
+        "cotes",
+        Herd::getCotes,
         false
     );
 }
