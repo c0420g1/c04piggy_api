@@ -25,15 +25,6 @@ public final class FeedType$ {
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field name.
-     */
-    public static final StringField<FeedType> name = StringField.create(
-        FeedType.class,
-        "name",
-        FeedType::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link FeedType} field id.
      */
     public static final IntField<FeedType> id = IntField.create(
@@ -49,6 +40,15 @@ public final class FeedType$ {
         FeedType.class,
         "feeds",
         FeedType::getFeeds,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field name.
+     */
+    public static final StringField<FeedType> name = StringField.create(
+        FeedType.class,
+        "name",
+        FeedType::getName,
         false
     );
     /**
