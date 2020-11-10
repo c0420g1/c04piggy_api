@@ -38,7 +38,10 @@ demo.iml
 .idea/c04piggy_api.iml
 .idea/workspace.xml
 <<<<<<< HEAD
+<<<<<<< HEAD
 .idea/workspace.xml
 src/main/java/com/example/demo/repository/HistoryExportRepository.java
+=======
+>>>>>>> parent of 261ea3f... pigFeatureCRUD
 =======
 >>>>>>> parent of 261ea3f... pigFeatureCRUD
