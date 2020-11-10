@@ -16,21 +16,12 @@ import java.util.Set;
 public final class Feed$ {
     
     /**
-     * This Field corresponds to the {@link Feed} field code.
+     * This Field corresponds to the {@link Feed} field herd.
      */
-    public static final StringField<Feed> code = StringField.create(
+    public static final ReferenceField<Feed, Herd> herd = ReferenceField.create(
         Feed.class,
-        "code",
-        Feed::getCode,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field description.
-     */
-    public static final StringField<Feed> description = StringField.create(
-        Feed.class,
-        "description",
-        Feed::getDescription,
+        "herd",
+        Feed::getHerd,
         false
     );
     /**
@@ -43,15 +34,6 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field unit.
-     */
-    public static final StringField<Feed> unit = StringField.create(
-        Feed.class,
-        "unit",
-        Feed::getUnit,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Feed} field id.
      */
     public static final IntField<Feed> id = IntField.create(
@@ -61,21 +43,12 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field isDeleted.
+     * This Field corresponds to the {@link Feed} field unit.
      */
-    public static final IntField<Feed> isDeleted = IntField.create(
+    public static final StringField<Feed> unit = StringField.create(
         Feed.class,
-        "isDeleted",
-        Feed::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field feedType.
-     */
-    public static final ReferenceField<Feed, FeedType> feedType = ReferenceField.create(
-        Feed.class,
-        "feedType",
-        Feed::getFeedType,
+        "unit",
+        Feed::getUnit,
         false
     );
     /**
@@ -88,12 +61,39 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field herd.
+     * This Field corresponds to the {@link Feed} field code.
      */
-    public static final ReferenceField<Feed, Herd> herd = ReferenceField.create(
+    public static final StringField<Feed> code = StringField.create(
         Feed.class,
-        "herd",
-        Feed::getHerd,
+        "code",
+        Feed::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field feedType.
+     */
+    public static final ReferenceField<Feed, FeedType> feedType = ReferenceField.create(
+        Feed.class,
+        "feedType",
+        Feed::getFeedType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field description.
+     */
+    public static final StringField<Feed> description = StringField.create(
+        Feed.class,
+        "description",
+        Feed::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field isDeleted.
+     */
+    public static final IntField<Feed> isDeleted = IntField.create(
+        Feed.class,
+        "isDeleted",
+        Feed::getIsDeleted,
         false
     );
 }

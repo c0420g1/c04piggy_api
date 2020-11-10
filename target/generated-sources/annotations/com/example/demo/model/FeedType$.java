@@ -16,15 +16,6 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
-     * This Field corresponds to the {@link FeedType} field description.
-     */
-    public static final StringField<FeedType> description = StringField.create(
-        FeedType.class,
-        "description",
-        FeedType::getDescription,
-        false
-    );
-    /**
      * This Field corresponds to the {@link FeedType} field stocks.
      */
     public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
@@ -34,12 +25,12 @@ public final class FeedType$ {
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field feeds.
+     * This Field corresponds to the {@link FeedType} field id.
      */
-    public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
+    public static final IntField<FeedType> id = IntField.create(
         FeedType.class,
-        "feeds",
-        FeedType::getFeeds,
+        "id",
+        FeedType::getId,
         false
     );
     /**
@@ -52,6 +43,15 @@ public final class FeedType$ {
         false
     );
     /**
+     * This Field corresponds to the {@link FeedType} field description.
+     */
+    public static final StringField<FeedType> description = StringField.create(
+        FeedType.class,
+        "description",
+        FeedType::getDescription,
+        false
+    );
+    /**
      * This Field corresponds to the {@link FeedType} field isDeleted.
      */
     public static final IntField<FeedType> isDeleted = IntField.create(
@@ -61,12 +61,12 @@ public final class FeedType$ {
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field id.
+     * This Field corresponds to the {@link FeedType} field feeds.
      */
-    public static final IntField<FeedType> id = IntField.create(
+    public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
         FeedType.class,
-        "id",
-        FeedType::getId,
+        "feeds",
+        FeedType::getFeeds,
         false
     );
 }

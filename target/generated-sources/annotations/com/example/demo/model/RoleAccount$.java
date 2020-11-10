@@ -14,12 +14,21 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RoleAccount$ {
     
     /**
-     * This Field corresponds to the {@link RoleAccount} field account.
+     * This Field corresponds to the {@link RoleAccount} field isDeleted.
      */
-    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
+    public static final IntField<RoleAccount> isDeleted = IntField.create(
         RoleAccount.class,
-        "account",
-        RoleAccount::getAccount,
+        "isDeleted",
+        RoleAccount::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RoleAccount} field id.
+     */
+    public static final IntField<RoleAccount> id = IntField.create(
+        RoleAccount.class,
+        "id",
+        RoleAccount::getId,
         false
     );
     /**
@@ -32,12 +41,12 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field isDeleted.
+     * This Field corresponds to the {@link RoleAccount} field account.
      */
-    public static final IntField<RoleAccount> isDeleted = IntField.create(
+    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
         RoleAccount.class,
-        "isDeleted",
-        RoleAccount::getIsDeleted,
+        "account",
+        RoleAccount::getAccount,
         false
     );
     /**
@@ -47,15 +56,6 @@ public final class RoleAccount$ {
         RoleAccount.class,
         "description",
         RoleAccount::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RoleAccount} field id.
-     */
-    public static final IntField<RoleAccount> id = IntField.create(
-        RoleAccount.class,
-        "id",
-        RoleAccount::getId,
         false
     );
 }
