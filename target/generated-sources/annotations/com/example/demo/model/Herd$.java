@@ -16,30 +16,12 @@ import java.util.Set;
 public final class Herd$ {
     
     /**
-     * This Field corresponds to the {@link Herd} field feeds.
+     * This Field corresponds to the {@link Herd} field id.
      */
-    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
+    public static final IntField<Herd> id = IntField.create(
         Herd.class,
-        "feeds",
-        Herd::getFeeds,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field cotes.
-     */
-    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
-        Herd.class,
-        "cotes",
-        Herd::getCotes,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field name.
-     */
-    public static final StringField<Herd> name = StringField.create(
-        Herd.class,
-        "name",
-        Herd::getName,
+        "id",
+        Herd::getId,
         false
     );
     /**
@@ -52,12 +34,30 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field id.
+     * This Field corresponds to the {@link Herd} field feeds.
      */
-    public static final IntField<Herd> id = IntField.create(
+    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
         Herd.class,
-        "id",
-        Herd::getId,
+        "feeds",
+        Herd::getFeeds,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field name.
+     */
+    public static final StringField<Herd> name = StringField.create(
+        Herd.class,
+        "name",
+        Herd::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field cotes.
+     */
+    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
+        Herd.class,
+        "cotes",
+        Herd::getCotes,
         false
     );
     /**

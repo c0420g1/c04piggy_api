@@ -16,42 +16,6 @@ import java.util.Set;
 public final class Role$ {
     
     /**
-     * This Field corresponds to the {@link Role} field name.
-     */
-    public static final StringField<Role> name = StringField.create(
-        Role.class,
-        "name",
-        Role::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Role} field id.
-     */
-    public static final IntField<Role> id = IntField.create(
-        Role.class,
-        "id",
-        Role::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Role} field roleAccounts.
-     */
-    public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
-        Role.class,
-        "roleAccounts",
-        Role::getRoleAccounts,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Role} field rolePermissions.
-     */
-    public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
-        Role.class,
-        "rolePermissions",
-        Role::getRolePermissions,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Role} field description.
      */
     public static final StringField<Role> description = StringField.create(
@@ -67,6 +31,42 @@ public final class Role$ {
         Role.class,
         "isDeleted",
         Role::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field roleAccounts.
+     */
+    public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+        Role.class,
+        "roleAccounts",
+        Role::getRoleAccounts,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field name.
+     */
+    public static final StringField<Role> name = StringField.create(
+        Role.class,
+        "name",
+        Role::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field rolePermissions.
+     */
+    public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
+        Role.class,
+        "rolePermissions",
+        Role::getRolePermissions,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field id.
+     */
+    public static final IntField<Role> id = IntField.create(
+        Role.class,
+        "id",
+        Role::getId,
         false
     );
 }

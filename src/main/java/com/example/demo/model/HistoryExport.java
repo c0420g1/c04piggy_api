@@ -26,6 +26,7 @@ public class HistoryExport {
     private int quantity;
     private String unit;
     private String company;
+    @Column(name = "received_employee_id")
     private int receivedEmployeeId;
 
     @Column(columnDefinition="DATE", name = "export_date")

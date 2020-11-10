@@ -25,6 +25,7 @@ public class Stock {
 
     @Column(length = 1000)
     private String description;
+    @Column(name ="shipment_code")
     private String shipmentCode;
     @Column(columnDefinition="DATE", name = "import_date")
     private LocalDate importDate;

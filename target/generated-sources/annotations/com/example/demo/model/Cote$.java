@@ -27,30 +27,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field quantity.
+     * This Field corresponds to the {@link Cote} field id.
      */
-    public static final IntField<Cote> quantity = IntField.create(
+    public static final IntField<Cote> id = IntField.create(
         Cote.class,
-        "quantity",
-        Cote::getQuantity,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field type.
-     */
-    public static final StringField<Cote> type = StringField.create(
-        Cote.class,
-        "type",
-        Cote::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field herd.
-     */
-    public static final ReferenceField<Cote, Herd> herd = ReferenceField.create(
-        Cote.class,
-        "herd",
-        Cote::getHerd,
+        "id",
+        Cote::getId,
         false
     );
     /**
@@ -63,24 +45,6 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field employee.
-     */
-    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
-        Cote.class,
-        "employee",
-        Cote::getEmployee,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field description.
-     */
-    public static final StringField<Cote> description = StringField.create(
-        Cote.class,
-        "description",
-        Cote::getDescription,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Cote} field code.
      */
     public static final StringField<Cote> code = StringField.create(
@@ -90,21 +54,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field isDeleted.
+     * This Field corresponds to the {@link Cote} field description.
      */
-    public static final IntField<Cote> isDeleted = IntField.create(
+    public static final StringField<Cote> description = StringField.create(
         Cote.class,
-        "isDeleted",
-        Cote::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field id.
-     */
-    public static final IntField<Cote> id = IntField.create(
-        Cote.class,
-        "id",
-        Cote::getId,
+        "description",
+        Cote::getDescription,
         false
     );
     /**
@@ -123,6 +78,51 @@ public final class Cote$ {
         Cote.class,
         "exportDate",
         Cote::getExportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field quantity.
+     */
+    public static final IntField<Cote> quantity = IntField.create(
+        Cote.class,
+        "quantity",
+        Cote::getQuantity,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field employee.
+     */
+    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
+        Cote.class,
+        "employee",
+        Cote::getEmployee,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field herd.
+     */
+    public static final ReferenceField<Cote, Herd> herd = ReferenceField.create(
+        Cote.class,
+        "herd",
+        Cote::getHerd,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field isDeleted.
+     */
+    public static final IntField<Cote> isDeleted = IntField.create(
+        Cote.class,
+        "isDeleted",
+        Cote::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field type.
+     */
+    public static final StringField<Cote> type = StringField.create(
+        Cote.class,
+        "type",
+        Cote::getType,
         false
     );
 }
