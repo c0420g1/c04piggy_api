@@ -16,21 +16,12 @@ import java.util.Set;
 public final class Feed$ {
     
     /**
-     * This Field corresponds to the {@link Feed} field feedType.
+     * This Field corresponds to the {@link Feed} field herd.
      */
-    public static final ReferenceField<Feed, FeedType> feedType = ReferenceField.create(
+    public static final ReferenceField<Feed, Herd> herd = ReferenceField.create(
         Feed.class,
-        "feedType",
-        Feed::getFeedType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field pigs.
-     */
-    public static final ReferenceField<Feed, Set<Pig>> pigs = ReferenceField.create(
-        Feed.class,
-        "pigs",
-        Feed::getPigs,
+        "herd",
+        Feed::getHerd,
         false
     );
     /**
@@ -43,6 +34,15 @@ public final class Feed$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Feed} field feedType.
+     */
+    public static final ReferenceField<Feed, FeedType> feedType = ReferenceField.create(
+        Feed.class,
+        "feedType",
+        Feed::getFeedType,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Feed} field code.
      */
     public static final StringField<Feed> code = StringField.create(
@@ -52,21 +52,21 @@ public final class Feed$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Feed} field pigs.
+     */
+    public static final ReferenceField<Feed, Set<Pig>> pigs = ReferenceField.create(
+        Feed.class,
+        "pigs",
+        Feed::getPigs,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Feed} field unit.
      */
     public static final StringField<Feed> unit = StringField.create(
         Feed.class,
         "unit",
         Feed::getUnit,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field herd.
-     */
-    public static final ReferenceField<Feed, Herd> herd = ReferenceField.create(
-        Feed.class,
-        "herd",
-        Feed::getHerd,
         false
     );
 }
