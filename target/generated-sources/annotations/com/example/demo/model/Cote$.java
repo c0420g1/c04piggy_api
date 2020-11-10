@@ -27,12 +27,21 @@ public final class Cote$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Cote} field id.
      */
     public static final IntField<Cote> id = IntField.create(
         Cote.class,
         "id",
         Cote::getId,
+=======
+     * This Field corresponds to the {@link Cote} field treatmentVacxins.
+     */
+    public static final ReferenceField<Cote, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+        Cote.class,
+        "treatmentVacxins",
+        Cote::getTreatmentVacxins,
+>>>>>>> hai-BE-10-11
         false
     );
     /**
@@ -45,6 +54,7 @@ public final class Cote$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Cote} field description.
      */
     public static final StringField<Cote> description = StringField.create(
@@ -60,9 +70,7 @@ public final class Cote$ {
         Cote.class,
         "importDate",
         Cote::getImportDate,
-        false
-    );
-    /**
+=======
      * This Field corresponds to the {@link Cote} field type.
      */
     public static final StringField<Cote> type = StringField.create(
@@ -78,6 +86,25 @@ public final class Cote$ {
         Cote.class,
         "code",
         Cote::getCode,
+>>>>>>> hai-BE-10-11
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field exportDate.
+     */
+    public static final ComparableField<Cote, LocalDate> exportDate = ComparableField.create(
+        Cote.class,
+        "exportDate",
+        Cote::getExportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field employee.
+     */
+    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
+        Cote.class,
+        "employee",
+        Cote::getEmployee,
         false
     );
     /**
@@ -99,6 +126,7 @@ public final class Cote$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Cote} field treatmentVacxins.
      */
     public static final ReferenceField<Cote, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
@@ -123,6 +151,14 @@ public final class Cote$ {
         Cote.class,
         "employee",
         Cote::getEmployee,
+=======
+     * This Field corresponds to the {@link Cote} field quantity.
+     */
+    public static final IntField<Cote> quantity = IntField.create(
+        Cote.class,
+        "quantity",
+        Cote::getQuantity,
+>>>>>>> hai-BE-10-11
         false
     );
 }

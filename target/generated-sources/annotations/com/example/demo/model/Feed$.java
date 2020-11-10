@@ -34,6 +34,7 @@ public final class Feed$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Feed} field id.
      */
     public static final IntField<Feed> id = IntField.create(
@@ -62,11 +63,14 @@ public final class Feed$ {
     );
     /**
      * This Field corresponds to the {@link Feed} field amount.
+=======
+     * This Field corresponds to the {@link Feed} field code.
+>>>>>>> hai-BE-10-11
      */
-    public static final IntField<Feed> amount = IntField.create(
+    public static final StringField<Feed> code = StringField.create(
         Feed.class,
-        "amount",
-        Feed::getAmount,
+        "code",
+        Feed::getCode,
         false
     );
     /**
@@ -94,6 +98,15 @@ public final class Feed$ {
         Feed.class,
         "description",
         Feed::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field amount.
+     */
+    public static final IntField<Feed> amount = IntField.create(
+        Feed.class,
+        "amount",
+        Feed::getAmount,
         false
     );
 }

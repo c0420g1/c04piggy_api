@@ -34,15 +34,16 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
+     * This Field corresponds to the {@link Account} field password.
      */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final StringField<Account> password = StringField.create(
         Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "password",
+        Account::getPassword,
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Account} field id.
      */
     public static final IntField<Account> id = IntField.create(
@@ -67,6 +68,14 @@ public final class Account$ {
         Account.class,
         "isDeleted",
         Account::getIsDeleted,
+=======
+     * This Field corresponds to the {@link Account} field roleAccounts.
+     */
+    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+        Account.class,
+        "roleAccounts",
+        Account::getRoleAccounts,
+>>>>>>> hai-BE-10-11
         false
     );
 }

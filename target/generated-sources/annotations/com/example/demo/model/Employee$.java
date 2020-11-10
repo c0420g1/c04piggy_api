@@ -38,7 +38,20 @@ public final class Employee$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Employee} field email.
+=======
+     * This Field corresponds to the {@link Employee} field cardId.
+     */
+    public static final StringField<Employee> cardId = StringField.create(
+        Employee.class,
+        "cardId",
+        Employee::getCardId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field gender.
+>>>>>>> hai-BE-10-11
      */
     public static final StringField<Employee> email = StringField.create(
         Employee.class,
@@ -47,12 +60,12 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field birthday.
+     * This Field corresponds to the {@link Employee} field cotes.
      */
-    public static final ComparableField<Employee, Date> birthday = ComparableField.create(
+    public static final ReferenceField<Employee, Set<Cote>> cotes = ReferenceField.create(
         Employee.class,
-        "birthday",
-        Employee::getBirthday,
+        "cotes",
+        Employee::getCotes,
         false
     );
     /**
@@ -65,6 +78,7 @@ public final class Employee$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Employee} field gender.
      */
     public static final ByteField<Employee> gender = ByteField.create(
@@ -84,14 +98,19 @@ public final class Employee$ {
     );
     /**
      * This Field corresponds to the {@link Employee} field account.
+=======
+     * This Field corresponds to the {@link Employee} field
+     * notificationEmployees.
+>>>>>>> hai-BE-10-11
      */
-    public static final ReferenceField<Employee, Account> account = ReferenceField.create(
+    public static final ReferenceField<Employee, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
         Employee.class,
-        "account",
-        Employee::getAccount,
+        "notificationEmployees",
+        Employee::getNotificationEmployees,
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Employee} field isDeleted.
      */
     public static final IntField<Employee> isDeleted = IntField.create(
@@ -143,6 +162,41 @@ public final class Employee$ {
         Employee.class,
         "cotes",
         Employee::getCotes,
+=======
+     * This Field corresponds to the {@link Employee} field historyExports.
+     */
+    public static final ReferenceField<Employee, Set<HistoryExport>> historyExports = ReferenceField.create(
+        Employee.class,
+        "historyExports",
+        Employee::getHistoryExports,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field email.
+     */
+    public static final StringField<Employee> email = StringField.create(
+        Employee.class,
+        "email",
+        Employee::getEmail,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field birthday.
+     */
+    public static final ComparableField<Employee, Date> birthday = ComparableField.create(
+        Employee.class,
+        "birthday",
+        Employee::getBirthday,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field account.
+     */
+    public static final ReferenceField<Employee, Account> account = ReferenceField.create(
+        Employee.class,
+        "account",
+        Employee::getAccount,
+>>>>>>> hai-BE-10-11
         false
     );
 }

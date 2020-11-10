@@ -16,7 +16,20 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link FeedType} field description.
+=======
+     * This Field corresponds to the {@link FeedType} field name.
+     */
+    public static final StringField<FeedType> name = StringField.create(
+        FeedType.class,
+        "name",
+        FeedType::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field stocks.
+>>>>>>> hai-BE-10-11
      */
     public static final StringField<FeedType> description = StringField.create(
         FeedType.class,
@@ -42,6 +55,7 @@ public final class FeedType$ {
         FeedType::getFeeds,
         false
     );
+<<<<<<< HEAD
     /**
      * This Field corresponds to the {@link FeedType} field name.
      */
@@ -69,4 +83,6 @@ public final class FeedType$ {
         FeedType::getId,
         false
     );
+=======
+>>>>>>> hai-BE-10-11
 }

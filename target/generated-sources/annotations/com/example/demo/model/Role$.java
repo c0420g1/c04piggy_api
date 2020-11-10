@@ -17,6 +17,7 @@ public final class Role$ {
     
     /**
      * This Field corresponds to the {@link Role} field rolePermissions.
+<<<<<<< HEAD
      */
     public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Role.class,
@@ -44,20 +45,31 @@ public final class Role$ {
     );
     /**
      * This Field corresponds to the {@link Role} field roleAccounts.
+=======
+>>>>>>> hai-BE-10-11
      */
-    public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Role.class,
-        "roleAccounts",
-        Role::getRoleAccounts,
+        "rolePermissions",
+        Role::getRolePermissions,
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Role} field isDeleted.
      */
     public static final IntField<Role> isDeleted = IntField.create(
         Role.class,
         "isDeleted",
         Role::getIsDeleted,
+=======
+     * This Field corresponds to the {@link Role} field roleAccounts.
+     */
+    public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+        Role.class,
+        "roleAccounts",
+        Role::getRoleAccounts,
+>>>>>>> hai-BE-10-11
         false
     );
     /**

@@ -18,6 +18,7 @@ import java.util.Set;
 public final class Notification$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Notification} field id.
      */
     public static final IntField<Notification> id = IntField.create(
@@ -33,15 +34,23 @@ public final class Notification$ {
         Notification.class,
         "description",
         Notification::getDescription,
+=======
+     * This Field corresponds to the {@link Notification} field employee.
+     */
+    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
+        Notification.class,
+        "employee",
+        Notification::getEmployee,
+>>>>>>> hai-BE-10-11
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field type.
+     * This Field corresponds to the {@link Notification} field content.
      */
-    public static final StringField<Notification> type = StringField.create(
+    public static final StringField<Notification> content = StringField.create(
         Notification.class,
-        "type",
-        Notification::getType,
+        "content",
+        Notification::getContent,
         false
     );
     /**
@@ -54,16 +63,16 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field
-     * notificationEmployees.
+     * This Field corresponds to the {@link Notification} field type.
      */
-    public static final ReferenceField<Notification, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
+    public static final StringField<Notification> type = StringField.create(
         Notification.class,
-        "notificationEmployees",
-        Notification::getNotificationEmployees,
+        "type",
+        Notification::getType,
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Notification} field createDate.
      */
     public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
@@ -79,15 +88,24 @@ public final class Notification$ {
         Notification.class,
         "isDeleted",
         Notification::getIsDeleted,
+=======
+     * This Field corresponds to the {@link Notification} field
+     * notificationEmployees.
+     */
+    public static final ReferenceField<Notification, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
+        Notification.class,
+        "notificationEmployees",
+        Notification::getNotificationEmployees,
+>>>>>>> hai-BE-10-11
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field employee.
+     * This Field corresponds to the {@link Notification} field title.
      */
-    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
+    public static final StringField<Notification> title = StringField.create(
         Notification.class,
-        "employee",
-        Notification::getEmployee,
+        "title",
+        Notification::getTitle,
         false
     );
     /**

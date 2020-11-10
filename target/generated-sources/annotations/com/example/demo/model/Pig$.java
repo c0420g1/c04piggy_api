@@ -29,6 +29,7 @@ public final class Pig$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Pig} field pigAssociateStatuses.
      */
     public static final ReferenceField<Pig, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
@@ -44,6 +45,23 @@ public final class Pig$ {
         Pig.class,
         "importDate",
         Pig::getImportDate,
+=======
+     * This Field corresponds to the {@link Pig} field color.
+     */
+    public static final StringField<Pig> color = StringField.create(
+        Pig.class,
+        "color",
+        Pig::getColor,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field spec.
+     */
+    public static final StringField<Pig> spec = StringField.create(
+        Pig.class,
+        "spec",
+        Pig::getSpec,
+>>>>>>> hai-BE-10-11
         false
     );
     /**
@@ -56,6 +74,7 @@ public final class Pig$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Pig} field gender.
      */
     public static final ByteField<Pig> gender = ByteField.create(
@@ -80,6 +99,23 @@ public final class Pig$ {
         Pig.class,
         "exportDate",
         Pig::getExportDate,
+=======
+     * This Field corresponds to the {@link Pig} field importDate.
+     */
+    public static final ComparableField<Pig, LocalDate> importDate = ComparableField.create(
+        Pig.class,
+        "importDate",
+        Pig::getImportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field weight.
+     */
+    public static final DoubleField<Pig> weight = DoubleField.create(
+        Pig.class,
+        "weight",
+        Pig::getWeight,
+>>>>>>> hai-BE-10-11
         false
     );
     /**
@@ -92,12 +128,21 @@ public final class Pig$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Pig} field fatherId.
      */
     public static final IntField<Pig> fatherId = IntField.create(
         Pig.class,
         "fatherId",
         Pig::getFatherId,
+=======
+     * This Field corresponds to the {@link Pig} field pigAssociateStatuses.
+     */
+    public static final ReferenceField<Pig, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+        Pig.class,
+        "pigAssociateStatuses",
+        Pig::getPigAssociateStatuses,
+>>>>>>> hai-BE-10-11
         false
     );
     /**
@@ -110,6 +155,7 @@ public final class Pig$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Pig} field code.
      */
     public static final StringField<Pig> code = StringField.create(
@@ -125,18 +171,27 @@ public final class Pig$ {
         Pig.class,
         "motherId",
         Pig::getMotherId,
-        false
-    );
-    /**
+=======
      * This Field corresponds to the {@link Pig} field herd.
      */
     public static final ReferenceField<Pig, Herd> herd = ReferenceField.create(
         Pig.class,
         "herd",
         Pig::getHerd,
+>>>>>>> hai-BE-10-11
         false
     );
     /**
+     * This Field corresponds to the {@link Pig} field feed.
+     */
+    public static final ReferenceField<Pig, Feed> feed = ReferenceField.create(
+        Pig.class,
+        "feed",
+        Pig::getFeed,
+        false
+    );
+    /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Pig} field description.
      */
     public static final StringField<Pig> description = StringField.create(
@@ -170,6 +225,32 @@ public final class Pig$ {
         Pig.class,
         "isDeleted",
         Pig::getIsDeleted,
+=======
+     * This Field corresponds to the {@link Pig} field code.
+     */
+    public static final StringField<Pig> code = StringField.create(
+        Pig.class,
+        "code",
+        Pig::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field fatherId.
+     */
+    public static final IntField<Pig> fatherId = IntField.create(
+        Pig.class,
+        "fatherId",
+        Pig::getFatherId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field gender.
+     */
+    public static final ByteField<Pig> gender = ByteField.create(
+        Pig.class,
+        "gender",
+        Pig::getGender,
+>>>>>>> hai-BE-10-11
         false
     );
 }

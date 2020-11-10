@@ -16,6 +16,7 @@ import java.time.LocalDate;
 public final class Other$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Other} field url.
      */
     public static final StringField<Other> url = StringField.create(
@@ -26,6 +27,9 @@ public final class Other$ {
     );
     /**
      * This Field corresponds to the {@link Other} field name.
+=======
+     * This Field corresponds to the {@link Other} field isOther.
+>>>>>>> hai-BE-10-11
      */
     public static final StringField<Other> name = StringField.create(
         Other.class,
@@ -52,7 +56,29 @@ public final class Other$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Other} field id.
+=======
+     * This Field corresponds to the {@link Other} field createDate.
+     */
+    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+        Other.class,
+        "createDate",
+        Other::getCreateDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field type.
+     */
+    public static final StringField<Other> type = StringField.create(
+        Other.class,
+        "type",
+        Other::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field name.
+>>>>>>> hai-BE-10-11
      */
     public static final IntField<Other> id = IntField.create(
         Other.class,
@@ -70,6 +96,7 @@ public final class Other$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Other} field description.
      */
     public static final StringField<Other> description = StringField.create(
@@ -79,6 +106,8 @@ public final class Other$ {
         false
     );
     /**
+=======
+>>>>>>> hai-BE-10-11
      * This Field corresponds to the {@link Other} field title.
      */
     public static final StringField<Other> title = StringField.create(
