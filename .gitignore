@@ -36,3 +36,11 @@ build/
 .vscode/
 
 .idea/misc.xml
+.idea/workspace.xml
+target/classes/application.properties
+target/classes/com/example/demo/model/HistoryExport$.class
+target/classes/com/example/demo/model/Pig$.class
+target/classes/com/example/demo/model/Stock$.class
+target/generated-sources/annotations/com/example/demo/model/HistoryExport$.java
+target/generated-sources/annotations/com/example/demo/model/Pig$.java
+target/generated-sources/annotations/com/example/demo/model/Stock$.java
