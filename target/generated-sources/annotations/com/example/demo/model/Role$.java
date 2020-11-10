@@ -25,12 +25,12 @@ public final class Role$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Role} field id.
+     * This Field corresponds to the {@link Role} field rolePermissions.
      */
-    public static final IntField<Role> id = IntField.create(
+    public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Role.class,
-        "id",
-        Role::getId,
+        "rolePermissions",
+        Role::getRolePermissions,
         false
     );
     /**
@@ -43,15 +43,6 @@ public final class Role$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Role} field isDeleted.
-     */
-    public static final IntField<Role> isDeleted = IntField.create(
-        Role.class,
-        "isDeleted",
-        Role::getIsDeleted,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Role} field roleAccounts.
      */
     public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
@@ -61,12 +52,21 @@ public final class Role$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Role} field rolePermissions.
+     * This Field corresponds to the {@link Role} field id.
      */
-    public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
+    public static final IntField<Role> id = IntField.create(
         Role.class,
-        "rolePermissions",
-        Role::getRolePermissions,
+        "id",
+        Role::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field isDeleted.
+     */
+    public static final IntField<Role> isDeleted = IntField.create(
+        Role.class,
+        "isDeleted",
+        Role::getIsDeleted,
         false
     );
 }
