@@ -2,38 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/CoteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/CoteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/CoteServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/BaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/CoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/CoteServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/FeedTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/FeedTypeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/NotificationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/StockServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/StockServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/VendorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/VendorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Account$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Account$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Cote$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Cote$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Diseases$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Diseases$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Employee$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Employee$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Feed$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Feed$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/FeedType$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/FeedType$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Herd$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Herd$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/HistoryExport$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/HistoryExport$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Notification$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Notification$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Other$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Other$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Permission$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Permission$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Pig$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Pig$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/PigAssociateStatus$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/PigAssociateStatus$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/PigStatus$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/PigStatus$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Role$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Role$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/RoleAccount$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/RoleAccount$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Stock$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Stock$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/TreatmentVacxin$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/TreatmentVacxin$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Vacxin$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Vacxin$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Vendor$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Vendor$.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +96,7 @@
       <workItem from="1604891836642" duration="698000" />
       <workItem from="1604906080242" duration="339000" />
       <workItem from="1604979645768" duration="385000" />
-      <workItem from="1604981153607" duration="455000" />
+      <workItem from="1604981153607" duration="1044000" />
     </task>
     <servers />
   </component>
@@ -154,46 +128,50 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="171" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604889165501" />
-    <state width="1493" height="278" key="GridCell.Tab.0.bottom" timestamp="1604981616482">
+    <state width="1493" height="236" key="GridCell.Tab.0.bottom" timestamp="1604982238304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604981616482" />
+    <state width="1493" height="236" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604982238304" />
     <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604890594582" />
-    <state width="1493" height="278" key="GridCell.Tab.0.center" timestamp="1604981616481">
+    <state width="1493" height="236" key="GridCell.Tab.0.center" timestamp="1604982238304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604981616481" />
+    <state width="1493" height="236" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604982238304" />
     <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1604890594582" />
-    <state width="1493" height="278" key="GridCell.Tab.0.left" timestamp="1604981616481">
+    <state width="1493" height="236" key="GridCell.Tab.0.left" timestamp="1604982238303">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604981616481" />
+    <state width="1493" height="236" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604982238303" />
     <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1604890594582" />
-    <state width="1493" height="278" key="GridCell.Tab.0.right" timestamp="1604981616482">
+    <state width="1493" height="236" key="GridCell.Tab.0.right" timestamp="1604982238304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604981616482" />
+    <state width="1493" height="236" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604982238304" />
     <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1604890594582" />
-    <state width="1493" height="278" key="GridCell.Tab.1.bottom" timestamp="1604981616482">
+    <state width="1493" height="236" key="GridCell.Tab.1.bottom" timestamp="1604982238304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604981616482" />
+    <state width="1493" height="236" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604982238304" />
     <state width="1557" height="222" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1604890594583" />
-    <state width="1493" height="278" key="GridCell.Tab.1.center" timestamp="1604981616482">
+    <state width="1493" height="236" key="GridCell.Tab.1.center" timestamp="1604982238304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1604981616482" />
+    <state width="1493" height="236" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1604982238304" />
     <state width="1557" height="222" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1604890594583" />
-    <state width="1493" height="278" key="GridCell.Tab.1.left" timestamp="1604981616482">
+    <state width="1493" height="236" key="GridCell.Tab.1.left" timestamp="1604982238304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1604981616482" />
+    <state width="1493" height="236" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1604982238304" />
     <state width="1557" height="222" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1604890594583" />
-    <state width="1493" height="278" key="GridCell.Tab.1.right" timestamp="1604981616482">
+    <state width="1493" height="236" key="GridCell.Tab.1.right" timestamp="1604982238304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1604981616482" />
+    <state width="1493" height="236" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1604982238304" />
     <state width="1557" height="222" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1604890594583" />
+    <state x="277" y="56" key="SettingsEditor" timestamp="1604982091112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1604982091112" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1604981154478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

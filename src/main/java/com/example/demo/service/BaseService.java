@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BaseService<T> {
-    List<T> getAll(int pageNum);
+    List<T> getAll();
     Optional<T> getById(int id);
     void save(T t);
     void delete(int[] ids);

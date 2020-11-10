@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class VendorServiceImpl implements VendorService {
     @Override
-    public List<Vendor> getAll(int pageNum) {
+    public List<Vendor> getAll() {
         return null;
     }
 

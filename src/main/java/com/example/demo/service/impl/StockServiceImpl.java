@@ -16,7 +16,7 @@ public class StockServiceImpl implements StockService {
 
 
     @Override
-    public List<Stock> getAll(int pageNum) {
+    public List<Stock> getAll() {
         return null;
     }
 

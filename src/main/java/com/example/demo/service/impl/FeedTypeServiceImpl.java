@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public class FeedTypeServiceImpl implements FeedTypeService {
     @Override
-    public List<FeedTypeService> getAll(int pageNum) {
+    public List<FeedTypeService> getAll() {
         return null;
     }
 

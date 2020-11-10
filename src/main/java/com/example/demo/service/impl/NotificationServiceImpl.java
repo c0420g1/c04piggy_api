@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class NotificationServiceImpl implements NotificationService {
     @Override
-    public List<Notification> getAll(int pageNum) {
+    public List<Notification> getAll() {
         return null;
     }
 
