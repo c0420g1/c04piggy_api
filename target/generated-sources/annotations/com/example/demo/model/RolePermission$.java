@@ -12,21 +12,21 @@ import com.speedment.jpastreamer.field.ReferenceField;
 public final class RolePermission$ {
     
     /**
-     * This Field corresponds to the {@link RolePermission} field permission.
-     */
-    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
-        RolePermission.class,
-        "permission",
-        RolePermission::getPermission,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RolePermission} field role.
      */
     public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
         RolePermission.class,
         "role",
         RolePermission::getRole,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RolePermission} field permission.
+     */
+    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
+        RolePermission.class,
+        "permission",
+        RolePermission::getPermission,
         false
     );
 }

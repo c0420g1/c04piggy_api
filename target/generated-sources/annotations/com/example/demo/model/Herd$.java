@@ -15,12 +15,12 @@ import java.util.Set;
 public final class Herd$ {
     
     /**
-     * This Field corresponds to the {@link Herd} field feeds.
+     * This Field corresponds to the {@link Herd} field cotes.
      */
-    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
+    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
         Herd.class,
-        "feeds",
-        Herd::getFeeds,
+        "cotes",
+        Herd::getCotes,
         false
     );
     /**
@@ -33,12 +33,12 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field cotes.
+     * This Field corresponds to the {@link Herd} field feeds.
      */
-    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
+    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
         Herd.class,
-        "cotes",
-        Herd::getCotes,
+        "feeds",
+        Herd::getFeeds,
         false
     );
 }

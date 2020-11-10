@@ -17,6 +17,15 @@ import java.time.LocalDate;
 public final class HistoryExport$ {
     
     /**
+     * This Field corresponds to the {@link HistoryExport} field cote.
+     */
+    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
+        HistoryExport.class,
+        "cote",
+        HistoryExport::getCote,
+        false
+    );
+    /**
      * This Field corresponds to the {@link HistoryExport} field stock.
      */
     public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
@@ -35,12 +44,31 @@ public final class HistoryExport$ {
         false
     );
     /**
+     * This Field corresponds to the {@link HistoryExport} field
+     * receivedEmployeeId.
+     */
+    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
+        HistoryExport.class,
+        "receivedEmployeeId",
+        HistoryExport::getReceivedEmployeeId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link HistoryExport} field unit.
      */
     public static final StringField<HistoryExport> unit = StringField.create(
         HistoryExport.class,
         "unit",
         HistoryExport::getUnit,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field company.
+     */
+    public static final StringField<HistoryExport> company = StringField.create(
+        HistoryExport.class,
+        "company",
+        HistoryExport::getCompany,
         false
     );
     /**
@@ -68,34 +96,6 @@ public final class HistoryExport$ {
         HistoryExport.class,
         "type",
         HistoryExport::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field
-     * receivedEmployeeId.
-     */
-    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
-        HistoryExport.class,
-        "receivedEmployeeId",
-        HistoryExport::getReceivedEmployeeId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field company.
-     */
-    public static final StringField<HistoryExport> company = StringField.create(
-        HistoryExport.class,
-        "company",
-        HistoryExport::getCompany,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field cote.
-     */
-    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
-        HistoryExport.class,
-        "cote",
-        HistoryExport::getCote,
         false
     );
 }

@@ -25,21 +25,12 @@ public final class TreatmentVacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link TreatmentVacxin} field veterinary.
+     * This Field corresponds to the {@link TreatmentVacxin} field vacxin.
      */
-    public static final StringField<TreatmentVacxin> veterinary = StringField.create(
+    public static final ReferenceField<TreatmentVacxin, Vacxin> vacxin = ReferenceField.create(
         TreatmentVacxin.class,
-        "veterinary",
-        TreatmentVacxin::getVeterinary,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link TreatmentVacxin} field type.
-     */
-    public static final StringField<TreatmentVacxin> type = StringField.create(
-        TreatmentVacxin.class,
-        "type",
-        TreatmentVacxin::getType,
+        "vacxin",
+        TreatmentVacxin::getVacxin,
         false
     );
     /**
@@ -52,6 +43,24 @@ public final class TreatmentVacxin$ {
         false
     );
     /**
+     * This Field corresponds to the {@link TreatmentVacxin} field pig.
+     */
+    public static final ReferenceField<TreatmentVacxin, Pig> pig = ReferenceField.create(
+        TreatmentVacxin.class,
+        "pig",
+        TreatmentVacxin::getPig,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link TreatmentVacxin} field veterinary.
+     */
+    public static final StringField<TreatmentVacxin> veterinary = StringField.create(
+        TreatmentVacxin.class,
+        "veterinary",
+        TreatmentVacxin::getVeterinary,
+        false
+    );
+    /**
      * This Field corresponds to the {@link TreatmentVacxin} field diseases.
      */
     public static final ReferenceField<TreatmentVacxin, Diseases> diseases = ReferenceField.create(
@@ -61,21 +70,12 @@ public final class TreatmentVacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link TreatmentVacxin} field vacxin.
+     * This Field corresponds to the {@link TreatmentVacxin} field type.
      */
-    public static final ReferenceField<TreatmentVacxin, Vacxin> vacxin = ReferenceField.create(
+    public static final StringField<TreatmentVacxin> type = StringField.create(
         TreatmentVacxin.class,
-        "vacxin",
-        TreatmentVacxin::getVacxin,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link TreatmentVacxin} field pig.
-     */
-    public static final ReferenceField<TreatmentVacxin, Pig> pig = ReferenceField.create(
-        TreatmentVacxin.class,
-        "pig",
-        TreatmentVacxin::getPig,
+        "type",
+        TreatmentVacxin::getType,
         false
     );
 }

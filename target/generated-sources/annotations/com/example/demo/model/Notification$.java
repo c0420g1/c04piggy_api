@@ -26,21 +26,21 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field content.
-     */
-    public static final StringField<Notification> content = StringField.create(
-        Notification.class,
-        "content",
-        Notification::getContent,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Notification} field type.
      */
     public static final StringField<Notification> type = StringField.create(
         Notification.class,
         "type",
         Notification::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field createDate.
+     */
+    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
+        Notification.class,
+        "createDate",
+        Notification::getCreateDate,
         false
     );
     /**
@@ -54,12 +54,12 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field createDate.
+     * This Field corresponds to the {@link Notification} field content.
      */
-    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
+    public static final StringField<Notification> content = StringField.create(
         Notification.class,
-        "createDate",
-        Notification::getCreateDate,
+        "content",
+        Notification::getContent,
         false
     );
     /**
