@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
+import com.speedment.jpastreamer.field.StringField;
 
 /**
  * The generated base for entity {@link RoleAccount} representing entities of
@@ -21,23 +23,21 @@ public final class RoleAccount$ {
         false
     );
     /**
-<<<<<<< HEAD
-=======
-     * This Field corresponds to the {@link RoleAccount} field isDeleted.
-     */
-    public static final IntField<RoleAccount> isDeleted = IntField.create(
-        RoleAccount.class,
-        "isDeleted",
-        RoleAccount::getIsDeleted,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RoleAccount} field description.
      */
     public static final StringField<RoleAccount> description = StringField.create(
         RoleAccount.class,
         "description",
         RoleAccount::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RoleAccount} field account.
+     */
+    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
+        RoleAccount.class,
+        "account",
+        RoleAccount::getAccount,
         false
     );
     /**
@@ -50,13 +50,12 @@ public final class RoleAccount$ {
         false
     );
     /**
->>>>>>> develop
-     * This Field corresponds to the {@link RoleAccount} field account.
+     * This Field corresponds to the {@link RoleAccount} field isDeleted.
      */
-    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
+    public static final IntField<RoleAccount> isDeleted = IntField.create(
         RoleAccount.class,
-        "account",
-        RoleAccount::getAccount,
+        "isDeleted",
+        RoleAccount::getIsDeleted,
         false
     );
 }

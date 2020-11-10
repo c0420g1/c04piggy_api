@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -15,7 +16,6 @@ import java.util.Set;
 public final class Account$ {
     
     /**
-<<<<<<< HEAD
      * This Field corresponds to the {@link Account} field username.
      */
     public static final StringField<Account> username = StringField.create(
@@ -25,15 +25,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
-=======
      * This Field corresponds to the {@link Account} field description.
->>>>>>> develop
      */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final StringField<Account> description = StringField.create(
         Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "description",
+        Account::getDescription,
         false
     );
     /**
@@ -45,24 +42,13 @@ public final class Account$ {
         Account::getId,
         false
     );
-<<<<<<< HEAD
-=======
     /**
-     * This Field corresponds to the {@link Account} field password.
+     * This Field corresponds to the {@link Account} field roleAccounts.
      */
-    public static final StringField<Account> password = StringField.create(
+    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Account.class,
-        "password",
-        Account::getPassword,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Account} field username.
-     */
-    public static final StringField<Account> username = StringField.create(
-        Account.class,
-        "username",
-        Account::getUsername,
+        "roleAccounts",
+        Account::getRoleAccounts,
         false
     );
     /**
@@ -75,13 +61,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
+     * This Field corresponds to the {@link Account} field password.
      */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final StringField<Account> password = StringField.create(
         Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "password",
+        Account::getPassword,
         false
     );
->>>>>>> develop
 }

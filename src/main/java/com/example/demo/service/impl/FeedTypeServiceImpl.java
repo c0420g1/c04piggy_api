@@ -1,6 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.FeedType;
 import com.example.demo.service.FeedTypeService;
 import org.springframework.stereotype.Service;
 
@@ -9,19 +8,18 @@ import java.util.Optional;
 
 @Service
 public class FeedTypeServiceImpl implements FeedTypeService {
-
     @Override
-    public List<FeedType> getAll() {
+    public List<FeedTypeService> getAll() {
         return null;
     }
 
     @Override
-    public Optional<FeedType> getById(int id) {
+    public Optional<FeedTypeService> getById(int id) {
         return Optional.empty();
     }
 
     @Override
-    public void save(FeedType feedType) {
+    public void save(FeedTypeService feedTypeService) {
 
     }
 

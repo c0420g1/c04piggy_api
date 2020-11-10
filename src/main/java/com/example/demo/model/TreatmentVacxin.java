@@ -12,7 +12,16 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "treatment_vacxin")
-public class TreatmentVacxin extends BaseEntity {
+public class TreatmentVacxin {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(columnDefinition = "integer default 0", name ="is_deleted")
+    private int isDeleted=0;
+
+    @Column(length = 1000)
+    private String description;
     private String veterinary;
     private String type;
     @Column(columnDefinition="DATE", name= "treat_date")

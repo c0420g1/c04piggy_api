@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
+import com.speedment.jpastreamer.field.StringField;
 
 /**
  * The generated base for entity {@link RolePermission} representing entities of
@@ -12,18 +14,24 @@ import com.speedment.jpastreamer.field.ReferenceField;
 public final class RolePermission$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link RolePermission} field role.
+     * This Field corresponds to the {@link RolePermission} field id.
      */
-    public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
+    public static final IntField<RolePermission> id = IntField.create(
         RolePermission.class,
-        "role",
-        RolePermission::getRole,
+        "id",
+        RolePermission::getId,
         false
     );
     /**
-     * This Field corresponds to the {@link RolePermission} field permission.
-=======
+     * This Field corresponds to the {@link RolePermission} field description.
+     */
+    public static final StringField<RolePermission> description = StringField.create(
+        RolePermission.class,
+        "description",
+        RolePermission::getDescription,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RolePermission} field permission.
      */
     public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
@@ -39,25 +47,6 @@ public final class RolePermission$ {
         RolePermission.class,
         "isDeleted",
         RolePermission::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RolePermission} field description.
-     */
-    public static final StringField<RolePermission> description = StringField.create(
-        RolePermission.class,
-        "description",
-        RolePermission::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RolePermission} field id.
->>>>>>> develop
-     */
-    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
-        RolePermission.class,
-        "permission",
-        RolePermission::getPermission,
         false
     );
     /**

@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -15,12 +16,12 @@ import java.util.Set;
 public final class Permission$ {
     
     /**
-     * This Field corresponds to the {@link Permission} field description.
+     * This Field corresponds to the {@link Permission} field rolePermissions.
      */
-    public static final StringField<Permission> description = StringField.create(
+    public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Permission.class,
-        "description",
-        Permission::getDescription,
+        "rolePermissions",
+        Permission::getRolePermissions,
         false
     );
     /**
@@ -42,8 +43,6 @@ public final class Permission$ {
         false
     );
     /**
-<<<<<<< HEAD
-=======
      * This Field corresponds to the {@link Permission} field id.
      */
     public static final IntField<Permission> id = IntField.create(
@@ -53,13 +52,12 @@ public final class Permission$ {
         false
     );
     /**
->>>>>>> develop
-     * This Field corresponds to the {@link Permission} field rolePermissions.
+     * This Field corresponds to the {@link Permission} field description.
      */
-    public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(
+    public static final StringField<Permission> description = StringField.create(
         Permission.class,
-        "rolePermissions",
-        Permission::getRolePermissions,
+        "description",
+        Permission::getDescription,
         false
     );
 }

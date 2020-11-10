@@ -18,8 +18,6 @@ target/
 *.iws
 *.iml
 *.ipr
-application.properties
-persistence.xml
 
 ### NetBeans ###
 /nbproject/private/
@@ -36,5 +34,6 @@ build/
 
 .idea/workspace.xml
 demo.iml
+.idea/workspace.xml
 .idea/c04piggy_api.iml
-
+.idea/workspace.xml
