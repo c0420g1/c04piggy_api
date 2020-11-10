@@ -17,6 +17,15 @@ import java.util.Set;
 public final class Notification$ {
     
     /**
+     * This Field corresponds to the {@link Notification} field createDate.
+     */
+    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
+        Notification.class,
+        "createDate",
+        Notification::getCreateDate,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Notification} field employee.
      */
     public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
@@ -35,16 +44,6 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field
-     * notificationEmployees.
-     */
-    public static final ReferenceField<Notification, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
-        Notification.class,
-        "notificationEmployees",
-        Notification::getNotificationEmployees,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Notification} field content.
      */
     public static final StringField<Notification> content = StringField.create(
@@ -54,21 +53,22 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field createDate.
-     */
-    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
-        Notification.class,
-        "createDate",
-        Notification::getCreateDate,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Notification} field type.
      */
     public static final StringField<Notification> type = StringField.create(
         Notification.class,
         "type",
         Notification::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field
+     * notificationEmployees.
+     */
+    public static final ReferenceField<Notification, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
+        Notification.class,
+        "notificationEmployees",
+        Notification::getNotificationEmployees,
         false
     );
 }

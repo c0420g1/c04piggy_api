@@ -29,48 +29,21 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field treatmentVacxins.
-     */
-    public static final ReferenceField<Pig, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
-        Pig.class,
-        "treatmentVacxins",
-        Pig::getTreatmentVacxins,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field pigAssociateStatuses.
-     */
-    public static final ReferenceField<Pig, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
-        Pig.class,
-        "pigAssociateStatuses",
-        Pig::getPigAssociateStatuses,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field fatherId.
-     */
-    public static final IntField<Pig> fatherId = IntField.create(
-        Pig.class,
-        "fatherId",
-        Pig::getFatherId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field spec.
-     */
-    public static final StringField<Pig> spec = StringField.create(
-        Pig.class,
-        "spec",
-        Pig::getSpec,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Pig} field exportDate.
      */
     public static final ComparableField<Pig, LocalDate> exportDate = ComparableField.create(
         Pig.class,
         "exportDate",
         Pig::getExportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field motherId.
+     */
+    public static final IntField<Pig> motherId = IntField.create(
+        Pig.class,
+        "motherId",
+        Pig::getMotherId,
         false
     );
     /**
@@ -92,12 +65,30 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field motherId.
+     * This Field corresponds to the {@link Pig} field treatmentVacxins.
      */
-    public static final IntField<Pig> motherId = IntField.create(
+    public static final ReferenceField<Pig, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Pig.class,
-        "motherId",
-        Pig::getMotherId,
+        "treatmentVacxins",
+        Pig::getTreatmentVacxins,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field fatherId.
+     */
+    public static final IntField<Pig> fatherId = IntField.create(
+        Pig.class,
+        "fatherId",
+        Pig::getFatherId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field pigAssociateStatuses.
+     */
+    public static final ReferenceField<Pig, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+        Pig.class,
+        "pigAssociateStatuses",
+        Pig::getPigAssociateStatuses,
         false
     );
     /**
@@ -110,6 +101,15 @@ public final class Pig$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Pig} field cote.
+     */
+    public static final ReferenceField<Pig, Cote> cote = ReferenceField.create(
+        Pig.class,
+        "cote",
+        Pig::getCote,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Pig} field code.
      */
     public static final StringField<Pig> code = StringField.create(
@@ -119,12 +119,12 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field cote.
+     * This Field corresponds to the {@link Pig} field herd.
      */
-    public static final ReferenceField<Pig, Cote> cote = ReferenceField.create(
+    public static final ReferenceField<Pig, Herd> herd = ReferenceField.create(
         Pig.class,
-        "cote",
-        Pig::getCote,
+        "herd",
+        Pig::getHerd,
         false
     );
     /**
@@ -137,12 +137,12 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field herd.
+     * This Field corresponds to the {@link Pig} field spec.
      */
-    public static final ReferenceField<Pig, Herd> herd = ReferenceField.create(
+    public static final StringField<Pig> spec = StringField.create(
         Pig.class,
-        "herd",
-        Pig::getHerd,
+        "spec",
+        Pig::getSpec,
         false
     );
 }

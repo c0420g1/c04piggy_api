@@ -27,4 +27,9 @@ public class FeedTypeServiceImpl implements FeedTypeService {
     public void delete(int[] ids) {
 
     }
+
+    @Override
+    public List<FeedTypeService> search(int pageNum, String search) {
+        return null;
+    }
 }

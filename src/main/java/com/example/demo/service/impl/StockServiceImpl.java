@@ -14,6 +14,7 @@ public class StockServiceImpl implements StockService {
     @Autowired
     JPAStreamer jpaStreamer;
 
+
     @Override
     public List<Stock> getAll(int pageNum) {
         return null;
@@ -32,5 +33,10 @@ public class StockServiceImpl implements StockService {
     @Override
     public void delete(int[] ids) {
 
+    }
+
+    @Override
+    public List<Stock> search(int pageNum, String search) {
+        return null;
     }
 }

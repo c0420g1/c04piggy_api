@@ -8,4 +8,5 @@ public interface BaseService<T> {
     Optional<T> getById(int id);
     void save(T t);
     void delete(int[] ids);
+    List<T> search(int pageNum, String search);
 }

@@ -15,12 +15,12 @@ import java.util.Set;
 public final class Account$ {
     
     /**
-     * This Field corresponds to the {@link Account} field username.
+     * This Field corresponds to the {@link Account} field roleAccounts.
      */
-    public static final StringField<Account> username = StringField.create(
+    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Account.class,
-        "username",
-        Account::getUsername,
+        "roleAccounts",
+        Account::getRoleAccounts,
         false
     );
     /**
@@ -33,12 +33,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
+     * This Field corresponds to the {@link Account} field username.
      */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final StringField<Account> username = StringField.create(
         Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "username",
+        Account::getUsername,
         false
     );
 }
