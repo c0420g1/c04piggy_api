@@ -24,21 +24,21 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field code.
-     */
-    public static final StringField<Vendor> code = StringField.create(
-        Vendor.class,
-        "code",
-        Vendor::getCode,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Vendor} field stocks.
      */
     public static final ReferenceField<Vendor, Set<Stock>> stocks = ReferenceField.create(
         Vendor.class,
         "stocks",
         Vendor::getStocks,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vendor} field code.
+     */
+    public static final StringField<Vendor> code = StringField.create(
+        Vendor.class,
+        "code",
+        Vendor::getCode,
         false
     );
 }

@@ -25,6 +25,33 @@ public final class Other$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Other} field isOther.
+     */
+    public static final IntField<Other> isOther = IntField.create(
+        Other.class,
+        "isOther",
+        Other::getIsOther,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field type.
+     */
+    public static final StringField<Other> type = StringField.create(
+        Other.class,
+        "type",
+        Other::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field title.
+     */
+    public static final StringField<Other> title = StringField.create(
+        Other.class,
+        "title",
+        Other::getTitle,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Other} field name.
      */
     public static final StringField<Other> name = StringField.create(
@@ -49,33 +76,6 @@ public final class Other$ {
         Other.class,
         "createDate",
         Other::getCreateDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field type.
-     */
-    public static final StringField<Other> type = StringField.create(
-        Other.class,
-        "type",
-        Other::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field isOther.
-     */
-    public static final IntField<Other> isOther = IntField.create(
-        Other.class,
-        "isOther",
-        Other::getIsOther,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field title.
-     */
-    public static final StringField<Other> title = StringField.create(
-        Other.class,
-        "title",
-        Other::getTitle,
         false
     );
 }

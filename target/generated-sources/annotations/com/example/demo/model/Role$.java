@@ -24,21 +24,21 @@ public final class Role$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Role} field name.
-     */
-    public static final StringField<Role> name = StringField.create(
-        Role.class,
-        "name",
-        Role::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Role} field roleAccounts.
      */
     public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Role.class,
         "roleAccounts",
         Role::getRoleAccounts,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field name.
+     */
+    public static final StringField<Role> name = StringField.create(
+        Role.class,
+        "name",
+        Role::getName,
         false
     );
 }

@@ -20,15 +20,6 @@ import java.util.Set;
 public final class Pig$ {
     
     /**
-     * This Field corresponds to the {@link Pig} field gender.
-     */
-    public static final ByteField<Pig> gender = ByteField.create(
-        Pig.class,
-        "gender",
-        Pig::getGender,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Pig} field treatmentVacxins.
      */
     public static final ReferenceField<Pig, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
@@ -38,12 +29,21 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field pigAssociateStatuses.
+     * This Field corresponds to the {@link Pig} field color.
      */
-    public static final ReferenceField<Pig, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+    public static final StringField<Pig> color = StringField.create(
         Pig.class,
-        "pigAssociateStatuses",
-        Pig::getPigAssociateStatuses,
+        "color",
+        Pig::getColor,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field herd.
+     */
+    public static final ReferenceField<Pig, Herd> herd = ReferenceField.create(
+        Pig.class,
+        "herd",
+        Pig::getHerd,
         false
     );
     /**
@@ -65,21 +65,21 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field exportDate.
+     * This Field corresponds to the {@link Pig} field code.
      */
-    public static final ComparableField<Pig, LocalDate> exportDate = ComparableField.create(
+    public static final StringField<Pig> code = StringField.create(
         Pig.class,
-        "exportDate",
-        Pig::getExportDate,
+        "code",
+        Pig::getCode,
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field color.
+     * This Field corresponds to the {@link Pig} field pigAssociateStatuses.
      */
-    public static final StringField<Pig> color = StringField.create(
+    public static final ReferenceField<Pig, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
         Pig.class,
-        "color",
-        Pig::getColor,
+        "pigAssociateStatuses",
+        Pig::getPigAssociateStatuses,
         false
     );
     /**
@@ -92,12 +92,12 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field motherId.
+     * This Field corresponds to the {@link Pig} field importDate.
      */
-    public static final IntField<Pig> motherId = IntField.create(
+    public static final ComparableField<Pig, LocalDate> importDate = ComparableField.create(
         Pig.class,
-        "motherId",
-        Pig::getMotherId,
+        "importDate",
+        Pig::getImportDate,
         false
     );
     /**
@@ -110,12 +110,30 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field code.
+     * This Field corresponds to the {@link Pig} field exportDate.
      */
-    public static final StringField<Pig> code = StringField.create(
+    public static final ComparableField<Pig, LocalDate> exportDate = ComparableField.create(
         Pig.class,
-        "code",
-        Pig::getCode,
+        "exportDate",
+        Pig::getExportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field gender.
+     */
+    public static final ByteField<Pig> gender = ByteField.create(
+        Pig.class,
+        "gender",
+        Pig::getGender,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field motherId.
+     */
+    public static final IntField<Pig> motherId = IntField.create(
+        Pig.class,
+        "motherId",
+        Pig::getMotherId,
         false
     );
     /**
@@ -125,24 +143,6 @@ public final class Pig$ {
         Pig.class,
         "cote",
         Pig::getCote,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field importDate.
-     */
-    public static final ComparableField<Pig, LocalDate> importDate = ComparableField.create(
-        Pig.class,
-        "importDate",
-        Pig::getImportDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field herd.
-     */
-    public static final ReferenceField<Pig, Herd> herd = ReferenceField.create(
-        Pig.class,
-        "herd",
-        Pig::getHerd,
         false
     );
 }
