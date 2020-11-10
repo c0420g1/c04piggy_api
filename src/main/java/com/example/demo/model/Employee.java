@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,8 +20,10 @@ public class Employee extends BaseEntity {
     private Date birthday;
     private String email;
     private byte gender;
+    @Column(name = "card_id")
     private String cardId;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "account_id")
     @EqualsAndHashCode.Exclude

@@ -12,21 +12,21 @@ import com.speedment.jpastreamer.field.ReferenceField;
 public final class PigAssociateStatus$ {
     
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
-     */
-    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
-        PigAssociateStatus.class,
-        "pigStatus",
-        PigAssociateStatus::getPigStatus,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigAssociateStatus} field pig.
      */
     public static final ReferenceField<PigAssociateStatus, Pig> pig = ReferenceField.create(
         PigAssociateStatus.class,
         "pig",
         PigAssociateStatus::getPig,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
+     */
+    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
+        PigAssociateStatus.class,
+        "pigStatus",
+        PigAssociateStatus::getPigStatus,
         false
     );
 }

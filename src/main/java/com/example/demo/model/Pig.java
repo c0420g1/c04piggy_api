@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,25 +19,30 @@ public class Pig extends BaseEntity {
     private byte gender;
     private double weight;
     private String color;
+    @Column(name = "father_id")
     private int fatherId;
+    @Column(name = "mother_id")
     private int motherId;
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name="import_date")
     private LocalDate importDate;
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name="export_date")
     private LocalDate exportDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "feed_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Feed feed;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "cote_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Cote cote;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "herd_id")
     @EqualsAndHashCode.Exclude

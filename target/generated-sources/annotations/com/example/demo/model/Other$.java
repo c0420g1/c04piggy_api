@@ -23,21 +23,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field title.
+     * This Field corresponds to the {@link Other} field type.
      */
-    public static final StringField<Other> title = StringField.create(
+    public static final StringField<Other> type = StringField.create(
         Other.class,
-        "title",
-        Other::getTitle,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field isOther.
-     */
-    public static final ByteField<Other> isOther = ByteField.create(
-        Other.class,
-        "isOther",
-        Other::getIsOther,
+        "type",
+        Other::getType,
         false
     );
     /**
@@ -59,12 +50,21 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field type.
+     * This Field corresponds to the {@link Other} field title.
      */
-    public static final StringField<Other> type = StringField.create(
+    public static final StringField<Other> title = StringField.create(
         Other.class,
-        "type",
-        Other::getType,
+        "title",
+        Other::getTitle,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field isOther.
+     */
+    public static final ByteField<Other> isOther = ByteField.create(
+        Other.class,
+        "isOther",
+        Other::getIsOther,
         false
     );
 }

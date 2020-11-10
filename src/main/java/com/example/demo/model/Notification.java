@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class Notification extends BaseEntity {
     @Column(columnDefinition="DATE")
     private LocalDate createDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "employee_id")
     @EqualsAndHashCode.Exclude

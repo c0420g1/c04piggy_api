@@ -26,4 +26,28 @@ public class Herd extends BaseEntity {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Collection<Cote> cotes;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Collection<Feed> getFeeds() {
+        return feeds;
+    }
+
+    public void setFeeds(Collection<Feed> feeds) {
+        this.feeds = feeds;
+    }
+
+    public Collection<Cote> getCotes() {
+        return cotes;
+    }
+
+    public void setCotes(Collection<Cote> cotes) {
+        this.cotes = cotes;
+    }
 }

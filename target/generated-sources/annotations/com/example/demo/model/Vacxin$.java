@@ -15,21 +15,21 @@ import java.util.Collection;
 public final class Vacxin$ {
     
     /**
-     * This Field corresponds to the {@link Vacxin} field name.
-     */
-    public static final StringField<Vacxin> name = StringField.create(
-        Vacxin.class,
-        "name",
-        Vacxin::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
      */
     public static final ReferenceField<Vacxin, Collection<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Vacxin.class,
         "treatmentVacxins",
         Vacxin::getTreatmentVacxins,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vacxin} field name.
+     */
+    public static final StringField<Vacxin> name = StringField.create(
+        Vacxin.class,
+        "name",
+        Vacxin::getName,
         false
     );
 }

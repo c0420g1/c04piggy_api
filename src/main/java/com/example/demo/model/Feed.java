@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,12 +22,14 @@ public class Feed extends BaseEntity {
     @ToString.Exclude
     private Collection<Pig> pigs;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "feed_type_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private FeedType feedType;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "herd_id")
     @EqualsAndHashCode.Exclude
