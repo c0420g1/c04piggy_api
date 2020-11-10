@@ -1,24 +1,28 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "employee")
 public class Employee extends BaseEntity {
     private String code;
     private String name;
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name="birthday")
     private Date birthday;
     private String email;
     private byte gender;
+    @Column(columnDefinition="varchar(45)", name = "card_id")
     private String cardId;
 
     @ManyToOne
@@ -27,18 +31,27 @@ public class Employee extends BaseEntity {
     @ToString.Exclude
     private Account account;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "employee")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<Cote> cotes;
+    @JsonIgnore
+    private Set<Cote> cotes;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "employee")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<HistoryExport> historyExports;
+    @JsonIgnore
+    private Set<HistoryExport> historyExports;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "employee")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<Notification> notifications;
+    @JsonIgnore
+    private Set<Notification> notifications;
+
+    @OneToMany(mappedBy = "employee")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Set<NotificationEmployee> notificationEmployees;
 }

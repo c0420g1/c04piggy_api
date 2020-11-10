@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `account`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `account` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `password` varchar(250) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -41,8 +41,8 @@ DROP TABLE IF EXISTS `cote`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cote` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `code` varchar(255) DEFAULT NULL,
   `export_date` date DEFAULT NULL,
   `import_date` date DEFAULT NULL,
@@ -67,8 +67,8 @@ DROP TABLE IF EXISTS `diseases`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `diseases` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -83,10 +83,10 @@ DROP TABLE IF EXISTS `employee`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `employee` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `birthday` date DEFAULT NULL,
-  `card_id` varchar(255) DEFAULT NULL,
+  `card_id` varchar(45) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `gender` tinyint NOT NULL,
@@ -107,8 +107,8 @@ DROP TABLE IF EXISTS `feed`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `feed` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `amount` int NOT NULL,
   `code` varchar(255) DEFAULT NULL,
   `unit` varchar(255) DEFAULT NULL,
@@ -131,8 +131,8 @@ DROP TABLE IF EXISTS `feed_type`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `feed_type` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -147,8 +147,8 @@ DROP TABLE IF EXISTS `herd`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `herd` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -163,8 +163,8 @@ DROP TABLE IF EXISTS `history_export`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `history_export` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `company` varchar(255) DEFAULT NULL,
   `export_date` date DEFAULT NULL,
   `quantity` int NOT NULL,
@@ -193,15 +193,38 @@ DROP TABLE IF EXISTS `notification`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `notification` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `content` varchar(255) DEFAULT NULL,
   `create_date` date DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
   `employee_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK858apfribgisso7wslgvebtxy` (`employee_id`),
   CONSTRAINT `FK858apfribgisso7wslgvebtxy` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `notification_employee`
+--
+
+DROP TABLE IF EXISTS `notification_employee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `notification_employee` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
+  `is_read` int DEFAULT '0',
+  `employee_id` int DEFAULT NULL,
+  `notification_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKg5mq8654mikepi884wxjmn4d4` (`employee_id`),
+  KEY `FKgir82kn8rnojh5d5ox1sflj2d` (`notification_id`),
+  CONSTRAINT `FKg5mq8654mikepi884wxjmn4d4` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`),
+  CONSTRAINT `FKgir82kn8rnojh5d5ox1sflj2d` FOREIGN KEY (`notification_id`) REFERENCES `notification` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -214,11 +237,12 @@ DROP TABLE IF EXISTS `other`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `other` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
-  `is_other` tinyint NOT NULL,
+  `is_deleted` int DEFAULT '0',
+  `create_date` date DEFAULT NULL,
+  `is_other` int DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
-  `ref_id` int NOT NULL,
+  `ref_id` int DEFAULT '0',
   `title` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
@@ -235,8 +259,8 @@ DROP TABLE IF EXISTS `permission`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `permission` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -251,15 +275,15 @@ DROP TABLE IF EXISTS `pig`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pig` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `code` varchar(255) DEFAULT NULL,
   `color` varchar(255) DEFAULT NULL,
   `export_date` date DEFAULT NULL,
-  `father_id` int NOT NULL,
+  `father_id` int DEFAULT NULL,
   `gender` tinyint NOT NULL,
   `import_date` date DEFAULT NULL,
-  `mother_id` int NOT NULL,
+  `mother_id` int DEFAULT NULL,
   `spec` varchar(255) DEFAULT NULL,
   `weight` double NOT NULL,
   `cote_id` int DEFAULT NULL,
@@ -284,8 +308,8 @@ DROP TABLE IF EXISTS `pig_associate_status`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pig_associate_status` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `pig_id` int DEFAULT NULL,
   `pig_status_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -305,8 +329,8 @@ DROP TABLE IF EXISTS `pig_status`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pig_status` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -321,8 +345,8 @@ DROP TABLE IF EXISTS `role`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -337,8 +361,8 @@ DROP TABLE IF EXISTS `role_account`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role_account` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `account_id` int DEFAULT NULL,
   `role_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -358,8 +382,8 @@ DROP TABLE IF EXISTS `role_permission`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role_permission` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `permission_id` int DEFAULT NULL,
   `role_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -379,8 +403,8 @@ DROP TABLE IF EXISTS `stock`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `exp_date` date DEFAULT NULL,
   `import_date` date DEFAULT NULL,
   `mfg_date` date DEFAULT NULL,
@@ -406,8 +430,8 @@ DROP TABLE IF EXISTS `treatment_vacxin`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `treatment_vacxin` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `treat_date` date DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `veterinary` varchar(255) DEFAULT NULL,
@@ -436,8 +460,8 @@ DROP TABLE IF EXISTS `vacxin`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vacxin` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -452,8 +476,8 @@ DROP TABLE IF EXISTS `vendor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vendor` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `deleted` int DEFAULT '0',
   `description` varchar(1000) DEFAULT NULL,
+  `is_deleted` int DEFAULT '0',
   `code` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -469,4 +493,4 @@ CREATE TABLE `vendor` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-06 18:48:41
+-- Dump completed on 2020-11-10  0:13:01

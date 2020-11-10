@@ -1,14 +1,15 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "account")
 public class Account extends BaseEntity {
@@ -16,8 +17,9 @@ public class Account extends BaseEntity {
     @Column(length = 250)
     private String password;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "account")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<RoleAccount> roleAccounts;
+    @JsonIgnore
+    private Set<RoleAccount> roleAccounts;
 }

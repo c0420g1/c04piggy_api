@@ -10,7 +10,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "role_account")
 public class RoleAccount extends BaseEntity {

@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.CascadeType;
@@ -7,18 +8,21 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Collection;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "diseases")
 public class Diseases extends BaseEntity {
     private String name;
 
-    @OneToMany(mappedBy = "diseases", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "diseases")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<TreatmentVacxin> treatmentVacxins;
+    @JsonIgnore
+    private Set<TreatmentVacxin> treatmentVacxins;
 }

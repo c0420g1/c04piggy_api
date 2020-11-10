@@ -8,7 +8,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "history_export")
 public class HistoryExport extends BaseEntity {
@@ -18,7 +19,7 @@ public class HistoryExport extends BaseEntity {
     private String company;
     private int receivedEmployeeId;
 
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name = "export_date")
     private LocalDate exportDate;
 
     @ManyToOne

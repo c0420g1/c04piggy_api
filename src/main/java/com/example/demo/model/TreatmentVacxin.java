@@ -8,13 +8,14 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "treatment_vacxin")
 public class TreatmentVacxin extends BaseEntity {
     private String veterinary;
     private String type;
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", name= "treat_date")
     private LocalDate treatDate;
 
     @ManyToOne

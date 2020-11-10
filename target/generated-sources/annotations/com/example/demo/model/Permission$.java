@@ -3,7 +3,7 @@ package com.example.demo.model;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * The generated base for entity {@link Permission} representing entities of the
@@ -17,7 +17,7 @@ public final class Permission$ {
     /**
      * This Field corresponds to the {@link Permission} field rolePermissions.
      */
-    public static final ReferenceField<Permission, Collection<RolePermission>> rolePermissions = ReferenceField.create(
+    public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Permission.class,
         "rolePermissions",
         Permission::getRolePermissions,

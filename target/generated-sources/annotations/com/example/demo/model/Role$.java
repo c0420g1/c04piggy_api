@@ -3,7 +3,7 @@ package com.example.demo.model;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
-import java.util.Collection;
+import java.util.Set;
 
 /**
  * The generated base for entity {@link Role} representing entities of the
@@ -15,18 +15,9 @@ import java.util.Collection;
 public final class Role$ {
     
     /**
-     * This Field corresponds to the {@link Role} field roleAccounts.
-     */
-    public static final ReferenceField<Role, Collection<RoleAccount>> roleAccounts = ReferenceField.create(
-        Role.class,
-        "roleAccounts",
-        Role::getRoleAccounts,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Role} field rolePermissions.
      */
-    public static final ReferenceField<Role, Collection<RolePermission>> rolePermissions = ReferenceField.create(
+    public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Role.class,
         "rolePermissions",
         Role::getRolePermissions,
@@ -39,6 +30,15 @@ public final class Role$ {
         Role.class,
         "name",
         Role::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field roleAccounts.
+     */
+    public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+        Role.class,
+        "roleAccounts",
+        Role::getRoleAccounts,
         false
     );
 }

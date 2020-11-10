@@ -1,17 +1,17 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "other")
 public class Other extends BaseEntity {
@@ -19,6 +19,10 @@ public class Other extends BaseEntity {
     private String title;
     private String type;
     private String url;
-    private byte isOther;
+    @Column(columnDefinition="DATE", name="create_date")
+    private LocalDate createDate;
+    @Column(columnDefinition = "integer default 0", name = "is_other")
+    private int isOther=0;
+    @Column(columnDefinition = "integer default 0", name = "ref_id")
     private int refId;
 }
