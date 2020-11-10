@@ -1,5 +1,5 @@
 package com.example.demo.common;
 
-public class StringUtil {
+public class GlobalUtil {
     public static int pageSize=10;
 }

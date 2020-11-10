@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
-import static com.example.demo.common.StringUtil.pageSize;
+import static com.example.demo.common.GlobalUtil.pageSize;
 
 @Service
 public class CoteServiceImpl implements CoteService {
