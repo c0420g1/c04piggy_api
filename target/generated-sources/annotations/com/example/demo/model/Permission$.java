@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -24,12 +25,12 @@ public final class Permission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Permission} field isDeleted.
+     * This Field corresponds to the {@link Permission} field id.
      */
-    public static final IntField<Permission> isDeleted = IntField.create(
+    public static final IntField<Permission> id = IntField.create(
         Permission.class,
-        "isDeleted",
-        Permission::getIsDeleted,
+        "id",
+        Permission::getId,
         false
     );
     /**
@@ -42,24 +43,21 @@ public final class Permission$ {
         false
     );
     /**
-<<<<<<< HEAD
-=======
-     * This Field corresponds to the {@link Permission} field id.
-     */
-    public static final IntField<Permission> id = IntField.create(
-        Permission.class,
-        "id",
-        Permission::getId,
-        false
-    );
-    /**
->>>>>>> develop
      * This Field corresponds to the {@link Permission} field rolePermissions.
      */
     public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Permission.class,
         "rolePermissions",
         Permission::getRolePermissions,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Permission} field isDeleted.
+     */
+    public static final IntField<Permission> isDeleted = IntField.create(
+        Permission.class,
+        "isDeleted",
+        Permission::getIsDeleted,
         false
     );
 }

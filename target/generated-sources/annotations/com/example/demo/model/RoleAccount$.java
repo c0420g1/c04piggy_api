@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
+import com.speedment.jpastreamer.field.StringField;
 
 /**
  * The generated base for entity {@link RoleAccount} representing entities of
@@ -12,6 +14,15 @@ import com.speedment.jpastreamer.field.ReferenceField;
 public final class RoleAccount$ {
     
     /**
+     * This Field corresponds to the {@link RoleAccount} field account.
+     */
+    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
+        RoleAccount.class,
+        "account",
+        RoleAccount::getAccount,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RoleAccount} field role.
      */
     public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
@@ -21,8 +32,6 @@ public final class RoleAccount$ {
         false
     );
     /**
-<<<<<<< HEAD
-=======
      * This Field corresponds to the {@link RoleAccount} field isDeleted.
      */
     public static final IntField<RoleAccount> isDeleted = IntField.create(
@@ -47,16 +56,6 @@ public final class RoleAccount$ {
         RoleAccount.class,
         "id",
         RoleAccount::getId,
-        false
-    );
-    /**
->>>>>>> develop
-     * This Field corresponds to the {@link RoleAccount} field account.
-     */
-    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
-        RoleAccount.class,
-        "account",
-        RoleAccount::getAccount,
         false
     );
 }

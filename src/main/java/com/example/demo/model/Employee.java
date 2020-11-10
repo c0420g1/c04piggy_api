@@ -15,7 +15,16 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "employee")
-public class Employee extends BaseEntity {
+public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(columnDefinition = "integer default 0", name ="is_deleted")
+    private int isDeleted=0;
+
+    @Column(length = 1000)
+    private String description;
     private String code;
     private String name;
     @Column(columnDefinition="DATE", name="birthday")

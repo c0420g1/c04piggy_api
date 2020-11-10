@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -15,30 +16,21 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
-<<<<<<< HEAD
+     * This Field corresponds to the {@link FeedType} field description.
+     */
+    public static final StringField<FeedType> description = StringField.create(
+        FeedType.class,
+        "description",
+        FeedType::getDescription,
+        false
+    );
+    /**
      * This Field corresponds to the {@link FeedType} field stocks.
      */
     public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
         FeedType.class,
         "stocks",
         FeedType::getStocks,
-=======
-     * This Field corresponds to the {@link FeedType} field isDeleted.
-     */
-    public static final IntField<FeedType> isDeleted = IntField.create(
-        FeedType.class,
-        "isDeleted",
-        FeedType::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link FeedType} field id.
-     */
-    public static final IntField<FeedType> id = IntField.create(
-        FeedType.class,
-        "id",
-        FeedType::getId,
->>>>>>> develop
         false
     );
     /**
@@ -59,25 +51,22 @@ public final class FeedType$ {
         FeedType::getName,
         false
     );
-<<<<<<< HEAD
-=======
     /**
-     * This Field corresponds to the {@link FeedType} field stocks.
+     * This Field corresponds to the {@link FeedType} field isDeleted.
      */
-    public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
+    public static final IntField<FeedType> isDeleted = IntField.create(
         FeedType.class,
-        "stocks",
-        FeedType::getStocks,
+        "isDeleted",
+        FeedType::getIsDeleted,
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field description.
+     * This Field corresponds to the {@link FeedType} field id.
      */
-    public static final StringField<FeedType> description = StringField.create(
+    public static final IntField<FeedType> id = IntField.create(
         FeedType.class,
-        "description",
-        FeedType::getDescription,
+        "id",
+        FeedType::getId,
         false
     );
->>>>>>> develop
 }

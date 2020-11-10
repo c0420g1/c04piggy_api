@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -24,20 +25,16 @@ public final class Vacxin$ {
         false
     );
     /**
-<<<<<<< HEAD
      * This Field corresponds to the {@link Vacxin} field name.
-=======
-     * This Field corresponds to the {@link Vacxin} field id.
      */
-    public static final IntField<Vacxin> id = IntField.create(
+    public static final StringField<Vacxin> name = StringField.create(
         Vacxin.class,
-        "id",
-        Vacxin::getId,
+        "name",
+        Vacxin::getName,
         false
     );
     /**
      * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
->>>>>>> develop
      */
     public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Vacxin.class,
@@ -45,15 +42,13 @@ public final class Vacxin$ {
         Vacxin::getTreatmentVacxins,
         false
     );
-<<<<<<< HEAD
-=======
     /**
-     * This Field corresponds to the {@link Vacxin} field name.
+     * This Field corresponds to the {@link Vacxin} field id.
      */
-    public static final StringField<Vacxin> name = StringField.create(
+    public static final IntField<Vacxin> id = IntField.create(
         Vacxin.class,
-        "name",
-        Vacxin::getName,
+        "id",
+        Vacxin::getId,
         false
     );
     /**
@@ -65,5 +60,4 @@ public final class Vacxin$ {
         Vacxin::getIsDeleted,
         false
     );
->>>>>>> develop
 }

@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
+import com.speedment.jpastreamer.field.StringField;
 
 /**
  * The generated base for entity {@link PigAssociateStatus} representing
@@ -12,8 +14,6 @@ import com.speedment.jpastreamer.field.ReferenceField;
 public final class PigAssociateStatus$ {
     
     /**
-<<<<<<< HEAD
-=======
      * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
      */
     public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
@@ -32,22 +32,21 @@ public final class PigAssociateStatus$ {
         false
     );
     /**
->>>>>>> develop
-     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
-     */
-    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
-        PigAssociateStatus.class,
-        "pigStatus",
-        PigAssociateStatus::getPigStatus,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigAssociateStatus} field id.
      */
     public static final IntField<PigAssociateStatus> id = IntField.create(
         PigAssociateStatus.class,
         "id",
         PigAssociateStatus::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
+     */
+    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
+        PigAssociateStatus.class,
+        "pigStatus",
+        PigAssociateStatus::getPigStatus,
         false
     );
     /**
