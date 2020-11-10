@@ -24,15 +24,6 @@ public final class PigAssociateStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
-     */
-    public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
-        PigAssociateStatus.class,
-        "isDeleted",
-        PigAssociateStatus::getIsDeleted,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigAssociateStatus} field id.
      */
     public static final IntField<PigAssociateStatus> id = IntField.create(
@@ -48,6 +39,15 @@ public final class PigAssociateStatus$ {
         PigAssociateStatus.class,
         "pigStatus",
         PigAssociateStatus::getPigStatus,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
+     */
+    public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
+        PigAssociateStatus.class,
+        "isDeleted",
+        PigAssociateStatus::getIsDeleted,
         false
     );
     /**

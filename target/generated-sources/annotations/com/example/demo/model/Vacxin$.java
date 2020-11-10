@@ -34,12 +34,12 @@ public final class Vacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vacxin} field name.
+     * This Field corresponds to the {@link Vacxin} field id.
      */
-    public static final StringField<Vacxin> name = StringField.create(
+    public static final IntField<Vacxin> id = IntField.create(
         Vacxin.class,
-        "name",
-        Vacxin::getName,
+        "id",
+        Vacxin::getId,
         false
     );
     /**
@@ -52,12 +52,12 @@ public final class Vacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vacxin} field id.
+     * This Field corresponds to the {@link Vacxin} field name.
      */
-    public static final IntField<Vacxin> id = IntField.create(
+    public static final StringField<Vacxin> name = StringField.create(
         Vacxin.class,
-        "id",
-        Vacxin::getId,
+        "name",
+        Vacxin::getName,
         false
     );
 }
