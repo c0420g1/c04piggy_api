@@ -20,6 +20,8 @@ target/
 *.ipr
 application.properties
 persistence.xml
+.idea/workspace.xml
+.idea/c04piggy_api.iml
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -33,8 +35,12 @@ build/
 ### VS Code ###
 .vscode/
 
+.idea/misc.xml
 .idea/workspace.xml
-demo.iml
-.idea/workspace.xml
-.idea/c04piggy_api.iml
-.idea/workspace.xml
+target/classes/application.properties
+target/classes/com/example/demo/model/HistoryExport$.class
+target/classes/com/example/demo/model/Pig$.class
+target/classes/com/example/demo/model/Stock$.class
+target/generated-sources/annotations/com/example/demo/model/HistoryExport$.java
+target/generated-sources/annotations/com/example/demo/model/Pig$.java
+target/generated-sources/annotations/com/example/demo/model/Stock$.java
