@@ -17,21 +17,21 @@ import java.util.Set;
 public final class Notification$ {
     
     /**
-     * This Field corresponds to the {@link Notification} field title.
+     * This Field corresponds to the {@link Notification} field employee.
      */
-    public static final StringField<Notification> title = StringField.create(
+    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
         Notification.class,
-        "title",
-        Notification::getTitle,
+        "employee",
+        Notification::getEmployee,
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field type.
+     * This Field corresponds to the {@link Notification} field content.
      */
-    public static final StringField<Notification> type = StringField.create(
+    public static final StringField<Notification> content = StringField.create(
         Notification.class,
-        "type",
-        Notification::getType,
+        "content",
+        Notification::getContent,
         false
     );
     /**
@@ -41,6 +41,15 @@ public final class Notification$ {
         Notification.class,
         "createDate",
         Notification::getCreateDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field type.
+     */
+    public static final StringField<Notification> type = StringField.create(
+        Notification.class,
+        "type",
+        Notification::getType,
         false
     );
     /**
@@ -54,21 +63,12 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field content.
+     * This Field corresponds to the {@link Notification} field title.
      */
-    public static final StringField<Notification> content = StringField.create(
+    public static final StringField<Notification> title = StringField.create(
         Notification.class,
-        "content",
-        Notification::getContent,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Notification} field employee.
-     */
-    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
-        Notification.class,
-        "employee",
-        Notification::getEmployee,
+        "title",
+        Notification::getTitle,
         false
     );
 }

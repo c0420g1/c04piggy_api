@@ -45,7 +45,6 @@ public class CoteServiceImpl implements CoteService {
             Cote a = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
             a.setIsDeleted(1);
             coteRepository.save(a);
-
         });
     }
 
@@ -57,7 +56,35 @@ public class CoteServiceImpl implements CoteService {
             CoteDTO coteDTO = new CoteDTO(e.getId(), e.getQuantity(), e.getHerd().getName(), e.getEmployee().getName());
             res.add(coteDTO);
         });
-
         return res;
+    }
+
+    @Override
+    public List<Cote> searchCote(int pageNum, String search){
+        List<Cote> coteList;
+        String temp ="";
+        if (temp.equals(search)){
+            coteList = jpaStreamer.stream(Cote.class).skip((pageNum - 1) * pageSize).limit(pageSize)
+                    .filter(e -> e.getEmployee().getName().contains(search)
+                    || e.getHerd().getName().contains(search)
+                    || e.getCode().contains(search)
+                    || e.getExportDate().toString().contains(search))
+                    .collect(Collectors.toList());
+        } else{
+            coteList = jpaStreamer.stream(Cote.class).filter(e -> e.getEmployee().getName().contains(search)
+                    || e.getHerd().getName().contains(search)
+                    || e.getCode().contains(search)
+                    || e.getExportDate().toString().contains(search)).skip((pageNum - 1) * pageSize).limit(pageSize)
+                    .collect(Collectors.toList());
+        }
+
+        return coteList;
+    }
+
+    @Override
+    public List<Pig> getAllPig(String herdCode) {
+        List<Pig> pigList;
+        pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getHerd().getName().equals(herdCode)).collect(Collectors.toList());
+        return pigList;
     }
 }

@@ -15,6 +15,15 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
+     * This Field corresponds to the {@link FeedType} field name.
+     */
+    public static final StringField<FeedType> name = StringField.create(
+        FeedType.class,
+        "name",
+        FeedType::getName,
+        false
+    );
+    /**
      * This Field corresponds to the {@link FeedType} field stocks.
      */
     public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
@@ -30,15 +39,6 @@ public final class FeedType$ {
         FeedType.class,
         "feeds",
         FeedType::getFeeds,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link FeedType} field name.
-     */
-    public static final StringField<FeedType> name = StringField.create(
-        FeedType.class,
-        "name",
-        FeedType::getName,
         false
     );
 }
