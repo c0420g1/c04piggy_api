@@ -12,7 +12,16 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "history_export")
-public class HistoryExport extends BaseEntity {
+public class HistoryExport {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(columnDefinition = "integer default 0", name ="is_deleted")
+    private int isDeleted=0;
+
+    @Column(length = 1000)
+    private String description;
     private String type;
     private int quantity;
     private String unit;

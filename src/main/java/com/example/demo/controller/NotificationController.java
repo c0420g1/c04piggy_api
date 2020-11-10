@@ -19,7 +19,7 @@ public class NotificationController {
 
     @GetMapping("/test")
     public List<Account> test(){
-        List<Account> a= jpaStreamer.stream(Account.class).filter(Account$.username.contains("2")).collect(Collectors.toList());
+        List<Account> a= jpaStreamer.stream(Account.class).sorted(Account$.id.reversed()).filter(Account$.username.contains("2")).collect(Collectors.toList());
         return a;
     }
 }

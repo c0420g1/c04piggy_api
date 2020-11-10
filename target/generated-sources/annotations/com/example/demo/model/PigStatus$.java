@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -15,6 +16,15 @@ import java.util.Set;
 public final class PigStatus$ {
     
     /**
+     * This Field corresponds to the {@link PigStatus} field isDeleted.
+     */
+    public static final IntField<PigStatus> isDeleted = IntField.create(
+        PigStatus.class,
+        "isDeleted",
+        PigStatus::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link PigStatus} field
      * pigAssociateStatuses.
      */
@@ -22,6 +32,24 @@ public final class PigStatus$ {
         PigStatus.class,
         "pigAssociateStatuses",
         PigStatus::getPigAssociateStatuses,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field description.
+     */
+    public static final StringField<PigStatus> description = StringField.create(
+        PigStatus.class,
+        "description",
+        PigStatus::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field id.
+     */
+    public static final IntField<PigStatus> id = IntField.create(
+        PigStatus.class,
+        "id",
+        PigStatus::getId,
         false
     );
     /**
