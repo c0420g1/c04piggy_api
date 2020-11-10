@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="">
-<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/PigController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/HerdRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/PigAssociateStatusRepository.java" afterDir="false" />
@@ -37,46 +36,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/c04piggy_api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/c04piggy_api.iml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Account$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Account$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Cote$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Cote$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Employee$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Employee$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Feed$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Feed$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/FeedType$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/FeedType$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Herd$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Herd$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/HistoryExport$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/HistoryExport$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Notification$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Notification$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Other$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Other$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Pig$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Pig$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Role$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Role$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/RolePermission$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/RolePermission$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Stock$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Stock$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/TreatmentVacxin$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/TreatmentVacxin$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Vendor$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Vendor$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Account$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Account$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Cote$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Cote$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Diseases$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Diseases$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Employee$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Employee$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Feed$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Feed$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/FeedType$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/FeedType$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Herd$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Herd$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/HistoryExport$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/HistoryExport$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Notification$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Notification$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Other$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Other$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Permission$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Permission$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Pig$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Pig$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/PigAssociateStatus$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/PigAssociateStatus$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/PigStatus$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/PigStatus$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Role$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Role$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/RoleAccount$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/RoleAccount$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/RolePermission$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/RolePermission$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Stock$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Stock$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/TreatmentVacxin$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/TreatmentVacxin$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Vacxin$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Vacxin$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Vendor$.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/example/demo/model/Vendor$.java" afterDir="false" />
->>>>>>> develop
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,18 +229,6 @@
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1604981154478" />
   </component>
   <component name="XDebuggerManager">
-<<<<<<< HEAD
-=======
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/CoteServiceImpl.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
->>>>>>> develop
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="r" language="JAVA" />
@@ -297,23 +244,4 @@
       </expression>
     </expressions>
   </component>
-<<<<<<< HEAD
-=======
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>14</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
-  </component>
->>>>>>> develop
 </project>
