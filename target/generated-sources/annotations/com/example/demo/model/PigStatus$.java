@@ -16,21 +16,13 @@ import java.util.Set;
 public final class PigStatus$ {
     
     /**
-     * This Field corresponds to the {@link PigStatus} field description.
+     * This Field corresponds to the {@link PigStatus} field
+     * pigAssociateStatuses.
      */
-    public static final StringField<PigStatus> description = StringField.create(
+    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
         PigStatus.class,
-        "description",
-        PigStatus::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigStatus} field isDeleted.
-     */
-    public static final IntField<PigStatus> isDeleted = IntField.create(
-        PigStatus.class,
-        "isDeleted",
-        PigStatus::getIsDeleted,
+        "pigAssociateStatuses",
+        PigStatus::getPigAssociateStatuses,
         false
     );
     /**
@@ -43,13 +35,21 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field
-     * pigAssociateStatuses.
+     * This Field corresponds to the {@link PigStatus} field isDeleted.
      */
-    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+    public static final IntField<PigStatus> isDeleted = IntField.create(
         PigStatus.class,
-        "pigAssociateStatuses",
-        PigStatus::getPigAssociateStatuses,
+        "isDeleted",
+        PigStatus::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field description.
+     */
+    public static final StringField<PigStatus> description = StringField.create(
+        PigStatus.class,
+        "description",
+        PigStatus::getDescription,
         false
     );
     /**
