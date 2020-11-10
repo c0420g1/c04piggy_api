@@ -16,6 +16,7 @@ import java.util.Set;
 public final class Diseases$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Diseases} field isDeleted.
      */
     public static final IntField<Diseases> isDeleted = IntField.create(
@@ -34,7 +35,19 @@ public final class Diseases$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Diseases} field id.
+     */
+    public static final IntField<Diseases> id = IntField.create(
+        Diseases.class,
+        "id",
+        Diseases::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field name.
+=======
      * This Field corresponds to the {@link Diseases} field treatmentVacxins.
+>>>>>>> hai-BE-10-11
      */
     public static final ReferenceField<Diseases, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Diseases.class,
@@ -49,15 +62,6 @@ public final class Diseases$ {
         Diseases.class,
         "name",
         Diseases::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Diseases} field id.
-     */
-    public static final IntField<Diseases> id = IntField.create(
-        Diseases.class,
-        "id",
-        Diseases::getId,
         false
     );
 }
