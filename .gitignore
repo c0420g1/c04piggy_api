@@ -20,6 +20,8 @@ target/
 *.ipr
 application.properties
 persistence.xml
+.idea/workspace.xml
+.idea/c04piggy_api.iml
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -33,8 +35,3 @@ build/
 ### VS Code ###
 .vscode/
 
-.idea/workspace.xml
-demo.iml
-.idea/workspace.xml
-.idea/c04piggy_api.iml
-.idea/workspace.xml
