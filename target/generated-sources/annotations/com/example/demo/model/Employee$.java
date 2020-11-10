@@ -19,39 +19,39 @@ import java.util.Set;
 public final class Employee$ {
     
     /**
-     * This Field corresponds to the {@link Employee} field email.
+     * This Field corresponds to the {@link Employee} field cotes.
      */
-    public static final StringField<Employee> email = StringField.create(
+    public static final ReferenceField<Employee, Set<Cote>> cotes = ReferenceField.create(
         Employee.class,
-        "email",
-        Employee::getEmail,
+        "cotes",
+        Employee::getCotes,
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field cardId.
+     * This Field corresponds to the {@link Employee} field historyExports.
      */
-    public static final StringField<Employee> cardId = StringField.create(
+    public static final ReferenceField<Employee, Set<HistoryExport>> historyExports = ReferenceField.create(
         Employee.class,
-        "cardId",
-        Employee::getCardId,
+        "historyExports",
+        Employee::getHistoryExports,
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field notifications.
+     * This Field corresponds to the {@link Employee} field name.
      */
-    public static final ReferenceField<Employee, Set<Notification>> notifications = ReferenceField.create(
+    public static final StringField<Employee> name = StringField.create(
         Employee.class,
-        "notifications",
-        Employee::getNotifications,
+        "name",
+        Employee::getName,
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field code.
+     * This Field corresponds to the {@link Employee} field birthday.
      */
-    public static final StringField<Employee> code = StringField.create(
+    public static final ComparableField<Employee, Date> birthday = ComparableField.create(
         Employee.class,
-        "code",
-        Employee::getCode,
+        "birthday",
+        Employee::getBirthday,
         false
     );
     /**
@@ -64,30 +64,30 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field gender.
+     * This Field corresponds to the {@link Employee} field cardId.
      */
-    public static final ByteField<Employee> gender = ByteField.create(
+    public static final StringField<Employee> cardId = StringField.create(
         Employee.class,
-        "gender",
-        Employee::getGender,
+        "cardId",
+        Employee::getCardId,
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field id.
+     * This Field corresponds to the {@link Employee} field account.
      */
-    public static final IntField<Employee> id = IntField.create(
+    public static final ReferenceField<Employee, Account> account = ReferenceField.create(
         Employee.class,
-        "id",
-        Employee::getId,
+        "account",
+        Employee::getAccount,
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field birthday.
+     * This Field corresponds to the {@link Employee} field notifications.
      */
-    public static final ComparableField<Employee, Date> birthday = ComparableField.create(
+    public static final ReferenceField<Employee, Set<Notification>> notifications = ReferenceField.create(
         Employee.class,
-        "birthday",
-        Employee::getBirthday,
+        "notifications",
+        Employee::getNotifications,
         false
     );
     /**
@@ -101,30 +101,39 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field cotes.
+     * This Field corresponds to the {@link Employee} field email.
      */
-    public static final ReferenceField<Employee, Set<Cote>> cotes = ReferenceField.create(
+    public static final StringField<Employee> email = StringField.create(
         Employee.class,
-        "cotes",
-        Employee::getCotes,
+        "email",
+        Employee::getEmail,
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field name.
+     * This Field corresponds to the {@link Employee} field id.
      */
-    public static final StringField<Employee> name = StringField.create(
+    public static final IntField<Employee> id = IntField.create(
         Employee.class,
-        "name",
-        Employee::getName,
+        "id",
+        Employee::getId,
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field account.
+     * This Field corresponds to the {@link Employee} field code.
      */
-    public static final ReferenceField<Employee, Account> account = ReferenceField.create(
+    public static final StringField<Employee> code = StringField.create(
         Employee.class,
-        "account",
-        Employee::getAccount,
+        "code",
+        Employee::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field gender.
+     */
+    public static final ByteField<Employee> gender = ByteField.create(
+        Employee.class,
+        "gender",
+        Employee::getGender,
         false
     );
     /**
@@ -134,15 +143,6 @@ public final class Employee$ {
         Employee.class,
         "isDeleted",
         Employee::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Employee} field historyExports.
-     */
-    public static final ReferenceField<Employee, Set<HistoryExport>> historyExports = ReferenceField.create(
-        Employee.class,
-        "historyExports",
-        Employee::getHistoryExports,
         false
     );
 }

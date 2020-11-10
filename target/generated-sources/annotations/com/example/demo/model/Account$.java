@@ -16,21 +16,12 @@ import java.util.Set;
 public final class Account$ {
     
     /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
+     * This Field corresponds to the {@link Account} field username.
      */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final StringField<Account> username = StringField.create(
         Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Account} field id.
-     */
-    public static final IntField<Account> id = IntField.create(
-        Account.class,
-        "id",
-        Account::getId,
+        "username",
+        Account::getUsername,
         false
     );
     /**
@@ -43,21 +34,21 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field password.
+     * This Field corresponds to the {@link Account} field id.
      */
-    public static final StringField<Account> password = StringField.create(
+    public static final IntField<Account> id = IntField.create(
         Account.class,
-        "password",
-        Account::getPassword,
+        "id",
+        Account::getId,
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field username.
+     * This Field corresponds to the {@link Account} field roleAccounts.
      */
-    public static final StringField<Account> username = StringField.create(
+    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Account.class,
-        "username",
-        Account::getUsername,
+        "roleAccounts",
+        Account::getRoleAccounts,
         false
     );
     /**
@@ -67,6 +58,15 @@ public final class Account$ {
         Account.class,
         "isDeleted",
         Account::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field password.
+     */
+    public static final StringField<Account> password = StringField.create(
+        Account.class,
+        "password",
+        Account::getPassword,
         false
     );
 }

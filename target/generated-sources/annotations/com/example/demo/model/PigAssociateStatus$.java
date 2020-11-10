@@ -14,15 +14,6 @@ import com.speedment.jpastreamer.field.StringField;
 public final class PigAssociateStatus$ {
     
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
-     */
-    public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
-        PigAssociateStatus.class,
-        "isDeleted",
-        PigAssociateStatus::getIsDeleted,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigAssociateStatus} field
      * description.
      */
@@ -33,12 +24,12 @@ public final class PigAssociateStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
+     * This Field corresponds to the {@link PigAssociateStatus} field id.
      */
-    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
+    public static final IntField<PigAssociateStatus> id = IntField.create(
         PigAssociateStatus.class,
-        "pigStatus",
-        PigAssociateStatus::getPigStatus,
+        "id",
+        PigAssociateStatus::getId,
         false
     );
     /**
@@ -51,12 +42,21 @@ public final class PigAssociateStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field id.
+     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
      */
-    public static final IntField<PigAssociateStatus> id = IntField.create(
+    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
         PigAssociateStatus.class,
-        "id",
-        PigAssociateStatus::getId,
+        "pigStatus",
+        PigAssociateStatus::getPigStatus,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
+     */
+    public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
+        PigAssociateStatus.class,
+        "isDeleted",
+        PigAssociateStatus::getIsDeleted,
         false
     );
 }
