@@ -16,12 +16,12 @@ import java.time.LocalDate;
 public final class Other$ {
     
     /**
-     * This Field corresponds to the {@link Other} field name.
+     * This Field corresponds to the {@link Other} field type.
      */
-    public static final StringField<Other> name = StringField.create(
+    public static final StringField<Other> type = StringField.create(
         Other.class,
-        "name",
-        Other::getName,
+        "type",
+        Other::getType,
         false
     );
     /**
@@ -31,33 +31,6 @@ public final class Other$ {
         Other.class,
         "isDeleted",
         Other::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field isOther.
-     */
-    public static final IntField<Other> isOther = IntField.create(
-        Other.class,
-        "isOther",
-        Other::getIsOther,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field title.
-     */
-    public static final StringField<Other> title = StringField.create(
-        Other.class,
-        "title",
-        Other::getTitle,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field id.
-     */
-    public static final IntField<Other> id = IntField.create(
-        Other.class,
-        "id",
-        Other::getId,
         false
     );
     /**
@@ -88,12 +61,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field type.
+     * This Field corresponds to the {@link Other} field name.
      */
-    public static final StringField<Other> type = StringField.create(
+    public static final StringField<Other> name = StringField.create(
         Other.class,
-        "type",
-        Other::getType,
+        "name",
+        Other::getName,
         false
     );
     /**
@@ -103,6 +76,33 @@ public final class Other$ {
         Other.class,
         "description",
         Other::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field title.
+     */
+    public static final StringField<Other> title = StringField.create(
+        Other.class,
+        "title",
+        Other::getTitle,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field id.
+     */
+    public static final IntField<Other> id = IntField.create(
+        Other.class,
+        "id",
+        Other::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field isOther.
+     */
+    public static final IntField<Other> isOther = IntField.create(
+        Other.class,
+        "isOther",
+        Other::getIsOther,
         false
     );
 }
