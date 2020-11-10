@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -24,12 +25,21 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
+     * This Field corresponds to the {@link Account} field isDeleted.
      */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final IntField<Account> isDeleted = IntField.create(
         Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "isDeleted",
+        Account::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field id.
+     */
+    public static final IntField<Account> id = IntField.create(
+        Account.class,
+        "id",
+        Account::getId,
         false
     );
     /**
@@ -39,6 +49,24 @@ public final class Account$ {
         Account.class,
         "password",
         Account::getPassword,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field roleAccounts.
+     */
+    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+        Account.class,
+        "roleAccounts",
+        Account::getRoleAccounts,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field description.
+     */
+    public static final StringField<Account> description = StringField.create(
+        Account.class,
+        "description",
+        Account::getDescription,
         false
     );
 }

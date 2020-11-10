@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -15,12 +16,30 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
-     * This Field corresponds to the {@link FeedType} field stocks.
+     * This Field corresponds to the {@link FeedType} field isDeleted.
      */
-    public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
+    public static final IntField<FeedType> isDeleted = IntField.create(
         FeedType.class,
-        "stocks",
-        FeedType::getStocks,
+        "isDeleted",
+        FeedType::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field name.
+     */
+    public static final StringField<FeedType> name = StringField.create(
+        FeedType.class,
+        "name",
+        FeedType::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field id.
+     */
+    public static final IntField<FeedType> id = IntField.create(
+        FeedType.class,
+        "id",
+        FeedType::getId,
         false
     );
     /**
@@ -33,12 +52,21 @@ public final class FeedType$ {
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field name.
+     * This Field corresponds to the {@link FeedType} field stocks.
      */
-    public static final StringField<FeedType> name = StringField.create(
+    public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
         FeedType.class,
-        "name",
-        FeedType::getName,
+        "stocks",
+        FeedType::getStocks,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field description.
+     */
+    public static final StringField<FeedType> description = StringField.create(
+        FeedType.class,
+        "description",
+        FeedType::getDescription,
         false
     );
 }

@@ -36,6 +36,15 @@ public final class Cote$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Cote} field type.
+     */
+    public static final StringField<Cote> type = StringField.create(
+        Cote.class,
+        "type",
+        Cote::getType,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Cote} field herd.
      */
     public static final ReferenceField<Cote, Herd> herd = ReferenceField.create(
@@ -63,12 +72,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field type.
+     * This Field corresponds to the {@link Cote} field description.
      */
-    public static final StringField<Cote> type = StringField.create(
+    public static final StringField<Cote> description = StringField.create(
         Cote.class,
-        "type",
-        Cote::getType,
+        "description",
+        Cote::getDescription,
         false
     );
     /**
@@ -78,6 +87,24 @@ public final class Cote$ {
         Cote.class,
         "code",
         Cote::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field isDeleted.
+     */
+    public static final IntField<Cote> isDeleted = IntField.create(
+        Cote.class,
+        "isDeleted",
+        Cote::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field id.
+     */
+    public static final IntField<Cote> id = IntField.create(
+        Cote.class,
+        "id",
+        Cote::getId,
         false
     );
     /**

@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -30,6 +31,33 @@ public final class Diseases$ {
         Diseases.class,
         "treatmentVacxins",
         Diseases::getTreatmentVacxins,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field isDeleted.
+     */
+    public static final IntField<Diseases> isDeleted = IntField.create(
+        Diseases.class,
+        "isDeleted",
+        Diseases::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field id.
+     */
+    public static final IntField<Diseases> id = IntField.create(
+        Diseases.class,
+        "id",
+        Diseases::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field description.
+     */
+    public static final StringField<Diseases> description = StringField.create(
+        Diseases.class,
+        "description",
+        Diseases::getDescription,
         false
     );
 }

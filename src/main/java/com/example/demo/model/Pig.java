@@ -14,7 +14,16 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "pig")
-public class Pig extends BaseEntity {
+public class Pig {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(columnDefinition = "integer default 0", name ="is_deleted")
+    private int isDeleted=0;
+
+    @Column(length = 1000)
+    private String description;
     private String code;
     private String spec;
     private byte gender;

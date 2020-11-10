@@ -16,12 +16,30 @@ import java.util.Set;
 public final class Feed$ {
     
     /**
-     * This Field corresponds to the {@link Feed} field feedType.
+     * This Field corresponds to the {@link Feed} field id.
      */
-    public static final ReferenceField<Feed, FeedType> feedType = ReferenceField.create(
+    public static final IntField<Feed> id = IntField.create(
         Feed.class,
-        "feedType",
-        Feed::getFeedType,
+        "id",
+        Feed::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field code.
+     */
+    public static final StringField<Feed> code = StringField.create(
+        Feed.class,
+        "code",
+        Feed::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field isDeleted.
+     */
+    public static final IntField<Feed> isDeleted = IntField.create(
+        Feed.class,
+        "isDeleted",
+        Feed::getIsDeleted,
         false
     );
     /**
@@ -34,21 +52,21 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field amount.
+     * This Field corresponds to the {@link Feed} field description.
      */
-    public static final IntField<Feed> amount = IntField.create(
+    public static final StringField<Feed> description = StringField.create(
         Feed.class,
-        "amount",
-        Feed::getAmount,
+        "description",
+        Feed::getDescription,
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field code.
+     * This Field corresponds to the {@link Feed} field feedType.
      */
-    public static final StringField<Feed> code = StringField.create(
+    public static final ReferenceField<Feed, FeedType> feedType = ReferenceField.create(
         Feed.class,
-        "code",
-        Feed::getCode,
+        "feedType",
+        Feed::getFeedType,
         false
     );
     /**
@@ -67,6 +85,15 @@ public final class Feed$ {
         Feed.class,
         "herd",
         Feed::getHerd,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field amount.
+     */
+    public static final IntField<Feed> amount = IntField.create(
+        Feed.class,
+        "amount",
+        Feed::getAmount,
         false
     );
 }

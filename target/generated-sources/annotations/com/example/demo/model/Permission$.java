@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -21,6 +22,33 @@ public final class Permission$ {
         Permission.class,
         "name",
         Permission::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Permission} field description.
+     */
+    public static final StringField<Permission> description = StringField.create(
+        Permission.class,
+        "description",
+        Permission::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Permission} field isDeleted.
+     */
+    public static final IntField<Permission> isDeleted = IntField.create(
+        Permission.class,
+        "isDeleted",
+        Permission::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Permission} field id.
+     */
+    public static final IntField<Permission> id = IntField.create(
+        Permission.class,
+        "id",
+        Permission::getId,
         false
     );
     /**

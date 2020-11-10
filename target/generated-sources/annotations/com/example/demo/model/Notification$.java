@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import com.speedment.jpastreamer.field.ComparableField;
+import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -16,6 +17,16 @@ import java.util.Set;
  */
 public final class Notification$ {
     
+    /**
+     * This Field corresponds to the {@link Notification} field
+     * notificationEmployees.
+     */
+    public static final ReferenceField<Notification, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
+        Notification.class,
+        "notificationEmployees",
+        Notification::getNotificationEmployees,
+        false
+    );
     /**
      * This Field corresponds to the {@link Notification} field title.
      */
@@ -35,6 +46,24 @@ public final class Notification$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Notification} field id.
+     */
+    public static final IntField<Notification> id = IntField.create(
+        Notification.class,
+        "id",
+        Notification::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field description.
+     */
+    public static final StringField<Notification> description = StringField.create(
+        Notification.class,
+        "description",
+        Notification::getDescription,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Notification} field createDate.
      */
     public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
@@ -44,22 +73,21 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field
-     * notificationEmployees.
-     */
-    public static final ReferenceField<Notification, Set<NotificationEmployee>> notificationEmployees = ReferenceField.create(
-        Notification.class,
-        "notificationEmployees",
-        Notification::getNotificationEmployees,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Notification} field content.
      */
     public static final StringField<Notification> content = StringField.create(
         Notification.class,
         "content",
         Notification::getContent,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field isDeleted.
+     */
+    public static final IntField<Notification> isDeleted = IntField.create(
+        Notification.class,
+        "isDeleted",
+        Notification::getIsDeleted,
         false
     );
     /**
