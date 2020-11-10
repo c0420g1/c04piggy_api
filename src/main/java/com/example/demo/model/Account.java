@@ -12,17 +12,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "account")
-public class Account{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(columnDefinition = "integer default 0", name ="is_deleted")
-    private int isDeleted=0;
-
-    @Column(length = 1000)
-    private String description;
-
+public class Account extends BaseEntity {
     private String username;
     @Column(length = 250)
     private String password;

@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -17,6 +16,13 @@ public final class Role$ {
     
     /**
      * This Field corresponds to the {@link Role} field roleAccounts.
+<<<<<<< HEAD
+     */
+    public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+        Role.class,
+        "roleAccounts",
+        Role::getRoleAccounts,
+=======
      */
     public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Role.class,
@@ -31,6 +37,7 @@ public final class Role$ {
         Role.class,
         "name",
         Role::getName,
+>>>>>>> develop
         false
     );
     /**
@@ -43,6 +50,9 @@ public final class Role$ {
         false
     );
     /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link Role} field name.
+=======
      * This Field corresponds to the {@link Role} field isDeleted.
      */
     public static final IntField<Role> isDeleted = IntField.create(
@@ -62,6 +72,7 @@ public final class Role$ {
     );
     /**
      * This Field corresponds to the {@link Role} field id.
+>>>>>>> develop
      */
     public static final IntField<Role> id = IntField.create(
         Role.class,

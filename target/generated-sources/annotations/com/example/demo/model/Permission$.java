@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -43,6 +42,8 @@ public final class Permission$ {
         false
     );
     /**
+<<<<<<< HEAD
+=======
      * This Field corresponds to the {@link Permission} field id.
      */
     public static final IntField<Permission> id = IntField.create(
@@ -52,6 +53,7 @@ public final class Permission$ {
         false
     );
     /**
+>>>>>>> develop
      * This Field corresponds to the {@link Permission} field rolePermissions.
      */
     public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(

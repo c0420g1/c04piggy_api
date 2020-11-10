@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -17,6 +16,13 @@ public final class Herd$ {
     
     /**
      * This Field corresponds to the {@link Herd} field cotes.
+<<<<<<< HEAD
+     */
+    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
+        Herd.class,
+        "cotes",
+        Herd::getCotes,
+=======
      */
     public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
         Herd.class,
@@ -40,6 +46,7 @@ public final class Herd$ {
         Herd.class,
         "feeds",
         Herd::getFeeds,
+>>>>>>> develop
         false
     );
     /**
@@ -52,6 +59,14 @@ public final class Herd$ {
         false
     );
     /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link Herd} field feeds.
+     */
+    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
+        Herd.class,
+        "feeds",
+        Herd::getFeeds,
+=======
      * This Field corresponds to the {@link Herd} field isDeleted.
      */
     public static final IntField<Herd> isDeleted = IntField.create(
@@ -67,6 +82,7 @@ public final class Herd$ {
         Herd.class,
         "description",
         Herd::getDescription,
+>>>>>>> develop
         false
     );
 }

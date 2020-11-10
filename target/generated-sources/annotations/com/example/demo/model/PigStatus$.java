@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -26,6 +25,8 @@ public final class PigStatus$ {
         false
     );
     /**
+<<<<<<< HEAD
+=======
      * This Field corresponds to the {@link PigStatus} field id.
      */
     public static final IntField<PigStatus> id = IntField.create(
@@ -53,6 +54,7 @@ public final class PigStatus$ {
         false
     );
     /**
+>>>>>>> develop
      * This Field corresponds to the {@link PigStatus} field name.
      */
     public static final StringField<PigStatus> name = StringField.create(

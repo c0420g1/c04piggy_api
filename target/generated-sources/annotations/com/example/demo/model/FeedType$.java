@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.speedment.jpastreamer.field.IntField;
 import com.speedment.jpastreamer.field.ReferenceField;
 import com.speedment.jpastreamer.field.StringField;
 
@@ -16,6 +15,14 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link FeedType} field stocks.
+     */
+    public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
+        FeedType.class,
+        "stocks",
+        FeedType::getStocks,
+=======
      * This Field corresponds to the {@link FeedType} field isDeleted.
      */
     public static final IntField<FeedType> isDeleted = IntField.create(
@@ -31,6 +38,7 @@ public final class FeedType$ {
         FeedType.class,
         "id",
         FeedType::getId,
+>>>>>>> develop
         false
     );
     /**
@@ -51,6 +59,8 @@ public final class FeedType$ {
         FeedType::getName,
         false
     );
+<<<<<<< HEAD
+=======
     /**
      * This Field corresponds to the {@link FeedType} field stocks.
      */
@@ -69,4 +79,5 @@ public final class FeedType$ {
         FeedType::getDescription,
         false
     );
+>>>>>>> develop
 }
