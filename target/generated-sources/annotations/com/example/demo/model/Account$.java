@@ -16,15 +16,6 @@ import java.util.Set;
 public final class Account$ {
     
     /**
-     * This Field corresponds to the {@link Account} field password.
-     */
-    public static final StringField<Account> password = StringField.create(
-        Account.class,
-        "password",
-        Account::getPassword,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Account} field description.
      */
     public static final StringField<Account> description = StringField.create(
@@ -43,13 +34,12 @@ public final class Account$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Account} field id.
+     * This Field corresponds to the {@link Account} field isDeleted.
      */
-    public static final IntField<Account> id = IntField.create(
+    public static final IntField<Account> isDeleted = IntField.create(
         Account.class,
-        "id",
-        Account::getId,
+        "isDeleted",
+        Account::getIsDeleted,
         false
     );
     /**
@@ -62,20 +52,21 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field isDeleted.
+     * This Field corresponds to the {@link Account} field id.
      */
-    public static final IntField<Account> isDeleted = IntField.create(
+    public static final IntField<Account> id = IntField.create(
         Account.class,
-        "isDeleted",
-        Account::getIsDeleted,
-=======
+        "id",
+        Account::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Account} field roleAccounts.
      */
     public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Account.class,
         "roleAccounts",
         Account::getRoleAccounts,
->>>>>>> hai-BE-10-11
         false
     );
 }

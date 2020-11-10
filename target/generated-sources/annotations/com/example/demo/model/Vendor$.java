@@ -16,13 +16,12 @@ import java.util.Set;
 public final class Vendor$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Vendor} field stocks.
+     * This Field corresponds to the {@link Vendor} field isDeleted.
      */
-    public static final ReferenceField<Vendor, Set<Stock>> stocks = ReferenceField.create(
+    public static final IntField<Vendor> isDeleted = IntField.create(
         Vendor.class,
-        "stocks",
-        Vendor::getStocks,
+        "isDeleted",
+        Vendor::getIsDeleted,
         false
     );
     /**
@@ -35,23 +34,12 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field id.
+     * This Field corresponds to the {@link Vendor} field stocks.
      */
-    public static final IntField<Vendor> id = IntField.create(
+    public static final ReferenceField<Vendor, Set<Stock>> stocks = ReferenceField.create(
         Vendor.class,
-        "id",
-        Vendor::getId,
-        false
-    );
-    /**
-=======
->>>>>>> hai-BE-10-11
-     * This Field corresponds to the {@link Vendor} field name.
-     */
-    public static final StringField<Vendor> name = StringField.create(
-        Vendor.class,
-        "name",
-        Vendor::getName,
+        "stocks",
+        Vendor::getStocks,
         false
     );
     /**
@@ -64,21 +52,21 @@ public final class Vendor$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Vendor} field isDeleted.
+     * This Field corresponds to the {@link Vendor} field id.
      */
-    public static final IntField<Vendor> isDeleted = IntField.create(
+    public static final IntField<Vendor> id = IntField.create(
         Vendor.class,
-        "isDeleted",
-        Vendor::getIsDeleted,
-=======
-     * This Field corresponds to the {@link Vendor} field stocks.
+        "id",
+        Vendor::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vendor} field name.
      */
-    public static final ReferenceField<Vendor, Set<Stock>> stocks = ReferenceField.create(
+    public static final StringField<Vendor> name = StringField.create(
         Vendor.class,
-        "stocks",
-        Vendor::getStocks,
->>>>>>> hai-BE-10-11
+        "name",
+        Vendor::getName,
         false
     );
 }

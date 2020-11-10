@@ -16,25 +16,12 @@ import java.time.LocalDate;
 public final class Other$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Other} field url.
+     * This Field corresponds to the {@link Other} field isDeleted.
      */
-    public static final StringField<Other> url = StringField.create(
+    public static final IntField<Other> isDeleted = IntField.create(
         Other.class,
-        "url",
-        Other::getUrl,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field name.
-=======
-     * This Field corresponds to the {@link Other} field isOther.
->>>>>>> hai-BE-10-11
-     */
-    public static final StringField<Other> name = StringField.create(
-        Other.class,
-        "name",
-        Other::getName,
+        "isDeleted",
+        Other::getIsDeleted,
         false
     );
     /**
@@ -56,47 +43,24 @@ public final class Other$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Other} field id.
-=======
-     * This Field corresponds to the {@link Other} field createDate.
+     * This Field corresponds to the {@link Other} field url.
      */
-    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+    public static final StringField<Other> url = StringField.create(
         Other.class,
-        "createDate",
-        Other::getCreateDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field type.
-     */
-    public static final StringField<Other> type = StringField.create(
-        Other.class,
-        "type",
-        Other::getType,
+        "url",
+        Other::getUrl,
         false
     );
     /**
      * This Field corresponds to the {@link Other} field name.
->>>>>>> hai-BE-10-11
      */
-    public static final IntField<Other> id = IntField.create(
+    public static final StringField<Other> name = StringField.create(
         Other.class,
-        "id",
-        Other::getId,
+        "name",
+        Other::getName,
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field isOther.
-     */
-    public static final IntField<Other> isOther = IntField.create(
-        Other.class,
-        "isOther",
-        Other::getIsOther,
-        false
-    );
-    /**
-<<<<<<< HEAD
      * This Field corresponds to the {@link Other} field description.
      */
     public static final StringField<Other> description = StringField.create(
@@ -106,17 +70,6 @@ public final class Other$ {
         false
     );
     /**
-=======
->>>>>>> hai-BE-10-11
-     * This Field corresponds to the {@link Other} field title.
-     */
-    public static final StringField<Other> title = StringField.create(
-        Other.class,
-        "title",
-        Other::getTitle,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Other} field type.
      */
     public static final StringField<Other> type = StringField.create(
@@ -126,12 +79,30 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field isDeleted.
+     * This Field corresponds to the {@link Other} field id.
      */
-    public static final IntField<Other> isDeleted = IntField.create(
+    public static final IntField<Other> id = IntField.create(
         Other.class,
-        "isDeleted",
-        Other::getIsDeleted,
+        "id",
+        Other::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field title.
+     */
+    public static final StringField<Other> title = StringField.create(
+        Other.class,
+        "title",
+        Other::getTitle,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field isOther.
+     */
+    public static final IntField<Other> isOther = IntField.create(
+        Other.class,
+        "isOther",
+        Other::getIsOther,
         false
     );
 }

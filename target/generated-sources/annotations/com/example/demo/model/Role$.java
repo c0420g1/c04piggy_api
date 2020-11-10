@@ -17,12 +17,29 @@ public final class Role$ {
     
     /**
      * This Field corresponds to the {@link Role} field rolePermissions.
-<<<<<<< HEAD
      */
     public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Role.class,
         "rolePermissions",
         Role::getRolePermissions,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field name.
+     */
+    public static final StringField<Role> name = StringField.create(
+        Role.class,
+        "name",
+        Role::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field isDeleted.
+     */
+    public static final IntField<Role> isDeleted = IntField.create(
+        Role.class,
+        "isDeleted",
+        Role::getIsDeleted,
         false
     );
     /**
@@ -45,40 +62,11 @@ public final class Role$ {
     );
     /**
      * This Field corresponds to the {@link Role} field roleAccounts.
-=======
->>>>>>> hai-BE-10-11
-     */
-    public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
-        Role.class,
-        "rolePermissions",
-        Role::getRolePermissions,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Role} field isDeleted.
-     */
-    public static final IntField<Role> isDeleted = IntField.create(
-        Role.class,
-        "isDeleted",
-        Role::getIsDeleted,
-=======
-     * This Field corresponds to the {@link Role} field roleAccounts.
      */
     public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Role.class,
         "roleAccounts",
         Role::getRoleAccounts,
->>>>>>> hai-BE-10-11
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Role} field name.
-     */
-    public static final StringField<Role> name = StringField.create(
-        Role.class,
-        "name",
-        Role::getName,
         false
     );
 }
