@@ -1,4 +1,6 @@
 package com.example.demo.service;
 
-public interface FeedTypeService extends BaseService<FeedTypeService>{
+import com.example.demo.model.FeedType;
+
+public interface FeedTypeService extends BaseService<FeedType>{
 }

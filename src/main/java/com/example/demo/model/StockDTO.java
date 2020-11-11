@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 public class StockDTO {
+        private int id;
         private String shipmentCode;
         private String feedTypeName;
         private String vendorName;

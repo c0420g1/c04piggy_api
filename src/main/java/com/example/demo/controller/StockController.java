@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import com.example.demo.model.Cote;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,8 +40,9 @@ public class StockController {
     }
 
     //Creator Tuong
-    @GetMapping("getListStockDTO")
-    public List<StockDTO> getListStockDTO(@PathVariable int pageNum, @RequestParam String search){
+    //List has Pagination & Search
+    @GetMapping("/stockDTO/{pageNum}")
+    public List<StockDTO> getListStockDTO(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search){
         try {
             return stockService.search(pageNum, search);
         } catch (Exception e) {
@@ -70,4 +71,25 @@ public class StockController {
         }
     }
 
+    //Creator Tuong
+    // edit Stock, with no pagination
+    @PutMapping("stock")
+    public void editStock(@RequestBody Stock stock){
+        try {
+            stockService.save(stock);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Creator Tuong
+    // edit Stock, with no pagination
+    @DeleteMapping("stock")
+    public void deleteStock(@RequestBody int[] ids){
+        try {
+            stockService.delete(ids);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

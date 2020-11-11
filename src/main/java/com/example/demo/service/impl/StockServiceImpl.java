@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,15 +30,18 @@ public class StockServiceImpl implements StockService {
     // lay ve mot danh sach stock
     @Override
     public List<Stock> getAll() {
-        List<Stock> stockList;
+        List<Stock> stockList= new ArrayList<>();
         try {
+            JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
             stockList = jpaStreamer.stream(Stock.class).collect(Collectors.toList());
+             jpaStreamer.close();
             return stockList;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
+
 
     // creator: Tuong
     // lay ve mot stock boi id
@@ -79,38 +83,40 @@ public class StockServiceImpl implements StockService {
         }
     }
 
-    // creator: Tuong
-    // tim kiem nhieu truong
+    // creator: Tuong => tim kiem nhieu truong
     @Override
     public List<StockDTO> search(int pageNumber, String search) {
-        List<StockDTO> res = new ArrayList<>();
+        List<StockDTO> stockDTOList = new ArrayList<>();
         try {
-            jpaStreamer.stream(Stock.class).filter(e -> e.getShipmentCode().contains(search) ||
+            JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+            jpaStreamer.stream(Stock.class).filter(e ->
+                    e.getIsDeleted()==0 &&
+                    e.getShipmentCode().contains(search) ||
                     e.getFeedType().getName().contains(search) || e.getVendor().getName().contains(search)
                     || e.getExpDate().toString().contains(search) || String.valueOf(e.getQuantity()).contains(search)
-                    || e.getUnit().contains(search)).skip(pageNumber).limit(pageSize).forEach(e -> {
-                StockDTO stockDTO = new StockDTO(e.getShipmentCode(), e.getFeedType().getName(),
+                    || e.getUnit().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+                StockDTO stockDTO = new StockDTO(e.getId(),e.getShipmentCode(), e.getFeedType().getName(),
                         e.getVendor().getName(),e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate());
-                res.add(stockDTO);
+                stockDTOList.add(stockDTO);
             });
-            return res;
+            return stockDTOList;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-
-    // creator: Tuong
-    // tim kiem nhieu truong
+    // creator: Tuong => tim kiem nhieu truong
     @Override
     public List<Stock> searchStock(int pageNum, String search) {
         List<Stock> stockList;
         String temp ="";
         try {
             if (temp.equals(search)){
+                JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
                 stockList = jpaStreamer.stream(Stock.class).skip((pageNum - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
             } else{
+                JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
                 stockList = jpaStreamer.stream(Stock.class).filter(e -> e.getShipmentCode().contains(search)
                         || e.getFeedType().getName().contains(search)
                         || e.getVendor().getName().contains(search)
