@@ -26,12 +26,21 @@ public final class HistoryExport$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field company.
      */
     public static final StringField<HistoryExport> company = StringField.create(
         HistoryExport.class,
         "company",
         HistoryExport::getCompany,
+=======
+     * This Field corresponds to the {@link HistoryExport} field stock.
+     */
+    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
+        HistoryExport.class,
+        "stock",
+        HistoryExport::getStock,
+>>>>>>> develop
         false
     );
     /**
@@ -44,12 +53,21 @@ public final class HistoryExport$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field unit.
      */
     public static final StringField<HistoryExport> unit = StringField.create(
         HistoryExport.class,
         "unit",
         HistoryExport::getUnit,
+=======
+     * This Field corresponds to the {@link HistoryExport} field id.
+     */
+    public static final IntField<HistoryExport> id = IntField.create(
+        HistoryExport.class,
+        "id",
+        HistoryExport::getId,
+>>>>>>> develop
         false
     );
     /**
@@ -62,6 +80,7 @@ public final class HistoryExport$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field id.
      */
     public static final IntField<HistoryExport> id = IntField.create(
@@ -77,6 +96,14 @@ public final class HistoryExport$ {
         HistoryExport.class,
         "type",
         HistoryExport::getType,
+=======
+     * This Field corresponds to the {@link HistoryExport} field exportDate.
+     */
+    public static final ComparableField<HistoryExport, LocalDate> exportDate = ComparableField.create(
+        HistoryExport.class,
+        "exportDate",
+        HistoryExport::getExportDate,
+>>>>>>> develop
         false
     );
     /**
@@ -89,6 +116,7 @@ public final class HistoryExport$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field
      * receivedEmployeeId.
      */
@@ -100,11 +128,42 @@ public final class HistoryExport$ {
     );
     /**
      * This Field corresponds to the {@link HistoryExport} field isDeleted.
+=======
+     * This Field corresponds to the {@link HistoryExport} field type.
+>>>>>>> develop
      */
     public static final IntField<HistoryExport> isDeleted = IntField.create(
         HistoryExport.class,
         "isDeleted",
         HistoryExport::getIsDeleted,
+        false
+    );
+    /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link HistoryExport} field cote.
+     */
+    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
+        HistoryExport.class,
+        "cote",
+        HistoryExport::getCote,
+=======
+     * This Field corresponds to the {@link HistoryExport} field
+     * receivedEmployeeId.
+     */
+    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
+        HistoryExport.class,
+        "receivedEmployeeId",
+        HistoryExport::getReceivedEmployeeId,
+>>>>>>> develop
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field stock.
+     */
+    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
+        HistoryExport.class,
+        "stock",
+        HistoryExport::getStock,
         false
     );
     /**
@@ -117,12 +176,12 @@ public final class HistoryExport$ {
         false
     );
     /**
-     * This Field corresponds to the {@link HistoryExport} field stock.
+     * This Field corresponds to the {@link HistoryExport} field company.
      */
-    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
+    public static final StringField<HistoryExport> company = StringField.create(
         HistoryExport.class,
-        "stock",
-        HistoryExport::getStock,
+        "company",
+        HistoryExport::getCompany,
         false
     );
 }

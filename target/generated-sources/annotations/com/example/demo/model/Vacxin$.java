@@ -16,21 +16,30 @@ import java.util.Set;
 public final class Vacxin$ {
     
     /**
-     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
-     */
-    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
-        Vacxin.class,
-        "treatmentVacxins",
-        Vacxin::getTreatmentVacxins,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Vacxin} field name.
      */
     public static final StringField<Vacxin> name = StringField.create(
         Vacxin.class,
         "name",
         Vacxin::getName,
+        false
+    );
+    /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link Vacxin} field name.
+     */
+    public static final StringField<Vacxin> name = StringField.create(
+        Vacxin.class,
+        "name",
+        Vacxin::getName,
+=======
+     * This Field corresponds to the {@link Vacxin} field isDeleted.
+     */
+    public static final IntField<Vacxin> isDeleted = IntField.create(
+        Vacxin.class,
+        "isDeleted",
+        Vacxin::getIsDeleted,
+>>>>>>> develop
         false
     );
     /**
@@ -52,12 +61,21 @@ public final class Vacxin$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Vacxin} field isDeleted.
      */
     public static final IntField<Vacxin> isDeleted = IntField.create(
         Vacxin.class,
         "isDeleted",
         Vacxin::getIsDeleted,
+=======
+     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
+     */
+    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+        Vacxin.class,
+        "treatmentVacxins",
+        Vacxin::getTreatmentVacxins,
+>>>>>>> develop
         false
     );
 }

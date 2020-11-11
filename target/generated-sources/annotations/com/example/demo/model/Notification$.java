@@ -18,6 +18,7 @@ import java.util.Set;
 public final class Notification$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Notification} field content.
      */
     public static final StringField<Notification> content = StringField.create(
@@ -42,6 +43,32 @@ public final class Notification$ {
         Notification.class,
         "description",
         Notification::getDescription,
+=======
+     * This Field corresponds to the {@link Notification} field type.
+     */
+    public static final StringField<Notification> type = StringField.create(
+        Notification.class,
+        "type",
+        Notification::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field content.
+     */
+    public static final StringField<Notification> content = StringField.create(
+        Notification.class,
+        "content",
+        Notification::getContent,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field employee.
+     */
+    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
+        Notification.class,
+        "employee",
+        Notification::getEmployee,
+>>>>>>> develop
         false
     );
     /**
@@ -82,6 +109,7 @@ public final class Notification$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Notification} field id.
      */
     public static final IntField<Notification> id = IntField.create(
@@ -97,6 +125,32 @@ public final class Notification$ {
         Notification.class,
         "employee",
         Notification::getEmployee,
+=======
+     * This Field corresponds to the {@link Notification} field title.
+     */
+    public static final StringField<Notification> title = StringField.create(
+        Notification.class,
+        "title",
+        Notification::getTitle,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field id.
+     */
+    public static final IntField<Notification> id = IntField.create(
+        Notification.class,
+        "id",
+        Notification::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field description.
+     */
+    public static final StringField<Notification> description = StringField.create(
+        Notification.class,
+        "description",
+        Notification::getDescription,
+>>>>>>> develop
         false
     );
 }

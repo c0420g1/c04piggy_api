@@ -16,6 +16,7 @@ import java.util.Set;
 public final class PigStatus$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link PigStatus} field description.
      */
     public static final StringField<PigStatus> description = StringField.create(
@@ -31,6 +32,23 @@ public final class PigStatus$ {
         PigStatus.class,
         "isDeleted",
         PigStatus::getIsDeleted,
+=======
+     * This Field corresponds to the {@link PigStatus} field id.
+     */
+    public static final IntField<PigStatus> id = IntField.create(
+        PigStatus.class,
+        "id",
+        PigStatus::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field name.
+     */
+    public static final StringField<PigStatus> name = StringField.create(
+        PigStatus.class,
+        "name",
+        PigStatus::getName,
+>>>>>>> develop
         false
     );
     /**
@@ -43,15 +61,6 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field id.
-     */
-    public static final IntField<PigStatus> id = IntField.create(
-        PigStatus.class,
-        "id",
-        PigStatus::getId,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigStatus} field
      * pigAssociateStatuses.
      */
@@ -59,6 +68,25 @@ public final class PigStatus$ {
         PigStatus.class,
         "pigAssociateStatuses",
         PigStatus::getPigAssociateStatuses,
+        false
+    );
+    /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link PigStatus} field
+     * pigAssociateStatuses.
+     */
+    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+        PigStatus.class,
+        "pigAssociateStatuses",
+        PigStatus::getPigAssociateStatuses,
+=======
+     * This Field corresponds to the {@link PigStatus} field isDeleted.
+     */
+    public static final IntField<PigStatus> isDeleted = IntField.create(
+        PigStatus.class,
+        "isDeleted",
+        PigStatus::getIsDeleted,
+>>>>>>> develop
         false
     );
 }
