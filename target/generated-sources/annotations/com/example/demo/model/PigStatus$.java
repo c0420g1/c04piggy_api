@@ -16,15 +16,6 @@ import java.util.Set;
 public final class PigStatus$ {
     
     /**
-     * This Field corresponds to the {@link PigStatus} field description.
-     */
-    public static final StringField<PigStatus> description = StringField.create(
-        PigStatus.class,
-        "description",
-        PigStatus::getDescription,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigStatus} field isDeleted.
      */
     public static final IntField<PigStatus> isDeleted = IntField.create(
@@ -34,12 +25,12 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field id.
+     * This Field corresponds to the {@link PigStatus} field description.
      */
-    public static final IntField<PigStatus> id = IntField.create(
+    public static final StringField<PigStatus> description = StringField.create(
         PigStatus.class,
-        "id",
-        PigStatus::getId,
+        "description",
+        PigStatus::getDescription,
         false
     );
     /**
@@ -59,6 +50,15 @@ public final class PigStatus$ {
         PigStatus.class,
         "name",
         PigStatus::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field id.
+     */
+    public static final IntField<PigStatus> id = IntField.create(
+        PigStatus.class,
+        "id",
+        PigStatus::getId,
         false
     );
 }

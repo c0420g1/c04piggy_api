@@ -16,21 +16,12 @@ import java.util.Set;
 public final class Permission$ {
     
     /**
-     * This Field corresponds to the {@link Permission} field name.
+     * This Field corresponds to the {@link Permission} field id.
      */
-    public static final StringField<Permission> name = StringField.create(
+    public static final IntField<Permission> id = IntField.create(
         Permission.class,
-        "name",
-        Permission::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Permission} field description.
-     */
-    public static final StringField<Permission> description = StringField.create(
-        Permission.class,
-        "description",
-        Permission::getDescription,
+        "id",
+        Permission::getId,
         false
     );
     /**
@@ -43,12 +34,12 @@ public final class Permission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Permission} field id.
+     * This Field corresponds to the {@link Permission} field name.
      */
-    public static final IntField<Permission> id = IntField.create(
+    public static final StringField<Permission> name = StringField.create(
         Permission.class,
-        "id",
-        Permission::getId,
+        "name",
+        Permission::getName,
         false
     );
     /**
@@ -58,6 +49,15 @@ public final class Permission$ {
         Permission.class,
         "rolePermissions",
         Permission::getRolePermissions,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Permission} field description.
+     */
+    public static final StringField<Permission> description = StringField.create(
+        Permission.class,
+        "description",
+        Permission::getDescription,
         false
     );
 }

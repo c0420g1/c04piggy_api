@@ -23,7 +23,7 @@ public class CoteServiceImpl implements CoteService {
     @Override
     public List<Cote> getAll() {
         List<Cote> coteList;
-        coteList = jpaStreamer.stream(Cote.class).collect(Collectors.toList());
+        coteList = jpaStreamer.stream(Cote.class).sorted(Cote$.id.reversed()).collect(Collectors.toList());
         return coteList;
     }
 
@@ -54,7 +54,7 @@ public class CoteServiceImpl implements CoteService {
     public List<CoteDTO> search(int pageNumber, String search) {
         List<CoteDTO> res = new ArrayList<>();
         jpaStreamer.stream(Cote.class).filter(e -> e.getEmployee().getName().contains(search) ||
-                e.getHerd().getName().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+                e.getHerd().getName().contains(search)).sorted(Cote$.id.reversed()).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
             CoteDTO coteDTO = new CoteDTO(e.getId(), e.getQuantity(), e.getHerd().getName(), e.getEmployee().getName());
             res.add(coteDTO);
         });
@@ -72,13 +72,14 @@ public class CoteServiceImpl implements CoteService {
                     .filter(e -> e.getEmployee().getName().contains(search)
                     || e.getHerd().getName().contains(search)
                     || e.getCode().contains(search)
-                    || e.getExportDate().toString().contains(search))
+                    || e.getExportDate().toString().contains(search)).sorted(Cote$.id.reversed())
                     .collect(Collectors.toList());
         } else{
             coteList = jpaStreamer.stream(Cote.class).filter(e -> e.getEmployee().getName().contains(search)
                     || e.getHerd().getName().contains(search)
                     || e.getCode().contains(search)
-                    || e.getExportDate().toString().contains(search)).skip((pageNum - 1) * pageSize).limit(pageSize)
+                    || e.getExportDate().toString().contains(search)).sorted(Cote$.id.reversed())
+                    .skip((pageNum - 1) * pageSize).limit(pageSize)
                     .collect(Collectors.toList());
         }
 
@@ -88,7 +89,10 @@ public class CoteServiceImpl implements CoteService {
     @Override
     public List<Pig> getAllPig(String herdCode) {
         List<Pig> pigList;
-        pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getHerd().getName().equals(herdCode)).collect(Collectors.toList());
+        pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getHerd().getName().contains(herdCode)).collect(Collectors.toList());
+        for (int i =0; i< pigList.size();i++) {
+            pigList.get(i).getWeight();
+        }
         return pigList;
     }
 }
