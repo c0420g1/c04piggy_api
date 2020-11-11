@@ -36,6 +36,7 @@ public class FeedTypeServiceImpl implements FeedTypeService {
         return Optional.empty();
     }
 
+
     @Override
     public void save(FeedType feedType) {
 

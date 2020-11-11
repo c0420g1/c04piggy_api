@@ -32,15 +32,6 @@ public final class RolePermission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RolePermission} field role.
-     */
-    public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
-        RolePermission.class,
-        "role",
-        RolePermission::getRole,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RolePermission} field permission.
      */
     public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
@@ -56,6 +47,15 @@ public final class RolePermission$ {
         RolePermission.class,
         "description",
         RolePermission::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RolePermission} field role.
+     */
+    public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
+        RolePermission.class,
+        "role",
+        RolePermission::getRole,
         false
     );
 }

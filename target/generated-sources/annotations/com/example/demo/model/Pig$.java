@@ -29,57 +29,12 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field weight.
+     * This Field corresponds to the {@link Pig} field gender.
      */
-    public static final DoubleField<Pig> weight = DoubleField.create(
+    public static final ByteField<Pig> gender = ByteField.create(
         Pig.class,
-        "weight",
-        Pig::getWeight,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field feed.
-     */
-    public static final ReferenceField<Pig, Feed> feed = ReferenceField.create(
-        Pig.class,
-        "feed",
-        Pig::getFeed,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field isDeleted.
-     */
-    public static final IntField<Pig> isDeleted = IntField.create(
-        Pig.class,
-        "isDeleted",
-        Pig::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field id.
-     */
-    public static final IntField<Pig> id = IntField.create(
-        Pig.class,
-        "id",
-        Pig::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field fatherId.
-     */
-    public static final IntField<Pig> fatherId = IntField.create(
-        Pig.class,
-        "fatherId",
-        Pig::getFatherId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field importDate.
-     */
-    public static final ComparableField<Pig, LocalDate> importDate = ComparableField.create(
-        Pig.class,
-        "importDate",
-        Pig::getImportDate,
+        "gender",
+        Pig::getGender,
         false
     );
     /**
@@ -92,39 +47,12 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field exportDate.
+     * This Field corresponds to the {@link Pig} field weight.
      */
-    public static final ComparableField<Pig, LocalDate> exportDate = ComparableField.create(
+    public static final DoubleField<Pig> weight = DoubleField.create(
         Pig.class,
-        "exportDate",
-        Pig::getExportDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field description.
-     */
-    public static final StringField<Pig> description = StringField.create(
-        Pig.class,
-        "description",
-        Pig::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field motherId.
-     */
-    public static final IntField<Pig> motherId = IntField.create(
-        Pig.class,
-        "motherId",
-        Pig::getMotherId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Pig} field color.
-     */
-    public static final StringField<Pig> color = StringField.create(
-        Pig.class,
-        "color",
-        Pig::getColor,
+        "weight",
+        Pig::getWeight,
         false
     );
     /**
@@ -137,21 +65,48 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field cote.
+     * This Field corresponds to the {@link Pig} field spec.
      */
-    public static final ReferenceField<Pig, Cote> cote = ReferenceField.create(
+    public static final StringField<Pig> spec = StringField.create(
         Pig.class,
-        "cote",
-        Pig::getCote,
+        "spec",
+        Pig::getSpec,
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field gender.
+     * This Field corresponds to the {@link Pig} field isDeleted.
      */
-    public static final ByteField<Pig> gender = ByteField.create(
+    public static final IntField<Pig> isDeleted = IntField.create(
         Pig.class,
-        "gender",
-        Pig::getGender,
+        "isDeleted",
+        Pig::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field description.
+     */
+    public static final StringField<Pig> description = StringField.create(
+        Pig.class,
+        "description",
+        Pig::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field id.
+     */
+    public static final IntField<Pig> id = IntField.create(
+        Pig.class,
+        "id",
+        Pig::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field feed.
+     */
+    public static final ReferenceField<Pig, Feed> feed = ReferenceField.create(
+        Pig.class,
+        "feed",
+        Pig::getFeed,
         false
     );
     /**
@@ -164,12 +119,57 @@ public final class Pig$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Pig} field spec.
+     * This Field corresponds to the {@link Pig} field motherId.
      */
-    public static final StringField<Pig> spec = StringField.create(
+    public static final IntField<Pig> motherId = IntField.create(
         Pig.class,
-        "spec",
-        Pig::getSpec,
+        "motherId",
+        Pig::getMotherId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field fatherId.
+     */
+    public static final IntField<Pig> fatherId = IntField.create(
+        Pig.class,
+        "fatherId",
+        Pig::getFatherId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field cote.
+     */
+    public static final ReferenceField<Pig, Cote> cote = ReferenceField.create(
+        Pig.class,
+        "cote",
+        Pig::getCote,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field importDate.
+     */
+    public static final ComparableField<Pig, LocalDate> importDate = ComparableField.create(
+        Pig.class,
+        "importDate",
+        Pig::getImportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field exportDate.
+     */
+    public static final ComparableField<Pig, LocalDate> exportDate = ComparableField.create(
+        Pig.class,
+        "exportDate",
+        Pig::getExportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Pig} field color.
+     */
+    public static final StringField<Pig> color = StringField.create(
+        Pig.class,
+        "color",
+        Pig::getColor,
         false
     );
 }
