@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -15,7 +16,7 @@ public class EmployeeDTO {
     private String username;
     private String password;
     private String name;
-    private Date birthday;
+    private LocalDate birthday;
     private String email;
     private byte gender;
     private String cardId;
