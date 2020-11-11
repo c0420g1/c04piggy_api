@@ -14,10 +14,29 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
+
 .idea
 *.iws
 *.iml
 *.ipr
+application.properties
+persistence.xml
+.idea/workspace.xml
+.idea/c04piggy_api.iml
+.idea/misc.xml
+target/classes/application.properties
+target/classes/com/example/demo/model/HistoryExport$.class
+target/classes/com/example/demo/model/Pig$.class
+target/classes/com/example/demo/model/Stock$.class
+target/generated-sources/annotations/com/example/demo/model/HistoryExport$.java
+target/generated-sources/annotations/com/example/demo/model/Pig$.java
+target/generated-sources/annotations/com/example/demo/model/Stock$.java
+target/generated-sources/annotations/com/example/demo/model/Stock$.java
+target/generated-sources/annotations/com/example/demo/model/Pig$.java
+target/generated-sources/annotations/com/example/demo/model/HistoryExport$.java
+target/classes/com/example/demo/model/Stock$.class
+target/classes/com/example/demo/model/Pig$.class
+target/classes/com/example/demo/model/HistoryExport$.class
 
 ### NetBeans ###
 /nbproject/private/
@@ -32,8 +51,6 @@ build/
 ### VS Code ###
 .vscode/
 
-.idea/workspace.xml
-demo.iml
-.idea/workspace.xml
-.idea/c04piggy_api.iml
+
+c04piggy_api.iml
 .idea/workspace.xml

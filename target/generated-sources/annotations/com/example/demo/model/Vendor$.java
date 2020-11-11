@@ -25,15 +25,6 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field name.
-     */
-    public static final StringField<Vendor> name = StringField.create(
-        Vendor.class,
-        "name",
-        Vendor::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Vendor} field id.
      */
     public static final IntField<Vendor> id = IntField.create(
@@ -52,6 +43,15 @@ public final class Vendor$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Vendor} field code.
+     */
+    public static final StringField<Vendor> code = StringField.create(
+        Vendor.class,
+        "code",
+        Vendor::getCode,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Vendor} field isDeleted.
      */
     public static final IntField<Vendor> isDeleted = IntField.create(
@@ -61,12 +61,12 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field code.
+     * This Field corresponds to the {@link Vendor} field name.
      */
-    public static final StringField<Vendor> code = StringField.create(
+    public static final StringField<Vendor> name = StringField.create(
         Vendor.class,
-        "code",
-        Vendor::getCode,
+        "name",
+        Vendor::getName,
         false
     );
 }

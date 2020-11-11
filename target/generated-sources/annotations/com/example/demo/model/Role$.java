@@ -25,15 +25,6 @@ public final class Role$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Role} field roleAccounts.
-     */
-    public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
-        Role.class,
-        "roleAccounts",
-        Role::getRoleAccounts,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Role} field id.
      */
     public static final IntField<Role> id = IntField.create(
@@ -43,12 +34,12 @@ public final class Role$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Role} field description.
+     * This Field corresponds to the {@link Role} field roleAccounts.
      */
-    public static final StringField<Role> description = StringField.create(
+    public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Role.class,
-        "description",
-        Role::getDescription,
+        "roleAccounts",
+        Role::getRoleAccounts,
         false
     );
     /**
@@ -58,6 +49,15 @@ public final class Role$ {
         Role.class,
         "rolePermissions",
         Role::getRolePermissions,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field description.
+     */
+    public static final StringField<Role> description = StringField.create(
+        Role.class,
+        "description",
+        Role::getDescription,
         false
     );
     /**

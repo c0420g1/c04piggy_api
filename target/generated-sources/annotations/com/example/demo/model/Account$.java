@@ -16,21 +16,12 @@ import java.util.Set;
 public final class Account$ {
     
     /**
-     * This Field corresponds to the {@link Account} field username.
+     * This Field corresponds to the {@link Account} field description.
      */
-    public static final StringField<Account> username = StringField.create(
+    public static final StringField<Account> description = StringField.create(
         Account.class,
-        "username",
-        Account::getUsername,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
-     */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
-        Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "description",
+        Account::getDescription,
         false
     );
     /**
@@ -43,6 +34,15 @@ public final class Account$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Account} field username.
+     */
+    public static final StringField<Account> username = StringField.create(
+        Account.class,
+        "username",
+        Account::getUsername,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Account} field password.
      */
     public static final StringField<Account> password = StringField.create(
@@ -52,21 +52,21 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field description.
-     */
-    public static final StringField<Account> description = StringField.create(
-        Account.class,
-        "description",
-        Account::getDescription,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Account} field isDeleted.
      */
     public static final IntField<Account> isDeleted = IntField.create(
         Account.class,
         "isDeleted",
         Account::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field roleAccounts.
+     */
+    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+        Account.class,
+        "roleAccounts",
+        Account::getRoleAccounts,
         false
     );
 }

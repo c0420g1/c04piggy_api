@@ -31,13 +31,14 @@ public class Pig {
     private double weight;
     private String color;
     @Column(columnDefinition = "integer", name = "father_id")
-    private int fatherId;
+    private Integer fatherId;
     @Column(columnDefinition = "integer", name = "mother_id")
-    private int motherId;
+    private Integer motherId;
     @Column(columnDefinition="DATE", name = "import_date")
     private LocalDate importDate;
     @Column(columnDefinition="DATE", name = "export_date")
     private LocalDate exportDate;
+
 
     @ManyToOne
     @JoinColumn(name = "feed_id")
