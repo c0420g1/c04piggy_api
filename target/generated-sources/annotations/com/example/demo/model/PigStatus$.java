@@ -16,15 +16,6 @@ import java.util.Set;
 public final class PigStatus$ {
     
     /**
-     * This Field corresponds to the {@link PigStatus} field name.
-     */
-    public static final StringField<PigStatus> name = StringField.create(
-        PigStatus.class,
-        "name",
-        PigStatus::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigStatus} field id.
      */
     public static final IntField<PigStatus> id = IntField.create(
@@ -34,12 +25,13 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field isDeleted.
+<<<<<<< HEAD
+     * This Field corresponds to the {@link PigStatus} field name.
      */
-    public static final IntField<PigStatus> isDeleted = IntField.create(
+    public static final StringField<PigStatus> name = StringField.create(
         PigStatus.class,
-        "isDeleted",
-        PigStatus::getIsDeleted,
+        "name",
+        PigStatus::getName,
         false
     );
     /**
@@ -59,6 +51,42 @@ public final class PigStatus$ {
         PigStatus.class,
         "description",
         PigStatus::getDescription,
+=======
+     * This Field corresponds to the {@link PigStatus} field isDeleted.
+     */
+    public static final IntField<PigStatus> isDeleted = IntField.create(
+        PigStatus.class,
+        "isDeleted",
+        PigStatus::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field description.
+     */
+    public static final StringField<PigStatus> description = StringField.create(
+        PigStatus.class,
+        "description",
+        PigStatus::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field name.
+     */
+    public static final StringField<PigStatus> name = StringField.create(
+        PigStatus.class,
+        "name",
+        PigStatus::getName,
+>>>>>>> develop
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field
+     * pigAssociateStatuses.
+     */
+    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+        PigStatus.class,
+        "pigAssociateStatuses",
+        PigStatus::getPigAssociateStatuses,
         false
     );
 }

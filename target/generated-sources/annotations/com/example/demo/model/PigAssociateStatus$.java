@@ -14,30 +14,22 @@ import com.speedment.jpastreamer.field.StringField;
 public final class PigAssociateStatus$ {
     
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
+<<<<<<< HEAD
+     * This Field corresponds to the {@link PigAssociateStatus} field
+     * description.
      */
-    public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
+    public static final StringField<PigAssociateStatus> description = StringField.create(
         PigAssociateStatus.class,
-        "isDeleted",
-        PigAssociateStatus::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigAssociateStatus} field pig.
+        "description",
+        PigAssociateStatus::getDescription,
+=======
+     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
      */
-    public static final ReferenceField<PigAssociateStatus, Pig> pig = ReferenceField.create(
+    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
         PigAssociateStatus.class,
-        "pig",
-        PigAssociateStatus::getPig,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigAssociateStatus} field id.
-     */
-    public static final IntField<PigAssociateStatus> id = IntField.create(
-        PigAssociateStatus.class,
-        "id",
-        PigAssociateStatus::getId,
+        "pigStatus",
+        PigAssociateStatus::getPigStatus,
+>>>>>>> develop
         false
     );
     /**
@@ -50,13 +42,30 @@ public final class PigAssociateStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field
-     * description.
+     * This Field corresponds to the {@link PigAssociateStatus} field pig.
      */
-    public static final StringField<PigAssociateStatus> description = StringField.create(
+    public static final ReferenceField<PigAssociateStatus, Pig> pig = ReferenceField.create(
         PigAssociateStatus.class,
-        "description",
-        PigAssociateStatus::getDescription,
+        "pig",
+        PigAssociateStatus::getPig,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
+     */
+    public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
+        PigAssociateStatus.class,
+        "isDeleted",
+        PigAssociateStatus::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field id.
+     */
+    public static final IntField<PigAssociateStatus> id = IntField.create(
+        PigAssociateStatus.class,
+        "id",
+        PigAssociateStatus::getId,
         false
     );
 }

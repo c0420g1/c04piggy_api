@@ -16,30 +16,21 @@ import java.util.Set;
 public final class Diseases$ {
     
     /**
-     * This Field corresponds to the {@link Diseases} field treatmentVacxins.
+<<<<<<< HEAD
+     * This Field corresponds to the {@link Diseases} field id.
      */
-    public static final ReferenceField<Diseases, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+    public static final IntField<Diseases> id = IntField.create(
         Diseases.class,
-        "treatmentVacxins",
-        Diseases::getTreatmentVacxins,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Diseases} field description.
+        "id",
+        Diseases::getId,
+=======
+     * This Field corresponds to the {@link Diseases} field name.
      */
-    public static final StringField<Diseases> description = StringField.create(
+    public static final StringField<Diseases> name = StringField.create(
         Diseases.class,
-        "description",
-        Diseases::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Diseases} field isDeleted.
-     */
-    public static final IntField<Diseases> isDeleted = IntField.create(
-        Diseases.class,
-        "isDeleted",
-        Diseases::getIsDeleted,
+        "name",
+        Diseases::getName,
+>>>>>>> develop
         false
     );
     /**
@@ -52,12 +43,39 @@ public final class Diseases$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Diseases} field name.
+     * This Field corresponds to the {@link Diseases} field description.
      */
-    public static final StringField<Diseases> name = StringField.create(
+    public static final StringField<Diseases> description = StringField.create(
         Diseases.class,
-        "name",
-        Diseases::getName,
+        "description",
+        Diseases::getDescription,
+        false
+    );
+    /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link Diseases} field isDeleted.
+     */
+    public static final IntField<Diseases> isDeleted = IntField.create(
+        Diseases.class,
+        "isDeleted",
+        Diseases::getIsDeleted,
+=======
+     * This Field corresponds to the {@link Diseases} field description.
+     */
+    public static final StringField<Diseases> description = StringField.create(
+        Diseases.class,
+        "description",
+        Diseases::getDescription,
+>>>>>>> develop
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field treatmentVacxins.
+     */
+    public static final ReferenceField<Diseases, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+        Diseases.class,
+        "treatmentVacxins",
+        Diseases::getTreatmentVacxins,
         false
     );
 }
