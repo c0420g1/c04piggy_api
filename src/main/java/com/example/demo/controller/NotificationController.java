@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Account;
-import com.example.demo.model.Account$;
-import com.example.demo.model.Cote;
-import com.example.demo.model.FeedType;
+import com.example.demo.model.*;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +14,8 @@ public class NotificationController {
     @Autowired
     private JPAStreamer jpaStreamer;
 
-    @GetMapping("/test")
-    public List<Account> test(){
-        List<Account> a= jpaStreamer.stream(Account.class).sorted(Account$.id.reversed()).collect(Collectors.toList());
-        return a;
+    @GetMapping("/notification")
+    public List<Notification> test(){
+        return jpaStreamer.stream(Notification.class).sorted(Notification$.id.reversed()).collect(Collectors.toList());
     }
 }

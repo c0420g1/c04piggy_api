@@ -16,15 +16,6 @@ import java.util.Set;
 public final class Account$ {
     
     /**
-     * This Field corresponds to the {@link Account} field description.
-     */
-    public static final StringField<Account> description = StringField.create(
-        Account.class,
-        "description",
-        Account::getDescription,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Account} field id.
      */
     public static final IntField<Account> id = IntField.create(
@@ -43,15 +34,6 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field username.
-     */
-    public static final StringField<Account> username = StringField.create(
-        Account.class,
-        "username",
-        Account::getUsername,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Account} field isDeleted.
      */
     public static final IntField<Account> isDeleted = IntField.create(
@@ -67,6 +49,24 @@ public final class Account$ {
         Account.class,
         "roleAccounts",
         Account::getRoleAccounts,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field username.
+     */
+    public static final StringField<Account> username = StringField.create(
+        Account.class,
+        "username",
+        Account::getUsername,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field description.
+     */
+    public static final StringField<Account> description = StringField.create(
+        Account.class,
+        "description",
+        Account::getDescription,
         false
     );
 }

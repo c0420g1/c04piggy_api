@@ -16,12 +16,12 @@ import java.util.Set;
 public final class Vacxin$ {
     
     /**
-     * This Field corresponds to the {@link Vacxin} field description.
+     * This Field corresponds to the {@link Vacxin} field isDeleted.
      */
-    public static final StringField<Vacxin> description = StringField.create(
+    public static final IntField<Vacxin> isDeleted = IntField.create(
         Vacxin.class,
-        "description",
-        Vacxin::getDescription,
+        "isDeleted",
+        Vacxin::getIsDeleted,
         false
     );
     /**
@@ -52,12 +52,12 @@ public final class Vacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vacxin} field isDeleted.
+     * This Field corresponds to the {@link Vacxin} field description.
      */
-    public static final IntField<Vacxin> isDeleted = IntField.create(
+    public static final StringField<Vacxin> description = StringField.create(
         Vacxin.class,
-        "isDeleted",
-        Vacxin::getIsDeleted,
+        "description",
+        Vacxin::getDescription,
         false
     );
 }
