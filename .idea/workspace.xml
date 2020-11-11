@@ -252,7 +252,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/db/migration" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -261,10 +261,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.demo.model" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.demo.model" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ProjectCodeGym\C0420G1_TranQuangTrung_Module6\project2new\c04piggy_api\src\main\java\com\example\demo\repository" />
+      <recent name="D:\ProjectCodeGym\C0420G1_TranQuangTrung_Module6\project2new\c04piggy_api\src\main\java\com\example\demo\service\impl" />
+      <recent name="D:\ProjectCodeGym\C0420G1_TranQuangTrung_Module6\project2new\c04piggy_api\src\main\java\com\example\demo\service" />
       <recent name="D:\project\c04piggy_api\src\main\resources\db\migration" />
       <recent name="$PROJECT_DIR$/src/main/resources/db/migration" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -359,7 +367,7 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -416,6 +424,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="349" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1600.860@0.0.1600.860" timestamp="1604888159709" />
+    <state x="466" y="253" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605065611219">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="466" y="253" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.768@0.0.1366.768" timestamp="1605065611219" />
     <state x="580" y="171" key="FileChooserDialogImpl" timestamp="1604889165501">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
