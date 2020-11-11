@@ -16,12 +16,12 @@ import java.util.Set;
 public final class Account$ {
     
     /**
-     * This Field corresponds to the {@link Account} field isDeleted.
+     * This Field corresponds to the {@link Account} field roleAccounts.
      */
-    public static final IntField<Account> isDeleted = IntField.create(
+    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Account.class,
-        "isDeleted",
-        Account::getIsDeleted,
+        "roleAccounts",
+        Account::getRoleAccounts,
         false
     );
     /**
@@ -34,21 +34,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field password.
+     * This Field corresponds to the {@link Account} field isDeleted.
      */
-    public static final StringField<Account> password = StringField.create(
+    public static final IntField<Account> isDeleted = IntField.create(
         Account.class,
-        "password",
-        Account::getPassword,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
-     */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
-        Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "isDeleted",
+        Account::getIsDeleted,
         false
     );
     /**
@@ -67,6 +58,15 @@ public final class Account$ {
         Account.class,
         "description",
         Account::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field password.
+     */
+    public static final StringField<Account> password = StringField.create(
+        Account.class,
+        "password",
+        Account::getPassword,
         false
     );
 }

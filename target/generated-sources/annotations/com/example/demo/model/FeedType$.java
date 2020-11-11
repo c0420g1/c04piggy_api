@@ -34,6 +34,15 @@ public final class FeedType$ {
         false
     );
     /**
+     * This Field corresponds to the {@link FeedType} field isDeleted.
+     */
+    public static final IntField<FeedType> isDeleted = IntField.create(
+        FeedType.class,
+        "isDeleted",
+        FeedType::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link FeedType} field feeds.
      */
     public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
@@ -49,15 +58,6 @@ public final class FeedType$ {
         FeedType.class,
         "name",
         FeedType::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link FeedType} field isDeleted.
-     */
-    public static final IntField<FeedType> isDeleted = IntField.create(
-        FeedType.class,
-        "isDeleted",
-        FeedType::getIsDeleted,
         false
     );
     /**

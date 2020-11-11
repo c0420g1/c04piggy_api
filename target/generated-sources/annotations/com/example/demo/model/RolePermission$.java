@@ -14,6 +14,15 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RolePermission$ {
     
     /**
+     * This Field corresponds to the {@link RolePermission} field id.
+     */
+    public static final IntField<RolePermission> id = IntField.create(
+        RolePermission.class,
+        "id",
+        RolePermission::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RolePermission} field role.
      */
     public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
@@ -38,15 +47,6 @@ public final class RolePermission$ {
         RolePermission.class,
         "description",
         RolePermission::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RolePermission} field id.
-     */
-    public static final IntField<RolePermission> id = IntField.create(
-        RolePermission.class,
-        "id",
-        RolePermission::getId,
         false
     );
     /**

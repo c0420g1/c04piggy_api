@@ -25,12 +25,21 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field isDeleted.
+     * This Field corresponds to the {@link Other} field createDate.
      */
-    public static final IntField<Other> isDeleted = IntField.create(
+    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
         Other.class,
-        "isDeleted",
-        Other::getIsDeleted,
+        "createDate",
+        Other::getCreateDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field isOther.
+     */
+    public static final IntField<Other> isOther = IntField.create(
+        Other.class,
+        "isOther",
+        Other::getIsOther,
         false
     );
     /**
@@ -43,24 +52,6 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field url.
-     */
-    public static final StringField<Other> url = StringField.create(
-        Other.class,
-        "url",
-        Other::getUrl,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field createDate.
-     */
-    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
-        Other.class,
-        "createDate",
-        Other::getCreateDate,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Other} field name.
      */
     public static final StringField<Other> name = StringField.create(
@@ -70,12 +61,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field description.
+     * This Field corresponds to the {@link Other} field url.
      */
-    public static final StringField<Other> description = StringField.create(
+    public static final StringField<Other> url = StringField.create(
         Other.class,
-        "description",
-        Other::getDescription,
+        "url",
+        Other::getUrl,
         false
     );
     /**
@@ -88,6 +79,15 @@ public final class Other$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Other} field isDeleted.
+     */
+    public static final IntField<Other> isDeleted = IntField.create(
+        Other.class,
+        "isDeleted",
+        Other::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Other} field id.
      */
     public static final IntField<Other> id = IntField.create(
@@ -97,12 +97,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field isOther.
+     * This Field corresponds to the {@link Other} field description.
      */
-    public static final IntField<Other> isOther = IntField.create(
+    public static final StringField<Other> description = StringField.create(
         Other.class,
-        "isOther",
-        Other::getIsOther,
+        "description",
+        Other::getDescription,
         false
     );
 }
