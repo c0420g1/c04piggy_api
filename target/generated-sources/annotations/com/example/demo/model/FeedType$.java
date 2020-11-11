@@ -16,24 +16,12 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link FeedType} field description.
+     * This Field corresponds to the {@link FeedType} field name.
      */
-    public static final StringField<FeedType> description = StringField.create(
+    public static final StringField<FeedType> name = StringField.create(
         FeedType.class,
-        "description",
-        FeedType::getDescription,
-        false
-    );
-    /**
-=======
->>>>>>> develop
-     * This Field corresponds to the {@link FeedType} field feeds.
-     */
-    public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
-        FeedType.class,
-        "feeds",
-        FeedType::getFeeds,
+        "name",
+        FeedType::getName,
         false
     );
     /**
@@ -46,34 +34,21 @@ public final class FeedType$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link FeedType} field id.
-=======
-     * This Field corresponds to the {@link FeedType} field name.
+     * This Field corresponds to the {@link FeedType} field description.
      */
-    public static final StringField<FeedType> name = StringField.create(
+    public static final StringField<FeedType> description = StringField.create(
         FeedType.class,
-        "name",
-        FeedType::getName,
+        "description",
+        FeedType::getDescription,
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field isDeleted.
->>>>>>> develop
+     * This Field corresponds to the {@link FeedType} field feeds.
      */
-    public static final IntField<FeedType> id = IntField.create(
+    public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
         FeedType.class,
-        "id",
-        FeedType::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link FeedType} field name.
-     */
-    public static final StringField<FeedType> name = StringField.create(
-        FeedType.class,
-        "name",
-        FeedType::getName,
+        "feeds",
+        FeedType::getFeeds,
         false
     );
     /**
@@ -83,6 +58,15 @@ public final class FeedType$ {
         FeedType.class,
         "stocks",
         FeedType::getStocks,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field id.
+     */
+    public static final IntField<FeedType> id = IntField.create(
+        FeedType.class,
+        "id",
+        FeedType::getId,
         false
     );
 }

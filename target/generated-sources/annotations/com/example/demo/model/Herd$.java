@@ -16,33 +16,6 @@ import java.util.Set;
 public final class Herd$ {
     
     /**
-     * This Field corresponds to the {@link Herd} field description.
-     */
-    public static final StringField<Herd> description = StringField.create(
-        Herd.class,
-        "description",
-        Herd::getDescription,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Herd} field name.
-     */
-    public static final StringField<Herd> name = StringField.create(
-        Herd.class,
-        "name",
-        Herd::getName,
-=======
-     * This Field corresponds to the {@link Herd} field id.
-     */
-    public static final IntField<Herd> id = IntField.create(
-        Herd.class,
-        "id",
-        Herd::getId,
->>>>>>> develop
-        false
-    );
-    /**
      * This Field corresponds to the {@link Herd} field cotes.
      */
     public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
@@ -52,21 +25,39 @@ public final class Herd$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Herd} field description.
+     * This Field corresponds to the {@link Herd} field isDeleted.
      */
-    public static final StringField<Herd> description = StringField.create(
+    public static final IntField<Herd> isDeleted = IntField.create(
         Herd.class,
-        "description",
-        Herd::getDescription,
-=======
+        "isDeleted",
+        Herd::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Herd} field feeds.
      */
     public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
         Herd.class,
         "feeds",
         Herd::getFeeds,
->>>>>>> develop
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field id.
+     */
+    public static final IntField<Herd> id = IntField.create(
+        Herd.class,
+        "id",
+        Herd::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field description.
+     */
+    public static final StringField<Herd> description = StringField.create(
+        Herd.class,
+        "description",
+        Herd::getDescription,
         false
     );
     /**
@@ -76,15 +67,6 @@ public final class Herd$ {
         Herd.class,
         "name",
         Herd::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field isDeleted.
-     */
-    public static final IntField<Herd> isDeleted = IntField.create(
-        Herd.class,
-        "isDeleted",
-        Herd::getIsDeleted,
         false
     );
 }

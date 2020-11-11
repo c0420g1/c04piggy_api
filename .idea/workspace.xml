@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Account$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Account$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Cote$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Cote$.class" afterDir="false" />
@@ -34,8 +35,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Other$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Other$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Permission$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Permission$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Pig$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Pig$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Pig$PigBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Pig$PigBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Pig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Pig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/PigAssociateStatus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/PigAssociateStatus$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/PigStatus$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/PigStatus$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/model/Role$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/model/Role$.class" afterDir="false" />

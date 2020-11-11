@@ -14,43 +14,6 @@ import com.speedment.jpastreamer.field.StringField;
 public final class PigAssociateStatus$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link PigAssociateStatus} field
-     * description.
-     */
-    public static final StringField<PigAssociateStatus> description = StringField.create(
-        PigAssociateStatus.class,
-        "description",
-        PigAssociateStatus::getDescription,
-=======
-     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
-     */
-    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
-        PigAssociateStatus.class,
-        "pigStatus",
-        PigAssociateStatus::getPigStatus,
->>>>>>> develop
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
-     */
-    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
-        PigAssociateStatus.class,
-        "pigStatus",
-        PigAssociateStatus::getPigStatus,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigAssociateStatus} field pig.
-     */
-    public static final ReferenceField<PigAssociateStatus, Pig> pig = ReferenceField.create(
-        PigAssociateStatus.class,
-        "pig",
-        PigAssociateStatus::getPig,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
      */
     public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
@@ -66,6 +29,34 @@ public final class PigAssociateStatus$ {
         PigAssociateStatus.class,
         "id",
         PigAssociateStatus::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field
+     * description.
+     */
+    public static final StringField<PigAssociateStatus> description = StringField.create(
+        PigAssociateStatus.class,
+        "description",
+        PigAssociateStatus::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field pig.
+     */
+    public static final ReferenceField<PigAssociateStatus, Pig> pig = ReferenceField.create(
+        PigAssociateStatus.class,
+        "pig",
+        PigAssociateStatus::getPig,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
+     */
+    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
+        PigAssociateStatus.class,
+        "pigStatus",
+        PigAssociateStatus::getPigStatus,
         false
     );
 }
