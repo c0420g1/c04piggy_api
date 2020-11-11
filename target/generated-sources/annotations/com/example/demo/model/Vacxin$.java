@@ -16,12 +16,12 @@ import java.util.Set;
 public final class Vacxin$ {
     
     /**
-     * This Field corresponds to the {@link Vacxin} field description.
+     * This Field corresponds to the {@link Vacxin} field id.
      */
-    public static final StringField<Vacxin> description = StringField.create(
+    public static final IntField<Vacxin> id = IntField.create(
         Vacxin.class,
-        "description",
-        Vacxin::getDescription,
+        "id",
+        Vacxin::getId,
         false
     );
     /**
@@ -43,12 +43,12 @@ public final class Vacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vacxin} field id.
+     * This Field corresponds to the {@link Vacxin} field description.
      */
-    public static final IntField<Vacxin> id = IntField.create(
+    public static final StringField<Vacxin> description = StringField.create(
         Vacxin.class,
-        "id",
-        Vacxin::getId,
+        "description",
+        Vacxin::getDescription,
         false
     );
     /**

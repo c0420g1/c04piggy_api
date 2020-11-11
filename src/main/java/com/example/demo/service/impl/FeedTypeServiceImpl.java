@@ -1,32 +1,28 @@
 package com.example.demo.service.impl;
 
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import com.example.demo.model.FeedType;
 import com.example.demo.service.FeedTypeService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class FeedTypeServiceImpl implements FeedTypeService {
-
     @Autowired
-    private JPAStreamer jpaStreamer;
+    JPAStreamer jpaStreamer;
 
-    //Thịnh
-    // trả về list Feedtype
     @Override
     public List<FeedType> getAll() {
+        List<FeedType> feedTypeList;
         try {
-            List<FeedType> feedList;
-            feedList = jpaStreamer.stream(FeedType.class).collect(Collectors.toList());
-            return feedList;
+            feedTypeList = jpaStreamer.stream(FeedType.class).collect(Collectors.toList());
+            return feedTypeList;
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return null;
     }
