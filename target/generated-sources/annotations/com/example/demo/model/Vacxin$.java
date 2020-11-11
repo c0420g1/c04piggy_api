@@ -16,12 +16,12 @@ import java.util.Set;
 public final class Vacxin$ {
     
     /**
-     * This Field corresponds to the {@link Vacxin} field id.
+     * This Field corresponds to the {@link Vacxin} field name.
      */
-    public static final IntField<Vacxin> id = IntField.create(
+    public static final StringField<Vacxin> name = StringField.create(
         Vacxin.class,
-        "id",
-        Vacxin::getId,
+        "name",
+        Vacxin::getName,
         false
     );
     /**
@@ -31,6 +31,15 @@ public final class Vacxin$ {
         Vacxin.class,
         "isDeleted",
         Vacxin::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vacxin} field description.
+     */
+    public static final StringField<Vacxin> description = StringField.create(
+        Vacxin.class,
+        "description",
+        Vacxin::getDescription,
         false
     );
     /**
@@ -49,33 +58,6 @@ public final class Vacxin$ {
         Vacxin.class,
         "treatmentVacxins",
         Vacxin::getTreatmentVacxins,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Vacxin} field isDeleted.
-     */
-    public static final IntField<Vacxin> isDeleted = IntField.create(
-        Vacxin.class,
-        "isDeleted",
-        Vacxin::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Vacxin} field description.
-     */
-    public static final StringField<Vacxin> description = StringField.create(
-        Vacxin.class,
-        "description",
-        Vacxin::getDescription,
-=======
-     * This Field corresponds to the {@link Vacxin} field name.
-     */
-    public static final StringField<Vacxin> name = StringField.create(
-        Vacxin.class,
-        "name",
-        Vacxin::getName,
->>>>>>> develop
         false
     );
 }

@@ -18,45 +18,12 @@ import java.util.Set;
 public final class Cote$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Cote} field herd.
+     * This Field corresponds to the {@link Cote} field description.
      */
-    public static final ReferenceField<Cote, Herd> herd = ReferenceField.create(
+    public static final StringField<Cote> description = StringField.create(
         Cote.class,
-        "herd",
-        Cote::getHerd,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field id.
-     */
-    public static final IntField<Cote> id = IntField.create(
-        Cote.class,
-        "id",
-        Cote::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field treatmentVacxins.
-     */
-    public static final ReferenceField<Cote, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
-        Cote.class,
-        "treatmentVacxins",
-        Cote::getTreatmentVacxins,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field type.
-     */
-    public static final StringField<Cote> type = StringField.create(
-        Cote.class,
-=======
-     * This Field corresponds to the {@link Cote} field employee.
-     */
-    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
-        Cote.class,
-        "employee",
-        Cote::getEmployee,
+        "description",
+        Cote::getDescription,
         false
     );
     /**
@@ -69,15 +36,6 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field description.
-     */
-    public static final StringField<Cote> description = StringField.create(
-        Cote.class,
-        "description",
-        Cote::getDescription,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Cote} field exportDate.
      */
     public static final ComparableField<Cote, LocalDate> exportDate = ComparableField.create(
@@ -91,55 +49,8 @@ public final class Cote$ {
      */
     public static final StringField<Cote> type = StringField.create(
         Cote.class,
->>>>>>> develop
         "type",
         Cote::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field isDeleted.
-     */
-    public static final IntField<Cote> isDeleted = IntField.create(
-        Cote.class,
-        "isDeleted",
-        Cote::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field code.
-     */
-    public static final StringField<Cote> code = StringField.create(
-        Cote.class,
-        "code",
-        Cote::getCode,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Cote} field description.
-     */
-    public static final StringField<Cote> description = StringField.create(
-        Cote.class,
-        "description",
-        Cote::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field quantity.
-     */
-    public static final IntField<Cote> quantity = IntField.create(
-        Cote.class,
-        "quantity",
-        Cote::getQuantity,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field exportDate.
-     */
-    public static final ComparableField<Cote, LocalDate> exportDate = ComparableField.create(
-        Cote.class,
-        "exportDate",
-        Cote::getExportDate,
         false
     );
     /**
@@ -152,13 +63,33 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field importDate.
+     * This Field corresponds to the {@link Cote} field code.
      */
-    public static final ComparableField<Cote, LocalDate> importDate = ComparableField.create(
+    public static final StringField<Cote> code = StringField.create(
         Cote.class,
-        "importDate",
-        Cote::getImportDate,
-=======
+        "code",
+        Cote::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field isDeleted.
+     */
+    public static final IntField<Cote> isDeleted = IntField.create(
+        Cote.class,
+        "isDeleted",
+        Cote::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field treatmentVacxins.
+     */
+    public static final ReferenceField<Cote, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+        Cote.class,
+        "treatmentVacxins",
+        Cote::getTreatmentVacxins,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Cote} field herd.
      */
     public static final ReferenceField<Cote, Herd> herd = ReferenceField.create(
@@ -168,12 +99,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field code.
+     * This Field corresponds to the {@link Cote} field employee.
      */
-    public static final StringField<Cote> code = StringField.create(
+    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
         Cote.class,
-        "code",
-        Cote::getCode,
+        "employee",
+        Cote::getEmployee,
         false
     );
     /**
@@ -186,22 +117,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field isDeleted.
+     * This Field corresponds to the {@link Cote} field id.
      */
-    public static final IntField<Cote> isDeleted = IntField.create(
+    public static final IntField<Cote> id = IntField.create(
         Cote.class,
-        "isDeleted",
-        Cote::getIsDeleted,
->>>>>>> develop
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field employee.
-     */
-    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
-        Cote.class,
-        "employee",
-        Cote::getEmployee,
+        "id",
+        Cote::getId,
         false
     );
 }
