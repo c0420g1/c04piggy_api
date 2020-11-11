@@ -25,12 +25,12 @@ public final class Permission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Permission} field rolePermissions.
+     * This Field corresponds to the {@link Permission} field id.
      */
-    public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(
+    public static final IntField<Permission> id = IntField.create(
         Permission.class,
-        "rolePermissions",
-        Permission::getRolePermissions,
+        "id",
+        Permission::getId,
         false
     );
     /**
@@ -43,12 +43,12 @@ public final class Permission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Permission} field id.
+     * This Field corresponds to the {@link Permission} field rolePermissions.
      */
-    public static final IntField<Permission> id = IntField.create(
+    public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(
         Permission.class,
-        "id",
-        Permission::getId,
+        "rolePermissions",
+        Permission::getRolePermissions,
         false
     );
     /**
