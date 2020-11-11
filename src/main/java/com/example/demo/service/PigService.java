@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PigService extends BaseService<Pig> {
     List<PigDTO> listPigSearch(int pageNumber, String search);
+
 }

@@ -16,6 +16,14 @@ import java.util.Set;
 public final class Role$ {
     
     /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link Role} field name.
+     */
+    public static final StringField<Role> name = StringField.create(
+        Role.class,
+        "name",
+        Role::getName,
+=======
      * This Field corresponds to the {@link Role} field id.
      */
     public static final IntField<Role> id = IntField.create(
@@ -31,24 +39,16 @@ public final class Role$ {
         Role.class,
         "rolePermissions",
         Role::getRolePermissions,
+>>>>>>> develop
         false
     );
     /**
-     * This Field corresponds to the {@link Role} field isDeleted.
+     * This Field corresponds to the {@link Role} field description.
      */
-    public static final IntField<Role> isDeleted = IntField.create(
+    public static final StringField<Role> description = StringField.create(
         Role.class,
-        "isDeleted",
-        Role::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Role} field name.
-     */
-    public static final StringField<Role> name = StringField.create(
-        Role.class,
-        "name",
-        Role::getName,
+        "description",
+        Role::getDescription,
         false
     );
     /**
@@ -58,6 +58,15 @@ public final class Role$ {
         Role.class,
         "roleAccounts",
         Role::getRoleAccounts,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field isDeleted.
+     */
+    public static final IntField<Role> isDeleted = IntField.create(
+        Role.class,
+        "isDeleted",
+        Role::getIsDeleted,
         false
     );
     /**

@@ -14,6 +14,25 @@ import com.speedment.jpastreamer.field.StringField;
 public final class PigAssociateStatus$ {
     
     /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link PigAssociateStatus} field
+     * description.
+     */
+    public static final StringField<PigAssociateStatus> description = StringField.create(
+        PigAssociateStatus.class,
+        "description",
+        PigAssociateStatus::getDescription,
+=======
+     * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
+     */
+    public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
+        PigAssociateStatus.class,
+        "pigStatus",
+        PigAssociateStatus::getPigStatus,
+>>>>>>> develop
+        false
+    );
+    /**
      * This Field corresponds to the {@link PigAssociateStatus} field pigStatus.
      */
     public static final ReferenceField<PigAssociateStatus, PigStatus> pigStatus = ReferenceField.create(
@@ -32,15 +51,6 @@ public final class PigAssociateStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field id.
-     */
-    public static final IntField<PigAssociateStatus> id = IntField.create(
-        PigAssociateStatus.class,
-        "id",
-        PigAssociateStatus::getId,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
      */
     public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
@@ -50,13 +60,12 @@ public final class PigAssociateStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field
-     * description.
+     * This Field corresponds to the {@link PigAssociateStatus} field id.
      */
-    public static final StringField<PigAssociateStatus> description = StringField.create(
+    public static final IntField<PigAssociateStatus> id = IntField.create(
         PigAssociateStatus.class,
-        "description",
-        PigAssociateStatus::getDescription,
+        "id",
+        PigAssociateStatus::getId,
         false
     );
 }

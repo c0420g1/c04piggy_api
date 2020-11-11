@@ -43,6 +43,23 @@ public final class Account$ {
         false
     );
     /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link Account} field isDeleted.
+     */
+    public static final IntField<Account> isDeleted = IntField.create(
+        Account.class,
+        "isDeleted",
+        Account::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field description.
+     */
+    public static final StringField<Account> description = StringField.create(
+        Account.class,
+        "description",
+        Account::getDescription,
+=======
      * This Field corresponds to the {@link Account} field description.
      */
     public static final StringField<Account> description = StringField.create(
@@ -58,15 +75,16 @@ public final class Account$ {
         Account.class,
         "id",
         Account::getId,
+>>>>>>> develop
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field isDeleted.
+     * This Field corresponds to the {@link Account} field id.
      */
-    public static final IntField<Account> isDeleted = IntField.create(
+    public static final IntField<Account> id = IntField.create(
         Account.class,
-        "isDeleted",
-        Account::getIsDeleted,
+        "id",
+        Account::getId,
         false
     );
 }
