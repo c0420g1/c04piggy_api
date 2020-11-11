@@ -20,7 +20,6 @@ import static com.example.demo.common.GlobalUtil.pageSize;
 
 @Service
 public class PigServiceImpl implements PigService {
-    private static final Log errorLog = LogFactory.getLog(PigServiceImpl.class);;
 
     @Autowired
     private JPAStreamer jpaStreamer;
@@ -31,14 +30,8 @@ public class PigServiceImpl implements PigService {
     @Override
     public List<Pig> getAll() {
         List<Pig> pigList;
-        try {
             pigList = jpaStreamer.stream(Pig.class).collect(Collectors.toList());
             return pigList;
-        }catch (Exception e){
-            errorLog.error("lỗi tại vị trí getAll-pigList");
-            e.getMessage();
-            return pigList = null;
-        }
     }
 
     @Override
