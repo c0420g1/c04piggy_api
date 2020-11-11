@@ -1,20 +1,19 @@
 package com.example.demo.service.impl;
-
-import com.example.demo.common.GlobalUtil;
-import com.example.demo.model.TreatmentVacxin;
-import com.example.demo.model.TreatmentVacxin$;
-import com.example.demo.model.TreatmentVacxinDTO;
 import com.example.demo.repository.TreatmentVacxinRepository;
 import com.example.demo.service.TreamentVacxinService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import com.example.demo.common.GlobalUtil;
+import com.example.demo.model.TreatmentVacxin;
+import com.example.demo.model.TreatmentVacxin$;
+import com.example.demo.model.TreatmentVacxinDTO;
+
 
 @Service
 public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
@@ -28,10 +27,17 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
     @Override
     public List<TreatmentVacxin> getAll() {
         List<TreatmentVacxin> treatmentVacxinList;
-        treatmentVacxinList = jpaStreamer.stream(TreatmentVacxin.class).collect(Collectors.toList());
-        return treatmentVacxinList;
+        try{
+            treatmentVacxinList = jpaStreamer.stream(TreatmentVacxin.class).collect(Collectors.toList());
+            return treatmentVacxinList;
+        }catch (Exception e){
+            e.getMessage();
+        }
+       return null;
     }
 
+//      dương nhật huy
+//      get treatment by id
     @Override
     public Optional<TreatmentVacxin> getById(int id) {
         try{
@@ -42,6 +48,8 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
         return null;
     }
 
+//      dương nhật huy
+//      save treatment
     @Override
     public void save(TreatmentVacxin treatmentVacxin) {
         try{
@@ -52,6 +60,8 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
 
     }
 
+//      dương nhật huy
+//      delete one or more treatment
     @Override
     public void delete(int[] ids) {
         try{
@@ -66,6 +76,8 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
         }
     }
 
+//      dương nhật huy
+//      show all list treamentDTO by pagination and search
     @Override
     public List<TreatmentVacxinDTO> search(int pageNumber, String search, String type){
         List<TreatmentVacxinDTO> treatmentVacxinDTOList =new ArrayList<>();
