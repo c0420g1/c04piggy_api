@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 package com.example.demo.model;
 
 import com.speedment.jpastreamer.field.ByteField;
@@ -175,4 +173,3 @@ public final class Pig$ {
         false
     );
 }
->>>>>>> develop
