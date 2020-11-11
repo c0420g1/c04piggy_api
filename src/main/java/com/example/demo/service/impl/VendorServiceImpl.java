@@ -34,12 +34,12 @@ public class VendorServiceImpl implements VendorService {
     }
 
     @Override
-    public void save(Vendor vendor) {
-
+    public int save(Vendor vendor) {
+        return 0;
     }
 
     @Override
-    public void delete(int[] ids) {
-
+    public int delete(int[] ids) {
+        return 0;
     }
 }
