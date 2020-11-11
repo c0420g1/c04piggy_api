@@ -14,15 +14,6 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RolePermission$ {
     
     /**
-     * This Field corresponds to the {@link RolePermission} field isDeleted.
-     */
-    public static final IntField<RolePermission> isDeleted = IntField.create(
-        RolePermission.class,
-        "isDeleted",
-        RolePermission::getIsDeleted,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RolePermission} field id.
      */
     public static final IntField<RolePermission> id = IntField.create(
@@ -47,6 +38,15 @@ public final class RolePermission$ {
         RolePermission.class,
         "description",
         RolePermission::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RolePermission} field isDeleted.
+     */
+    public static final IntField<RolePermission> isDeleted = IntField.create(
+        RolePermission.class,
+        "isDeleted",
+        RolePermission::getIsDeleted,
         false
     );
     /**

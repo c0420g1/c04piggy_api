@@ -16,6 +16,51 @@ import java.time.LocalDate;
 public final class Other$ {
     
     /**
+     * This Field corresponds to the {@link Other} field description.
+     */
+    public static final StringField<Other> description = StringField.create(
+        Other.class,
+        "description",
+        Other::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field url.
+     */
+    public static final StringField<Other> url = StringField.create(
+        Other.class,
+        "url",
+        Other::getUrl,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field id.
+     */
+    public static final IntField<Other> id = IntField.create(
+        Other.class,
+        "id",
+        Other::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field isOther.
+     */
+    public static final IntField<Other> isOther = IntField.create(
+        Other.class,
+        "isOther",
+        Other::getIsOther,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field name.
+     */
+    public static final StringField<Other> name = StringField.create(
+        Other.class,
+        "name",
+        Other::getName,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Other} field title.
      */
     public static final StringField<Other> title = StringField.create(
@@ -31,42 +76,6 @@ public final class Other$ {
         Other.class,
         "createDate",
         Other::getCreateDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field refId.
-     */
-    public static final IntField<Other> refId = IntField.create(
-        Other.class,
-        "refId",
-        Other::getRefId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field name.
-     */
-    public static final StringField<Other> name = StringField.create(
-        Other.class,
-        "name",
-        Other::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field url.
-     */
-    public static final StringField<Other> url = StringField.create(
-        Other.class,
-        "url",
-        Other::getUrl,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field isOther.
-     */
-    public static final IntField<Other> isOther = IntField.create(
-        Other.class,
-        "isOther",
-        Other::getIsOther,
         false
     );
     /**
@@ -88,21 +97,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field description.
+     * This Field corresponds to the {@link Other} field refId.
      */
-    public static final StringField<Other> description = StringField.create(
+    public static final IntField<Other> refId = IntField.create(
         Other.class,
-        "description",
-        Other::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field id.
-     */
-    public static final IntField<Other> id = IntField.create(
-        Other.class,
-        "id",
-        Other::getId,
+        "refId",
+        Other::getRefId,
         false
     );
 }

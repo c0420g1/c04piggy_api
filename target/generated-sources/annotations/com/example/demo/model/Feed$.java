@@ -25,39 +25,12 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field code.
+     * This Field corresponds to the {@link Feed} field description.
      */
-    public static final StringField<Feed> code = StringField.create(
+    public static final StringField<Feed> description = StringField.create(
         Feed.class,
-        "code",
-        Feed::getCode,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field unit.
-     */
-    public static final StringField<Feed> unit = StringField.create(
-        Feed.class,
-        "unit",
-        Feed::getUnit,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field pigs.
-     */
-    public static final ReferenceField<Feed, Set<Pig>> pigs = ReferenceField.create(
-        Feed.class,
-        "pigs",
-        Feed::getPigs,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Feed} field amount.
-     */
-    public static final IntField<Feed> amount = IntField.create(
-        Feed.class,
-        "amount",
-        Feed::getAmount,
+        "description",
+        Feed::getDescription,
         false
     );
     /**
@@ -70,12 +43,39 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field description.
+     * This Field corresponds to the {@link Feed} field unit.
      */
-    public static final StringField<Feed> description = StringField.create(
+    public static final StringField<Feed> unit = StringField.create(
         Feed.class,
-        "description",
-        Feed::getDescription,
+        "unit",
+        Feed::getUnit,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field feedType.
+     */
+    public static final ReferenceField<Feed, FeedType> feedType = ReferenceField.create(
+        Feed.class,
+        "feedType",
+        Feed::getFeedType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field code.
+     */
+    public static final StringField<Feed> code = StringField.create(
+        Feed.class,
+        "code",
+        Feed::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Feed} field pigs.
+     */
+    public static final ReferenceField<Feed, Set<Pig>> pigs = ReferenceField.create(
+        Feed.class,
+        "pigs",
+        Feed::getPigs,
         false
     );
     /**
@@ -88,12 +88,12 @@ public final class Feed$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Feed} field feedType.
+     * This Field corresponds to the {@link Feed} field amount.
      */
-    public static final ReferenceField<Feed, FeedType> feedType = ReferenceField.create(
+    public static final IntField<Feed> amount = IntField.create(
         Feed.class,
-        "feedType",
-        Feed::getFeedType,
+        "amount",
+        Feed::getAmount,
         false
     );
 }

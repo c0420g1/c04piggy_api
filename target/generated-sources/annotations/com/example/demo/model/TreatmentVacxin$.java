@@ -17,21 +17,12 @@ import java.time.LocalDate;
 public final class TreatmentVacxin$ {
     
     /**
-     * This Field corresponds to the {@link TreatmentVacxin} field type.
+     * This Field corresponds to the {@link TreatmentVacxin} field pig.
      */
-    public static final StringField<TreatmentVacxin> type = StringField.create(
+    public static final ReferenceField<TreatmentVacxin, Pig> pig = ReferenceField.create(
         TreatmentVacxin.class,
-        "type",
-        TreatmentVacxin::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link TreatmentVacxin} field treatDate.
-     */
-    public static final ComparableField<TreatmentVacxin, LocalDate> treatDate = ComparableField.create(
-        TreatmentVacxin.class,
-        "treatDate",
-        TreatmentVacxin::getTreatDate,
+        "pig",
+        TreatmentVacxin::getPig,
         false
     );
     /**
@@ -41,6 +32,24 @@ public final class TreatmentVacxin$ {
         TreatmentVacxin.class,
         "description",
         TreatmentVacxin::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link TreatmentVacxin} field veterinary.
+     */
+    public static final StringField<TreatmentVacxin> veterinary = StringField.create(
+        TreatmentVacxin.class,
+        "veterinary",
+        TreatmentVacxin::getVeterinary,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link TreatmentVacxin} field vacxin.
+     */
+    public static final ReferenceField<TreatmentVacxin, Vacxin> vacxin = ReferenceField.create(
+        TreatmentVacxin.class,
+        "vacxin",
+        TreatmentVacxin::getVacxin,
         false
     );
     /**
@@ -71,30 +80,12 @@ public final class TreatmentVacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link TreatmentVacxin} field veterinary.
+     * This Field corresponds to the {@link TreatmentVacxin} field treatDate.
      */
-    public static final StringField<TreatmentVacxin> veterinary = StringField.create(
+    public static final ComparableField<TreatmentVacxin, LocalDate> treatDate = ComparableField.create(
         TreatmentVacxin.class,
-        "veterinary",
-        TreatmentVacxin::getVeterinary,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link TreatmentVacxin} field vacxin.
-     */
-    public static final ReferenceField<TreatmentVacxin, Vacxin> vacxin = ReferenceField.create(
-        TreatmentVacxin.class,
-        "vacxin",
-        TreatmentVacxin::getVacxin,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link TreatmentVacxin} field pig.
-     */
-    public static final ReferenceField<TreatmentVacxin, Pig> pig = ReferenceField.create(
-        TreatmentVacxin.class,
-        "pig",
-        TreatmentVacxin::getPig,
+        "treatDate",
+        TreatmentVacxin::getTreatDate,
         false
     );
     /**
@@ -104,6 +95,15 @@ public final class TreatmentVacxin$ {
         TreatmentVacxin.class,
         "diseases",
         TreatmentVacxin::getDiseases,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link TreatmentVacxin} field type.
+     */
+    public static final StringField<TreatmentVacxin> type = StringField.create(
+        TreatmentVacxin.class,
+        "type",
+        TreatmentVacxin::getType,
         false
     );
 }

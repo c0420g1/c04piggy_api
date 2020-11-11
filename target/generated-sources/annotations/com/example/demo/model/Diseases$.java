@@ -16,12 +16,12 @@ import java.util.Set;
 public final class Diseases$ {
     
     /**
-     * This Field corresponds to the {@link Diseases} field description.
+     * This Field corresponds to the {@link Diseases} field id.
      */
-    public static final StringField<Diseases> description = StringField.create(
+    public static final IntField<Diseases> id = IntField.create(
         Diseases.class,
-        "description",
-        Diseases::getDescription,
+        "id",
+        Diseases::getId,
         false
     );
     /**
@@ -34,21 +34,12 @@ public final class Diseases$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Diseases} field treatmentVacxins.
+     * This Field corresponds to the {@link Diseases} field description.
      */
-    public static final ReferenceField<Diseases, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+    public static final StringField<Diseases> description = StringField.create(
         Diseases.class,
-        "treatmentVacxins",
-        Diseases::getTreatmentVacxins,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Diseases} field id.
-     */
-    public static final IntField<Diseases> id = IntField.create(
-        Diseases.class,
-        "id",
-        Diseases::getId,
+        "description",
+        Diseases::getDescription,
         false
     );
     /**
@@ -58,6 +49,15 @@ public final class Diseases$ {
         Diseases.class,
         "isDeleted",
         Diseases::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field treatmentVacxins.
+     */
+    public static final ReferenceField<Diseases, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+        Diseases.class,
+        "treatmentVacxins",
+        Diseases::getTreatmentVacxins,
         false
     );
 }

@@ -25,12 +25,12 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field description.
+     * This Field corresponds to the {@link Herd} field name.
      */
-    public static final StringField<Herd> description = StringField.create(
+    public static final StringField<Herd> name = StringField.create(
         Herd.class,
-        "description",
-        Herd::getDescription,
+        "name",
+        Herd::getName,
         false
     );
     /**
@@ -43,12 +43,12 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field name.
+     * This Field corresponds to the {@link Herd} field description.
      */
-    public static final StringField<Herd> name = StringField.create(
+    public static final StringField<Herd> description = StringField.create(
         Herd.class,
-        "name",
-        Herd::getName,
+        "description",
+        Herd::getDescription,
         false
     );
     /**
