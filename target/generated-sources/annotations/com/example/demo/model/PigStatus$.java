@@ -16,37 +16,6 @@ import java.util.Set;
 public final class PigStatus$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link PigStatus} field description.
-     */
-    public static final StringField<PigStatus> description = StringField.create(
-        PigStatus.class,
-        "description",
-        PigStatus::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigStatus} field name.
-     */
-    public static final StringField<PigStatus> name = StringField.create(
-        PigStatus.class,
-        "name",
-        PigStatus::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigStatus} field
-     * pigAssociateStatuses.
-     */
-    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
-        PigStatus.class,
-        "pigAssociateStatuses",
-        PigStatus::getPigAssociateStatuses,
-        false
-    );
-    /**
-=======
->>>>>>> develop
      * This Field corresponds to the {@link PigStatus} field id.
      */
     public static final IntField<PigStatus> id = IntField.create(
@@ -56,35 +25,6 @@ public final class PigStatus$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link PigStatus} field name.
-     */
-    public static final StringField<PigStatus> name = StringField.create(
-        PigStatus.class,
-        "name",
-        PigStatus::getName,
-        false
-    );
-<<<<<<< HEAD
-=======
-    /**
-     * This Field corresponds to the {@link PigStatus} field
-     * pigAssociateStatuses.
-     */
-    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
-        PigStatus.class,
-        "pigAssociateStatuses",
-        PigStatus::getPigAssociateStatuses,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigStatus} field description.
-     */
-    public static final StringField<PigStatus> description = StringField.create(
-        PigStatus.class,
-        "description",
-        PigStatus::getDescription,
-=======
      * This Field corresponds to the {@link PigStatus} field isDeleted.
      */
     public static final IntField<PigStatus> isDeleted = IntField.create(
@@ -94,25 +34,6 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field description.
-     */
-    public static final StringField<PigStatus> description = StringField.create(
-        PigStatus.class,
-        "description",
-        PigStatus::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigStatus} field name.
-     */
-    public static final StringField<PigStatus> name = StringField.create(
-        PigStatus.class,
-        "name",
-        PigStatus::getName,
->>>>>>> develop
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigStatus} field
      * pigAssociateStatuses.
      */
@@ -122,5 +43,22 @@ public final class PigStatus$ {
         PigStatus::getPigAssociateStatuses,
         false
     );
->>>>>>> develop
+    /**
+     * This Field corresponds to the {@link PigStatus} field name.
+     */
+    public static final StringField<PigStatus> name = StringField.create(
+        PigStatus.class,
+        "name",
+        PigStatus::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field description.
+     */
+    public static final StringField<PigStatus> description = StringField.create(
+        PigStatus.class,
+        "description",
+        PigStatus::getDescription,
+        false
+    );
 }

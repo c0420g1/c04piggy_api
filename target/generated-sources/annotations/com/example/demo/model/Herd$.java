@@ -16,107 +16,12 @@ import java.util.Set;
 public final class Herd$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Herd} field id.
-     */
-    public static final IntField<Herd> id = IntField.create(
-        Herd.class,
-        "id",
-        Herd::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field feeds.
-     */
-    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
-        Herd.class,
-        "feeds",
-        Herd::getFeeds,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field name.
-     */
-    public static final StringField<Herd> name = StringField.create(
-        Herd.class,
-        "name",
-        Herd::getName,
-        false
-    );
-    /**
-=======
->>>>>>> develop
-     * This Field corresponds to the {@link Herd} field description.
-     */
-    public static final StringField<Herd> description = StringField.create(
-        Herd.class,
-        "description",
-        Herd::getDescription,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Herd} field cotes.
-=======
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Herd} field name.
-     */
-    public static final StringField<Herd> name = StringField.create(
-        Herd.class,
-        "name",
-        Herd::getName,
-=======
-     * This Field corresponds to the {@link Herd} field id.
->>>>>>> develop
-     */
-    public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
-        Herd.class,
-<<<<<<< HEAD
-        "cotes",
-        Herd::getCotes,
-=======
-        "id",
-        Herd::getId,
->>>>>>> develop
->>>>>>> develop
-        false
-    );
-    /**
      * This Field corresponds to the {@link Herd} field cotes.
      */
     public static final ReferenceField<Herd, Set<Cote>> cotes = ReferenceField.create(
         Herd.class,
         "cotes",
         Herd::getCotes,
-        false
-    );
-<<<<<<< HEAD
-=======
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Herd} field description.
-     */
-    public static final StringField<Herd> description = StringField.create(
-        Herd.class,
-        "description",
-        Herd::getDescription,
-=======
-     * This Field corresponds to the {@link Herd} field feeds.
-     */
-    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
-        Herd.class,
-        "feeds",
-        Herd::getFeeds,
->>>>>>> develop
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Herd} field name.
-     */
-    public static final StringField<Herd> name = StringField.create(
-        Herd.class,
-        "name",
-        Herd::getName,
         false
     );
     /**
@@ -128,5 +33,40 @@ public final class Herd$ {
         Herd::getIsDeleted,
         false
     );
->>>>>>> develop
+    /**
+     * This Field corresponds to the {@link Herd} field feeds.
+     */
+    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
+        Herd.class,
+        "feeds",
+        Herd::getFeeds,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field id.
+     */
+    public static final IntField<Herd> id = IntField.create(
+        Herd.class,
+        "id",
+        Herd::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field description.
+     */
+    public static final StringField<Herd> description = StringField.create(
+        Herd.class,
+        "description",
+        Herd::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field name.
+     */
+    public static final StringField<Herd> name = StringField.create(
+        Herd.class,
+        "name",
+        Herd::getName,
+        false
+    );
 }
