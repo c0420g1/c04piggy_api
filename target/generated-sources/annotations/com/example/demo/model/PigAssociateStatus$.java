@@ -14,13 +14,12 @@ import com.speedment.jpastreamer.field.StringField;
 public final class PigAssociateStatus$ {
     
     /**
-     * This Field corresponds to the {@link PigAssociateStatus} field
-     * description.
+     * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
      */
-    public static final StringField<PigAssociateStatus> description = StringField.create(
+    public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
         PigAssociateStatus.class,
-        "description",
-        PigAssociateStatus::getDescription,
+        "isDeleted",
+        PigAssociateStatus::getIsDeleted,
         false
     );
     /**
@@ -30,15 +29,6 @@ public final class PigAssociateStatus$ {
         PigAssociateStatus.class,
         "pig",
         PigAssociateStatus::getPig,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigAssociateStatus} field isDeleted.
-     */
-    public static final IntField<PigAssociateStatus> isDeleted = IntField.create(
-        PigAssociateStatus.class,
-        "isDeleted",
-        PigAssociateStatus::getIsDeleted,
         false
     );
     /**
@@ -57,6 +47,16 @@ public final class PigAssociateStatus$ {
         PigAssociateStatus.class,
         "pigStatus",
         PigAssociateStatus::getPigStatus,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigAssociateStatus} field
+     * description.
+     */
+    public static final StringField<PigAssociateStatus> description = StringField.create(
+        PigAssociateStatus.class,
+        "description",
+        PigAssociateStatus::getDescription,
         false
     );
 }

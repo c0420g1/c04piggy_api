@@ -34,12 +34,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field isDeleted.
+     * This Field corresponds to the {@link Account} field description.
      */
-    public static final IntField<Account> isDeleted = IntField.create(
+    public static final StringField<Account> description = StringField.create(
         Account.class,
-        "isDeleted",
-        Account::getIsDeleted,
+        "description",
+        Account::getDescription,
         false
     );
     /**
@@ -61,12 +61,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field description.
+     * This Field corresponds to the {@link Account} field isDeleted.
      */
-    public static final StringField<Account> description = StringField.create(
+    public static final IntField<Account> isDeleted = IntField.create(
         Account.class,
-        "description",
-        Account::getDescription,
+        "isDeleted",
+        Account::getIsDeleted,
         false
     );
 }
