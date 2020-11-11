@@ -14,21 +14,12 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RolePermission$ {
     
     /**
-     * This Field corresponds to the {@link RolePermission} field isDeleted.
+     * This Field corresponds to the {@link RolePermission} field description.
      */
-    public static final IntField<RolePermission> isDeleted = IntField.create(
+    public static final StringField<RolePermission> description = StringField.create(
         RolePermission.class,
-        "isDeleted",
-        RolePermission::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RolePermission} field id.
-     */
-    public static final IntField<RolePermission> id = IntField.create(
-        RolePermission.class,
-        "id",
-        RolePermission::getId,
+        "description",
+        RolePermission::getDescription,
         false
     );
     /**
@@ -41,6 +32,15 @@ public final class RolePermission$ {
         false
     );
     /**
+     * This Field corresponds to the {@link RolePermission} field id.
+     */
+    public static final IntField<RolePermission> id = IntField.create(
+        RolePermission.class,
+        "id",
+        RolePermission::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RolePermission} field permission.
      */
     public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
@@ -50,12 +50,12 @@ public final class RolePermission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RolePermission} field description.
+     * This Field corresponds to the {@link RolePermission} field isDeleted.
      */
-    public static final StringField<RolePermission> description = StringField.create(
+    public static final IntField<RolePermission> isDeleted = IntField.create(
         RolePermission.class,
-        "description",
-        RolePermission::getDescription,
+        "isDeleted",
+        RolePermission::getIsDeleted,
         false
     );
 }

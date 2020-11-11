@@ -14,6 +14,15 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RoleAccount$ {
     
     /**
+     * This Field corresponds to the {@link RoleAccount} field description.
+     */
+    public static final StringField<RoleAccount> description = StringField.create(
+        RoleAccount.class,
+        "description",
+        RoleAccount::getDescription,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RoleAccount} field isDeleted.
      */
     public static final IntField<RoleAccount> isDeleted = IntField.create(
@@ -32,15 +41,6 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field role.
-     */
-    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
-        RoleAccount.class,
-        "role",
-        RoleAccount::getRole,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RoleAccount} field account.
      */
     public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
@@ -50,12 +50,12 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field description.
+     * This Field corresponds to the {@link RoleAccount} field role.
      */
-    public static final StringField<RoleAccount> description = StringField.create(
+    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
         RoleAccount.class,
-        "description",
-        RoleAccount::getDescription,
+        "role",
+        RoleAccount::getRole,
         false
     );
 }
