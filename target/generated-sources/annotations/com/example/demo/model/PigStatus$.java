@@ -25,25 +25,6 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field isDeleted.
-     */
-    public static final IntField<PigStatus> isDeleted = IntField.create(
-        PigStatus.class,
-        "isDeleted",
-        PigStatus::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigStatus} field
-     * pigAssociateStatuses.
-     */
-    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
-        PigStatus.class,
-        "pigAssociateStatuses",
-        PigStatus::getPigAssociateStatuses,
-        false
-    );
-    /**
      * This Field corresponds to the {@link PigStatus} field name.
      */
     public static final StringField<PigStatus> name = StringField.create(
@@ -59,6 +40,25 @@ public final class PigStatus$ {
         PigStatus.class,
         "description",
         PigStatus::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field
+     * pigAssociateStatuses.
+     */
+    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+        PigStatus.class,
+        "pigAssociateStatuses",
+        PigStatus::getPigAssociateStatuses,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link PigStatus} field isDeleted.
+     */
+    public static final IntField<PigStatus> isDeleted = IntField.create(
+        PigStatus.class,
+        "isDeleted",
+        PigStatus::getIsDeleted,
         false
     );
 }
