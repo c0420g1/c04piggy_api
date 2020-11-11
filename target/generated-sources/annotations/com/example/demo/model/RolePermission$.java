@@ -14,12 +14,14 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RolePermission$ {
     
     /**
-     * This Field corresponds to the {@link RolePermission} field id.
+<<<<<<< HEAD
+=======
+     * This Field corresponds to the {@link RolePermission} field role.
      */
-    public static final IntField<RolePermission> id = IntField.create(
+    public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
         RolePermission.class,
-        "id",
-        RolePermission::getId,
+        "role",
+        RolePermission::getRole,
         false
     );
     /**
@@ -32,6 +34,25 @@ public final class RolePermission$ {
         false
     );
     /**
+     * This Field corresponds to the {@link RolePermission} field isDeleted.
+     */
+    public static final IntField<RolePermission> isDeleted = IntField.create(
+        RolePermission.class,
+        "isDeleted",
+        RolePermission::getIsDeleted,
+        false
+    );
+    /**
+>>>>>>> develop
+     * This Field corresponds to the {@link RolePermission} field id.
+     */
+    public static final IntField<RolePermission> id = IntField.create(
+        RolePermission.class,
+        "id",
+        RolePermission::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RolePermission} field description.
      */
     public static final StringField<RolePermission> description = StringField.create(
@@ -40,6 +61,7 @@ public final class RolePermission$ {
         RolePermission::getDescription,
         false
     );
+<<<<<<< HEAD
     /**
      * This Field corresponds to the {@link RolePermission} field isDeleted.
      */
@@ -58,4 +80,6 @@ public final class RolePermission$ {
         RolePermission::getRole,
         false
     );
+=======
+>>>>>>> develop
 }
