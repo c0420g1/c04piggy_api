@@ -92,4 +92,20 @@ public class StockController {
             e.printStackTrace();
         }
     }
+
+    //Creator Tuong
+    // edit Stock, with no pagination
+    @PutMapping("editStockExport/{id}")
+    public void editStockExport(@RequestBody int quantityExport, @PathVariable int id){
+       Stock stock;
+       try {
+           stock = stockService.getById(id).orElse(null);
+           if (stock.getQuantity() >= quantityExport){
+               stock.setQuantity(stock.getQuantity() - quantityExport);
+           }
+           stockService.save(stock);
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+    }
 }

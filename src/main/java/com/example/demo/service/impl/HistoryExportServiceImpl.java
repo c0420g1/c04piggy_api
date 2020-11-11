@@ -1,19 +1,23 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Cote;
-import com.example.demo.model.HistoryExport;
+import com.example.demo.model.*;
 import com.example.demo.repository.HistoryExportRepository;
 import com.example.demo.service.BaseService;
+import com.example.demo.service.HistoryExportService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static com.example.demo.common.GlobalUtil.pageSize;
+
 @Service
-public class HistoryExportServiceImpl implements BaseService<HistoryExport> {
+public class HistoryExportServiceImpl implements HistoryExportService {
     @Autowired
     private JPAStreamer jpaStreamer;
     @Autowired
@@ -46,5 +50,31 @@ public class HistoryExportServiceImpl implements BaseService<HistoryExport> {
             a.setIsDeleted(1);
             historyExportRepository.save(a);
         });
+    }
+
+    @Override
+    public List<HistoryExportStockDTO> getHistoryExportStockDTO(int pageNumber, String search) {
+        List<HistoryExportStockDTO> historyExportStockDTOList = new ArrayList<>();
+        try {
+            JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+            jpaStreamer.stream(HistoryExport.class).filter(e ->
+                    e.getIsDeleted()==0 &&
+                              e.getStock().getShipmentCode().contains(search)
+                            ||e.getStock().getFeedType().getName().contains(search)
+                            ||e.getStock().getVendor().getName().contains(search)
+                            ||String.valueOf(e.getQuantity()).contains(search)
+                            ||e.getUnit().contains(search)
+                            ||e.getEmployee().getName().contains(search)
+                            ||e.getEmployee().getName().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+                HistoryExportStockDTO historyExportStockDTO = new HistoryExportStockDTO(e.getId(),e.getStock().getShipmentCode(),
+                        e.getStock().getFeedType().getName(), e.getStock().getVendor().getName(),e.getExportDate(), e.getQuantity(),
+                        e.getUnit(), e.getEmployee().getName(), e.getEmployee().getName());
+                historyExportStockDTOList.add(historyExportStockDTO);
+            });
+            return historyExportStockDTOList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 import com.example.demo.model.HistoryExport;
-import com.example.demo.model.Stock;
+import com.example.demo.model.HistoryExportStockDTO;
 import com.example.demo.service.impl.HistoryExportServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,5 +30,12 @@ public class HistoryExportController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    //Creator Tuong
+    // get List HistoryExport Stock
+    @GetMapping("/historyExportStock")
+    public List<HistoryExportStockDTO> getHistoryExportStockDTO(){
+        return null;
     }
 }

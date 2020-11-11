@@ -15,6 +15,7 @@ import com.example.demo.model.Stock;
 import com.example.demo.model.StockDTO;
 import com.example.demo.repository.StockRepository;
 import com.example.demo.service.StockService;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import static com.example.demo.common.GlobalUtil.pageSize;
 
@@ -131,4 +132,5 @@ public class StockServiceImpl implements StockService {
         }
         return null;
     }
+
 }
