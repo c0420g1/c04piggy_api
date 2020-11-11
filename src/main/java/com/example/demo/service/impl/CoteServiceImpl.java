@@ -42,9 +42,9 @@ public class CoteServiceImpl implements CoteService {
     public void delete(int[] ids) {
         Arrays.stream(ids).forEach(e ->
         {
-            Cote a = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
-            a.setIsDeleted(1);
-            coteRepository.save(a);
+            Cote cote = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
+            cote.setIsDeleted(1);
+            coteRepository.save(cote);
         });
     }
 

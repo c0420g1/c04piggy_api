@@ -1,10 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.*;
+import com.example.demo.service.NotificationService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,10 +12,20 @@ import java.util.stream.Collectors;
 @RestController
 public class NotificationController {
     @Autowired
-    private JPAStreamer jpaStreamer;
+    private NotificationService notificationService;
 
-    @GetMapping("/notification")
-    public List<Notification> test(){
-        return jpaStreamer.stream(Notification.class).sorted(Notification$.id.reversed()).collect(Collectors.toList());
+    @GetMapping("/getAllNotification")
+    public List<Notification> getAll(){
+        return notificationService.getAll();
+    }
+
+    @PostMapping("addEditNotification")
+    public int addNotification(@RequestBody Notification notification){
+        return 1;
+    }
+
+    @PostMapping("deleteNotification")
+    public int deleteNotification(@RequestParam int[] ids){
+        return ids.length;
     }
 }
