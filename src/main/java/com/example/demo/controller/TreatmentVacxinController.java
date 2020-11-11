@@ -1,10 +1,10 @@
 package com.example.demo.controller;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import com.example.demo.model.TreatmentVacxin;
 import com.example.demo.model.TreatmentVacxinDTO;
 import com.example.demo.service.TreamentVacxinService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -19,8 +19,8 @@ public class TreatmentVacxinController {
     }
 
     @GetMapping("/treatmentVacxinDTO/{pageNum}")
-    public List<TreatmentVacxinDTO> search(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search){
-        return treamentVacxinService.search(pageNum,search);
+    public List<TreatmentVacxinDTO> search(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search, @RequestParam String type){
+        return treamentVacxinService.search(pageNum,search,type);
     }
 
     @GetMapping("/treatmentVacxin/{id}")
@@ -36,5 +36,10 @@ public class TreatmentVacxinController {
     @PatchMapping("/treatmentVacxin")
     public void updateInformation(@RequestBody TreatmentVacxin treatmentVacxin){
         treamentVacxinService.save(treatmentVacxin);
+    }
+
+    @DeleteMapping("/treatmentVacxin")
+    public void deleteInformation(@RequestBody int[] ids){
+        treamentVacxinService.delete(ids);
     }
 }

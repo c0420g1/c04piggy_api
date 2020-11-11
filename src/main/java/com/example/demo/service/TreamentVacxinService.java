@@ -6,5 +6,5 @@ import com.example.demo.model.TreatmentVacxinDTO;
 import java.util.List;
 
 public interface TreamentVacxinService extends BaseService<TreatmentVacxin>{
-    List<TreatmentVacxinDTO> search(int pageNumber, String search);
+    List<TreatmentVacxinDTO> search(int pageNumber, String search, String type);
 }

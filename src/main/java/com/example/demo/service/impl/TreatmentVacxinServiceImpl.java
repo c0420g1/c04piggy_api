@@ -34,33 +34,47 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
 
     @Override
     public Optional<TreatmentVacxin> getById(int id) {
-        return jpaStreamer.stream(TreatmentVacxin.class).filter(e -> e.getId() == id).findFirst();
+        try{
+            return jpaStreamer.stream(TreatmentVacxin.class).filter(e -> e.getId() == id).findFirst();
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return null;
     }
 
     @Override
     public void save(TreatmentVacxin treatmentVacxin) {
-        treatmentVacxinRepository.save(treatmentVacxin);
+        try{
+            treatmentVacxinRepository.save(treatmentVacxin);
+        }catch (Exception e){
+            e.getMessage();
+        }
+
     }
 
     @Override
     public void delete(int[] ids) {
-        Arrays.stream(ids).forEach(e -> {
-            TreatmentVacxin treatmentVacxin = jpaStreamer.stream(TreatmentVacxin.class)
-                    .filter(f ->f.getId() ==e).findFirst().get();
-            treatmentVacxin.setIsDeleted(1);
-            treatmentVacxinRepository.save(treatmentVacxin);
-        });
+        try{
+            Arrays.stream(ids).forEach(e -> {
+                TreatmentVacxin treatmentVacxin = jpaStreamer.stream(TreatmentVacxin.class)
+                        .filter(f ->f.getId() ==e).findFirst().get();
+                treatmentVacxin.setIsDeleted(1);
+                treatmentVacxinRepository.save(treatmentVacxin);
+            });
+        }catch (Exception e){
+            e.getMessage();
+        }
     }
 
     @Override
-    public List<TreatmentVacxinDTO> search(int pageNumber, String search){
+    public List<TreatmentVacxinDTO> search(int pageNumber, String search, String type){
         List<TreatmentVacxinDTO> treatmentVacxinDTOList =new ArrayList<>();
         try{
-            jpaStreamer.stream(TreatmentVacxin.class).filter(e->e.getIsDeleted()==0 && (e.getVeterinary().contains(search)
+            jpaStreamer.stream(TreatmentVacxin.class).filter(e->e.getIsDeleted()==0 && e.getType().equals(type) && (e.getVeterinary().contains(search)
                     || e.getVacxin().getName().contains(search) || e.getDiseases().getName().contains(search) || e.getTreatDate().toString().contains(search)
                     || e.getPig().getCode().contains(search) || e.getCote().getCode().contains(search))
-            ).forEach(f->{
-                TreatmentVacxinDTO t= TreatmentVacxinDTO.builder().treatDate(f.getTreatDate()).coteCode(f.getCote().getCode())
+            ).sorted(TreatmentVacxin$.id.reversed()).skip((pageNumber-1)* GlobalUtil.pageSize).limit(GlobalUtil.pageSize).forEach(f->{
+                TreatmentVacxinDTO t= TreatmentVacxinDTO.builder().id(f.getId()).treatDate(f.getTreatDate()).coteCode(f.getCote().getCode())
                         .diseases(f.getDiseases().getName()).pigCode(f.getPig().getCode()).vacxin(f.getVacxin()
                                 .getName()).veterinarian(f.getVeterinary()).build();
                 treatmentVacxinDTOList.add(t);

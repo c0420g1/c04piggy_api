@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 public class TreatmentVacxinDTO {
+    private int id;
     private LocalDate treatDate;
     private String coteCode;
     private String pigCode;
