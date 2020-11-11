@@ -16,6 +16,15 @@ import java.util.Set;
 public final class PigStatus$ {
     
     /**
+     * This Field corresponds to the {@link PigStatus} field description.
+     */
+    public static final StringField<PigStatus> description = StringField.create(
+        PigStatus.class,
+        "description",
+        PigStatus::getDescription,
+        false
+    );
+    /**
      * This Field corresponds to the {@link PigStatus} field isDeleted.
      */
     public static final IntField<PigStatus> isDeleted = IntField.create(
@@ -25,22 +34,12 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field
-     * pigAssociateStatuses.
+     * This Field corresponds to the {@link PigStatus} field name.
      */
-    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+    public static final StringField<PigStatus> name = StringField.create(
         PigStatus.class,
-        "pigAssociateStatuses",
-        PigStatus::getPigAssociateStatuses,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link PigStatus} field description.
-     */
-    public static final StringField<PigStatus> description = StringField.create(
-        PigStatus.class,
-        "description",
-        PigStatus::getDescription,
+        "name",
+        PigStatus::getName,
         false
     );
     /**
@@ -53,12 +52,13 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field name.
+     * This Field corresponds to the {@link PigStatus} field
+     * pigAssociateStatuses.
      */
-    public static final StringField<PigStatus> name = StringField.create(
+    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
         PigStatus.class,
-        "name",
-        PigStatus::getName,
+        "pigAssociateStatuses",
+        PigStatus::getPigAssociateStatuses,
         false
     );
 }

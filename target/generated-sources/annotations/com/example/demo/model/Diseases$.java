@@ -43,21 +43,21 @@ public final class Diseases$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Diseases} field name.
-     */
-    public static final StringField<Diseases> name = StringField.create(
-        Diseases.class,
-        "name",
-        Diseases::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Diseases} field treatmentVacxins.
      */
     public static final ReferenceField<Diseases, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Diseases.class,
         "treatmentVacxins",
         Diseases::getTreatmentVacxins,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field name.
+     */
+    public static final StringField<Diseases> name = StringField.create(
+        Diseases.class,
+        "name",
+        Diseases::getName,
         false
     );
 }

@@ -14,15 +14,6 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RolePermission$ {
     
     /**
-     * This Field corresponds to the {@link RolePermission} field permission.
-     */
-    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
-        RolePermission.class,
-        "permission",
-        RolePermission::getPermission,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RolePermission} field role.
      */
     public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
@@ -32,12 +23,12 @@ public final class RolePermission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RolePermission} field isDeleted.
+     * This Field corresponds to the {@link RolePermission} field id.
      */
-    public static final IntField<RolePermission> isDeleted = IntField.create(
+    public static final IntField<RolePermission> id = IntField.create(
         RolePermission.class,
-        "isDeleted",
-        RolePermission::getIsDeleted,
+        "id",
+        RolePermission::getId,
         false
     );
     /**
@@ -50,12 +41,21 @@ public final class RolePermission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RolePermission} field id.
+     * This Field corresponds to the {@link RolePermission} field permission.
      */
-    public static final IntField<RolePermission> id = IntField.create(
+    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
         RolePermission.class,
-        "id",
-        RolePermission::getId,
+        "permission",
+        RolePermission::getPermission,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RolePermission} field isDeleted.
+     */
+    public static final IntField<RolePermission> isDeleted = IntField.create(
+        RolePermission.class,
+        "isDeleted",
+        RolePermission::getIsDeleted,
         false
     );
 }

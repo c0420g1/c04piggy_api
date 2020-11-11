@@ -16,12 +16,12 @@ import java.util.Set;
 public final class Vendor$ {
     
     /**
-     * This Field corresponds to the {@link Vendor} field stocks.
+     * This Field corresponds to the {@link Vendor} field id.
      */
-    public static final ReferenceField<Vendor, Set<Stock>> stocks = ReferenceField.create(
+    public static final IntField<Vendor> id = IntField.create(
         Vendor.class,
-        "stocks",
-        Vendor::getStocks,
+        "id",
+        Vendor::getId,
         false
     );
     /**
@@ -34,21 +34,21 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field id.
+     * This Field corresponds to the {@link Vendor} field isDeleted.
      */
-    public static final IntField<Vendor> id = IntField.create(
+    public static final IntField<Vendor> isDeleted = IntField.create(
         Vendor.class,
-        "id",
-        Vendor::getId,
+        "isDeleted",
+        Vendor::getIsDeleted,
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field name.
+     * This Field corresponds to the {@link Vendor} field stocks.
      */
-    public static final StringField<Vendor> name = StringField.create(
+    public static final ReferenceField<Vendor, Set<Stock>> stocks = ReferenceField.create(
         Vendor.class,
-        "name",
-        Vendor::getName,
+        "stocks",
+        Vendor::getStocks,
         false
     );
     /**
@@ -61,12 +61,12 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field isDeleted.
+     * This Field corresponds to the {@link Vendor} field name.
      */
-    public static final IntField<Vendor> isDeleted = IntField.create(
+    public static final StringField<Vendor> name = StringField.create(
         Vendor.class,
-        "isDeleted",
-        Vendor::getIsDeleted,
+        "name",
+        Vendor::getName,
         false
     );
 }

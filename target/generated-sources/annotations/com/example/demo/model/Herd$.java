@@ -25,15 +25,6 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field feeds.
-     */
-    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
-        Herd.class,
-        "feeds",
-        Herd::getFeeds,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Herd} field isDeleted.
      */
     public static final IntField<Herd> isDeleted = IntField.create(
@@ -43,23 +34,6 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field feeds.
-     */
-    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
-        Herd.class,
-        "feeds",
-        Herd::getFeeds,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Herd} field name.
-     */
-    public static final StringField<Herd> name = StringField.create(
-        Herd.class,
-        "name",
-        Herd::getName,
-=======
      * This Field corresponds to the {@link Herd} field id.
      */
     public static final IntField<Herd> id = IntField.create(
@@ -75,7 +49,24 @@ public final class Herd$ {
         Herd.class,
         "cotes",
         Herd::getCotes,
->>>>>>> develop
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field name.
+     */
+    public static final StringField<Herd> name = StringField.create(
+        Herd.class,
+        "name",
+        Herd::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field feeds.
+     */
+    public static final ReferenceField<Herd, Set<Feed>> feeds = ReferenceField.create(
+        Herd.class,
+        "feeds",
+        Herd::getFeeds,
         false
     );
 }
