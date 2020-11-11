@@ -25,21 +25,21 @@ public final class FeedType$ {
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field name.
-     */
-    public static final StringField<FeedType> name = StringField.create(
-        FeedType.class,
-        "name",
-        FeedType::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link FeedType} field description.
      */
     public static final StringField<FeedType> description = StringField.create(
         FeedType.class,
         "description",
         FeedType::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field name.
+     */
+    public static final StringField<FeedType> name = StringField.create(
+        FeedType.class,
+        "name",
+        FeedType::getName,
         false
     );
     /**
