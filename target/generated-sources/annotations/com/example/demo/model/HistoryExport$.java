@@ -17,6 +17,7 @@ import java.time.LocalDate;
 public final class HistoryExport$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field
      * receivedEmployeeId.
      */
@@ -42,6 +43,37 @@ public final class HistoryExport$ {
         HistoryExport.class,
         "company",
         HistoryExport::getCompany,
+=======
+<<<<<<< HEAD
+     * This Field corresponds to the {@link HistoryExport} field exportDate.
+     */
+    public static final ComparableField<HistoryExport, LocalDate> exportDate = ComparableField.create(
+        HistoryExport.class,
+        "exportDate",
+        HistoryExport::getExportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field type.
+=======
+     * This Field corresponds to the {@link HistoryExport} field employee.
+>>>>>>> develop
+     */
+    public static final ReferenceField<HistoryExport, Employee> employee = ReferenceField.create(
+        HistoryExport.class,
+        "employee",
+        HistoryExport::getEmployee,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field
+     * receivedEmployeeId.
+     */
+    public static final IntField<HistoryExport> receivedEmployeeId = IntField.create(
+        HistoryExport.class,
+        "receivedEmployeeId",
+        HistoryExport::getReceivedEmployeeId,
+>>>>>>> develop
         false
     );
     /**
@@ -63,24 +95,35 @@ public final class HistoryExport$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field isDeleted.
      */
     public static final IntField<HistoryExport> isDeleted = IntField.create(
         HistoryExport.class,
         "isDeleted",
         HistoryExport::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field cote.
+=======
+     * This Field corresponds to the {@link HistoryExport} field id.
      */
-    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
+    public static final IntField<HistoryExport> id = IntField.create(
         HistoryExport.class,
-        "cote",
-        HistoryExport::getCote,
+        "id",
+        HistoryExport::getId,
+>>>>>>> develop
         false
     );
     /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link HistoryExport} field stock.
+     */
+    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
+        HistoryExport.class,
+        "stock",
+        HistoryExport::getStock,
+        false
+    );
+    /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field employee.
      */
     public static final ReferenceField<HistoryExport, Employee> employee = ReferenceField.create(
@@ -91,6 +134,16 @@ public final class HistoryExport$ {
     );
     /**
      * This Field corresponds to the {@link HistoryExport} field stock.
+=======
+     * This Field corresponds to the {@link HistoryExport} field isDeleted.
+     */
+    public static final IntField<HistoryExport> isDeleted = IntField.create(
+        HistoryExport.class,
+        "isDeleted",
+        HistoryExport::getIsDeleted,
+=======
+     * This Field corresponds to the {@link HistoryExport} field type.
+>>>>>>> develop
      */
     public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
         HistoryExport.class,
@@ -99,12 +152,22 @@ public final class HistoryExport$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field exportDate.
      */
     public static final ComparableField<HistoryExport, LocalDate> exportDate = ComparableField.create(
         HistoryExport.class,
         "exportDate",
         HistoryExport::getExportDate,
+=======
+     * This Field corresponds to the {@link HistoryExport} field stock.
+     */
+    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
+        HistoryExport.class,
+        "stock",
+        HistoryExport::getStock,
+>>>>>>> develop
+>>>>>>> develop
         false
     );
     /**
@@ -117,10 +180,53 @@ public final class HistoryExport$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link HistoryExport} field unit.
      */
     public static final StringField<HistoryExport> unit = StringField.create(
         HistoryExport.class,
+=======
+     * This Field corresponds to the {@link HistoryExport} field description.
+     */
+    public static final StringField<HistoryExport> description = StringField.create(
+        HistoryExport.class,
+        "description",
+        HistoryExport::getDescription,
+        false
+    );
+    /**
+<<<<<<< HEAD
+     * This Field corresponds to the {@link HistoryExport} field quantity.
+     */
+    public static final IntField<HistoryExport> quantity = IntField.create(
+        HistoryExport.class,
+        "quantity",
+        HistoryExport::getQuantity,
+=======
+     * This Field corresponds to the {@link HistoryExport} field exportDate.
+     */
+    public static final ComparableField<HistoryExport, LocalDate> exportDate = ComparableField.create(
+        HistoryExport.class,
+        "exportDate",
+        HistoryExport::getExportDate,
+>>>>>>> develop
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field cote.
+     */
+    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
+        HistoryExport.class,
+        "cote",
+        HistoryExport::getCote,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field unit.
+     */
+    public static final StringField<HistoryExport> unit = StringField.create(
+        HistoryExport.class,
+>>>>>>> develop
         "unit",
         HistoryExport::getUnit,
         false

@@ -14,6 +14,7 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RolePermission$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link RolePermission} field id.
      */
     public static final IntField<RolePermission> id = IntField.create(
@@ -23,12 +24,25 @@ public final class RolePermission$ {
         false
     );
     /**
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> develop
      * This Field corresponds to the {@link RolePermission} field role.
      */
     public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
         RolePermission.class,
         "role",
         RolePermission::getRole,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RolePermission} field permission.
+     */
+    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
+        RolePermission.class,
+        "permission",
+        RolePermission::getPermission,
         false
     );
     /**
@@ -41,6 +55,16 @@ public final class RolePermission$ {
         false
     );
     /**
+>>>>>>> develop
+     * This Field corresponds to the {@link RolePermission} field id.
+     */
+    public static final IntField<RolePermission> id = IntField.create(
+        RolePermission.class,
+        "id",
+        RolePermission::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RolePermission} field description.
      */
     public static final StringField<RolePermission> description = StringField.create(
@@ -49,13 +73,29 @@ public final class RolePermission$ {
         RolePermission::getDescription,
         false
     );
+<<<<<<< HEAD
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link RolePermission} field permission.
+=======
+     * This Field corresponds to the {@link RolePermission} field isDeleted.
      */
-    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
+    public static final IntField<RolePermission> isDeleted = IntField.create(
         RolePermission.class,
-        "permission",
-        RolePermission::getPermission,
+        "isDeleted",
+        RolePermission::getIsDeleted,
         false
     );
+    /**
+     * This Field corresponds to the {@link RolePermission} field role.
+>>>>>>> develop
+     */
+    public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
+        RolePermission.class,
+        "role",
+        RolePermission::getRole,
+        false
+    );
+=======
+>>>>>>> develop
 }

@@ -16,12 +16,29 @@ import java.util.Set;
 public final class Role$ {
     
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Role} field roleAccounts.
+=======
+<<<<<<< HEAD
+     * This Field corresponds to the {@link Role} field name.
+>>>>>>> develop
      */
     public static final ReferenceField<Role, Set<RoleAccount>> roleAccounts = ReferenceField.create(
         Role.class,
+<<<<<<< HEAD
         "roleAccounts",
         Role::getRoleAccounts,
+=======
+        "name",
+        Role::getName,
+=======
+     * This Field corresponds to the {@link Role} field id.
+     */
+    public static final IntField<Role> id = IntField.create(
+        Role.class,
+        "id",
+        Role::getId,
+>>>>>>> develop
         false
     );
     /**
@@ -29,8 +46,14 @@ public final class Role$ {
      */
     public static final StringField<Role> description = StringField.create(
         Role.class,
+<<<<<<< HEAD
         "description",
         Role::getDescription,
+=======
+        "rolePermissions",
+        Role::getRolePermissions,
+>>>>>>> develop
+>>>>>>> develop
         false
     );
     /**
@@ -52,6 +75,7 @@ public final class Role$ {
         false
     );
     /**
+<<<<<<< HEAD
      * This Field corresponds to the {@link Role} field rolePermissions.
      */
     public static final ReferenceField<Role, Set<RolePermission>> rolePermissions = ReferenceField.create(
@@ -67,6 +91,23 @@ public final class Role$ {
         Role.class,
         "id",
         Role::getId,
+=======
+     * This Field corresponds to the {@link Role} field isDeleted.
+     */
+    public static final IntField<Role> isDeleted = IntField.create(
+        Role.class,
+        "isDeleted",
+        Role::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Role} field description.
+     */
+    public static final StringField<Role> description = StringField.create(
+        Role.class,
+        "description",
+        Role::getDescription,
+>>>>>>> develop
         false
     );
 }
