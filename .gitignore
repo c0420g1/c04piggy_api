@@ -153,3 +153,4 @@ c04piggy_api.iml
 .idea/misc.xml
 src/main/resources/application.properties
 src/main/resources/META-INF/persistence.xml
+.idea/workspace.xml
