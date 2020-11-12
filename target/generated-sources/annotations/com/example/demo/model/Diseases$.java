@@ -25,12 +25,12 @@ public final class Diseases$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Diseases} field id.
+     * This Field corresponds to the {@link Diseases} field description.
      */
-    public static final IntField<Diseases> id = IntField.create(
+    public static final StringField<Diseases> description = StringField.create(
         Diseases.class,
-        "id",
-        Diseases::getId,
+        "description",
+        Diseases::getDescription,
         false
     );
     /**
@@ -52,12 +52,12 @@ public final class Diseases$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Diseases} field description.
+     * This Field corresponds to the {@link Diseases} field id.
      */
-    public static final StringField<Diseases> description = StringField.create(
+    public static final IntField<Diseases> id = IntField.create(
         Diseases.class,
-        "description",
-        Diseases::getDescription,
+        "id",
+        Diseases::getId,
         false
     );
 }
