@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.SameParentException;
 import com.example.demo.model.Pig;
 import com.example.demo.model.PigDTO;
 import com.example.demo.service.PigService;
@@ -20,7 +21,7 @@ public class PigController {
     private PigService pigService;
 
     @GetMapping("/pigList/{pageNum}")
-    public List<PigDTO> getPigList(@PathVariable int pageNum, @RequestParam String search){
+    public List<PigDTO> getPigList(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search){
         try {
             return pigService.listPigSearch(pageNum, search);
         }catch (Exception e){
@@ -55,5 +56,20 @@ public class PigController {
         }catch (Exception e){
             errorLog.error("Lỗi tại vị trí editPig" + e.getMessage());
         }
+    }
+
+    @DeleteMapping("/deletePig")
+    public void deletePig(@PathVariable int[] ids){
+        try {
+            pigService.delete(ids);
+        }catch (Exception e){
+            errorLog.error("lỗi tại pigDelete" + e.getMessage());
+        }
+    }
+
+    //add new born pig
+    @PostMapping("/addNewBornPig")
+    public void addNewBornPig(@RequestBody Pig pigAdd) {
+        pigService.saveNewPig(pigAdd);
     }
 }
