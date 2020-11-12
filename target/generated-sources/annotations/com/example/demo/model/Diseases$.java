@@ -16,30 +16,12 @@ import java.util.Set;
 public final class Diseases$ {
     
     /**
-     * This Field corresponds to the {@link Diseases} field treatmentVacxins.
-     */
-    public static final ReferenceField<Diseases, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
-        Diseases.class,
-        "treatmentVacxins",
-        Diseases::getTreatmentVacxins,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Diseases} field isDeleted.
      */
     public static final IntField<Diseases> isDeleted = IntField.create(
         Diseases.class,
         "isDeleted",
         Diseases::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Diseases} field description.
-     */
-    public static final StringField<Diseases> description = StringField.create(
-        Diseases.class,
-        "description",
-        Diseases::getDescription,
         false
     );
     /**
@@ -58,6 +40,24 @@ public final class Diseases$ {
         Diseases.class,
         "id",
         Diseases::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field treatmentVacxins.
+     */
+    public static final ReferenceField<Diseases, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+        Diseases.class,
+        "treatmentVacxins",
+        Diseases::getTreatmentVacxins,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field description.
+     */
+    public static final StringField<Diseases> description = StringField.create(
+        Diseases.class,
+        "description",
+        Diseases::getDescription,
         false
     );
 }

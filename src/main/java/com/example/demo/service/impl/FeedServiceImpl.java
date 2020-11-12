@@ -53,31 +53,27 @@ public class FeedServiceImpl implements FeedService {
     // thịnh
     // cập nhật feed
     @Override
-    public int save(Feed feed) {
+    public void save(Feed feed) {
         try {
             feedRepository.save(feed);
-            return 1;
         } catch (Exception e) {
             System.out.println(e);
-            return 0;
         }
     }
 
     //thịnh
     // xóa Feed
     @Override
-    public int delete(int[] ids) {
+    public void delete(int[] ids) {
         try{
         Arrays.stream(ids).forEach(e ->
         {
             Feed feed = jpaStreamer.stream(Feed.class).filter(f -> f.getId() == e).findFirst().get();
             feed.setIsDeleted(1);
             feedRepository.save(feed);
-        });
-            return 1;
-        }
+        });}
         catch (Exception e){
-            return 0;
+            System.out.println(e);
         }
     }
 

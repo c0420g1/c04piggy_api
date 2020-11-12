@@ -34,6 +34,15 @@ public final class FeedType$ {
         false
     );
     /**
+     * This Field corresponds to the {@link FeedType} field id.
+     */
+    public static final IntField<FeedType> id = IntField.create(
+        FeedType.class,
+        "id",
+        FeedType::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link FeedType} field stocks.
      */
     public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
@@ -58,15 +67,6 @@ public final class FeedType$ {
         FeedType.class,
         "description",
         FeedType::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link FeedType} field id.
-     */
-    public static final IntField<FeedType> id = IntField.create(
-        FeedType.class,
-        "id",
-        FeedType::getId,
         false
     );
 }

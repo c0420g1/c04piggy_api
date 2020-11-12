@@ -32,30 +32,17 @@ public class NotificationServiceImpl implements NotificationService {
     }
 
     @Override
-    public int save(Notification notification) {
-        try{
-            notificationRepository.save(notification);
-            return 1;
-        }
-        catch (Exception e){
-            return 0;
-        }
+    public void save(Notification notification) {
+        notificationRepository.save(notification);
     }
 
     @Override
-    public int delete(int[] ids) {
-        try{
-            Arrays.stream(ids).forEach(e ->
-            {
-                Notification notification = jpaStreamer.stream(Notification.class).filter(f -> f.getId() == e).findFirst().get();
-                notification.setIsDeleted(1);
-                notificationRepository.save(notification);
-            });
-            return 1;
-        }
-        catch (Exception e){
-            return 0;
-        }
-
+    public void delete(int[] ids) {
+        Arrays.stream(ids).forEach(e ->
+        {
+            Notification notification = jpaStreamer.stream(Notification.class).filter(f -> f.getId() == e).findFirst().get();
+            notification.setIsDeleted(1);
+            notificationRepository.save(notification);
+        });
     }
 }

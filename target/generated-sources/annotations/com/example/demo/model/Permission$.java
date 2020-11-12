@@ -25,6 +25,15 @@ public final class Permission$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Permission} field isDeleted.
+     */
+    public static final IntField<Permission> isDeleted = IntField.create(
+        Permission.class,
+        "isDeleted",
+        Permission::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Permission} field id.
      */
     public static final IntField<Permission> id = IntField.create(
@@ -49,15 +58,6 @@ public final class Permission$ {
         Permission.class,
         "rolePermissions",
         Permission::getRolePermissions,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Permission} field isDeleted.
-     */
-    public static final IntField<Permission> isDeleted = IntField.create(
-        Permission.class,
-        "isDeleted",
-        Permission::getIsDeleted,
         false
     );
 }

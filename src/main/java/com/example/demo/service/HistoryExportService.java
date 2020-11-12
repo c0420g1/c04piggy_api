@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface HistoryExportService extends BaseService<HistoryExport> {
     List<HistoryExportDTO> search(int pageNum, String search);
+    List<HistoryExportDTO> getAllDTO();
 }

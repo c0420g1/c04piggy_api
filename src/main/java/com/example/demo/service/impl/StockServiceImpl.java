@@ -58,20 +58,18 @@ public class StockServiceImpl implements StockService {
     // creator: Tuong
     // luu mot stock
     @Override
-    public int save(Stock stock) {
+    public void save(Stock stock) {
         try {
             stockRepository.save(stock);
-            return 1;
         } catch (Exception e) {
             e.printStackTrace();
-            return 0;
         }
     }
 
     // creator: Tuong
     // xoa mot list stock boi array id
     @Override
-    public int delete(int[] ids) {
+    public void delete(int[] ids) {
         try {
             Arrays.stream(ids).forEach(e ->
             {
@@ -80,10 +78,8 @@ public class StockServiceImpl implements StockService {
                 stockRepository.save(a);
 
             });
-            return 1;
         } catch (Exception e) {
             e.printStackTrace();
-            return 0;
         }
     }
 

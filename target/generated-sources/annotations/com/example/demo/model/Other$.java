@@ -16,12 +16,12 @@ import java.time.LocalDate;
 public final class Other$ {
     
     /**
-     * This Field corresponds to the {@link Other} field id.
+     * This Field corresponds to the {@link Other} field type.
      */
-    public static final IntField<Other> id = IntField.create(
+    public static final StringField<Other> type = StringField.create(
         Other.class,
-        "id",
-        Other::getId,
+        "type",
+        Other::getType,
         false
     );
     /**
@@ -34,12 +34,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field createDate.
+     * This Field corresponds to the {@link Other} field description.
      */
-    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+    public static final StringField<Other> description = StringField.create(
         Other.class,
-        "createDate",
-        Other::getCreateDate,
+        "description",
+        Other::getDescription,
         false
     );
     /**
@@ -52,30 +52,30 @@ public final class Other$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Other} field id.
+     */
+    public static final IntField<Other> id = IntField.create(
+        Other.class,
+        "id",
+        Other::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field createDate.
+     */
+    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+        Other.class,
+        "createDate",
+        Other::getCreateDate,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Other} field isDeleted.
      */
     public static final IntField<Other> isDeleted = IntField.create(
         Other.class,
         "isDeleted",
         Other::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field refId.
-     */
-    public static final IntField<Other> refId = IntField.create(
-        Other.class,
-        "refId",
-        Other::getRefId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field type.
-     */
-    public static final StringField<Other> type = StringField.create(
-        Other.class,
-        "type",
-        Other::getType,
         false
     );
     /**
@@ -88,21 +88,21 @@ public final class Other$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Other} field refId.
+     */
+    public static final IntField<Other> refId = IntField.create(
+        Other.class,
+        "refId",
+        Other::getRefId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Other} field name.
      */
     public static final StringField<Other> name = StringField.create(
         Other.class,
         "name",
         Other::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field description.
-     */
-    public static final StringField<Other> description = StringField.create(
-        Other.class,
-        "description",
-        Other::getDescription,
         false
     );
 }

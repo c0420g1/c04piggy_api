@@ -16,12 +16,12 @@ import java.util.Set;
 public final class Vacxin$ {
     
     /**
-     * This Field corresponds to the {@link Vacxin} field name.
+     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
      */
-    public static final StringField<Vacxin> name = StringField.create(
+    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Vacxin.class,
-        "name",
-        Vacxin::getName,
+        "treatmentVacxins",
+        Vacxin::getTreatmentVacxins,
         false
     );
     /**
@@ -43,21 +43,21 @@ public final class Vacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
-     */
-    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
-        Vacxin.class,
-        "treatmentVacxins",
-        Vacxin::getTreatmentVacxins,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Vacxin} field description.
      */
     public static final StringField<Vacxin> description = StringField.create(
         Vacxin.class,
         "description",
         Vacxin::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vacxin} field name.
+     */
+    public static final StringField<Vacxin> name = StringField.create(
+        Vacxin.class,
+        "name",
+        Vacxin::getName,
         false
     );
 }

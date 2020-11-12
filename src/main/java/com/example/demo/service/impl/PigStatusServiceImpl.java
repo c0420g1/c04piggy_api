@@ -26,12 +26,12 @@ public class PigStatusServiceImpl implements PigStatusService {
     }
 
     @Override
-    public int save(PigStatus pigStatus) {
-        return 0;
+    public void save(PigStatus pigStatus) {
+
     }
 
     @Override
-    public int delete(int[] ids) {
-        return 0;
+    public void delete(int[] ids) {
+
     }
 }

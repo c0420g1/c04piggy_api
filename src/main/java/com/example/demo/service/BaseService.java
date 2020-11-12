@@ -6,6 +6,6 @@ import java.util.Optional;
 public interface BaseService<T> {
     List<T> getAll();
     Optional<T> getById(int id);
-    int save(T t);
-    int delete(int[] ids);
+    void save(T t);
+    void delete(int[] ids);
 }
