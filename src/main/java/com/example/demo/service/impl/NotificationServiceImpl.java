@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.common.GlobalUtil;
 import com.example.demo.model.Cote;
 import com.example.demo.model.Notification;
 import com.example.demo.model.Notification$;
@@ -21,6 +22,7 @@ public class NotificationServiceImpl implements NotificationService {
     @Autowired
     NotificationRepository notificationRepository;
 
+
     @Override
     public List<Notification> getAll() {
         return jpaStreamer.stream(Notification.class).sorted(Notification$.id.reversed()).collect(Collectors.toList());
@@ -32,17 +34,39 @@ public class NotificationServiceImpl implements NotificationService {
     }
 
     @Override
-    public void save(Notification notification) {
-        notificationRepository.save(notification);
+    public int save(Notification notification) {
+        try{
+            notificationRepository.save(notification);
+            return 1;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return 0;
+        }
+
     }
 
     @Override
-    public void delete(int[] ids) {
-        Arrays.stream(ids).forEach(e ->
-        {
-            Notification notification = jpaStreamer.stream(Notification.class).filter(f -> f.getId() == e).findFirst().get();
-            notification.setIsDeleted(1);
-            notificationRepository.save(notification);
-        });
+    public int delete(int[] ids) {
+        try{
+            Arrays.stream(ids).forEach(e ->
+            {
+                Notification notification = jpaStreamer.stream(Notification.class).filter(f -> f.getId() == e).findFirst().get();
+                notification.setIsDeleted(1);
+                notificationRepository.save(notification);
+            });
+            return 1;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return 0;
+        }
+    }
+
+    @Override
+    public List<Notification> search(int pageNum, String search) {
+        List<Notification> res= jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed())
+                .skip((pageNum-1)* GlobalUtil.pageSize).limit(GlobalUtil.pageSize).collect(Collectors.toList());
+        return res;
     }
 }

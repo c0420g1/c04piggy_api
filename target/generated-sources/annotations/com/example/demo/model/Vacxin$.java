@@ -25,21 +25,21 @@ public final class Vacxin$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Vacxin} field name.
+     */
+    public static final StringField<Vacxin> name = StringField.create(
+        Vacxin.class,
+        "name",
+        Vacxin::getName,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Vacxin} field isDeleted.
      */
     public static final IntField<Vacxin> isDeleted = IntField.create(
         Vacxin.class,
         "isDeleted",
         Vacxin::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
-     */
-    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
-        Vacxin.class,
-        "treatmentVacxins",
-        Vacxin::getTreatmentVacxins,
         false
     );
     /**
@@ -52,12 +52,12 @@ public final class Vacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vacxin} field name.
+     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
      */
-    public static final StringField<Vacxin> name = StringField.create(
+    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Vacxin.class,
-        "name",
-        Vacxin::getName,
+        "treatmentVacxins",
+        Vacxin::getTreatmentVacxins,
         false
     );
 }

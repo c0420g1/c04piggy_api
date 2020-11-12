@@ -18,12 +18,21 @@ import java.util.Set;
 public final class Notification$ {
     
     /**
-     * This Field corresponds to the {@link Notification} field description.
+     * This Field corresponds to the {@link Notification} field createDate.
      */
-    public static final StringField<Notification> description = StringField.create(
+    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
         Notification.class,
-        "description",
-        Notification::getDescription,
+        "createDate",
+        Notification::getCreateDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field employee.
+     */
+    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
+        Notification.class,
+        "employee",
+        Notification::getEmployee,
         false
     );
     /**
@@ -33,6 +42,42 @@ public final class Notification$ {
         Notification.class,
         "content",
         Notification::getContent,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field id.
+     */
+    public static final IntField<Notification> id = IntField.create(
+        Notification.class,
+        "id",
+        Notification::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field type.
+     */
+    public static final StringField<Notification> type = StringField.create(
+        Notification.class,
+        "type",
+        Notification::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field description.
+     */
+    public static final StringField<Notification> description = StringField.create(
+        Notification.class,
+        "description",
+        Notification::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Notification} field title.
+     */
+    public static final StringField<Notification> title = StringField.create(
+        Notification.class,
+        "title",
+        Notification::getTitle,
         false
     );
     /**
@@ -46,57 +91,12 @@ public final class Notification$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Notification} field type.
-     */
-    public static final StringField<Notification> type = StringField.create(
-        Notification.class,
-        "type",
-        Notification::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Notification} field createDate.
-     */
-    public static final ComparableField<Notification, LocalDate> createDate = ComparableField.create(
-        Notification.class,
-        "createDate",
-        Notification::getCreateDate,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Notification} field isDeleted.
      */
     public static final IntField<Notification> isDeleted = IntField.create(
         Notification.class,
         "isDeleted",
         Notification::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Notification} field id.
-     */
-    public static final IntField<Notification> id = IntField.create(
-        Notification.class,
-        "id",
-        Notification::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Notification} field title.
-     */
-    public static final StringField<Notification> title = StringField.create(
-        Notification.class,
-        "title",
-        Notification::getTitle,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Notification} field employee.
-     */
-    public static final ReferenceField<Notification, Employee> employee = ReferenceField.create(
-        Notification.class,
-        "employee",
-        Notification::getEmployee,
         false
     );
 }
