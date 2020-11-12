@@ -3,10 +3,7 @@ import com.example.demo.model.HistoryExport;
 import com.example.demo.model.HistoryExportStockDTO;
 import com.example.demo.service.impl.HistoryExportServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,8 +31,14 @@ public class HistoryExportController {
 
     //Creator Tuong
     // get List HistoryExport Stock
-    @GetMapping("/historyExportStock")
-    public List<HistoryExportStockDTO> getHistoryExportStockDTO(){
+    @GetMapping("/historyExportStock/{pageNum}")
+    public List<HistoryExportStockDTO> getHistoryExportStockDTO(@PathVariable int pageNum,
+                                                                @RequestParam(defaultValue = "") String search){
+        try {
+            return historyExportService.getHistoryExportStockDTO(pageNum, search);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

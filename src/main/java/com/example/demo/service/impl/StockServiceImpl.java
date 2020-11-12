@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 
+import com.example.demo.model.Cote$;
+import com.example.demo.model.Stock$;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +36,7 @@ public class StockServiceImpl implements StockService {
         List<Stock> stockList= new ArrayList<>();
         try {
             JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
-            stockList = jpaStreamer.stream(Stock.class).collect(Collectors.toList());
+            stockList = jpaStreamer.stream(Stock.class).sorted(Stock$.id.reversed()).collect(Collectors.toList());
              jpaStreamer.close();
             return stockList;
         } catch (Exception e) {
@@ -95,7 +97,7 @@ public class StockServiceImpl implements StockService {
                     e.getShipmentCode().contains(search) ||
                     e.getFeedType().getName().contains(search) || e.getVendor().getName().contains(search)
                     || e.getExpDate().toString().contains(search) || String.valueOf(e.getQuantity()).contains(search)
-                    || e.getUnit().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+                    || e.getUnit().contains(search)).sorted(Stock$.id.reversed()).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
                 StockDTO stockDTO = new StockDTO(e.getId(),e.getShipmentCode(), e.getFeedType().getName(),
                         e.getVendor().getName(),e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate());
                 stockDTOList.add(stockDTO);
@@ -115,7 +117,7 @@ public class StockServiceImpl implements StockService {
         try {
             if (temp.equals(search)){
                 JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
-                stockList = jpaStreamer.stream(Stock.class).skip((pageNum - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
+                stockList = jpaStreamer.stream(Stock.class).sorted(Stock$.id.reversed()).skip((pageNum - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
             } else{
                 JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
                 stockList = jpaStreamer.stream(Stock.class).filter(e -> e.getShipmentCode().contains(search)
@@ -123,7 +125,7 @@ public class StockServiceImpl implements StockService {
                         || e.getVendor().getName().contains(search)
                         || e.getExpDate().toString().contains(search)
                         || String.valueOf(e.getQuantity()).contains(search)
-                        || e.getUnit().contains(search)).skip((pageNum - 1) * pageSize).limit(pageSize)
+                        || e.getUnit().contains(search)).sorted(Stock$.id.reversed()).skip((pageNum - 1) * pageSize).limit(pageSize)
                         .collect(Collectors.toList());
             }
             return stockList;

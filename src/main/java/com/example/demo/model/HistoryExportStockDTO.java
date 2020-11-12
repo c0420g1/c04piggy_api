@@ -11,12 +11,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class HistoryExportStockDTO {
     private int id;
+    private String type;
     private String shipmentCode;
-    private String feedType;
-    private String vendor;
+    private String feedTypeName;
+    private String vendorName;
     private LocalDate exportDate;
-    private int quantity;
+    private int quantityExport;
     private String unit;
-    private String exportEmployee;
-    private String receiveEmployee;
+    private String exportEmployeeName;
+    private String receiveEmployeeName;
 }
