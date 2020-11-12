@@ -16,21 +16,12 @@ import java.util.Set;
 public final class Vendor$ {
     
     /**
-     * This Field corresponds to the {@link Vendor} field code.
+     * This Field corresponds to the {@link Vendor} field id.
      */
-    public static final StringField<Vendor> code = StringField.create(
+    public static final IntField<Vendor> id = IntField.create(
         Vendor.class,
-        "code",
-        Vendor::getCode,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Vendor} field description.
-     */
-    public static final StringField<Vendor> description = StringField.create(
-        Vendor.class,
-        "description",
-        Vendor::getDescription,
+        "id",
+        Vendor::getId,
         false
     );
     /**
@@ -43,12 +34,12 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field id.
+     * This Field corresponds to the {@link Vendor} field code.
      */
-    public static final IntField<Vendor> id = IntField.create(
+    public static final StringField<Vendor> code = StringField.create(
         Vendor.class,
-        "id",
-        Vendor::getId,
+        "code",
+        Vendor::getCode,
         false
     );
     /**
@@ -67,6 +58,15 @@ public final class Vendor$ {
         Vendor.class,
         "isDeleted",
         Vendor::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vendor} field description.
+     */
+    public static final StringField<Vendor> description = StringField.create(
+        Vendor.class,
+        "description",
+        Vendor::getDescription,
         false
     );
 }
