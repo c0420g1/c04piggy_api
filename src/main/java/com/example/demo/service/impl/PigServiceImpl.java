@@ -53,18 +53,31 @@ public class PigServiceImpl implements PigService {
     }
 
     @Override
-    public void save(Pig pig) {
-        pigRepository.save(pig);
+    public int save(Pig pig)
+    {
+        try {
+            pigRepository.save(pig);
+            return 1;
+        }
+        catch (Exception e){
+            return 0;
+        }
     }
 
     @Override
-    public void delete(int[] ids) {
-        Arrays.stream(ids).forEach(pigListIdReceive ->
-        {
-            Pig pigDB = jpaStreamer.stream(Pig.class).filter(f -> f.getId() == pigListIdReceive).findFirst().get();
-            pigDB.setIsDeleted(1);
-            pigRepository.save(pigDB);
-        });
+    public int delete(int[] ids) {
+        try {
+            Arrays.stream(ids).forEach(pigListIdReceive ->
+            {
+                Pig pigDB = jpaStreamer.stream(Pig.class).filter(f -> f.getId() == pigListIdReceive).findFirst().get();
+                pigDB.setIsDeleted(1);
+                pigRepository.save(pigDB);
+            });
+            return 1;
+        }
+        catch (Exception e){
+            return 0;
+        }
     }
 
     //match pigs to breed new pig function

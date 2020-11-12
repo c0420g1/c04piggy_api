@@ -14,15 +14,6 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RoleAccount$ {
     
     /**
-     * This Field corresponds to the {@link RoleAccount} field id.
-     */
-    public static final IntField<RoleAccount> id = IntField.create(
-        RoleAccount.class,
-        "id",
-        RoleAccount::getId,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RoleAccount} field description.
      */
     public static final StringField<RoleAccount> description = StringField.create(
@@ -32,12 +23,12 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field account.
+     * This Field corresponds to the {@link RoleAccount} field role.
      */
-    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
+    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
         RoleAccount.class,
-        "account",
-        RoleAccount::getAccount,
+        "role",
+        RoleAccount::getRole,
         false
     );
     /**
@@ -50,12 +41,21 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field role.
+     * This Field corresponds to the {@link RoleAccount} field account.
      */
-    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
+    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
         RoleAccount.class,
-        "role",
-        RoleAccount::getRole,
+        "account",
+        RoleAccount::getAccount,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RoleAccount} field id.
+     */
+    public static final IntField<RoleAccount> id = IntField.create(
+        RoleAccount.class,
+        "id",
+        RoleAccount::getId,
         false
     );
 }
