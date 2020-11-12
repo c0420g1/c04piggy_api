@@ -4,12 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+
 @Data
 @Builder
 @AllArgsConstructor
 public class CoteDTO {
-    private int cote;
+    private int id;
+    private String coteCode;
     private int quantity;
     private String herdName;
     private String employeeName;
+    private String importDate;
+    private String exportDate;
 }

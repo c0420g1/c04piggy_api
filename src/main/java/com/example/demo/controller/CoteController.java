@@ -15,19 +15,26 @@ public class CoteController {
     @Autowired
     CoteService coteService;
 
-    @GetMapping("cote")
-    public List<Cote> getAll(){
-        List<Cote> coteList;
-        coteList = coteService.getAll();
+//    @GetMapping("cote")
+//    public List<Cote> getAll(){
+//        List<Cote> coteList;
+//        coteList = coteService.getAll();
+//        return coteList;
+//    }
+
+    //List has Pagination & Search
+    @GetMapping("/cote/{pageNum}")
+    public List<CoteDTO> getAllPagination(@RequestParam(defaultValue = "") String search,
+                                       @PathVariable int pageNum){
+        List<CoteDTO> coteList;
+        coteList = coteService.searchCote(pageNum,search);
         return coteList;
     }
 
-    //List has Pagination & Search
-    @GetMapping("cote/{pageNum}")
-    public List<Cote> getAllPagination(@RequestParam(defaultValue = "") String search,
-                                       @PathVariable int pageNum){
+    @GetMapping("/cote")
+    public List<Cote> getAllNoPagination(@RequestParam(defaultValue = "") String search){
         List<Cote> coteList;
-        coteList = coteService.searchCote(pageNum,search);
+        coteList = coteService.searchCoteNoPagination(search);
         return coteList;
     }
 
