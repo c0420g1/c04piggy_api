@@ -134,18 +134,20 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     }
 
     @Override
-    public void save(HistoryExport historyExport) {
+    public int save(HistoryExport historyExport) {
         this.historyExportRepository.save(historyExport);
+        return 1;
     }
 
     @Override
-    public void delete(int[] ids) {
+    public int delete(int[] ids) {
         Arrays.stream(ids).forEach(e ->
         {
             HistoryExport a = jpaStreamer.stream(HistoryExport.class).filter(f -> f.getId() == e).findFirst().get();
             a.setIsDeleted(1);
             historyExportRepository.save(a);
         });
+        return 1;
     }
 
 }

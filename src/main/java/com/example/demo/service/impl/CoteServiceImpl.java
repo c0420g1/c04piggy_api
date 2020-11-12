@@ -36,18 +36,32 @@ public class CoteServiceImpl implements CoteService {
     }
 
     @Override
-    public void save(Cote cote) {
-        coteRepository.save(cote);
+    public int save(Cote cote) {
+
+        try{
+            coteRepository.save(cote);
+            return 1;
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return 0;
     }
 
     @Override
-    public void delete(int[] ids) {
-        Arrays.stream(ids).forEach(e ->
-        {
-            Cote cote = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
-            cote.setIsDeleted(1);
-            coteRepository.save(cote);
-        });
+    public int delete(int[] ids) {
+        try {
+            Arrays.stream(ids).forEach(e ->
+            {
+                Cote cote = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
+                cote.setIsDeleted(1);
+                coteRepository.save(cote);
+
+            });
+            return 1;
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return 0;
     }
 
 
