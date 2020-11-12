@@ -9,7 +9,7 @@ INSERT INTO pig_status (description ,is_deleted , name) VALUES ('alive', '0', 'Q
 INSERT INTO pig_status (description ,is_deleted , name) VALUES ('alive', '0', 'Sick');
 INSERT INTO pig_status (description ,is_deleted , name) VALUES ('alive', '0', 'Sold');
 
-insert into pig (description, code, color, import_date, gender, export_date, spec, weight, cote_id, feed_id, herd_id) values ('Face to face zero tolerance firmware', 'B3', 'Orange', '2019-09-16', 0, '2020-12-19', 'Hampshire', 198, 1, 1, 1);
+insert into pig (description, code, color, import_date, gender, export_date, spec, weight, cote_id, feed_id, herd_id) values ('Face to face zero tolerance firmware', 'B3', 'Orange', '2019-09-16', 1, '2020-12-19', 'Hampshire', 198, 1, 1, 1);
 insert into pig (description, code, color, import_date, gender, export_date, spec, weight, cote_id, feed_id, herd_id) values ('Exclusive full-range structure', 'C2', 'Orange', '2019-10-28', 1, '2020-03-02', 'Meishan', 243, 1, 1, 1);
 insert into pig (description, code, color, import_date, gender, export_date, spec, weight, cote_id, feed_id, herd_id) values ('Multi-tiered methodical leverage', 'A2', 'Blue', '2019-04-03', 0, '2020-10-05', 'Landrace', 112, 1, 1, 1);
 insert into pig (description, code, color, import_date, gender, export_date, spec, weight, cote_id, feed_id, herd_id) values ('Universal foreground paradigm', 'B2', 'Green', '2019-10-16', 0, '2020-05-23', 'Chester White', 101, 1, 1, 1);
