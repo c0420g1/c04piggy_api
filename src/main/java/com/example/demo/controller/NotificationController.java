@@ -14,12 +14,12 @@ public class NotificationController {
     @Autowired
     private NotificationService notificationService;
 
-    @GetMapping("/getAllNotification")
+    @GetMapping("getAllNotification")
     public List<Notification> getAll(){
         return notificationService.getAll();
     }
 
-    @GetMapping("/searchNotification/{pageNum}")
+    @GetMapping("searchNotification/{pageNum}")
     public List<Notification> search(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search){
         return notificationService.search(pageNum,search);
     }
