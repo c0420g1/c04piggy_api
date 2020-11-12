@@ -37,17 +37,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void save(Employee employee) {
+    public int save(Employee employee) {
         try{
             employeeRepository.save(employee);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return 1;
     }
 
     @Override
-    public void delete(int[] ids) {
-
+    public int delete(int[] ids) {
+        return 1;
     }
 
 

@@ -27,17 +27,19 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void save(Account account) {
+    public int save(Account account) {
         try{
             accountRepository.save(account);
+            return 1;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return 0;
     }
 
     @Override
-    public void delete(int[] ids) {
-
+    public int delete(int[] ids) {
+        return 1;
     }
 }
 

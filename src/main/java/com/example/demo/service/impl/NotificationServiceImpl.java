@@ -64,9 +64,10 @@ public class NotificationServiceImpl implements NotificationService {
     }
 
     @Override
-    public List<Notification> search(int pageNum, String search) {
-        List<Notification> res= jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed())
-                .skip((pageNum-1)* GlobalUtil.pageSize).limit(GlobalUtil.pageSize).collect(Collectors.toList());
-        return res;
+    public List<Notification> search(int pageNum, int pageSize, String search) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+        List<Notification> notificationList= jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed())
+                .collect(Collectors.toList()).stream().skip((pageNum-1)* pageSize).limit(pageSize).collect(Collectors.toList());
+        return notificationList;
     }
 }
