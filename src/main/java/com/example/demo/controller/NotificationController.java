@@ -20,8 +20,8 @@ public class NotificationController {
     }
 
     @GetMapping("searchNotification/{pageNum}")
-    public List<Notification> search(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search){
-        return notificationService.search(pageNum,search);
+    public List<Notification> search(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
+        return notificationService.search(pageNum,pageSize,search);
     }
 
     @PostMapping("addEditNotification")
