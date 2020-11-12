@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
@@ -29,7 +28,7 @@ public class Employee {
     private String code;
     private String name;
     @Column(columnDefinition="DATE", name="birthday")
-    private LocalDate birthday;
+    private Date birthday;
     private String email;
     private byte gender;
     @Column(columnDefinition="varchar(45)", name = "card_id")

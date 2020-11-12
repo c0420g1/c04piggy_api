@@ -14,6 +14,15 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RoleAccount$ {
     
     /**
+     * This Field corresponds to the {@link RoleAccount} field isDeleted.
+     */
+    public static final IntField<RoleAccount> isDeleted = IntField.create(
+        RoleAccount.class,
+        "isDeleted",
+        RoleAccount::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RoleAccount} field id.
      */
     public static final IntField<RoleAccount> id = IntField.create(
@@ -23,12 +32,12 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field description.
+     * This Field corresponds to the {@link RoleAccount} field role.
      */
-    public static final StringField<RoleAccount> description = StringField.create(
+    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
         RoleAccount.class,
-        "description",
-        RoleAccount::getDescription,
+        "role",
+        RoleAccount::getRole,
         false
     );
     /**
@@ -41,21 +50,12 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field isDeleted.
+     * This Field corresponds to the {@link RoleAccount} field description.
      */
-    public static final IntField<RoleAccount> isDeleted = IntField.create(
+    public static final StringField<RoleAccount> description = StringField.create(
         RoleAccount.class,
-        "isDeleted",
-        RoleAccount::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RoleAccount} field role.
-     */
-    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
-        RoleAccount.class,
-        "role",
-        RoleAccount::getRole,
+        "description",
+        RoleAccount::getDescription,
         false
     );
 }
