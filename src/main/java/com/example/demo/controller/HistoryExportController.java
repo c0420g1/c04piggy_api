@@ -42,7 +42,7 @@ public class HistoryExportController {
 
     //Creator Tuong
     // get List HistoryExport Stock
-    @GetMapping("/historyExportStock/{pageNum}")
+    @GetMapping("/historyExportStockDTO/{pageNum}")
     public List<HistoryExportStockDTO> getHistoryExportStockDTO(@PathVariable int pageNum,
                                                                 @RequestParam(defaultValue = "") String search){
         try {
