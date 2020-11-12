@@ -100,22 +100,26 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     @Override
     public List<HistoryExportStockDTO> getHistoryExportStockDTO(int pageNumber, String search) {
         List<HistoryExportStockDTO> historyExportStockDTOList = new ArrayList<>();
+        String temp = "";
         try {
+            if (temp.equals(search)){
+
+            }else {
             JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
             jpaStreamer.stream(HistoryExport.class).filter(e ->
                     e.getIsDeleted()==0 && e.getType() == "stock" &&
-                            e.getStock().getShipmentCode().contains(search)
-                            ||e.getStock().getFeedType().getName().contains(search)
-                            ||e.getStock().getVendor().getName().contains(search)
+                            e.getStock().getShipmentCode().toLowerCase().contains(search.toLowerCase())
+                            ||e.getStock().getFeedType().getName().toLowerCase().contains(search.toLowerCase())
+                            ||e.getStock().getVendor().getName().toLowerCase().contains(search.toLowerCase())
                             ||String.valueOf(e.getQuantity()).contains(search)
-                            ||e.getUnit().contains(search)
-                            ||e.getEmployee().getName().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+                            ||e.getUnit().toLowerCase().contains(search.toLowerCase())
+                            ||e.getEmployee().getName().toLowerCase().contains(search.toLowerCase())).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
                 String employeeRecievedName= jpaStreamer.stream(Employee.class).filter(Employee$.id.equal(e.getReceivedEmployeeId())).findFirst().get().getName();
                 HistoryExportStockDTO historyExportStockDTO = new HistoryExportStockDTO(e.getId(),e.getType(),e.getStock().getShipmentCode(),
                         e.getStock().getFeedType().getName(), e.getStock().getVendor().getName(),e.getExportDate(), e.getQuantity(),
                         e.getUnit(), e.getEmployee().getName(), employeeRecievedName);
                 historyExportStockDTOList.add(historyExportStockDTO);
-            });
+            });}
             return historyExportStockDTOList;
         } catch (Exception e) {
             e.printStackTrace();

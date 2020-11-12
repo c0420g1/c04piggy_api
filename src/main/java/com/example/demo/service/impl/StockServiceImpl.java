@@ -87,18 +87,34 @@ public class StockServiceImpl implements StockService {
     @Override
     public List<StockDTO> search(int pageNumber, String search) {
         List<StockDTO> stockDTOList = new ArrayList<>();
+        String temp = "";
         try {
+            if (temp.equals(search)){
+                JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+                jpaStreamer.stream(Stock.class).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+
+                    StockDTO stockDTO = new StockDTO(e.getId(),e.getShipmentCode(), e.getFeedType().getName(), e.getVendor().getName()
+                            ,e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate());
+
+                    stockDTOList.add(stockDTO);
+                });
+            }else {
             JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
             jpaStreamer.stream(Stock.class).filter(e ->
                     e.getIsDeleted()==0 &&
-                    e.getShipmentCode().contains(search) ||
-                    e.getFeedType().getName().contains(search) || e.getVendor().getName().contains(search)
-                    || e.getExpDate().toString().contains(search) || String.valueOf(e.getQuantity()).contains(search)
-                    || e.getUnit().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
-                StockDTO stockDTO = new StockDTO(e.getId(),e.getShipmentCode(), e.getFeedType().getName(),
-                        e.getVendor().getName(),e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate());
+                    e.getShipmentCode().toLowerCase().contains(search.toLowerCase())
+                  || e.getFeedType().getName().toLowerCase().contains(search.toLowerCase())
+                  || e.getVendor().getName().toLowerCase().contains(search.toLowerCase())
+                  || e.getExpDate().toString().contains(search)
+                  || String.valueOf(e.getQuantity()).contains(search)
+                  || e.getUnit().toLowerCase().contains(search.toLowerCase()))
+                    .skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+
+                StockDTO stockDTO = new StockDTO(e.getId(),e.getShipmentCode(), e.getFeedType().getName(), e.getVendor().getName()
+                                                ,e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate());
+
                 stockDTOList.add(stockDTO);
-            });
+            });}
             return stockDTOList;
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,12 +133,13 @@ public class StockServiceImpl implements StockService {
                 stockList = jpaStreamer.stream(Stock.class).skip((pageNum - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
             } else{
                 JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
-                stockList = jpaStreamer.stream(Stock.class).filter(e -> e.getShipmentCode().contains(search)
-                        || e.getFeedType().getName().contains(search)
-                        || e.getVendor().getName().contains(search)
+                stockList = jpaStreamer.stream(Stock.class).filter(e -> e.getShipmentCode().toLowerCase().contains(search.toLowerCase())
+                        || e.getFeedType().getName().toLowerCase().contains(search.toLowerCase())
+                        || e.getVendor().getName().toLowerCase().contains(search.toLowerCase())
                         || e.getExpDate().toString().contains(search)
                         || String.valueOf(e.getQuantity()).contains(search)
-                        || e.getUnit().contains(search)).skip((pageNum - 1) * pageSize).limit(pageSize)
+                        || e.getUnit().toLowerCase().contains(search.toLowerCase()))
+                        .skip((pageNum - 1) * pageSize).limit(pageSize)
                         .collect(Collectors.toList());
             }
             return stockList;
