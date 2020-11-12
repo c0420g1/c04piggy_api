@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,3 +22,4 @@ public class HistoryExportStockDTO {
     private String exportEmployeeName;
     private String receiveEmployeeName;
 }
+
