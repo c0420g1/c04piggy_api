@@ -31,6 +31,6 @@ public class NotificationController {
 
     @PostMapping("deleteNotification")
     public int deleteNotification(@RequestParam int[] ids){
-        return ids.length;
+        return notificationService.delete(ids);
     }
 }
