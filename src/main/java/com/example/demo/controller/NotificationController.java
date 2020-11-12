@@ -26,7 +26,7 @@ public class NotificationController {
 
     @PostMapping("addEditNotification")
     public int addNotification(@RequestBody Notification notification){
-        return 1;
+        return notificationService.save(notification);
     }
 
     @PostMapping("deleteNotification")
