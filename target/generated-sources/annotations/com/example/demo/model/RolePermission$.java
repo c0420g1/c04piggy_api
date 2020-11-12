@@ -14,14 +14,21 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RolePermission$ {
     
     /**
-<<<<<<< HEAD
-=======
      * This Field corresponds to the {@link RolePermission} field role.
      */
     public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
         RolePermission.class,
         "role",
         RolePermission::getRole,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RolePermission} field id.
+     */
+    public static final IntField<RolePermission> id = IntField.create(
+        RolePermission.class,
+        "id",
+        RolePermission::getId,
         false
     );
     /**
@@ -34,25 +41,6 @@ public final class RolePermission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RolePermission} field isDeleted.
-     */
-    public static final IntField<RolePermission> isDeleted = IntField.create(
-        RolePermission.class,
-        "isDeleted",
-        RolePermission::getIsDeleted,
-        false
-    );
-    /**
->>>>>>> develop
-     * This Field corresponds to the {@link RolePermission} field id.
-     */
-    public static final IntField<RolePermission> id = IntField.create(
-        RolePermission.class,
-        "id",
-        RolePermission::getId,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RolePermission} field description.
      */
     public static final StringField<RolePermission> description = StringField.create(
@@ -61,7 +49,6 @@ public final class RolePermission$ {
         RolePermission::getDescription,
         false
     );
-<<<<<<< HEAD
     /**
      * This Field corresponds to the {@link RolePermission} field isDeleted.
      */
@@ -71,15 +58,4 @@ public final class RolePermission$ {
         RolePermission::getIsDeleted,
         false
     );
-    /**
-     * This Field corresponds to the {@link RolePermission} field role.
-     */
-    public static final ReferenceField<RolePermission, Role> role = ReferenceField.create(
-        RolePermission.class,
-        "role",
-        RolePermission::getRole,
-        false
-    );
-=======
->>>>>>> develop
 }

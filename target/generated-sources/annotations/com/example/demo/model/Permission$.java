@@ -16,18 +16,24 @@ import java.util.Set;
 public final class Permission$ {
     
     /**
-<<<<<<< HEAD
-=======
-     * This Field corresponds to the {@link Permission} field description.
+     * This Field corresponds to the {@link Permission} field name.
      */
-    public static final StringField<Permission> description = StringField.create(
+    public static final StringField<Permission> name = StringField.create(
         Permission.class,
-        "description",
-        Permission::getDescription,
+        "name",
+        Permission::getName,
         false
     );
     /**
->>>>>>> develop
+     * This Field corresponds to the {@link Permission} field isDeleted.
+     */
+    public static final IntField<Permission> isDeleted = IntField.create(
+        Permission.class,
+        "isDeleted",
+        Permission::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Permission} field id.
      */
     public static final IntField<Permission> id = IntField.create(
@@ -37,21 +43,12 @@ public final class Permission$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Permission} field isDeleted.
+     * This Field corresponds to the {@link Permission} field description.
      */
-    public static final IntField<Permission> isDeleted = IntField.create(
+    public static final StringField<Permission> description = StringField.create(
         Permission.class,
-        "isDeleted",
-        Permission::getIsDeleted,
-=======
-     * This Field corresponds to the {@link Permission} field name.
-     */
-    public static final StringField<Permission> name = StringField.create(
-        Permission.class,
-        "name",
-        Permission::getName,
->>>>>>> develop
+        "description",
+        Permission::getDescription,
         false
     );
     /**
@@ -61,24 +58,6 @@ public final class Permission$ {
         Permission.class,
         "rolePermissions",
         Permission::getRolePermissions,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Permission} field name.
-     */
-    public static final StringField<Permission> name = StringField.create(
-        Permission.class,
-        "name",
-        Permission::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Permission} field description.
-     */
-    public static final StringField<Permission> description = StringField.create(
-        Permission.class,
-        "description",
-        Permission::getDescription,
         false
     );
 }
