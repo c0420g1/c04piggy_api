@@ -18,12 +18,12 @@ import java.util.Set;
 public final class Cote$ {
     
     /**
-     * This Field corresponds to the {@link Cote} field isDeleted.
+     * This Field corresponds to the {@link Cote} field description.
      */
-    public static final IntField<Cote> isDeleted = IntField.create(
+    public static final StringField<Cote> description = StringField.create(
         Cote.class,
-        "isDeleted",
-        Cote::getIsDeleted,
+        "description",
+        Cote::getDescription,
         false
     );
     /**
@@ -36,21 +36,21 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field treatmentVacxins.
+     * This Field corresponds to the {@link Cote} field employee.
      */
-    public static final ReferenceField<Cote, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
         Cote.class,
-        "treatmentVacxins",
-        Cote::getTreatmentVacxins,
+        "employee",
+        Cote::getEmployee,
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field exportDate.
+     * This Field corresponds to the {@link Cote} field isDeleted.
      */
-    public static final ComparableField<Cote, LocalDate> exportDate = ComparableField.create(
+    public static final IntField<Cote> isDeleted = IntField.create(
         Cote.class,
-        "exportDate",
-        Cote::getExportDate,
+        "isDeleted",
+        Cote::getIsDeleted,
         false
     );
     /**
@@ -63,12 +63,21 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field importDate.
+     * This Field corresponds to the {@link Cote} field herd.
      */
-    public static final ComparableField<Cote, LocalDate> importDate = ComparableField.create(
+    public static final ReferenceField<Cote, Herd> herd = ReferenceField.create(
         Cote.class,
-        "importDate",
-        Cote::getImportDate,
+        "herd",
+        Cote::getHerd,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field exportDate.
+     */
+    public static final ComparableField<Cote, LocalDate> exportDate = ComparableField.create(
+        Cote.class,
+        "exportDate",
+        Cote::getExportDate,
         false
     );
     /**
@@ -81,12 +90,12 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field description.
+     * This Field corresponds to the {@link Cote} field importDate.
      */
-    public static final StringField<Cote> description = StringField.create(
+    public static final ComparableField<Cote, LocalDate> importDate = ComparableField.create(
         Cote.class,
-        "description",
-        Cote::getDescription,
+        "importDate",
+        Cote::getImportDate,
         false
     );
     /**
@@ -99,30 +108,21 @@ public final class Cote$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Cote} field employee.
-     */
-    public static final ReferenceField<Cote, Employee> employee = ReferenceField.create(
-        Cote.class,
-        "employee",
-        Cote::getEmployee,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Cote} field herd.
-     */
-    public static final ReferenceField<Cote, Herd> herd = ReferenceField.create(
-        Cote.class,
-        "herd",
-        Cote::getHerd,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Cote} field code.
      */
     public static final StringField<Cote> code = StringField.create(
         Cote.class,
         "code",
         Cote::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Cote} field treatmentVacxins.
+     */
+    public static final ReferenceField<Cote, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+        Cote.class,
+        "treatmentVacxins",
+        Cote::getTreatmentVacxins,
         false
     );
 }

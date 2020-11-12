@@ -34,12 +34,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field roleAccounts.
+     * This Field corresponds to the {@link Account} field isDeleted.
      */
-    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+    public static final IntField<Account> isDeleted = IntField.create(
         Account.class,
-        "roleAccounts",
-        Account::getRoleAccounts,
+        "isDeleted",
+        Account::getIsDeleted,
         false
     );
     /**
@@ -52,21 +52,21 @@ public final class Account$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Account} field roleAccounts.
+     */
+    public static final ReferenceField<Account, Set<RoleAccount>> roleAccounts = ReferenceField.create(
+        Account.class,
+        "roleAccounts",
+        Account::getRoleAccounts,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Account} field description.
      */
     public static final StringField<Account> description = StringField.create(
         Account.class,
         "description",
         Account::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Account} field isDeleted.
-     */
-    public static final IntField<Account> isDeleted = IntField.create(
-        Account.class,
-        "isDeleted",
-        Account::getIsDeleted,
         false
     );
 }

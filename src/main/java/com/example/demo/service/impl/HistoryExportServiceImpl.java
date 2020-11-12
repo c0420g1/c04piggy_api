@@ -98,31 +98,6 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     }
 
     @Override
-    public List<HistoryExport> getAll() {
-        return this.jpaStreamer.stream(HistoryExport.class).collect(Collectors.toList());
-    }
-
-    @Override
-    public Optional<HistoryExport> getById(int id) {
-        return jpaStreamer.stream(HistoryExport.class).filter(e -> e.getId() == id).findFirst();
-    }
-
-    @Override
-    public void save(HistoryExport historyExport) {
-        this.historyExportRepository.save(historyExport);
-    }
-
-    @Override
-    public void delete(int[] ids) {
-        Arrays.stream(ids).forEach(e ->
-        {
-            HistoryExport a = jpaStreamer.stream(HistoryExport.class).filter(f -> f.getId() == e).findFirst().get();
-            a.setIsDeleted(1);
-            historyExportRepository.save(a);
-        });
-    }
-
-    @Override
     public List<HistoryExportStockDTO> getHistoryExportStockDTO(int pageNumber, String search) {
         List<HistoryExportStockDTO> historyExportStockDTOList = new ArrayList<>();
         try {
@@ -147,4 +122,30 @@ public class HistoryExportServiceImpl implements HistoryExportService {
         }
         return null;
     }
+
+    @Override
+    public List<HistoryExport> getAll() {
+        return this.jpaStreamer.stream(HistoryExport.class).collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<HistoryExport> getById(int id) {
+        return jpaStreamer.stream(HistoryExport.class).filter(e -> e.getId() == id).findFirst();
+    }
+
+    @Override
+    public void save(HistoryExport historyExport) {
+        this.historyExportRepository.save(historyExport);
+    }
+
+    @Override
+    public void delete(int[] ids) {
+        Arrays.stream(ids).forEach(e ->
+        {
+            HistoryExport a = jpaStreamer.stream(HistoryExport.class).filter(f -> f.getId() == e).findFirst().get();
+            a.setIsDeleted(1);
+            historyExportRepository.save(a);
+        });
+    }
+
 }
