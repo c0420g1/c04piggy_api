@@ -5,7 +5,6 @@ import com.example.demo.repository.CoteRepository;
 import com.example.demo.service.CoteService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -35,29 +34,18 @@ public class CoteServiceImpl implements CoteService {
     }
 
     @Override
-    public int save(Cote cote) {
-        try{
-            coteRepository.save(cote);
-            return 1;
-        }
-        catch (Exception e) {
-            return 0;
-        }
+    public void save(Cote cote) {
+        coteRepository.save(cote);
     }
 
     @Override
-    public int delete(int[] ids) {
-        try{
-            Arrays.stream(ids).forEach(e ->
-            {
-                Cote cote = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
-                cote.setIsDeleted(1);
-                coteRepository.save(cote);
-            });
-            return 1;
-        }catch(Exception e){
-            return 0;
-        }
+    public void delete(int[] ids) {
+        Arrays.stream(ids).forEach(e ->
+        {
+            Cote cote = jpaStreamer.stream(Cote.class).filter(f -> f.getId() == e).findFirst().get();
+            cote.setIsDeleted(1);
+            coteRepository.save(cote);
+        });
     }
 
 

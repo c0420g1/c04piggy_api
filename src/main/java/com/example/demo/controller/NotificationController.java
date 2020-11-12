@@ -19,13 +19,18 @@ public class NotificationController {
         return notificationService.getAll();
     }
 
+    @GetMapping("/searchNotification/{pageNum}")
+    public List<Notification> search(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search){
+        return notificationService.search(pageNum,search);
+    }
+
     @PostMapping("addEditNotification")
     public int addNotification(@RequestBody Notification notification){
-        return notificationService.save(notification);
+        return 1;
     }
 
     @PostMapping("deleteNotification")
-    public int deleteNotification(@RequestBody int[] ids){
-        return notificationService.delete(ids);
+    public int deleteNotification(@RequestParam int[] ids){
+        return ids.length;
     }
 }

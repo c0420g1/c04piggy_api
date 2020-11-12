@@ -16,6 +16,15 @@ import java.util.Set;
 public final class Vacxin$ {
     
     /**
+     * This Field corresponds to the {@link Vacxin} field description.
+     */
+    public static final StringField<Vacxin> description = StringField.create(
+        Vacxin.class,
+        "description",
+        Vacxin::getDescription,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Vacxin} field name.
      */
     public static final StringField<Vacxin> name = StringField.create(
@@ -49,15 +58,6 @@ public final class Vacxin$ {
         Vacxin.class,
         "treatmentVacxins",
         Vacxin::getTreatmentVacxins,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Vacxin} field description.
-     */
-    public static final StringField<Vacxin> description = StringField.create(
-        Vacxin.class,
-        "description",
-        Vacxin::getDescription,
         false
     );
 }

@@ -41,30 +41,17 @@ public class PigAssociateStatusServiceImpl implements PigAssociateStatusService 
     }
 
     @Override
-    public int save(PigAssociateStatus pigAssociateStatus) {
-        try {
-            pigAssociateStatusRepository.save(pigAssociateStatus);
-            return 1;
-        }
-        catch (Exception e){
-            return 0;
-        }
-
+    public void save(PigAssociateStatus pigAssociateStatus) {
+        pigAssociateStatusRepository.save(pigAssociateStatus);
     }
 
     @Override
-    public int delete(int[] ids) {
-        try {
-            Arrays.stream(ids).forEach(pigAssociateStatusListIdReceive ->
-            {
-                PigAssociateStatus pigAssociateStatusDB = jpaStreamer.stream(PigAssociateStatus.class).filter(f -> f.getId() == pigAssociateStatusListIdReceive).findFirst().get();
-                pigAssociateStatusDB.setIsDeleted(1);
-                pigAssociateStatusRepository.save(pigAssociateStatusDB);
-            });
-            return 1;
-        }
-        catch (Exception e){
-            return 0;
-        }
+    public void delete(int[] ids) {
+        Arrays.stream(ids).forEach(pigAssociateStatusListIdReceive ->
+        {
+            PigAssociateStatus pigAssociateStatusDB = jpaStreamer.stream(PigAssociateStatus.class).filter(f -> f.getId() == pigAssociateStatusListIdReceive).findFirst().get();
+            pigAssociateStatusDB.setIsDeleted(1);
+            pigAssociateStatusRepository.save(pigAssociateStatusDB);
+        });
     }
 }

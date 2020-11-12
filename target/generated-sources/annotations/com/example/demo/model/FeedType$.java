@@ -16,15 +16,6 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
-     * This Field corresponds to the {@link FeedType} field feeds.
-     */
-    public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
-        FeedType.class,
-        "feeds",
-        FeedType::getFeeds,
-        false
-    );
-    /**
      * This Field corresponds to the {@link FeedType} field isDeleted.
      */
     public static final IntField<FeedType> isDeleted = IntField.create(
@@ -34,12 +25,12 @@ public final class FeedType$ {
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field stocks.
+     * This Field corresponds to the {@link FeedType} field feeds.
      */
-    public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
+    public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
         FeedType.class,
-        "stocks",
-        FeedType::getStocks,
+        "feeds",
+        FeedType::getFeeds,
         false
     );
     /**
@@ -58,6 +49,15 @@ public final class FeedType$ {
         FeedType.class,
         "description",
         FeedType::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field stocks.
+     */
+    public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
+        FeedType.class,
+        "stocks",
+        FeedType::getStocks,
         false
     );
     /**

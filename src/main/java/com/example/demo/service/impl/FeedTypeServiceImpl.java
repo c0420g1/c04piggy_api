@@ -34,12 +34,12 @@ public class FeedTypeServiceImpl implements FeedTypeService {
 
 
     @Override
-    public int save(FeedType feedType) {
-        return 0;
+    public void save(FeedType feedType) {
+
     }
 
     @Override
-    public int delete(int[] ids) {
-        return 0;
+    public void delete(int[] ids) {
+
     }
 }

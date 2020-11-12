@@ -1,6 +1,9 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.*;
+import com.example.demo.model.Employee;
+import com.example.demo.model.Employee$;
+import com.example.demo.model.EmployeeDTO;
+import com.example.demo.model.RoleAccount;
 import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.service.EmployeeService;
 import com.speedment.jpastreamer.application.JPAStreamer;
@@ -34,13 +37,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public int save(Employee employee) {
-        return 0;
+    public void save(Employee employee) {
+        try{
+            employeeRepository.save(employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public int delete(int[] ids) {
-        return 0;
+    public void delete(int[] ids) {
+
     }
 
 
