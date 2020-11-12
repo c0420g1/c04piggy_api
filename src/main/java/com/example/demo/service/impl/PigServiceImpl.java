@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.Pig;
+import com.example.demo.model.Pig$;
 import com.example.demo.model.PigDTO;
 import com.example.demo.repository.PigRepository;
 import com.example.demo.service.PigService;
@@ -27,6 +28,7 @@ public class PigServiceImpl implements PigService {
     @Autowired
     private PigRepository pigRepository;
 
+    //CRUD
     @Override
     public List<Pig> getAll() {
         List<Pig> pigList;
@@ -63,5 +65,21 @@ public class PigServiceImpl implements PigService {
             pigDB.setIsDeleted(1);
             pigRepository.save(pigDB);
         });
+    }
+
+    //match pigs to breed new pig function
+
+    public List<Pig> pickFemalePig() {
+        List<Pig> pigList = new ArrayList<>();
+        pigList = jpaStreamer.stream(Pig.class).filter(Pig$.gender.equal((byte) 0)).collect(Collectors.toList());
+        for (int i = 0; i< pigList.size(); i++){
+            long count = jpaStreamer.stream(Pig.class)
+                    .filter(Pig$.motherId.equal(pigList.get(i).getId()))
+                    .count();
+            if (count >= 5){
+                pigList.remove(pigList.get(i));
+            }
+        }
+        return pigList;
     }
 }

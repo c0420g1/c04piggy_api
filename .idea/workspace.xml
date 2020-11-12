@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/PigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/PigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Pig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Pig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/PigServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/PigServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,10 +42,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
   </component>
   <component name="ProjectId" id="1k29wWaHdh3DJdoF0Mw4P1VjByZ" />
   <component name="ProjectLevelVcsManager">
@@ -122,7 +118,8 @@
       <workItem from="1604983048752" duration="5552000" />
       <workItem from="1605020745598" duration="397000" />
       <workItem from="1605065454332" duration="7268000" />
-      <workItem from="1605096897523" duration="924000" />
+      <workItem from="1605096897523" duration="2787000" />
+      <workItem from="1605146286642" duration="4114000" />
     </task>
     <servers />
   </component>
