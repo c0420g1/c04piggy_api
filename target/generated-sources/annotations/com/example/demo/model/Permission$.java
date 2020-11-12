@@ -16,8 +16,6 @@ import java.util.Set;
 public final class Permission$ {
     
     /**
-<<<<<<< HEAD
-=======
      * This Field corresponds to the {@link Permission} field name.
      */
     public static final StringField<Permission> name = StringField.create(
@@ -36,7 +34,6 @@ public final class Permission$ {
         false
     );
     /**
->>>>>>> develop
      * This Field corresponds to the {@link Permission} field description.
      */
     public static final StringField<Permission> description = StringField.create(
@@ -61,24 +58,6 @@ public final class Permission$ {
         Permission.class,
         "isDeleted",
         Permission::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Permission} field name.
-     */
-    public static final StringField<Permission> name = StringField.create(
-        Permission.class,
-        "name",
-        Permission::getName,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Permission} field id.
-     */
-    public static final IntField<Permission> id = IntField.create(
-        Permission.class,
-        "id",
-        Permission::getId,
         false
     );
 }

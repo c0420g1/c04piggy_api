@@ -16,30 +16,30 @@ import java.util.Set;
 public final class Vacxin$ {
     
     /**
-     * This Field corresponds to the {@link Vacxin} field name.
+     * This Field corresponds to the {@link Vacxin} field id.
      */
-    public static final StringField<Vacxin> name = StringField.create(
+    public static final IntField<Vacxin> id = IntField.create(
         Vacxin.class,
-        "name",
-        Vacxin::getName,
+        "id",
+        Vacxin::getId,
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Vacxin} field name.
-     */
-    public static final StringField<Vacxin> name = StringField.create(
-        Vacxin.class,
-        "name",
-        Vacxin::getName,
-=======
      * This Field corresponds to the {@link Vacxin} field isDeleted.
      */
     public static final IntField<Vacxin> isDeleted = IntField.create(
         Vacxin.class,
         "isDeleted",
         Vacxin::getIsDeleted,
->>>>>>> develop
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
+     */
+    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
+        Vacxin.class,
+        "treatmentVacxins",
+        Vacxin::getTreatmentVacxins,
         false
     );
     /**
@@ -52,30 +52,12 @@ public final class Vacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vacxin} field id.
+     * This Field corresponds to the {@link Vacxin} field name.
      */
-    public static final IntField<Vacxin> id = IntField.create(
+    public static final StringField<Vacxin> name = StringField.create(
         Vacxin.class,
-        "id",
-        Vacxin::getId,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Vacxin} field isDeleted.
-     */
-    public static final IntField<Vacxin> isDeleted = IntField.create(
-        Vacxin.class,
-        "isDeleted",
-        Vacxin::getIsDeleted,
-=======
-     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
-     */
-    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
-        Vacxin.class,
-        "treatmentVacxins",
-        Vacxin::getTreatmentVacxins,
->>>>>>> develop
+        "name",
+        Vacxin::getName,
         false
     );
 }

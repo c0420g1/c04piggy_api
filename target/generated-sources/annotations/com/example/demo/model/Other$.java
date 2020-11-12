@@ -25,6 +25,42 @@ public final class Other$ {
         false
     );
     /**
+     * This Field corresponds to the {@link Other} field name.
+     */
+    public static final StringField<Other> name = StringField.create(
+        Other.class,
+        "name",
+        Other::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field url.
+     */
+    public static final StringField<Other> url = StringField.create(
+        Other.class,
+        "url",
+        Other::getUrl,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field type.
+     */
+    public static final StringField<Other> type = StringField.create(
+        Other.class,
+        "type",
+        Other::getType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field isDeleted.
+     */
+    public static final IntField<Other> isDeleted = IntField.create(
+        Other.class,
+        "isDeleted",
+        Other::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Other} field description.
      */
     public static final StringField<Other> description = StringField.create(
@@ -34,13 +70,21 @@ public final class Other$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Other} field isDeleted.
+     * This Field corresponds to the {@link Other} field refId.
      */
-    public static final IntField<Other> isDeleted = IntField.create(
+    public static final IntField<Other> refId = IntField.create(
         Other.class,
-        "isDeleted",
-        Other::getIsDeleted,
+        "refId",
+        Other::getRefId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field createDate.
+     */
+    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+        Other.class,
+        "createDate",
+        Other::getCreateDate,
         false
     );
     /**
@@ -53,17 +97,6 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field refId.
-     */
-    public static final IntField<Other> refId = IntField.create(
-        Other.class,
-        "refId",
-        Other::getRefId,
-        false
-    );
-    /**
-=======
->>>>>>> develop
      * This Field corresponds to the {@link Other} field id.
      */
     public static final IntField<Other> id = IntField.create(
@@ -72,88 +105,4 @@ public final class Other$ {
         Other::getId,
         false
     );
-    /**
-     * This Field corresponds to the {@link Other} field title.
-     */
-    public static final StringField<Other> title = StringField.create(
-        Other.class,
-        "title",
-        Other::getTitle,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Other} field createDate.
-     */
-    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
-        Other.class,
-        "createDate",
-        Other::getCreateDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field name.
-     */
-    public static final StringField<Other> name = StringField.create(
-        Other.class,
-        "name",
-        Other::getName,
-=======
-     * This Field corresponds to the {@link Other} field refId.
-     */
-    public static final IntField<Other> refId = IntField.create(
-        Other.class,
-        "refId",
-        Other::getRefId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field createDate.
-     */
-    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
-        Other.class,
-        "createDate",
-        Other::getCreateDate,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field url.
-     */
-    public static final StringField<Other> url = StringField.create(
-        Other.class,
-        "url",
-        Other::getUrl,
->>>>>>> develop
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field type.
-     */
-    public static final StringField<Other> type = StringField.create(
-        Other.class,
-        "type",
-        Other::getType,
-        false
-    );
-<<<<<<< HEAD
-=======
-    /**
-     * This Field corresponds to the {@link Other} field description.
-     */
-    public static final StringField<Other> description = StringField.create(
-        Other.class,
-        "description",
-        Other::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field isDeleted.
-     */
-    public static final IntField<Other> isDeleted = IntField.create(
-        Other.class,
-        "isDeleted",
-        Other::getIsDeleted,
-        false
-    );
->>>>>>> develop
 }

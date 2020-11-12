@@ -14,7 +14,15 @@ import com.speedment.jpastreamer.field.StringField;
 public final class RoleAccount$ {
     
     /**
-<<<<<<< HEAD
+     * This Field corresponds to the {@link RoleAccount} field isDeleted.
+     */
+    public static final IntField<RoleAccount> isDeleted = IntField.create(
+        RoleAccount.class,
+        "isDeleted",
+        RoleAccount::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RoleAccount} field account.
      */
     public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
@@ -24,17 +32,6 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field role.
-     */
-    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
-        RoleAccount.class,
-        "role",
-        RoleAccount::getRole,
-        false
-    );
-    /**
-=======
->>>>>>> develop
      * This Field corresponds to the {@link RoleAccount} field id.
      */
     public static final IntField<RoleAccount> id = IntField.create(
@@ -44,12 +41,12 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field isDeleted.
+     * This Field corresponds to the {@link RoleAccount} field role.
      */
-    public static final IntField<RoleAccount> isDeleted = IntField.create(
+    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
         RoleAccount.class,
-        "isDeleted",
-        RoleAccount::getIsDeleted,
+        "role",
+        RoleAccount::getRole,
         false
     );
     /**
@@ -59,24 +56,6 @@ public final class RoleAccount$ {
         RoleAccount.class,
         "description",
         RoleAccount::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RoleAccount} field isDeleted.
-     */
-    public static final IntField<RoleAccount> isDeleted = IntField.create(
-        RoleAccount.class,
-        "isDeleted",
-        RoleAccount::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RoleAccount} field role.
-     */
-    public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
-        RoleAccount.class,
-        "role",
-        RoleAccount::getRole,
         false
     );
 }
