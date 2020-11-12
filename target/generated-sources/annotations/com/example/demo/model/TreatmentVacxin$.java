@@ -17,12 +17,12 @@ import java.time.LocalDate;
 public final class TreatmentVacxin$ {
     
     /**
-     * This Field corresponds to the {@link TreatmentVacxin} field type.
+     * This Field corresponds to the {@link TreatmentVacxin} field description.
      */
-    public static final StringField<TreatmentVacxin> type = StringField.create(
+    public static final StringField<TreatmentVacxin> description = StringField.create(
         TreatmentVacxin.class,
-        "type",
-        TreatmentVacxin::getType,
+        "description",
+        TreatmentVacxin::getDescription,
         false
     );
     /**
@@ -35,21 +35,39 @@ public final class TreatmentVacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link TreatmentVacxin} field vacxin.
+     * This Field corresponds to the {@link TreatmentVacxin} field type.
      */
-    public static final ReferenceField<TreatmentVacxin, Vacxin> vacxin = ReferenceField.create(
+    public static final StringField<TreatmentVacxin> type = StringField.create(
         TreatmentVacxin.class,
-        "vacxin",
-        TreatmentVacxin::getVacxin,
+        "type",
+        TreatmentVacxin::getType,
         false
     );
     /**
-     * This Field corresponds to the {@link TreatmentVacxin} field description.
+     * This Field corresponds to the {@link TreatmentVacxin} field isDeleted.
      */
-    public static final StringField<TreatmentVacxin> description = StringField.create(
+    public static final IntField<TreatmentVacxin> isDeleted = IntField.create(
         TreatmentVacxin.class,
-        "description",
-        TreatmentVacxin::getDescription,
+        "isDeleted",
+        TreatmentVacxin::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link TreatmentVacxin} field veterinary.
+     */
+    public static final StringField<TreatmentVacxin> veterinary = StringField.create(
+        TreatmentVacxin.class,
+        "veterinary",
+        TreatmentVacxin::getVeterinary,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link TreatmentVacxin} field id.
+     */
+    public static final IntField<TreatmentVacxin> id = IntField.create(
+        TreatmentVacxin.class,
+        "id",
+        TreatmentVacxin::getId,
         false
     );
     /**
@@ -71,12 +89,12 @@ public final class TreatmentVacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link TreatmentVacxin} field isDeleted.
+     * This Field corresponds to the {@link TreatmentVacxin} field vacxin.
      */
-    public static final IntField<TreatmentVacxin> isDeleted = IntField.create(
+    public static final ReferenceField<TreatmentVacxin, Vacxin> vacxin = ReferenceField.create(
         TreatmentVacxin.class,
-        "isDeleted",
-        TreatmentVacxin::getIsDeleted,
+        "vacxin",
+        TreatmentVacxin::getVacxin,
         false
     );
     /**
@@ -86,24 +104,6 @@ public final class TreatmentVacxin$ {
         TreatmentVacxin.class,
         "cote",
         TreatmentVacxin::getCote,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link TreatmentVacxin} field id.
-     */
-    public static final IntField<TreatmentVacxin> id = IntField.create(
-        TreatmentVacxin.class,
-        "id",
-        TreatmentVacxin::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link TreatmentVacxin} field veterinary.
-     */
-    public static final StringField<TreatmentVacxin> veterinary = StringField.create(
-        TreatmentVacxin.class,
-        "veterinary",
-        TreatmentVacxin::getVeterinary,
         false
     );
 }
