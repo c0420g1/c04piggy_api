@@ -18,30 +18,12 @@ import java.util.Set;
 public final class Stock$ {
     
     /**
-     * This Field corresponds to the {@link Stock} field feedType.
+     * This Field corresponds to the {@link Stock} field shipmentCode.
      */
-    public static final ReferenceField<Stock, FeedType> feedType = ReferenceField.create(
+    public static final StringField<Stock> shipmentCode = StringField.create(
         Stock.class,
-        "feedType",
-        Stock::getFeedType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Stock} field isDeleted.
-     */
-    public static final IntField<Stock> isDeleted = IntField.create(
-        Stock.class,
-        "isDeleted",
-        Stock::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Stock} field quantity.
-     */
-    public static final IntField<Stock> quantity = IntField.create(
-        Stock.class,
-        "quantity",
-        Stock::getQuantity,
+        "shipmentCode",
+        Stock::getShipmentCode,
         false
     );
     /**
@@ -51,24 +33,6 @@ public final class Stock$ {
         Stock.class,
         "id",
         Stock::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Stock} field vendor.
-     */
-    public static final ReferenceField<Stock, Vendor> vendor = ReferenceField.create(
-        Stock.class,
-        "vendor",
-        Stock::getVendor,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Stock} field shipmentCode.
-     */
-    public static final StringField<Stock> shipmentCode = StringField.create(
-        Stock.class,
-        "shipmentCode",
-        Stock::getShipmentCode,
         false
     );
     /**
@@ -90,12 +54,21 @@ public final class Stock$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Stock} field expDate.
+     * This Field corresponds to the {@link Stock} field isDeleted.
      */
-    public static final ComparableField<Stock, LocalDate> expDate = ComparableField.create(
+    public static final IntField<Stock> isDeleted = IntField.create(
         Stock.class,
-        "expDate",
-        Stock::getExpDate,
+        "isDeleted",
+        Stock::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field quantity.
+     */
+    public static final IntField<Stock> quantity = IntField.create(
+        Stock.class,
+        "quantity",
+        Stock::getQuantity,
         false
     );
     /**
@@ -108,12 +81,12 @@ public final class Stock$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Stock} field description.
+     * This Field corresponds to the {@link Stock} field expDate.
      */
-    public static final StringField<Stock> description = StringField.create(
+    public static final ComparableField<Stock, LocalDate> expDate = ComparableField.create(
         Stock.class,
-        "description",
-        Stock::getDescription,
+        "expDate",
+        Stock::getExpDate,
         false
     );
     /**
@@ -123,6 +96,33 @@ public final class Stock$ {
         Stock.class,
         "importDate",
         Stock::getImportDate,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field feedType.
+     */
+    public static final ReferenceField<Stock, FeedType> feedType = ReferenceField.create(
+        Stock.class,
+        "feedType",
+        Stock::getFeedType,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field description.
+     */
+    public static final StringField<Stock> description = StringField.create(
+        Stock.class,
+        "description",
+        Stock::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Stock} field vendor.
+     */
+    public static final ReferenceField<Stock, Vendor> vendor = ReferenceField.create(
+        Stock.class,
+        "vendor",
+        Stock::getVendor,
         false
     );
 }
