@@ -35,7 +35,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void save(Employee employee) {
-
+        try{
+            employeeRepository.save(employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

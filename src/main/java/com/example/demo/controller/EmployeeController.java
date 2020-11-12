@@ -20,6 +20,7 @@ public class EmployeeController {
 
     @GetMapping("employees/{pageNum}")
     // creator: Viet
+    //add, update, edit
     public List<EmployeeDTO> getAllEmployeeDTO(@RequestParam(defaultValue = "") String search,
                                                @PathVariable int pageNum){
         try{
@@ -39,6 +40,22 @@ public class EmployeeController {
         }
         return null;
     }
+    @PostMapping("employee")
+    public void addEmployee(@RequestBody Employee employee){
+        try {
+            employeeService.save(employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @PutMapping("employee")
+    public void editEmployee(@RequestBody Employee employee){
+        try {
+            employeeService.save(employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @PostMapping("account")
     public void addAccount(@RequestBody Account account){
         try {
@@ -56,4 +73,5 @@ public class EmployeeController {
             e.printStackTrace();
         }
     }
+
 }
