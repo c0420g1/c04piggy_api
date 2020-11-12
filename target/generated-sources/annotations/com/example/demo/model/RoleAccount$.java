@@ -23,24 +23,6 @@ public final class RoleAccount$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RoleAccount} field description.
-     */
-    public static final StringField<RoleAccount> description = StringField.create(
-        RoleAccount.class,
-        "description",
-        RoleAccount::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link RoleAccount} field account.
-     */
-    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
-        RoleAccount.class,
-        "account",
-        RoleAccount::getAccount,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RoleAccount} field role.
      */
     public static final ReferenceField<RoleAccount, Role> role = ReferenceField.create(
@@ -50,12 +32,30 @@ public final class RoleAccount$ {
         false
     );
     /**
+     * This Field corresponds to the {@link RoleAccount} field description.
+     */
+    public static final StringField<RoleAccount> description = StringField.create(
+        RoleAccount.class,
+        "description",
+        RoleAccount::getDescription,
+        false
+    );
+    /**
      * This Field corresponds to the {@link RoleAccount} field id.
      */
     public static final IntField<RoleAccount> id = IntField.create(
         RoleAccount.class,
         "id",
         RoleAccount::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RoleAccount} field account.
+     */
+    public static final ReferenceField<RoleAccount, Account> account = ReferenceField.create(
+        RoleAccount.class,
+        "account",
+        RoleAccount::getAccount,
         false
     );
 }
