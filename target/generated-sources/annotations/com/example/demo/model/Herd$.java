@@ -16,12 +16,12 @@ import java.util.Set;
 public final class Herd$ {
     
     /**
-     * This Field corresponds to the {@link Herd} field isDeleted.
+     * This Field corresponds to the {@link Herd} field description.
      */
-    public static final IntField<Herd> isDeleted = IntField.create(
+    public static final StringField<Herd> description = StringField.create(
         Herd.class,
-        "isDeleted",
-        Herd::getIsDeleted,
+        "description",
+        Herd::getDescription,
         false
     );
     /**
@@ -34,21 +34,21 @@ public final class Herd$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Herd} field description.
-     */
-    public static final StringField<Herd> description = StringField.create(
-        Herd.class,
-        "description",
-        Herd::getDescription,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Herd} field id.
      */
     public static final IntField<Herd> id = IntField.create(
         Herd.class,
         "id",
         Herd::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Herd} field isDeleted.
+     */
+    public static final IntField<Herd> isDeleted = IntField.create(
+        Herd.class,
+        "isDeleted",
+        Herd::getIsDeleted,
         false
     );
     /**

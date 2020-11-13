@@ -16,12 +16,13 @@ import java.util.Set;
 public final class PigStatus$ {
     
     /**
-     * This Field corresponds to the {@link PigStatus} field id.
+     * This Field corresponds to the {@link PigStatus} field
+     * pigAssociateStatuses.
      */
-    public static final IntField<PigStatus> id = IntField.create(
+    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
         PigStatus.class,
-        "id",
-        PigStatus::getId,
+        "pigAssociateStatuses",
+        PigStatus::getPigAssociateStatuses,
         false
     );
     /**
@@ -52,13 +53,12 @@ public final class PigStatus$ {
         false
     );
     /**
-     * This Field corresponds to the {@link PigStatus} field
-     * pigAssociateStatuses.
+     * This Field corresponds to the {@link PigStatus} field id.
      */
-    public static final ReferenceField<PigStatus, Set<PigAssociateStatus>> pigAssociateStatuses = ReferenceField.create(
+    public static final IntField<PigStatus> id = IntField.create(
         PigStatus.class,
-        "pigAssociateStatuses",
-        PigStatus::getPigAssociateStatuses,
+        "id",
+        PigStatus::getId,
         false
     );
 }

@@ -16,15 +16,6 @@ import java.util.Set;
 public final class Permission$ {
     
     /**
-     * This Field corresponds to the {@link Permission} field rolePermissions.
-     */
-    public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(
-        Permission.class,
-        "rolePermissions",
-        Permission::getRolePermissions,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Permission} field isDeleted.
      */
     public static final IntField<Permission> isDeleted = IntField.create(
@@ -34,12 +25,12 @@ public final class Permission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Permission} field description.
+     * This Field corresponds to the {@link Permission} field name.
      */
-    public static final StringField<Permission> description = StringField.create(
+    public static final StringField<Permission> name = StringField.create(
         Permission.class,
-        "description",
-        Permission::getDescription,
+        "name",
+        Permission::getName,
         false
     );
     /**
@@ -52,12 +43,21 @@ public final class Permission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Permission} field name.
+     * This Field corresponds to the {@link Permission} field description.
      */
-    public static final StringField<Permission> name = StringField.create(
+    public static final StringField<Permission> description = StringField.create(
         Permission.class,
-        "name",
-        Permission::getName,
+        "description",
+        Permission::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Permission} field rolePermissions.
+     */
+    public static final ReferenceField<Permission, Set<RolePermission>> rolePermissions = ReferenceField.create(
+        Permission.class,
+        "rolePermissions",
+        Permission::getRolePermissions,
         false
     );
 }

@@ -25,15 +25,6 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field description.
-     */
-    public static final StringField<Other> description = StringField.create(
-        Other.class,
-        "description",
-        Other::getDescription,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Other} field url.
      */
     public static final StringField<Other> url = StringField.create(
@@ -43,12 +34,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field refId.
+     * This Field corresponds to the {@link Other} field id.
      */
-    public static final IntField<Other> refId = IntField.create(
+    public static final IntField<Other> id = IntField.create(
         Other.class,
-        "refId",
-        Other::getRefId,
+        "id",
+        Other::getId,
         false
     );
     /**
@@ -61,12 +52,12 @@ public final class Other$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Other} field createDate.
+     * This Field corresponds to the {@link Other} field description.
      */
-    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+    public static final StringField<Other> description = StringField.create(
         Other.class,
-        "createDate",
-        Other::getCreateDate,
+        "description",
+        Other::getDescription,
         false
     );
     /**
@@ -76,15 +67,6 @@ public final class Other$ {
         Other.class,
         "type",
         Other::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Other} field id.
-     */
-    public static final IntField<Other> id = IntField.create(
-        Other.class,
-        "id",
-        Other::getId,
         false
     );
     /**
@@ -103,6 +85,24 @@ public final class Other$ {
         Other.class,
         "name",
         Other::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field refId.
+     */
+    public static final IntField<Other> refId = IntField.create(
+        Other.class,
+        "refId",
+        Other::getRefId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Other} field createDate.
+     */
+    public static final ComparableField<Other, LocalDate> createDate = ComparableField.create(
+        Other.class,
+        "createDate",
+        Other::getCreateDate,
         false
     );
 }

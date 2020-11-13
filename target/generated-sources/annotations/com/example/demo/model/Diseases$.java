@@ -43,21 +43,21 @@ public final class Diseases$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Diseases} field isDeleted.
-     */
-    public static final IntField<Diseases> isDeleted = IntField.create(
-        Diseases.class,
-        "isDeleted",
-        Diseases::getIsDeleted,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Diseases} field id.
      */
     public static final IntField<Diseases> id = IntField.create(
         Diseases.class,
         "id",
         Diseases::getId,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Diseases} field isDeleted.
+     */
+    public static final IntField<Diseases> isDeleted = IntField.create(
+        Diseases.class,
+        "isDeleted",
+        Diseases::getIsDeleted,
         false
     );
 }

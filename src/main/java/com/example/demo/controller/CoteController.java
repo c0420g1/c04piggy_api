@@ -15,12 +15,6 @@ public class CoteController {
     @Autowired
     CoteService coteService;
 
-//    @GetMapping("cote")
-//    public List<Cote> getAll(){
-//        List<Cote> coteList;
-//        coteList = coteService.getAll();
-//        return coteList;
-//    }
 
     //List has Pagination & Search
     @GetMapping("/cote/{pageNum}")
@@ -40,6 +34,7 @@ public class CoteController {
 
     @PostMapping("cote")
     public void addNewCote(@RequestBody Cote cote){
+        System.out.println(cote.toString());
         coteService.save(cote);
     }
 
@@ -56,9 +51,4 @@ public class CoteController {
         cote = coteService.getById(id).orElse(null);
         return cote;
     }
-//
-//    @GetMapping("/haicotedto/{pageNum}")
-//    public List<CoteDTO> getDTO(@PathVariable int pageNum, @RequestParam String search){
-//        return coteService.search(pageNum,search);
-//    }
 }
