@@ -1,19 +1,14 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.common.SameParentException;
-import com.example.demo.model.Pig;
-import com.example.demo.model.Pig$;
-import com.example.demo.model.PigDTO;
+import com.example.demo.model.*;
 import com.example.demo.repository.PigRepository;
 import com.example.demo.service.PigService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.example.demo.common.GlobalUtil.pageSize;
@@ -122,4 +117,15 @@ public class PigServiceImpl implements PigService {
         }
     }
 
+    @Override
+    public void soldPig(Pig pig) {
+        PigAssociateStatus pigAssociateStatus = new PigAssociateStatus();
+        pigAssociateStatus.setPig(pig);
+        pigAssociateStatus.setPigStatus(jpaStreamer.stream(PigStatus.class).filter(PigStatus$.name.equal("Sold")).findFirst().get());
+        pig.setIsDeleted(1);
+        Set<PigAssociateStatus> addNewStatus = pig.getPigAssociateStatuses();
+        addNewStatus.add(pigAssociateStatus);
+        pig.setPigAssociateStatuses(addNewStatus);
+        pigRepository.save(pig);
+    }
 }
