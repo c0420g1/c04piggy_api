@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PigDTO {
     private int pigId;
+    private String code;
     private String cote;
     private LocalDate importDate;
     private List status;
