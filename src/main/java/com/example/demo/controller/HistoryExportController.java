@@ -21,14 +21,11 @@ public class HistoryExportController {
     @Autowired
     private CoteServiceImpl coteService;
 
-    @GetMapping("/export-management")
-    public List<HistoryExportDTO> getAll(){
-        return this.historyExportService.getAllDTO();
+    @GetMapping("/export-management/{pageNum}")
+    public List<HistoryExportDTO> getAll(@PathVariable int pageNum , @RequestParam(defaultValue = "") String search){
+        return this.historyExportService.getAllDTO(pageNum, search);
     }
-    @GetMapping("/search/{pageNum}")
-    public List<HistoryExportDTO> searchAll(@PathVariable int pageNum , @RequestParam(defaultValue = "") String search){
-        return  this.historyExportService.search(pageNum,search);
-    }
+
     //Creator Tuong
     // add new HistoryExport
     @PostMapping("/export-management")
