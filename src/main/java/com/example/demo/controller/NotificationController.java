@@ -21,6 +21,7 @@ public class NotificationController {
 
     @PostMapping("addEditNotification")
     public int addNotification(@RequestBody Notification notification){
+        System.out.println("test");
         return notificationService.save(notification);
     }
 
