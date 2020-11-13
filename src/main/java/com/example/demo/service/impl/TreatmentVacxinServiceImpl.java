@@ -51,19 +51,20 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
 //      dương nhật huy
 //      save treatment
     @Override
-    public void save(TreatmentVacxin treatmentVacxin) {
+    public int save(TreatmentVacxin treatmentVacxin) {
         try{
             treatmentVacxinRepository.save(treatmentVacxin);
+            return 1;
         }catch (Exception e){
             e.getMessage();
         }
-
+        return 0;
     }
 
 //      dương nhật huy
 //      delete one or more treatment
     @Override
-    public void delete(int[] ids) {
+    public int delete(int[] ids) {
         try{
             Arrays.stream(ids).forEach(e -> {
                 TreatmentVacxin treatmentVacxin = jpaStreamer.stream(TreatmentVacxin.class)
@@ -71,9 +72,11 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
                 treatmentVacxin.setIsDeleted(1);
                 treatmentVacxinRepository.save(treatmentVacxin);
             });
+            return 1;
         }catch (Exception e){
             e.getMessage();
         }
+        return 0;
     }
 
 //      dương nhật huy
