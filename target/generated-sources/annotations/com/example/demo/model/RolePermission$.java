@@ -32,15 +32,6 @@ public final class RolePermission$ {
         false
     );
     /**
-     * This Field corresponds to the {@link RolePermission} field permission.
-     */
-    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
-        RolePermission.class,
-        "permission",
-        RolePermission::getPermission,
-        false
-    );
-    /**
      * This Field corresponds to the {@link RolePermission} field description.
      */
     public static final StringField<RolePermission> description = StringField.create(
@@ -56,6 +47,15 @@ public final class RolePermission$ {
         RolePermission.class,
         "isDeleted",
         RolePermission::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link RolePermission} field permission.
+     */
+    public static final ReferenceField<RolePermission, Permission> permission = ReferenceField.create(
+        RolePermission.class,
+        "permission",
+        RolePermission::getPermission,
         false
     );
 }

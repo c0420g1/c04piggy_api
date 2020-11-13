@@ -16,15 +16,6 @@ import java.util.Set;
 public final class Vacxin$ {
     
     /**
-     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
-     */
-    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
-        Vacxin.class,
-        "treatmentVacxins",
-        Vacxin::getTreatmentVacxins,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Vacxin} field isDeleted.
      */
     public static final IntField<Vacxin> isDeleted = IntField.create(
@@ -34,12 +25,12 @@ public final class Vacxin$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vacxin} field id.
+     * This Field corresponds to the {@link Vacxin} field treatmentVacxins.
      */
-    public static final IntField<Vacxin> id = IntField.create(
+    public static final ReferenceField<Vacxin, Set<TreatmentVacxin>> treatmentVacxins = ReferenceField.create(
         Vacxin.class,
-        "id",
-        Vacxin::getId,
+        "treatmentVacxins",
+        Vacxin::getTreatmentVacxins,
         false
     );
     /**
@@ -58,6 +49,15 @@ public final class Vacxin$ {
         Vacxin.class,
         "name",
         Vacxin::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vacxin} field id.
+     */
+    public static final IntField<Vacxin> id = IntField.create(
+        Vacxin.class,
+        "id",
+        Vacxin::getId,
         false
     );
 }

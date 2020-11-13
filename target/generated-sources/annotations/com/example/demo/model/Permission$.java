@@ -16,21 +16,21 @@ import java.util.Set;
 public final class Permission$ {
     
     /**
-     * This Field corresponds to the {@link Permission} field name.
-     */
-    public static final StringField<Permission> name = StringField.create(
-        Permission.class,
-        "name",
-        Permission::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Permission} field isDeleted.
      */
     public static final IntField<Permission> isDeleted = IntField.create(
         Permission.class,
         "isDeleted",
         Permission::getIsDeleted,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Permission} field name.
+     */
+    public static final StringField<Permission> name = StringField.create(
+        Permission.class,
+        "name",
+        Permission::getName,
         false
     );
     /**

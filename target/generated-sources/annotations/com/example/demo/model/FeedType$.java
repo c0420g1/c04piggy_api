@@ -16,12 +16,30 @@ import java.util.Set;
 public final class FeedType$ {
     
     /**
+     * This Field corresponds to the {@link FeedType} field id.
+     */
+    public static final IntField<FeedType> id = IntField.create(
+        FeedType.class,
+        "id",
+        FeedType::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link FeedType} field feeds.
      */
     public static final ReferenceField<FeedType, Set<Feed>> feeds = ReferenceField.create(
         FeedType.class,
         "feeds",
         FeedType::getFeeds,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link FeedType} field name.
+     */
+    public static final StringField<FeedType> name = StringField.create(
+        FeedType.class,
+        "name",
+        FeedType::getName,
         false
     );
     /**
@@ -34,30 +52,12 @@ public final class FeedType$ {
         false
     );
     /**
-     * This Field corresponds to the {@link FeedType} field id.
-     */
-    public static final IntField<FeedType> id = IntField.create(
-        FeedType.class,
-        "id",
-        FeedType::getId,
-        false
-    );
-    /**
      * This Field corresponds to the {@link FeedType} field stocks.
      */
     public static final ReferenceField<FeedType, Set<Stock>> stocks = ReferenceField.create(
         FeedType.class,
         "stocks",
         FeedType::getStocks,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link FeedType} field name.
-     */
-    public static final StringField<FeedType> name = StringField.create(
-        FeedType.class,
-        "name",
-        FeedType::getName,
         false
     );
     /**
