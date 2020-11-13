@@ -21,9 +21,19 @@ public class PigController {
     private PigService pigService;
 
     @GetMapping("/pigList/{pageNum}")
-    public List<PigDTO> getPigList(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search){
+    public List<PigDTO> getPigListShow(@PathVariable int pageNum, @RequestParam(defaultValue = "") String search){
         try {
             return pigService.listPigSearch(pageNum, search);
+        }catch (Exception e){
+            errorLog.error("lỗi tại pigListShow" + e.getMessage());
+            return null;
+        }
+    }
+
+    @GetMapping("/pigListFull")
+    public List<Pig> getPigList(){
+        try {
+            return pigService.getAll();
         }catch (Exception e){
             errorLog.error("lỗi tại pigList" + e.getMessage());
             return null;

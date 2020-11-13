@@ -7,7 +7,7 @@ import com.example.demo.model.HistoryExportStockDTO;
 import java.util.List;
 
 public interface HistoryExportService extends BaseService<HistoryExport> {
-    List<HistoryExportDTO> search(int pageNum, String search);
-    List<HistoryExportDTO> getAllDTO();
+    List<HistoryExportDTO> getAllDTO(int pageNum, String search);
     List<HistoryExportStockDTO> getHistoryExportStockDTO(int pageNumber, String search);
+
 }

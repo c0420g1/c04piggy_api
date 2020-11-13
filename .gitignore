@@ -19,8 +19,6 @@ target/
 *.iws
 *.iml
 *.ipr
-application.properties
-persistence.xml
 .idea/workspace.xml
 .idea/c04piggy_api.iml
 .idea/misc.xml
@@ -209,3 +207,4 @@ target/generated-sources/annotations/com/example/demo/model/Vacxin$.java
 target/generated-sources/annotations/com/example/demo/model/Vendor$.java
 .idea/workspace.xml
 .idea/workspace.xml
+.idea/encodings.xml
