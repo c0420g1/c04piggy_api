@@ -14,18 +14,23 @@ public class NotificationController {
     @Autowired
     private NotificationService notificationService;
 
-    @GetMapping("/getAllNotification")
+    @GetMapping("getAllNotification")
     public List<Notification> getAll(){
         return notificationService.getAll();
     }
 
+    @GetMapping("searchNotification/{pageNum}")
+    public List<Notification> search(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
+        return notificationService.search(pageNum,pageSize,search);
+    }
+
     @PostMapping("addEditNotification")
     public int addNotification(@RequestBody Notification notification){
-        return 1;
+        return notificationService.save(notification);
     }
 
     @PostMapping("deleteNotification")
     public int deleteNotification(@RequestParam int[] ids){
-        return ids.length;
+        return notificationService.delete(ids);
     }
 }
