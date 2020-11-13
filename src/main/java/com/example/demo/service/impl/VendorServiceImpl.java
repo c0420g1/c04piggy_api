@@ -21,7 +21,7 @@ public class VendorServiceImpl implements VendorService {
     public List<Vendor> getAll(){
         List<Vendor> vendorList;
         try {
-            vendorList = jpaStreamer.stream(Vendor.class).collect(Collectors.toList());
+            return vendorList = jpaStreamer.stream(Vendor.class).collect(Collectors.toList());
         } catch (Exception e) {
             e.printStackTrace();
         }
