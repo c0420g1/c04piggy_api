@@ -82,4 +82,14 @@ public class PigController {
     public void addNewBornPig(@RequestBody Pig pigAdd) {
         pigService.saveNewPig(pigAdd);
     }
+
+    //sold pig
+    @PatchMapping("/soldPig")
+    public void soldPig(@RequestBody Pig soldPig) {
+        try {
+            pigService.soldPig(soldPig);
+        } catch (Exception e) {
+            errorLog.error("Lỗi tại vị trí soldPig" + e.getMessage());
+        }
+    }
 }
