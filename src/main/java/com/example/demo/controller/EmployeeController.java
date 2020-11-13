@@ -8,6 +8,7 @@ import com.example.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,4 +75,16 @@ public class EmployeeController {
         }
     }
 
+
+    // Hai
+    @GetMapping("/employee")
+    public List<Employee> getAllEmployee(){
+        List<Employee> employeeList = new ArrayList<>();
+        try{
+            employeeList = employeeService.getAll();
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return employeeList;
+    }
 }
