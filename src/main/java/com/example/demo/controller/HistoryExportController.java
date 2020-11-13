@@ -4,10 +4,7 @@ import com.example.demo.model.HistoryExportDTO;
 import com.example.demo.service.impl.CoteServiceImpl;
 import com.example.demo.service.impl.HistoryExportServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,4 +21,15 @@ public class HistoryExportController {
         return this.historyExportService.getAllDTO(pageNum, search);
     }
 
+    @DeleteMapping ("/deleteExCote")
+    public int deleteExportCote(@RequestBody int[] ids){
+        try {
+            this.historyExportService.delete(ids);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return -1;
+        }
+        return 0;
+    }
 }

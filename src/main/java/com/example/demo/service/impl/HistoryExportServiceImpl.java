@@ -31,26 +31,26 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     private HistoryExportRepository historyExportRepository;
     @Autowired
     private CoteServiceImpl coteService;
-    private  static  List<HistoryExportDTO> exportList;
+    private  static  List<HistoryExportDTO> exportDTOList;
 
     @Override
     public List<HistoryExportDTO> getAllDTO(int pageNum, String search) {
-         exportList = new ArrayList<>();
+        exportDTOList = new ArrayList<>();
         try {
             jpaStreamer.stream(HistoryExport.class)
                     .skip((pageNum - 1) * pageSize).limit(pageSize)
                     .filter(
                             e ->
                                     e.getIsDeleted() == 0 && (
-                                           e.getCompany().contains(search) ||
-                                            e.getEmployee().getCode().contains(search) ||
-                                             e.getCote().getCode().contains(search)
-                                            ||
-                                            e.getExportDate().toString().contains(search))
-                    ).forEach(g -> {
+                                            e.getCompany().contains(search) ||
+                                                    e.getEmployee().getName().contains(search) ||
+                                                    e.getCote().getCode().contains(search) ||
+                                                    e.getExportDate().toString().contains(search))
+                    )
+                    .forEach(g -> {
                         List<Pig> pigList = coteService.getAllPig(g.getCote().getHerd().getName());
-                        int weight =0;
-                        for (int i =0; i< pigList.size(); i++){
+                        int weight = 0;
+                        for (int i = 0; i < pigList.size(); i++) {
                             weight += pigList.get(i).getWeight();
                         }
                         HistoryExportDTO h = HistoryExportDTO.builder()
@@ -62,15 +62,12 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                 .quantity(pigList.size())
                                 .weightTotal(weight)
                                 .total(weight * 80000).build();
-                        exportList.add(h);
-                   });
-            System.out.println("Have "+ exportList.size()+ " pig found");
-        } catch (
-                Exception e) {
-            System.out.println("Error : " + e.getMessage());
+                        exportDTOList.add(h);
+                    });
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-
-        return exportList;
+        return exportDTOList;
     }
 
     @Override
