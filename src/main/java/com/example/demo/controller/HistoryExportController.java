@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+
 import com.example.demo.model.HistoryExport;
 import com.example.demo.model.HistoryExportDTO;
 import com.example.demo.service.impl.CoteServiceImpl;
@@ -19,12 +20,7 @@ public class HistoryExportController {
     @Autowired
     private CoteServiceImpl coteService;
 
-    @GetMapping("/export-management")
-    public List<HistoryExportDTO> getAll(){
-        return this.historyExportService.getAllDTO();
     }
-    @GetMapping("/search/{pageNum}")
-    public List<HistoryExportDTO> searchAll(@PathVariable int pageNum , @RequestParam(defaultValue = "") String search){
-        return  this.historyExportService.search(pageNum,search);
-    }   
+
+    
 }

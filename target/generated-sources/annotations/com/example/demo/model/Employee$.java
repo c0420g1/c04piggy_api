@@ -28,12 +28,12 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field historyExports.
+     * This Field corresponds to the {@link Employee} field email.
      */
-    public static final ReferenceField<Employee, Set<HistoryExport>> historyExports = ReferenceField.create(
+    public static final StringField<Employee> email = StringField.create(
         Employee.class,
-        "historyExports",
-        Employee::getHistoryExports,
+        "email",
+        Employee::getEmail,
         false
     );
     /**
@@ -46,15 +46,6 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field name.
-     */
-    public static final StringField<Employee> name = StringField.create(
-        Employee.class,
-        "name",
-        Employee::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Employee} field account.
      */
     public static final ReferenceField<Employee, Account> account = ReferenceField.create(
@@ -64,12 +55,21 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field gender.
+     * This Field corresponds to the {@link Employee} field description.
      */
-    public static final ByteField<Employee> gender = ByteField.create(
+    public static final StringField<Employee> description = StringField.create(
         Employee.class,
-        "gender",
-        Employee::getGender,
+        "description",
+        Employee::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field id.
+     */
+    public static final IntField<Employee> id = IntField.create(
+        Employee.class,
+        "id",
+        Employee::getId,
         false
     );
     /**
@@ -83,15 +83,6 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field id.
-     */
-    public static final IntField<Employee> id = IntField.create(
-        Employee.class,
-        "id",
-        Employee::getId,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Employee} field isDeleted.
      */
     public static final IntField<Employee> isDeleted = IntField.create(
@@ -101,12 +92,39 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field description.
+     * This Field corresponds to the {@link Employee} field historyExports.
      */
-    public static final StringField<Employee> description = StringField.create(
+    public static final ReferenceField<Employee, Set<HistoryExport>> historyExports = ReferenceField.create(
         Employee.class,
-        "description",
-        Employee::getDescription,
+        "historyExports",
+        Employee::getHistoryExports,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field gender.
+     */
+    public static final ByteField<Employee> gender = ByteField.create(
+        Employee.class,
+        "gender",
+        Employee::getGender,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field code.
+     */
+    public static final StringField<Employee> code = StringField.create(
+        Employee.class,
+        "code",
+        Employee::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Employee} field name.
+     */
+    public static final StringField<Employee> name = StringField.create(
+        Employee.class,
+        "name",
+        Employee::getName,
         false
     );
     /**
@@ -119,30 +137,12 @@ public final class Employee$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Employee} field email.
-     */
-    public static final StringField<Employee> email = StringField.create(
-        Employee.class,
-        "email",
-        Employee::getEmail,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Employee} field birthday.
      */
     public static final ComparableField<Employee, Date> birthday = ComparableField.create(
         Employee.class,
         "birthday",
         Employee::getBirthday,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Employee} field code.
-     */
-    public static final StringField<Employee> code = StringField.create(
-        Employee.class,
-        "code",
-        Employee::getCode,
         false
     );
 }
