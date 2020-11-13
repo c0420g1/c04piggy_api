@@ -31,19 +31,20 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     private HistoryExportRepository historyExportRepository;
     @Autowired
     private CoteServiceImpl coteService;
+    private  static  List<HistoryExportDTO> exportList;
 
     @Override
-    public List<HistoryExportDTO> search(int pageNum, String search) {
-        List<HistoryExportDTO> exportList = new ArrayList<>();
+    public List<HistoryExportDTO> getAllDTO(int pageNum, String search) {
+         exportList = new ArrayList<>();
         try {
             jpaStreamer.stream(HistoryExport.class)
                     .skip((pageNum - 1) * pageSize).limit(pageSize)
                     .filter(
                             e ->
                                     e.getIsDeleted() == 0 && (
-                                            search.equals(e.getCompany()) ||
-                                            search.equals(e.getEmployee().getCode()) ||
-                                            search.contains(e.getCote().getCode())
+                                           e.getCompany().contains(search) ||
+                                            e.getEmployee().getCode().contains(search) ||
+                                             e.getCote().getCode().contains(search)
                                             ||
                                             e.getExportDate().toString().contains(search))
                     ).forEach(g -> {

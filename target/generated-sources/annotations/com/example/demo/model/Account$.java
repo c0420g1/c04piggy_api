@@ -16,6 +16,24 @@ import java.util.Set;
 public final class Account$ {
     
     /**
+     * This Field corresponds to the {@link Account} field description.
+     */
+    public static final StringField<Account> description = StringField.create(
+        Account.class,
+        "description",
+        Account::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Account} field id.
+     */
+    public static final IntField<Account> id = IntField.create(
+        Account.class,
+        "id",
+        Account::getId,
+        false
+    );
+    /**
      * This Field corresponds to the {@link Account} field username.
      */
     public static final StringField<Account> username = StringField.create(
@@ -25,12 +43,12 @@ public final class Account$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Account} field password.
+     * This Field corresponds to the {@link Account} field isDeleted.
      */
-    public static final StringField<Account> password = StringField.create(
+    public static final IntField<Account> isDeleted = IntField.create(
         Account.class,
-        "password",
-        Account::getPassword,
+        "isDeleted",
+        Account::getIsDeleted,
         false
     );
     /**
@@ -43,48 +61,12 @@ public final class Account$ {
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Account} field isDeleted.
+     * This Field corresponds to the {@link Account} field password.
      */
-    public static final IntField<Account> isDeleted = IntField.create(
+    public static final StringField<Account> password = StringField.create(
         Account.class,
-        "isDeleted",
-        Account::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Account} field description.
-     */
-    public static final StringField<Account> description = StringField.create(
-        Account.class,
-        "description",
-        Account::getDescription,
-=======
-     * This Field corresponds to the {@link Account} field description.
-     */
-    public static final StringField<Account> description = StringField.create(
-        Account.class,
-        "description",
-        Account::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Account} field id.
-     */
-    public static final IntField<Account> id = IntField.create(
-        Account.class,
-        "id",
-        Account::getId,
->>>>>>> develop
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Account} field id.
-     */
-    public static final IntField<Account> id = IntField.create(
-        Account.class,
-        "id",
-        Account::getId,
+        "password",
+        Account::getPassword,
         false
     );
 }

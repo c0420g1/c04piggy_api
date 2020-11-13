@@ -16,43 +16,12 @@ import java.util.Set;
 public final class Vendor$ {
     
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link Vendor} field code.
-=======
-     * This Field corresponds to the {@link Vendor} field name.
-     */
-    public static final StringField<Vendor> name = StringField.create(
-        Vendor.class,
-        "name",
-        Vendor::getName,
-        false
-    );
-    /**
      * This Field corresponds to the {@link Vendor} field isDeleted.
->>>>>>> develop
      */
     public static final IntField<Vendor> isDeleted = IntField.create(
         Vendor.class,
         "isDeleted",
         Vendor::getIsDeleted,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Vendor} field description.
-     */
-    public static final StringField<Vendor> description = StringField.create(
-        Vendor.class,
-        "description",
-        Vendor::getDescription,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link Vendor} field name.
-     */
-    public static final StringField<Vendor> name = StringField.create(
-        Vendor.class,
-        "name",
-        Vendor::getName,
         false
     );
     /**
@@ -65,12 +34,21 @@ public final class Vendor$ {
         false
     );
     /**
-     * This Field corresponds to the {@link Vendor} field id.
+     * This Field corresponds to the {@link Vendor} field name.
      */
-    public static final IntField<Vendor> id = IntField.create(
+    public static final StringField<Vendor> name = StringField.create(
         Vendor.class,
-        "id",
-        Vendor::getId,
+        "name",
+        Vendor::getName,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vendor} field description.
+     */
+    public static final StringField<Vendor> description = StringField.create(
+        Vendor.class,
+        "description",
+        Vendor::getDescription,
         false
     );
     /**
@@ -80,6 +58,15 @@ public final class Vendor$ {
         Vendor.class,
         "code",
         Vendor::getCode,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link Vendor} field id.
+     */
+    public static final IntField<Vendor> id = IntField.create(
+        Vendor.class,
+        "id",
+        Vendor::getId,
         false
     );
 }

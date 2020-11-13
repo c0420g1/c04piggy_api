@@ -17,7 +17,15 @@ import java.time.LocalDate;
 public final class HistoryExport$ {
     
     /**
-<<<<<<< HEAD
+     * This Field corresponds to the {@link HistoryExport} field isDeleted.
+     */
+    public static final IntField<HistoryExport> isDeleted = IntField.create(
+        HistoryExport.class,
+        "isDeleted",
+        HistoryExport::getIsDeleted,
+        false
+    );
+    /**
      * This Field corresponds to the {@link HistoryExport} field exportDate.
      */
     public static final ComparableField<HistoryExport, LocalDate> exportDate = ComparableField.create(
@@ -27,15 +35,21 @@ public final class HistoryExport$ {
         false
     );
     /**
-     * This Field corresponds to the {@link HistoryExport} field type.
-=======
-     * This Field corresponds to the {@link HistoryExport} field employee.
->>>>>>> develop
+     * This Field corresponds to the {@link HistoryExport} field description.
      */
-    public static final ReferenceField<HistoryExport, Employee> employee = ReferenceField.create(
+    public static final StringField<HistoryExport> description = StringField.create(
         HistoryExport.class,
-        "employee",
-        HistoryExport::getEmployee,
+        "description",
+        HistoryExport::getDescription,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field quantity.
+     */
+    public static final IntField<HistoryExport> quantity = IntField.create(
+        HistoryExport.class,
+        "quantity",
+        HistoryExport::getQuantity,
         false
     );
     /**
@@ -49,66 +63,12 @@ public final class HistoryExport$ {
         false
     );
     /**
-     * This Field corresponds to the {@link HistoryExport} field quantity.
+     * This Field corresponds to the {@link HistoryExport} field cote.
      */
-    public static final IntField<HistoryExport> quantity = IntField.create(
+    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
         HistoryExport.class,
-        "quantity",
-        HistoryExport::getQuantity,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field id.
-     */
-    public static final IntField<HistoryExport> id = IntField.create(
-        HistoryExport.class,
-        "id",
-        HistoryExport::getId,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field id.
-     */
-    public static final IntField<HistoryExport> id = IntField.create(
-        HistoryExport.class,
-        "id",
-        HistoryExport::getId,
-        false
-    );
-    /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link HistoryExport} field stock.
-     */
-    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
-        HistoryExport.class,
-        "stock",
-        HistoryExport::getStock,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field isDeleted.
-     */
-    public static final IntField<HistoryExport> isDeleted = IntField.create(
-        HistoryExport.class,
-        "isDeleted",
-        HistoryExport::getIsDeleted,
-=======
-     * This Field corresponds to the {@link HistoryExport} field type.
-     */
-    public static final StringField<HistoryExport> type = StringField.create(
-        HistoryExport.class,
-        "type",
-        HistoryExport::getType,
-        false
-    );
-    /**
-     * This Field corresponds to the {@link HistoryExport} field stock.
-     */
-    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
-        HistoryExport.class,
-        "stock",
-        HistoryExport::getStock,
->>>>>>> develop
+        "cote",
+        HistoryExport::getCote,
         false
     );
     /**
@@ -121,39 +81,30 @@ public final class HistoryExport$ {
         false
     );
     /**
-     * This Field corresponds to the {@link HistoryExport} field description.
+     * This Field corresponds to the {@link HistoryExport} field stock.
      */
-    public static final StringField<HistoryExport> description = StringField.create(
+    public static final ReferenceField<HistoryExport, Stock> stock = ReferenceField.create(
         HistoryExport.class,
-        "description",
-        HistoryExport::getDescription,
+        "stock",
+        HistoryExport::getStock,
         false
     );
     /**
-<<<<<<< HEAD
-     * This Field corresponds to the {@link HistoryExport} field quantity.
+     * This Field corresponds to the {@link HistoryExport} field id.
      */
-    public static final IntField<HistoryExport> quantity = IntField.create(
+    public static final IntField<HistoryExport> id = IntField.create(
         HistoryExport.class,
-        "quantity",
-        HistoryExport::getQuantity,
-=======
-     * This Field corresponds to the {@link HistoryExport} field exportDate.
-     */
-    public static final ComparableField<HistoryExport, LocalDate> exportDate = ComparableField.create(
-        HistoryExport.class,
-        "exportDate",
-        HistoryExport::getExportDate,
->>>>>>> develop
+        "id",
+        HistoryExport::getId,
         false
     );
     /**
-     * This Field corresponds to the {@link HistoryExport} field cote.
+     * This Field corresponds to the {@link HistoryExport} field employee.
      */
-    public static final ReferenceField<HistoryExport, Cote> cote = ReferenceField.create(
+    public static final ReferenceField<HistoryExport, Employee> employee = ReferenceField.create(
         HistoryExport.class,
-        "cote",
-        HistoryExport::getCote,
+        "employee",
+        HistoryExport::getEmployee,
         false
     );
     /**
@@ -163,6 +114,15 @@ public final class HistoryExport$ {
         HistoryExport.class,
         "unit",
         HistoryExport::getUnit,
+        false
+    );
+    /**
+     * This Field corresponds to the {@link HistoryExport} field type.
+     */
+    public static final StringField<HistoryExport> type = StringField.create(
+        HistoryExport.class,
+        "type",
+        HistoryExport::getType,
         false
     );
 }
