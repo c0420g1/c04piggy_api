@@ -35,6 +35,8 @@ public class HistoryExportServiceImpl implements HistoryExportService {
 
 
     @Override
+    public List<HistoryExportDTO> getAllDTO(int page, String search) {
+        exportDTOList = new ArrayList<>();
         try {
             jpaStreamer.stream(HistoryExport.class)
                     .skip((page - 1) * pageSize).limit(pageSize)
