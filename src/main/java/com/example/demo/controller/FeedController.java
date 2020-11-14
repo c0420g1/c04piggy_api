@@ -93,7 +93,7 @@ public class FeedController {
     //thinh
     //create feed ok
     @PostMapping("createFeed")
-    public List<Error> createFeed(@RequestBody FeedDTO feed){
+    public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
         try{
             this.feedService.save(feed);
