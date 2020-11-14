@@ -20,10 +20,17 @@ public class HistoryExportController {
     private HistoryExportServiceImpl historyExportService;
     @Autowired
     private CoteServiceImpl coteService;
-
+    //creator Hieu
     @GetMapping("/export-management/{pageNum}")
     public List<HistoryExportDTO> getAll(@PathVariable int pageNum , @RequestParam(defaultValue = "") String search){
-        return this.historyExportService.getAllDTO(pageNum, search);
+        List<HistoryExportDTO> dtoList = null;
+        try {
+            dtoList = this.historyExportService.getAllDTO(pageNum, search);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return dtoList;
     }
 
     //Creator Tuong
@@ -48,5 +55,32 @@ public class HistoryExportController {
             e.printStackTrace();
         }
         return null;
+    }
+    //creator Hieu
+    @PostMapping("/delExCote")
+    public int deleteExportCote(@RequestBody int[] ids){
+        for (int id :
+                ids) {
+            System.out.print( id);
+        }
+        try {
+            this.historyExportService.delete(ids);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return 1;
+    }
+    //creator Hieu
+    @PostMapping ("/saveExportCote")
+    public int saveCoteExport(@RequestBody HistoryExport historyExportDTO){
+        System.out.println(historyExportDTO.toString());
+        return this.historyExportService.save( historyExportDTO);
+    }
+
+
+    @GetMapping("/t/{pageNum}")
+    public List<HistoryExportDTO> getDTO (@PathVariable int pageNum,
+                                          @RequestParam(defaultValue = "") String search){
+        return this.historyExportService.getDTO(pageNum, search);
     }
 }

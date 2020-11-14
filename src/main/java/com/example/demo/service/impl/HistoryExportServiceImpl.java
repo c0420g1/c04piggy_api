@@ -28,22 +28,22 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     private HistoryExportRepository historyExportRepository;
     @Autowired
     private CoteServiceImpl coteService;
-    private static List<HistoryExportDTO> exportDTOList = new ArrayList<>();
-
+    private static List<HistoryExportDTO> exportDTOList;
 
     @Override
     public List<HistoryExportDTO> getAllDTO(int pageNum, String search) {
+        exportDTOList = new ArrayList<>();
         try {
-            jpaStreamer.stream(HistoryExport.class).skip((pageNum - 1) * pageSize).limit(pageSize)
+            jpaStreamer.stream(HistoryExport.class)
                     .filter(
                             e ->
                                     e.getIsDeleted() == 0 && (
                                             e.getCompany().contains(search) ||
-                                                    e.getEmployee().getCode().contains(search) ||
-                                                  e.getCote().getCode().contains(search)
-                                                    ||
-                                                    e.getExportDate().toString().contains(search))
-                    )
+                                                    e.getEmployee().getName().contains(search) ||
+                                                    e.getCote().getCode().contains(search) ||
+                                                    e.getExportDate().toString().contains(search)) ||
+                                            e.getQuantity()== Integer.parseInt(search)
+                    ).skip((pageNum - 1) * pageSize).limit(pageSize)
                     .forEach(g -> {
                         List<Pig> pigList = coteService.getAllPig(g.getCote().getHerd().getName());
                         int weight = 0;
@@ -64,6 +64,29 @@ public class HistoryExportServiceImpl implements HistoryExportService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return exportDTOList;
+    }
+
+    @Override
+    public List<HistoryExportDTO> getDTO(int pageNum, String search) {
+        exportDTOList = new ArrayList<>();
+        this.historyExportRepository.findAll().subList(1,3).forEach(g -> {
+            List<Pig> pigList = coteService.getAllPig(g.getCote().getHerd().getName());
+            int weight = 0;
+            for (int i = 0; i < pigList.size(); i++) {
+                weight += pigList.get(i).getWeight();
+            }
+            HistoryExportDTO h = HistoryExportDTO.builder()
+                    .id(g.getId())
+                    .coteCode(g.getCote().getCode())
+                    .company(g.getCompany())
+                    .employeeCode(g.getEmployee().getName())
+                    .exportDate(g.getExportDate())
+                    .quantity(pigList.size())
+                    .weightTotal(weight)
+                    .total(weight * 80000).build();
+            exportDTOList.add(h);
+        });
         return exportDTOList;
     }
 
