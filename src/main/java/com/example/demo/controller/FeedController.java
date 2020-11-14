@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 import com.example.demo.model.Feed;
+import com.example.demo.model.FeedDTO;
 import com.example.demo.model.FeedType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,16 +24,20 @@ public class FeedController {
     @Autowired
     private FeedTypeService feedTypeService;
 
+    //thinh
+    //getAll feed ok
     @GetMapping("/feeds")
-    public List<Feed> listFeed(){
+    public List<FeedDTO> listFeed(){
         try{
-            return this.feedService.getAll();
+            return this.feedService.getAllFeed();
         } catch (Exception e){
             System.out.println(e);
         }
         return null;
     }
 
+    //thinh
+    // getFeed theo page ok
     @GetMapping("/feeds/{pageNum}")
     public List<Feed> listFeedPage(@PathVariable int pageNum){
         try{
@@ -43,6 +48,8 @@ public class FeedController {
         return null;
     }
 
+    //thinh
+    //getFeed Type ok
     @GetMapping("/feedsType")
     public List<FeedType> listFeedType(){
         try{
@@ -53,6 +60,8 @@ public class FeedController {
         return null;
     }
 
+    //thinh
+    //deleteFeed ok
     @DeleteMapping("deleteFeed")
     public List<Error> deleteFeed(@RequestBody int[] idf){
         List<Error> errors = new ArrayList<>();
@@ -66,6 +75,8 @@ public class FeedController {
         return null;
     }
 
+    //thinh
+    // update Feed ok
     @PatchMapping("updateFeed")
     public List<Error> updateFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
@@ -79,6 +90,8 @@ public class FeedController {
         return null;
     }
 
+    //thinh
+    //create feed ok
     @PostMapping("createFeed")
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
@@ -92,6 +105,9 @@ public class FeedController {
         return null;
     }
 
+
+    //thinh
+    //search ok
     @GetMapping("searchFeed/{properties}/{key}/{page}")
     public List<Feed> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
         try{
