@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Feed;
+import com.example.demo.model.FeedDTO;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface FeedService extends BaseService<Feed>  {
     List<Feed> searchFeedType(int pageNumber, String search);
     List<Feed> searchDescription(int pageNumber, String search);
     List<Feed> getFeedPage(int pageNumber);
+    List<FeedDTO> getAllFeed(int pageNumber);
+    List<FeedDTO> getAllFeed();
 }
