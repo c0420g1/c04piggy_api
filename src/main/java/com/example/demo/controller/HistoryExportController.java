@@ -4,6 +4,7 @@ import com.example.demo.model.HistoryExportDTO;
 import com.example.demo.model.HistoryExportStockDTO;
 import com.example.demo.service.impl.CoteServiceImpl;
 import com.example.demo.service.impl.HistoryExportServiceImpl;
+import com.example.demo.service.impl.StockServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,10 +21,19 @@ public class HistoryExportController {
     private HistoryExportServiceImpl historyExportService;
     @Autowired
     private CoteServiceImpl coteService;
+    @Autowired
+    private StockServiceImpl stockService;
 
     @GetMapping("/export-management/{pageNum}")
     public List<HistoryExportDTO> getAll(@PathVariable int pageNum , @RequestParam(defaultValue = "") String search){
         return this.historyExportService.getAllDTO(pageNum, search);
+    }
+
+    //Creator Tuong
+    //getAllHistoryExport
+    @GetMapping("historyExport")
+    public List<HistoryExport> getAllHistoryExport(){
+        return this.historyExportService.getAll();
     }
 
     //Creator Tuong
@@ -49,4 +59,5 @@ public class HistoryExportController {
         }
         return null;
     }
+
 }

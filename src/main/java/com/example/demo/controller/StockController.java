@@ -36,4 +36,9 @@ public class StockController {
     public int deleteStock(@RequestBody int[] ids){
         return stockService.delete(ids);
     }
+
+    @PutMapping("exportOutStock")
+    public int exportOutStock(@RequestBody int[] ids, @RequestParam int quantity){
+        return stockService.exportOutStock(ids, quantity);
+    }
 }
