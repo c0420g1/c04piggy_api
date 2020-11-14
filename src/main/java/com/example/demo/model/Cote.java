@@ -58,4 +58,21 @@ public class Cote {
     @JsonIgnore
     private Set<TreatmentVacxin> treatmentVacxins;
 
+    @Override
+    public String toString() {
+        return "Cote{" +
+                "id=" + id +
+                ", isDeleted=" + isDeleted +
+                ", description='" + description + '\'' +
+                ", code='" + code + '\'' +
+                ", type='" + type + '\'' +
+                ", quantity=" + quantity +
+                ", importDate=" + importDate +
+                ", exportDate=" + exportDate +
+                ", herd=" + herd +
+                ", employee=" + employee +
+                ", historyExports=" + historyExports +
+                ", treatmentVacxins=" + treatmentVacxins +
+                '}';
+    }
 }

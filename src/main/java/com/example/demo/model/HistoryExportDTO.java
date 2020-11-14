@@ -4,16 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
 
 @Data
 @Builder
 @AllArgsConstructor
-public class CoteDTO {
+public class HistoryExportDTO {
     private int id;
     private String coteCode;
+    private String employeeCode;
+    private String company;
+    private LocalDate exportDate;
     private int quantity;
-    private String herdName;
-    private String employeeName;
-    private String importDate;
-    private String exportDate;
+    private int weightTotal;
+    private int total;
 }

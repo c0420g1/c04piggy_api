@@ -15,24 +15,26 @@ public class CoteController {
     @Autowired
     CoteService coteService;
 
-    @GetMapping("cote")
-    public List<Cote> getAll(){
-        List<Cote> coteList;
-        coteList = coteService.getAll();
+
+    //List has Pagination & Search
+    @GetMapping("/cote/{pageNum}")
+    public List<CoteDTO> getAllPagination(@RequestParam(defaultValue = "") String search,
+                                       @PathVariable int pageNum){
+        List<CoteDTO> coteList;
+        coteList = coteService.searchCote(pageNum,search);
         return coteList;
     }
 
-    //List has Pagination & Search
-    @GetMapping("cote/{pageNum}")
-    public List<Cote> getAllPagination(@RequestParam(defaultValue = "") String search,
-                                       @PathVariable int pageNum){
+    @GetMapping("/cote")
+    public List<Cote> getAllNoPagination(@RequestParam(defaultValue = "") String search){
         List<Cote> coteList;
-        coteList = coteService.searchCote(pageNum,search);
+        coteList = coteService.searchCoteNoPagination(search);
         return coteList;
     }
 
     @PostMapping("cote")
     public void addNewCote(@RequestBody Cote cote){
+        System.out.println(cote.toString());
         coteService.save(cote);
     }
 
@@ -49,9 +51,4 @@ public class CoteController {
         cote = coteService.getById(id).orElse(null);
         return cote;
     }
-//
-//    @GetMapping("/haicotedto/{pageNum}")
-//    public List<CoteDTO> getDTO(@PathVariable int pageNum, @RequestParam String search){
-//        return coteService.search(pageNum,search);
-//    }
 }
