@@ -31,7 +31,8 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public Optional<Stock> getById(int id) {
-        return null;
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+        return jpaStreamer.stream(Stock.class).filter(e-> e.getId() == id).findFirst();
     }
 
     // luu mot stock
@@ -99,25 +100,5 @@ public class StockServiceImpl implements StockService {
         }
         return null;
     }
-
-    @Override
-    public int exportOutStock(int[] ids, int quantity) {
-        try {
-            Arrays.stream(ids).forEach(e ->
-            {
-                Stock a = jpaStreamer.stream(Stock.class).filter(f -> f.getId() == e).findFirst().get();
-                if (a.getQuantity() > quantity){
-                    a.setQuantity(a.getQuantity() - quantity);
-                    stockRepository.save(a);
-                }else {
-                    System.out.println("Export Quantity must less than Current Quantity");
-                }
-            });
-            return 1;
-        } catch (Exception e) {
-            return 0;
-        }
-    }
-
 
 }

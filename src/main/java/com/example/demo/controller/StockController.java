@@ -37,8 +37,20 @@ public class StockController {
         return stockService.delete(ids);
     }
 
-    @PutMapping("exportOutStock")
-    public int exportOutStock(@RequestBody int[] ids, @RequestParam int quantity){
-        return stockService.exportOutStock(ids, quantity);
+    @GetMapping("exportOutStock/{id}")
+    public int exportOutStock(@PathVariable int id, @RequestParam int quantity){
+        Stock stock = stockService.getById(id).get();
+        if (stock.getQuantity() > quantity){
+            stock.setQuantity(stock.getQuantity() - quantity);
+            stockService.save(stock);
+            return 1;
+        }else {
+            return 0;
+        }
+    }
+
+    @GetMapping("getStockById/{id}")
+    public Stock getStockById(@PathVariable int id){
+        return stockService.getById(id).get();
     }
 }

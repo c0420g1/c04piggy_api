@@ -67,28 +67,77 @@ public class HistoryExportServiceImpl implements HistoryExportService {
         return exportDTOList;
     }
 
+//    @Override
+//    public List<HistoryExportStockDTO> getHistoryExportStockDTO(int pageNumber, String search) {
+//        List<HistoryExportStockDTO> historyExportStockDTOList = new ArrayList<>();
+//        try {
+//            JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+//            jpaStreamer.stream(HistoryExport.class).filter(e ->
+//                    e.getIsDeleted()==0 && e.getType() == "stock" &&
+//                            e.getStock().getShipmentCode().contains(search)
+//                            ||e.getStock().getFeedType().getName().contains(search)
+//                            ||e.getStock().getVendor().getName().contains(search)
+//                            ||String.valueOf(e.getQuantity()).contains(search)
+//                            ||e.getUnit().contains(search)
+//                            ||e.getEmployee().getName().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+//                String employeeRecievedName= jpaStreamer.stream(Employee.class).filter(Employee$.id.equal(e.getReceivedEmployeeId())).findFirst().get().getName();
+//                HistoryExportStockDTO historyExportStockDTO = new HistoryExportStockDTO(e.getId(),e.getType(),e.getStock().getShipmentCode(),
+//                        e.getStock().getFeedType().getName(), e.getStock().getVendor().getName(),e.getExportDate(), e.getQuantity(),
+//                        e.getUnit(), e.getEmployee().getName(), employeeRecievedName);
+//                historyExportStockDTOList.add(historyExportStockDTO);
+//            });
+//            return historyExportStockDTOList;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
     @Override
-    public List<HistoryExportStockDTO> getHistoryExportStockDTO(int pageNumber, String search) {
+    public List<HistoryExportStockDTO> getAllHistoryStockDTO(int pageNumber, int pageSize, String search) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<HistoryExportStockDTO> historyExportStockDTOList = new ArrayList<>();
         try {
-            JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+            if(pageNumber==-1){
+
+                jpaStreamer.stream(HistoryExport.class).filter(e ->
+                        e.getIsDeleted()==0 && e.getType().equals("stock") &&
+                                            (e.getType().toLowerCase().contains(search.toLowerCase())
+                                        || e.getStock().getShipmentCode().toLowerCase().contains(search.toLowerCase())
+                                        || e.getStock().getFeedType().getName().toLowerCase().contains(search.toLowerCase())
+                                        || e.getStock().getVendor().getName().toLowerCase().contains(search.toLowerCase())
+                                        || e.getExportDate().toString().contains(search)
+                                        || String.valueOf(e.getQuantity()).contains(search)
+                                        || e.getUnit().contains(search)
+                                        )).sorted(HistoryExport$.id.reversed()).forEach(e -> {
+                    HistoryExportStockDTO historyExportStockDTO = new HistoryExportStockDTO(e.getId(),e.getType(),e.getStock().getShipmentCode(),
+                            e.getStock().getFeedType().getName(),e.getStock().getVendor().getName(),e.getExportDate(),e.getQuantity(),
+                            e.getUnit(),e.getEmployee().getName(),e.getEmployee().getName());
+                    historyExportStockDTOList.add(historyExportStockDTO);
+                });
+                return historyExportStockDTOList;
+            }
             jpaStreamer.stream(HistoryExport.class).filter(e ->
-                    e.getIsDeleted()==0 && e.getType() == "stock" &&
-                            e.getStock().getShipmentCode().contains(search)
-                            ||e.getStock().getFeedType().getName().contains(search)
-                            ||e.getStock().getVendor().getName().contains(search)
-                            ||String.valueOf(e.getQuantity()).contains(search)
-                            ||e.getUnit().contains(search)
-                            ||e.getEmployee().getName().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
-                String employeeRecievedName= jpaStreamer.stream(Employee.class).filter(Employee$.id.equal(e.getReceivedEmployeeId())).findFirst().get().getName();
+                    e.getIsDeleted()==0 && e.getType().equals("stock") &&
+                            (e.getType().toLowerCase().contains(search.toLowerCase())
+                                    || e.getStock().getShipmentCode().toLowerCase().contains(search.toLowerCase())
+                                    || e.getStock().getFeedType().getName().toLowerCase().contains(search.toLowerCase())
+                                    || e.getStock().getVendor().getName().toLowerCase().contains(search.toLowerCase())
+                                    || e.getExportDate().toString().contains(search)
+                                    || String.valueOf(e.getQuantity()).contains(search)
+                                    || e.getUnit().contains(search)
+                            )).sorted(HistoryExport$.id.reversed()).forEach(e -> {
                 HistoryExportStockDTO historyExportStockDTO = new HistoryExportStockDTO(e.getId(),e.getType(),e.getStock().getShipmentCode(),
-                        e.getStock().getFeedType().getName(), e.getStock().getVendor().getName(),e.getExportDate(), e.getQuantity(),
-                        e.getUnit(), e.getEmployee().getName(), employeeRecievedName);
+                        e.getStock().getFeedType().getName(),e.getStock().getVendor().getName(),e.getExportDate(),e.getQuantity(),
+                        e.getUnit(),e.getEmployee().getName(),e.getEmployee().getName());
                 historyExportStockDTOList.add(historyExportStockDTO);
             });
             return historyExportStockDTOList;
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+            jpaStreamer.close();
         }
         return null;
     }

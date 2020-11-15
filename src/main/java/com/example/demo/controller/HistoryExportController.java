@@ -2,6 +2,7 @@ package com.example.demo.controller;
 import com.example.demo.model.HistoryExport;
 import com.example.demo.model.HistoryExportDTO;
 import com.example.demo.model.HistoryExportStockDTO;
+import com.example.demo.model.StockDTO;
 import com.example.demo.service.impl.CoteServiceImpl;
 import com.example.demo.service.impl.HistoryExportServiceImpl;
 import com.example.demo.service.impl.StockServiceImpl;
@@ -31,6 +32,18 @@ public class HistoryExportController {
 
     //Creator Tuong
     //getAllHistoryExport
+    @GetMapping("/getAllHistoryStockDTO/{pageNum}")
+    public List<HistoryExportStockDTO> getAllHistoryStockDTO(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
+        try {
+            return historyExportService.getAllHistoryStockDTO(pageNum,pageSize, search);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //Creator Tuong
+    //getAllHistoryExport
     @GetMapping("historyExport")
     public List<HistoryExport> getAllHistoryExport(){
         return this.historyExportService.getAll();
@@ -45,19 +58,6 @@ public class HistoryExportController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    //Creator Tuong
-    // get List HistoryExport Stock
-    @GetMapping("/historyExportStockDTO/{pageNum}")
-    public List<HistoryExportStockDTO> getHistoryExportStockDTO(@PathVariable int pageNum,
-                                                                @RequestParam(defaultValue = "") String search){
-        try {
-            return historyExportService.getHistoryExportStockDTO(pageNum, search);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 }
