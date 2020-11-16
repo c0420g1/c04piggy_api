@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.common.SameParentException;
 import com.example.demo.model.*;
+import com.example.demo.repository.PigAssociateStatusRepository;
 import com.example.demo.repository.PigRepository;
 import com.example.demo.service.PigService;
 import com.speedment.jpastreamer.application.JPAStreamer;
@@ -21,6 +22,9 @@ public class PigServiceImpl implements PigService {
 
     @Autowired
     private PigRepository pigRepository;
+
+    @Autowired
+    private PigAssociateStatusRepository pigAssociateStatusRepository;
 
     //CRUD
     @Override
@@ -118,11 +122,13 @@ public class PigServiceImpl implements PigService {
     }
 
     @Override
-    public void soldPig(Pig pig) {
+    public void soldPig(int id) {
+        Pig pig = pigRepository.getOne(id);
         PigAssociateStatus pigAssociateStatus = new PigAssociateStatus();
         pigAssociateStatus.setPig(pig);
         pigAssociateStatus.setPigStatus(jpaStreamer.stream(PigStatus.class).filter(PigStatus$.name.equal("Sold")).findFirst().get());
         pig.setIsDeleted(1);
         pigRepository.save(pig);
+        pigAssociateStatusRepository.save(pigAssociateStatus);
     }
 }

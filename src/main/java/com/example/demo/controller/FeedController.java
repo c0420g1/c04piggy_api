@@ -4,8 +4,6 @@ import com.example.demo.model.FeedDTO;
 import com.example.demo.model.FeedType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
 import com.example.demo.service.FeedService;
 import com.example.demo.service.FeedTypeService;
 import com.example.demo.common.Error;
@@ -41,9 +39,9 @@ public class FeedController {
     //thinh
     // getFeed theo page ok
     @GetMapping("/feeds/{pageNum}")
-    public List<Feed> listFeedPage(@PathVariable int pageNum){
+    public List<FeedDTO> listFeedPage(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
         try{
-            return this.feedService.getFeedPage(pageNum);
+            return this.feedService.search(pageNum,pageSize, search);
         } catch (Exception e){
             System.out.println(e);
         }
@@ -105,6 +103,7 @@ public class FeedController {
     //thinh
     //create feed ok
     @PostMapping("createFeed")
+
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
         try{
@@ -121,9 +120,9 @@ public class FeedController {
     //thinh
     //search ok
     @GetMapping("searchFeed/{properties}/{key}/{page}")
-    public List<Feed> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
+    public List<FeedDTO> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
         try{
-            List<Feed> feedList;
+            List<FeedDTO> feedList;
             switch (properties){
                 case "description":
                     feedList = this.feedService.searchDescription(page,key);
@@ -144,8 +143,8 @@ public class FeedController {
                     feedList = this.feedService.searchFeedType(page,key);
                     return feedList;
                 case "all":
-                    feedList = this.feedService.search(page,key);
-                    return feedList;
+//                    feedList = this.feedService.search(page,key);
+//                    return feedList;
                 default:
                     break;
             }
