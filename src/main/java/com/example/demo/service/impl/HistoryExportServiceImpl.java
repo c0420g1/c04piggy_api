@@ -30,22 +30,57 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     private CoteServiceImpl coteService;
     private static List<HistoryExportDTO> exportDTOList;
 
+    @Autowired
+    private PigAssociateStatusServiceImpl pigAssociateStatusService;
+
 
     @Override
     public List<HistoryExportDTO> getAllDTO(int pageNum, String search) {
         exportDTOList = new ArrayList<>();
+        JPAStreamer jpaStreamer = JPAStreamer.of("c04piggy");
+
+
         try {
+            if (pageNum == -1) {
+                jpaStreamer.stream(HistoryExport.class)
+                        .filter(
+                                e ->
+                                        e.getIsDeleted() == 0 && e.getType().equals("cote")
+                                                && (e.getCote().getCode().toLowerCase().contains(search.toLowerCase()) ||
+                                                e.getEmployee().getName().toLowerCase().contains(search.toLowerCase()) ||
+                                                e.getCompany().toLowerCase().contains(search.toLowerCase()) ||
+                                                e.getExportDate().toString().contains(search))
+                        )
+                        .forEach(g -> {
+                            List<Pig> pigList = coteService.getAllPigSold();
+                            int weight = 0;
+                            for (int i = 0; i < pigList.size(); i++) {
+                                weight += pigList.get(i).getWeight();
+                            }
+                            HistoryExportDTO h = HistoryExportDTO.builder()
+                                    .id(g.getId())
+                                    .coteCode(g.getCote().getCode())
+                                    .company(g.getCompany())
+                                    .employeeCode(g.getEmployee().getName())
+                                    .exportDate(g.getExportDate())
+                                    .quantity(pigList.size())
+                                    .weightTotal(weight)
+                                    .total(weight * 80000).build();
+                            exportDTOList.add(h);
+                        });
+            }
             jpaStreamer.stream(HistoryExport.class)
                     .filter(
                             e ->
                                     e.getIsDeleted() == 0 && e.getType().equals("cote")
-                                            && (e.getCote().getCode().contains(search) ||
+                                            && (e.getCote().getCode().toLowerCase().contains(search.toLowerCase()) ||
                                             e.getEmployee().getName().toLowerCase().contains(search.toLowerCase()) ||
                                             e.getCompany().toLowerCase().contains(search.toLowerCase()) ||
                                             e.getExportDate().toString().contains(search))
-                    ).collect(Collectors.toList()).stream().skip((pageNum - 1) * pageSize).limit(pageSize)
+                    ).collect(Collectors.toList()).stream()
+                    .skip((pageNum - 1) * pageSize).limit(pageSize)
                     .forEach(g -> {
-                        List<Pig> pigList = coteService.getAllPig(g.getCote().getHerd().getName());
+                        List<Pig> pigList = coteService.getAllPigSold();
                         int weight = 0;
                         for (int i = 0; i < pigList.size(); i++) {
                             weight += pigList.get(i).getWeight();
