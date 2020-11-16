@@ -124,5 +124,7 @@ public class PigServiceImpl implements PigService {
         pigAssociateStatus.setPigStatus(jpaStreamer.stream(PigStatus.class).filter(PigStatus$.name.equal("Sold")).findFirst().get());
         pig.setIsDeleted(1);
         pigRepository.save(pig);
+        
     }
+
 }

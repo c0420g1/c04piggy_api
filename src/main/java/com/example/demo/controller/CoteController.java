@@ -3,7 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.model.Cote;
 import com.example.demo.model.CoteDTO;
 import com.example.demo.model.Pig;
+import com.example.demo.model.PigDTO;
 import com.example.demo.service.CoteService;
+import com.example.demo.service.PigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +17,8 @@ public class CoteController {
     @Autowired
     CoteService coteService;
 
-
+    @Autowired
+    PigService pigService;
     // Danh sách chuồng heo có phân trang và search
     @GetMapping("/cote/{pageNum}")
     public List<CoteDTO> getAllPagination(@RequestParam(defaultValue = "") String search,
@@ -41,6 +44,7 @@ public class CoteController {
         return coteList;
     }
 
+
     // Thêm 1 chuồng mới
     @PostMapping("cote")
     public void addNewCote(@RequestBody Cote cote){
@@ -57,6 +61,18 @@ public class CoteController {
         List<Pig> pigList = new ArrayList<>();
         try{
             pigList = coteService.getAllPig(herdCode);
+        }catch (Exception e){
+            System.out.println("List Pig has a same herd + " + e.getMessage());
+        }
+        return pigList;
+    }
+
+    // Trả về danh sách heo DTO
+    @GetMapping("listPigStatus")
+    public List<PigDTO> getAllStatusPig(@RequestParam String herdCode){
+        List<PigDTO> pigList = new ArrayList<>();
+        try{
+            pigList = coteService.getAllPigDTOAndStatus(herdCode);
         }catch (Exception e){
             System.out.println("List Pig has a same herd + " + e.getMessage());
         }
