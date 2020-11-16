@@ -40,10 +40,10 @@ public class FeedController {
 
     //thinh
     // getFeed theo page ok
-    @GetMapping("/feeds/{pageNum}")
-    public List<Feed> listFeedPage(@PathVariable int pageNum){
+    @GetMapping("/feeds/{pageNum}/{search}")
+    public List<FeedDTO> listFeedPage(@PathVariable int pageNum,@PathVariable String search){
         try{
-            return this.feedService.getFeedPage(pageNum);
+            return this.feedService.search(pageNum,search);
         } catch (Exception e){
             System.out.println(e);
         }
@@ -105,6 +105,7 @@ public class FeedController {
     //thinh
     //create feed ok
     @PostMapping("createFeed")
+
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
         try{
@@ -121,9 +122,9 @@ public class FeedController {
     //thinh
     //search ok
     @GetMapping("searchFeed/{properties}/{key}/{page}")
-    public List<Feed> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
+    public List<FeedDTO> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
         try{
-            List<Feed> feedList;
+            List<FeedDTO> feedList;
             switch (properties){
                 case "description":
                     feedList = this.feedService.searchDescription(page,key);
