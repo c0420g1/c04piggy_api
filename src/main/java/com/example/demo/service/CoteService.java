@@ -14,4 +14,9 @@ public interface CoteService extends BaseService<Cote> {
     List<Pig> getAllPig(String herdCode);
 //    List<Integer> getAllStatusOfPig(int pigId);
     List<PigDTO> getAllPigDTOAndStatus(String herdCode);
+
+
+    //creator Hieu
+    List<Pig> getAllPigSold();
+
 }

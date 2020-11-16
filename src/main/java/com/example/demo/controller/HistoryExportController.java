@@ -33,11 +33,7 @@ public class HistoryExportController {
         }
         return 0;
     }
-
-    @GetMapping("/test")
-    public List<HistoryExport> getAll(){
-        return this.historyExportService.getAll();
-    }
+    
 
 
 
@@ -54,5 +50,4 @@ public class HistoryExportController {
             e.printStackTrace();
         }
     }
-    
 }

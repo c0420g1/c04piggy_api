@@ -23,6 +23,8 @@ public class CoteServiceImpl implements CoteService {
     JPAStreamer jpaStreamer;
     @Autowired
     CoteRepository coteRepository;
+    @Autowired
+    private PigAssociateStatusServiceImpl pigAssociateStatusService;
 
 
     // Trả về danh sách chuồng heo đầy đủ
@@ -225,6 +227,31 @@ public class CoteServiceImpl implements CoteService {
     }
 
     // tra ve trang thai nuoi cua heo
+
+
+    //creator Hieu
+    @Override
+    public List<Pig> getAllPigSold() {
+        List<Integer> listIdPigSold = pigAssociateStatusService.getAllIdPigSoled();
+        List<Pig> pigList = new ArrayList<>();
+        for (int idPig :
+                listIdPigSold) {
+            // in here must filter pig have isDelete = 1 because after sold then this pig hidden in table
+            jpaStreamer.stream(Pig.class).filter(
+                    h-> h.getIsDeleted() == 1
+            ).forEach(
+                    g-> {
+                        if (idPig == g.getId()){
+                            pigList.add(g);
+                        }
+                    }
+            );
+        }
+        return pigList;
+    }
+
+    // tra ve trang thai cua heo
+
     public String StatusPig(int day){
         String status;
         if (day >= 112){
@@ -247,5 +274,6 @@ public class CoteServiceImpl implements CoteService {
 //        LocalDate b = LocalDate.of(2020,11,14);
 //        System.out.println(ChronoUnit.DAYS.between(a,c));
 //            }
+
 }
 

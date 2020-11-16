@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PigAssociateStatusService extends BaseService<PigAssociateStatus> {
     List<PigAssociateStatus> getAllByPigId(int pigId);
+    List<Integer> getAllIdPigSoled();
 }
