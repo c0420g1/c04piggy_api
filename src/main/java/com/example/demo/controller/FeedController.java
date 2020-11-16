@@ -4,14 +4,13 @@ import com.example.demo.model.FeedDTO;
 import com.example.demo.model.FeedType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
 import com.example.demo.service.FeedService;
 import com.example.demo.service.FeedTypeService;
 import com.example.demo.common.Error;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 @RestController
@@ -26,7 +25,8 @@ public class FeedController {
 
     //thinh
     //getAll feed ok
-    @GetMapping("/feeds")
+
+    @GetMapping("/feedDTOs")
     public List<FeedDTO> listFeed(){
         try{
             return this.feedService.getAllFeed();
@@ -39,9 +39,9 @@ public class FeedController {
     //thinh
     // getFeed theo page ok
     @GetMapping("/feeds/{pageNum}")
-    public List<Feed> listFeedPage(@PathVariable int pageNum){
+    public List<FeedDTO> listFeedPage(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
         try{
-            return this.feedService.getFeedPage(pageNum);
+            return this.feedService.search(pageNum,pageSize, search);
         } catch (Exception e){
             System.out.println(e);
         }
@@ -54,6 +54,16 @@ public class FeedController {
     public List<FeedType> listFeedType(){
         try{
             return this.feedTypeService.getAll();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    @GetMapping("/feeds")
+    public List<Feed> Feed(){
+        try{
+            return this.feedService.getAll();
         } catch (Exception e){
             System.out.println(e);
         }
@@ -93,6 +103,7 @@ public class FeedController {
     //thinh
     //create feed ok
     @PostMapping("createFeed")
+
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
         try{
@@ -109,9 +120,9 @@ public class FeedController {
     //thinh
     //search ok
     @GetMapping("searchFeed/{properties}/{key}/{page}")
-    public List<Feed> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
+    public List<FeedDTO> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
         try{
-            List<Feed> feedList;
+            List<FeedDTO> feedList;
             switch (properties){
                 case "description":
                     feedList = this.feedService.searchDescription(page,key);
@@ -132,8 +143,8 @@ public class FeedController {
                     feedList = this.feedService.searchFeedType(page,key);
                     return feedList;
                 case "all":
-                    feedList = this.feedService.search(page,key);
-                    return feedList;
+//                    feedList = this.feedService.search(page,key);
+//                    return feedList;
                 default:
                     break;
             }
@@ -142,6 +153,7 @@ public class FeedController {
         }
         return null;
     }
+
 
 
 }
