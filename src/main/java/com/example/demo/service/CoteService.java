@@ -11,4 +11,7 @@ public interface CoteService extends BaseService<Cote> {
     List<CoteDTO> searchCote(int pageNum, String search);
     List<Cote> searchCoteNoPagination(String search);
     List<Pig> getAllPig(String herdCode);
+
+    //creator Hieu
+    List<Pig> getAllPigSold();
 }

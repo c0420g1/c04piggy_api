@@ -4,9 +4,7 @@ import com.example.demo.model.HistoryExportDTO;
 import com.example.demo.model.HistoryExportStockDTO;
 import com.example.demo.service.impl.CoteServiceImpl;
 import com.example.demo.service.impl.HistoryExportServiceImpl;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +16,29 @@ public class HistoryExportController {
 
     @Autowired
     private HistoryExportServiceImpl historyExportService;
-    @Autowired
-    private CoteServiceImpl coteService;
 
-    @GetMapping("/export-management/{pageNum}")
+
+    @GetMapping("export-management/{pageNum}")
     public List<HistoryExportDTO> getAll(@PathVariable int pageNum , @RequestParam(defaultValue = "") String search){
         return this.historyExportService.getAllDTO(pageNum, search);
     }
+
+
+    @PutMapping("delCoteExport")
+    public int delete(@RequestBody int[] ids){
+        try {
+            this.historyExportService.delete(ids);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return 0;
+    }
+    
+
+
+
+
+
 
     //Creator Tuong
     // add new HistoryExport
@@ -35,18 +49,5 @@ public class HistoryExportController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    //Creator Tuong
-    // get List HistoryExport Stock
-    @GetMapping("/historyExportStockDTO/{pageNum}")
-    public List<HistoryExportStockDTO> getHistoryExportStockDTO(@PathVariable int pageNum,
-                                                                @RequestParam(defaultValue = "") String search){
-        try {
-            return historyExportService.getHistoryExportStockDTO(pageNum, search);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

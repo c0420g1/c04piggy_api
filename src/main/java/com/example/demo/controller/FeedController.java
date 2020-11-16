@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 @RestController
 @CrossOrigin(origins = {"*"})
 public class FeedController {
@@ -26,7 +27,8 @@ public class FeedController {
 
     //thinh
     //getAll feed ok
-    @GetMapping("/feeds")
+
+    @GetMapping("/feedDTOs")
     public List<FeedDTO> listFeed(){
         try{
             return this.feedService.getAllFeed();
@@ -38,10 +40,10 @@ public class FeedController {
 
     //thinh
     // getFeed theo page ok
-    @GetMapping("/feeds/{pageNum}")
-    public List<Feed> listFeedPage(@PathVariable int pageNum){
+    @GetMapping("/feeds/{pageNum}/{search}")
+    public List<FeedDTO> listFeedPage(@PathVariable int pageNum,@PathVariable String search){
         try{
-            return this.feedService.getFeedPage(pageNum);
+            return this.feedService.search(pageNum,search);
         } catch (Exception e){
             System.out.println(e);
         }
@@ -54,6 +56,16 @@ public class FeedController {
     public List<FeedType> listFeedType(){
         try{
             return this.feedTypeService.getAll();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    @GetMapping("/feeds")
+    public List<Feed> Feed(){
+        try{
+            return this.feedService.getAll();
         } catch (Exception e){
             System.out.println(e);
         }
@@ -93,6 +105,7 @@ public class FeedController {
     //thinh
     //create feed ok
     @PostMapping("createFeed")
+
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
         try{
@@ -109,9 +122,9 @@ public class FeedController {
     //thinh
     //search ok
     @GetMapping("searchFeed/{properties}/{key}/{page}")
-    public List<Feed> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
+    public List<FeedDTO> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
         try{
-            List<Feed> feedList;
+            List<FeedDTO> feedList;
             switch (properties){
                 case "description":
                     feedList = this.feedService.searchDescription(page,key);
@@ -142,6 +155,7 @@ public class FeedController {
         }
         return null;
     }
+
 
 
 }
