@@ -4,8 +4,6 @@ import com.example.demo.model.FeedDTO;
 import com.example.demo.model.FeedType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
 import com.example.demo.service.FeedService;
 import com.example.demo.service.FeedTypeService;
 import com.example.demo.common.Error;
@@ -40,10 +38,10 @@ public class FeedController {
 
     //thinh
     // getFeed theo page ok
-    @GetMapping("/feeds/{pageNum}/{search}")
-    public List<FeedDTO> listFeedPage(@PathVariable int pageNum,@PathVariable String search){
+    @GetMapping("/feeds/{pageNum}")
+    public List<FeedDTO> listFeedPage(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
         try{
-            return this.feedService.search(pageNum,search);
+            return this.feedService.search(pageNum,pageSize, search);
         } catch (Exception e){
             System.out.println(e);
         }
@@ -145,8 +143,8 @@ public class FeedController {
                     feedList = this.feedService.searchFeedType(page,key);
                     return feedList;
                 case "all":
-                    feedList = this.feedService.search(page,key);
-                    return feedList;
+//                    feedList = this.feedService.search(page,key);
+//                    return feedList;
                 default:
                     break;
             }

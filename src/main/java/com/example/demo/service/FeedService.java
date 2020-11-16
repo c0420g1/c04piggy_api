@@ -6,7 +6,7 @@ import com.example.demo.model.FeedDTO;
 import java.util.List;
 
 public interface FeedService extends BaseService<Feed>  {
-    List<FeedDTO> search(int pageNumber, String search);
+    List<FeedDTO> search(int pageNumber, int pageSize,  String search);
     List<FeedDTO> searchUnit(int pageNumber, String search);
     List<FeedDTO> searchAmount(int pageNumber, String search);
     List<FeedDTO> searchCode(int pageNumber, String search);
