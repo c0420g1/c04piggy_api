@@ -20,6 +20,8 @@ public class CoteServiceImpl implements CoteService {
     JPAStreamer jpaStreamer;
     @Autowired
     CoteRepository coteRepository;
+    @Autowired
+    private PigAssociateStatusServiceImpl pigAssociateStatusService;
 
 
     @Override
@@ -163,6 +165,25 @@ public class CoteServiceImpl implements CoteService {
         pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getHerd().getName().contains(herdCode)).collect(Collectors.toList());
         for (int i =0; i< pigList.size();i++) {
             pigList.get(i).getWeight();
+        }
+        return pigList;
+    }
+
+
+    //creator Hieu
+    @Override
+    public List<Pig> getAllPigSold() {
+        List<Integer> listIdPigSold = pigAssociateStatusService.getAllIdPigSoled();
+        List<Pig> pigList = new ArrayList<>();
+        for (int idPig :
+                listIdPigSold) {
+            jpaStreamer.stream(Pig.class).forEach(
+                    g-> {
+                        if (idPig == g.getId()){
+                            pigList.add(g);
+                        }
+                    }
+            );
         }
         return pigList;
     }
