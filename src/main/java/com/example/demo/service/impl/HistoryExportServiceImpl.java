@@ -43,7 +43,8 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                             e.getEmployee().getName().toLowerCase().contains(search.toLowerCase()) ||
                                             e.getCompany().toLowerCase().contains(search.toLowerCase()) ||
                                             e.getExportDate().toString().contains(search))
-                    ).collect(Collectors.toList()).stream().skip((pageNum - 1) * pageSize).limit(pageSize)
+                    ).collect(Collectors.toList()).stream()
+                    .skip((pageNum - 1) * pageSize).limit(pageSize)
                     .forEach(g -> {
                         List<Pig> pigList = coteService.getAllPig(g.getCote().getHerd().getName());
                         int weight = 0;

@@ -33,11 +33,7 @@ public class HistoryExportController {
         }
         return 0;
     }
-
-    @GetMapping("/test")
-    public List<HistoryExport> getAll(){
-        return this.historyExportService.getAll();
-    }
+    
 
 
 
@@ -55,16 +51,4 @@ public class HistoryExportController {
         }
     }
 
-    //Creator Tuong
-    // get List HistoryExport Stock
-    @GetMapping("/historyExportStockDTO/{pageNum}")
-    public List<HistoryExportStockDTO> getHistoryExportStockDTO(@PathVariable int pageNum,
-                                                                @RequestParam(defaultValue = "") String search){
-        try {
-            return historyExportService.getHistoryExportStockDTO(pageNum, search);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }
