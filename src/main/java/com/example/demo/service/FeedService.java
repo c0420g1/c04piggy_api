@@ -16,4 +16,5 @@ public interface FeedService extends BaseService<Feed>  {
     List<Feed> getFeedPage(int pageNumber);
     List<FeedDTO> getAllFeed(int pageNumber);
     List<FeedDTO> getAllFeed();
+    Feed findById(int id);
 }

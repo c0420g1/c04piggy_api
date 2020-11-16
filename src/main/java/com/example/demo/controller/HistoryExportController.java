@@ -50,5 +50,4 @@ public class HistoryExportController {
             e.printStackTrace();
         }
     }
-
 }

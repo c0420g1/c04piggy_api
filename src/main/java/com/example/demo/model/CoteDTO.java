@@ -16,4 +16,6 @@ public class CoteDTO {
     private String employeeName;
     private String importDate;
     private String exportDate;
+    private int day;
+    private String status;
 }

@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 import static com.example.demo.common.GlobalUtil.pageSize;
 
 import com.example.demo.common.Regex;
-import com.example.demo.model.Cote;
-import com.example.demo.model.CoteDTO;
 import com.example.demo.model.Feed;
 import com.example.demo.model.FeedDTO;
 import com.example.demo.repository.FeedRepository;
@@ -53,7 +51,7 @@ public class FeedServiceImpl implements FeedService {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return Optional.empty();
+        return null;
     }
 
 
@@ -267,6 +265,16 @@ public class FeedServiceImpl implements FeedService {
                 feedDTOList.add(feedDTO);
             });
             return feedDTOList;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    @Override
+    public Feed findById(int id) {
+        try {
+            return feedRepository.findById(id).orElse(null);
         } catch (Exception e) {
             System.out.println(e);
         }
