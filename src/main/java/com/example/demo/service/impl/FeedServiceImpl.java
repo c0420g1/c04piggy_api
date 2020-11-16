@@ -11,6 +11,7 @@ import static com.example.demo.common.GlobalUtil.pageSize;
 import com.example.demo.common.Regex;
 import com.example.demo.model.Feed;
 import com.example.demo.model.FeedDTO;
+import com.example.demo.model.StockDTO;
 import com.example.demo.repository.FeedRepository;
 import com.example.demo.service.FeedService;
 import com.speedment.jpastreamer.application.JPAStreamer;
@@ -93,12 +94,22 @@ public class FeedServiceImpl implements FeedService {
     //thịnh
     // tìm kiếm feed theo tất cả thuộc tính
     @Override
-    public List<FeedDTO> search(int pageNumber, String search) {
-        String s = search.toLowerCase();
+    public List<FeedDTO> search(int pageNumber, int pageSize,  String s) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<FeedDTO> res = new ArrayList<>();
         try {
-            if (regex.regexNumber(search)) {
-                int amount = Integer.parseInt(search);
+            if(pageNumber==-1){
+                jpaStreamer.stream(FeedDTO.class).filter(e ->
+                        e.getIsDeleted() == 0)
+                        .skip((pageNumber - 1) * pageSize).limit(pageSize)
+                        .forEach(e -> {
+                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedTypeName(),e.getFeedTypeId(), e.getHerdName(),e.getHerdId());
+                            res.add(feedDTO);
+                        });
+                return res;
+            }
+            if (regex.regexNumber(s)) {
+                int amount = Integer.parseInt(s);
                 jpaStreamer.stream(FeedDTO.class).filter(e ->
                         e.getAmount() == amount)
                         .skip((pageNumber - 1) * pageSize).limit(pageSize)
