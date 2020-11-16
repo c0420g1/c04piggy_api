@@ -32,12 +32,15 @@ public class FeedServiceImpl implements FeedService {
     // trả về list feed
     @Override
     public List<Feed> getAll() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         try {
             List<Feed> feedList;
             feedList = jpaStreamer.stream(Feed.class).collect(Collectors.toList());
             return feedList;
         } catch (Exception e) {
             System.out.println(e);
+        } finally {
+           jpaStreamer.close();
         }
         return null;
     }
@@ -90,26 +93,32 @@ public class FeedServiceImpl implements FeedService {
     //thịnh
     // tìm kiếm feed theo tất cả thuộc tính
     @Override
-    public List<Feed> search(int pageNumber, String search) {
+    public List<FeedDTO> search(int pageNumber, String search) {
         String s = search.toLowerCase();
-        List<Feed> res;
+        List<FeedDTO> res = new ArrayList<>();
         try {
             if (regex.regexNumber(search)) {
                 int amount = Integer.parseInt(search);
-                res = jpaStreamer.stream(Feed.class).filter(e ->
+                jpaStreamer.stream(FeedDTO.class).filter(e ->
                         e.getAmount() == amount)
                         .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                        .collect(Collectors.toList());
+                        .forEach(e -> {
+                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedTypeName(),e.getFeedTypeId(), e.getHerdName(),e.getHerdId());
+                            res.add(feedDTO);
+                        });
                 return res;
             } else
-                res = jpaStreamer.stream(Feed.class).filter(e ->
-                        e.getFeedType().getName().toLowerCase().contains(s)
-                                || e.getHerd().getName().toLowerCase().contains(s)
+                jpaStreamer.stream(FeedDTO.class).filter(e ->
+                        e.getFeedTypeName().toLowerCase().contains(s)
+                                || e.getHerdName().toLowerCase().contains(s)
                                 || e.getCode().toLowerCase().contains(s)
                                 || e.getUnit().toLowerCase().contains(s)
                                 || e.getDescription().toLowerCase().contains(s))
                         .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                        .collect(Collectors.toList());
+                        .forEach(e -> {
+                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedTypeName(),e.getFeedTypeId(), e.getHerdName(),e.getHerdId());
+                            res.add(feedDTO);
+                        });
             return res;
         } catch (Exception e) {
             System.out.println(e);
@@ -120,14 +129,17 @@ public class FeedServiceImpl implements FeedService {
     // thịnh
     // tìm kiếm feed theo unit
     @Override
-    public List<Feed> searchUnit(int pageNumber, String search) {
+    public List<FeedDTO> searchUnit(int pageNumber, String search) {
         String s = search.toLowerCase();
-        List<Feed> res;
+        List<FeedDTO> res = new ArrayList<>();
         try {
-            res = jpaStreamer.stream(Feed.class).filter(e ->
+            jpaStreamer.stream(Feed.class).filter(e ->
                     e.getUnit().toLowerCase().contains(s))
                     .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                    .collect(Collectors.toList());
+                    .forEach(e -> {
+                        FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
+                        res.add(feedDTO);
+                    });
             return res;
         } catch (Exception e) {
             System.out.println(e);
@@ -138,15 +150,18 @@ public class FeedServiceImpl implements FeedService {
     // thịnh
     // tìm kiếm feed theo Amount
     @Override
-    public List<Feed> searchAmount(int pageNumber, String search) {
-        List<Feed> res;
+    public List<FeedDTO> searchAmount(int pageNumber, String search) {
+        List<FeedDTO> res = new ArrayList<>();
         try {
             if (!regex.regexNumber(search)) {
                 int amount = Integer.parseInt(search);
-                res = jpaStreamer.stream(Feed.class).filter(e ->
+                jpaStreamer.stream(Feed.class).filter(e ->
                         e.getAmount() == amount)
                         .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                        .collect(Collectors.toList());
+                        .forEach(e -> {
+                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
+                            res.add(feedDTO);
+                        });
                 return res;
             } else
                 return null;
@@ -159,14 +174,17 @@ public class FeedServiceImpl implements FeedService {
     // thịnh
     // Tiền kiếm Feed theo COde
     @Override
-    public List<Feed> searchCode(int pageNumber, String search) {
+    public List<FeedDTO> searchCode(int pageNumber, String search) {
         String s = search.toLowerCase();
         try {
-            List<Feed> res;
-            res = jpaStreamer.stream(Feed.class).filter(e ->
+            List<FeedDTO> res = new ArrayList<>();
+            jpaStreamer.stream(Feed.class).filter(e ->
                     e.getCode().toLowerCase().contains(s))
                     .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                    .collect(Collectors.toList());
+                    .forEach(e -> {
+                        FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
+                        res.add(feedDTO);
+                    });
             return res;
         } catch (Exception e) {
             System.out.println(e);
@@ -177,14 +195,17 @@ public class FeedServiceImpl implements FeedService {
     // thịnh
     // Tìm kiếm feed theo Heard
     @Override
-    public List<Feed> searchHeard(int pageNumber, String search) {
+    public List<FeedDTO> searchHeard(int pageNumber, String search) {
         String s = search.toLowerCase();
         try {
-            List<Feed> res;
-            res = jpaStreamer.stream(Feed.class).filter(e ->
+            List<FeedDTO> res = new ArrayList<>();
+            jpaStreamer.stream(Feed.class).filter(e ->
                     e.getHerd().getName().toLowerCase().contains(s))
                     .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                    .collect(Collectors.toList());
+                    .forEach(e -> {
+                        FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
+                        res.add(feedDTO);
+                    });
             return res;
         } catch (Exception e) {
             System.out.println(e);
@@ -194,14 +215,17 @@ public class FeedServiceImpl implements FeedService {
 
     // tìm kiếm feed theo Feedtype
     @Override
-    public List<Feed> searchFeedType(int pageNumber, String search) {
+    public List<FeedDTO> searchFeedType(int pageNumber, String search) {
         String s = search.toLowerCase();
         try {
-            List<Feed> res;
-            res = jpaStreamer.stream(Feed.class).filter(e ->
+            List<FeedDTO> res = new ArrayList<>();
+            jpaStreamer.stream(Feed.class).filter(e ->
                     e.getFeedType().getName().toLowerCase().contains(s))
                     .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                    .collect(Collectors.toList());
+                    .forEach(e -> {
+                        FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
+                        res.add(feedDTO);
+                    });
             return res;
         } catch (Exception e) {
             System.out.println(e);
@@ -212,14 +236,17 @@ public class FeedServiceImpl implements FeedService {
     //thịnh
     // tìm kiếm Feed theo mô tả
     @Override
-    public List<Feed> searchDescription(int pageNumber, String search) {
-        List<Feed> res;
+    public List<FeedDTO> searchDescription(int pageNumber, String search) {
+        List<FeedDTO> res = new ArrayList<>();
         String s = search.toLowerCase();
         try {
-            res = jpaStreamer.stream(Feed.class).filter(e ->
+                    jpaStreamer.stream(Feed.class).filter(e ->
                     e.getDescription().toLowerCase().contains(s))
                     .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                    .collect(Collectors.toList());
+                    .forEach(e -> {
+                        FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
+                        res.add(feedDTO);
+                    });
             return res;
         } catch (Exception e) {
             System.out.println(e);
@@ -228,12 +255,15 @@ public class FeedServiceImpl implements FeedService {
     }
 
     @Override
-    public List<Feed> getFeedPage(int pageNumber) {
+    public List<FeedDTO> getFeedPage(int pageNumber) {
         try {
-            List<Feed> res;
-            res = jpaStreamer.stream(Feed.class)
+                     List<FeedDTO> res = new ArrayList<>();
+                    jpaStreamer.stream(Feed.class)
                     .skip((pageNumber - 1) * pageSize).limit(pageSize)
-                    .collect(Collectors.toList());
+                    .forEach(e -> {
+                        FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
+                        res.add(feedDTO);
+                    });
             return res;
         } catch (Exception e) {
             System.out.println(e);
@@ -243,6 +273,7 @@ public class FeedServiceImpl implements FeedService {
 
     @Override
     public List<FeedDTO> getAllFeed(int pageNumber) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         try {
             List<FeedDTO> feedDTOList = new ArrayList<>();
             jpaStreamer.stream(Feed.class).skip((pageNumber - 1) * pageSize).limit(pageSize).forEach(e -> {
@@ -252,12 +283,15 @@ public class FeedServiceImpl implements FeedService {
             return feedDTOList;
         } catch (Exception e) {
             System.out.println(e);
+        } finally {
+            jpaStreamer.close();
         }
         return null;
     }
 
     @Override
     public List<FeedDTO> getAllFeed() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         try {
             List<FeedDTO> feedDTOList = new ArrayList<>();
             jpaStreamer.stream(Feed.class).forEach(e -> {
@@ -267,6 +301,8 @@ public class FeedServiceImpl implements FeedService {
             return feedDTOList;
         } catch (Exception e) {
             System.out.println(e);
+        } finally {
+            jpaStreamer.close();
         }
         return null;
     }
