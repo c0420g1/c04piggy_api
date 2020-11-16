@@ -7,6 +7,5 @@ import com.example.demo.model.StockDTO;
 
 
 public interface StockService extends BaseService<Stock>{
-    List<StockDTO> search(int pageNumber, String search);
-    List<Stock> searchStock(int pageNum, String search);
+    List<StockDTO> search(int pageNumber, int pageSize, String search);
 }

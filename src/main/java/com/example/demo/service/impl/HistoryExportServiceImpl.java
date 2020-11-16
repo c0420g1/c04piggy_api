@@ -28,22 +28,22 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     private HistoryExportRepository historyExportRepository;
     @Autowired
     private CoteServiceImpl coteService;
-    private static List<HistoryExportDTO> exportDTOList = new ArrayList<>();
+    private static List<HistoryExportDTO> exportDTOList;
 
 
     @Override
     public List<HistoryExportDTO> getAllDTO(int pageNum, String search) {
+        exportDTOList = new ArrayList<>();
         try {
-            jpaStreamer.stream(HistoryExport.class).skip((pageNum - 1) * pageSize).limit(pageSize)
+            jpaStreamer.stream(HistoryExport.class)
                     .filter(
                             e ->
-                                    e.getIsDeleted() == 0 && (
-                                            e.getCompany().contains(search) ||
-                                                    e.getEmployee().getCode().contains(search) ||
-                                                  e.getCote().getCode().contains(search)
-                                                    ||
-                                                    e.getExportDate().toString().contains(search))
-                    )
+                                    e.getIsDeleted() == 0 && e.getType().equals("cote")
+                                            && (e.getCote().getCode().contains(search) ||
+                                            e.getEmployee().getName().toLowerCase().contains(search.toLowerCase()) ||
+                                            e.getCompany().toLowerCase().contains(search.toLowerCase()) ||
+                                            e.getExportDate().toString().contains(search))
+                    ).collect(Collectors.toList()).stream().skip((pageNum - 1) * pageSize).limit(pageSize)
                     .forEach(g -> {
                         List<Pig> pigList = coteService.getAllPig(g.getCote().getHerd().getName());
                         int weight = 0;
@@ -61,37 +61,13 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                 .total(weight * 80000).build();
                         exportDTOList.add(h);
                     });
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return exportDTOList;
     }
 
-    @Override
-    public List<HistoryExportStockDTO> getHistoryExportStockDTO(int pageNumber, String search) {
-        List<HistoryExportStockDTO> historyExportStockDTOList = new ArrayList<>();
-        try {
-            JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
-            jpaStreamer.stream(HistoryExport.class).filter(e ->
-                    e.getIsDeleted()==0 && e.getType() == "stock" &&
-                            e.getStock().getShipmentCode().contains(search)
-                            ||e.getStock().getFeedType().getName().contains(search)
-                            ||e.getStock().getVendor().getName().contains(search)
-                            ||String.valueOf(e.getQuantity()).contains(search)
-                            ||e.getUnit().contains(search)
-                            ||e.getEmployee().getName().contains(search)).skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
-                String employeeRecievedName= jpaStreamer.stream(Employee.class).filter(Employee$.id.equal(e.getReceivedEmployeeId())).findFirst().get().getName();
-                HistoryExportStockDTO historyExportStockDTO = new HistoryExportStockDTO(e.getId(),e.getType(),e.getStock().getShipmentCode(),
-                        e.getStock().getFeedType().getName(), e.getStock().getVendor().getName(),e.getExportDate(), e.getQuantity(),
-                        e.getUnit(), e.getEmployee().getName(), employeeRecievedName);
-                historyExportStockDTOList.add(historyExportStockDTO);
-            });
-            return historyExportStockDTOList;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     @Override
     public List<HistoryExport> getAll() {
