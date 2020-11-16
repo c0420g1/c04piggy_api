@@ -99,35 +99,35 @@ public class FeedServiceImpl implements FeedService {
         List<FeedDTO> res = new ArrayList<>();
         try {
             if(pageNumber==-1){
-                jpaStreamer.stream(FeedDTO.class).filter(e ->
+                jpaStreamer.stream(Feed.class).filter(e ->
                         e.getIsDeleted() == 0)
                         .skip((pageNumber - 1) * pageSize).limit(pageSize)
                         .forEach(e -> {
-                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedTypeName(),e.getFeedTypeId(), e.getHerdName(),e.getHerdId());
+                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
                             res.add(feedDTO);
                         });
                 return res;
             }
             if (regex.regexNumber(s)) {
                 int amount = Integer.parseInt(s);
-                jpaStreamer.stream(FeedDTO.class).filter(e ->
+                jpaStreamer.stream(Feed.class).filter(e ->
                         e.getAmount() == amount)
                         .skip((pageNumber - 1) * pageSize).limit(pageSize)
                         .forEach(e -> {
-                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedTypeName(),e.getFeedTypeId(), e.getHerdName(),e.getHerdId());
+                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(),  e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
                             res.add(feedDTO);
                         });
                 return res;
             } else
-                jpaStreamer.stream(FeedDTO.class).filter(e ->
-                        e.getFeedTypeName().toLowerCase().contains(s)
-                                || e.getHerdName().toLowerCase().contains(s)
+                jpaStreamer.stream(Feed.class).filter(e ->
+                        e.getFeedType().getName().toLowerCase().contains(s)
+                                || e.getHerd().getName().toLowerCase().contains(s)
                                 || e.getCode().toLowerCase().contains(s)
                                 || e.getUnit().toLowerCase().contains(s)
                                 || e.getDescription().toLowerCase().contains(s))
                         .skip((pageNumber - 1) * pageSize).limit(pageSize)
                         .forEach(e -> {
-                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(), e.getFeedTypeName(),e.getFeedTypeId(), e.getHerdName(),e.getHerdId());
+                            FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(),  e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
                             res.add(feedDTO);
                         });
             return res;
