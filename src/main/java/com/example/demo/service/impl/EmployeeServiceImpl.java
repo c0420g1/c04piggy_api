@@ -1,9 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Employee;
-import com.example.demo.model.Employee$;
-import com.example.demo.model.EmployeeDTO;
-import com.example.demo.model.RoleAccount;
+import com.example.demo.model.*;
 import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.service.EmployeeService;
 import com.speedment.jpastreamer.application.JPAStreamer;
@@ -52,26 +49,53 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
 
+
+//    @Override
+//    public List<EmployeeDTO> getAllEmployeeDTO(int pageNumber, String search) {
+//
+//        List<EmployeeDTO> res = new ArrayList<>();
+//
+//        try {
+//            jpaStreamer.stream(Employee.class).filter(e -> e.getName().contains(search))
+//                    .skip((pageNumber-1)*pageSize)
+//                    .limit(pageSize).forEach(e->{
+//                  RoleAccount rc=  jpaStreamer.stream(RoleAccount.class).filter(r-> r.getAccount().getId()== e.getAccount().getId()).findFirst().get();
+//                EmployeeDTO employeeDTO = new EmployeeDTO(e.getAccount().getId(),e.getCode(),e.getAccount().getUsername(),
+//                        e.getAccount().getPassword(),e.getName(),e.getBirthday(),e.getEmail(),e.getGender(),e.getCardId(),rc.getRole().getName());
+//                res.add(employeeDTO);
+//            });
+//            return res;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//        }
+
     @Override
-    public List<EmployeeDTO> getAllEmployeeDTO(int pageNumber, String search) {
-
-        List<EmployeeDTO> res = new ArrayList<>();
-
+    public List<EmployeeDTO> search(int pageNumber, int pageSize, String search) {
+        JPAStreamer jpaStreamer = JPAStreamer.of("c04piggy");
+        List<EmployeeDTO> employeeDTOList = new ArrayList<>();
         try {
-            jpaStreamer.stream(Employee.class).filter(e -> e.getName().contains(search))
-                    .skip((pageNumber-1)*pageSize)
-                    .limit(pageSize).forEach(e->{
-                  RoleAccount rc=  jpaStreamer.stream(RoleAccount.class).filter(r-> r.getAccount().getId()== e.getAccount().getId()).findFirst().get();
-                EmployeeDTO employeeDTO = new EmployeeDTO(e.getAccount().getId(),e.getCode(),e.getAccount().getUsername(),
-                        e.getAccount().getPassword(),e.getName(),e.getBirthday(),e.getEmail(),e.getGender(),e.getCardId(),rc.getRole().getName());
-                res.add(employeeDTO);
-            });
-            return res;
+            if (pageNumber == -1) {
+                jpaStreamer.stream(Employee.class).filter(e ->
+                        e.getIsDeleted() == 0 &&
+                                (e.getAccount().getUsername().contains(search) ||
+                                        e.getName().contains(search) || e.getDescription().contains(search)
+                                        )).sorted(Employee$.id.reversed()).forEach(e -> {
+                    RoleAccount rc=  jpaStreamer.stream(RoleAccount.class).filter(r-> r.getAccount().getId()== e.getAccount().getId()).findFirst().get();
+                    EmployeeDTO empoyeeDTO = new EmployeeDTO(e.getId(), e.getCode(), e.getAccount().getUsername(), e.getAccount().getPassword(),
+                            e.getName(), e.getBirthday(), e.getEmail(), e.getGender(), e.getCardId(),rc.getRole().getName());
+                    employeeDTOList.add(empoyeeDTO);
+                });
+                return employeeDTOList;
+            }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            jpaStreamer.close();
         }
         return null;
-        }
+    }
 
     @Override
     public Optional<EmployeeDTO> getByIdDTO(int id) {
