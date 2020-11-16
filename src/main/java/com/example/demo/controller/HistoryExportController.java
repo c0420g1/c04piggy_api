@@ -54,17 +54,5 @@ public class HistoryExportController {
             e.printStackTrace();
         }
     }
-
-    //Creator Tuong
-    // get List HistoryExport Stock
-    @GetMapping("/historyExportStockDTO/{pageNum}")
-    public List<HistoryExportStockDTO> getHistoryExportStockDTO(@PathVariable int pageNum,
-                                                                @RequestParam(defaultValue = "") String search){
-        try {
-            return historyExportService.getHistoryExportStockDTO(pageNum, search);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+    
 }
