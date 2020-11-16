@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 @RestController
 @CrossOrigin(origins = {"*"})
 public class FeedController {
@@ -26,7 +27,8 @@ public class FeedController {
 
     //thinh
     //getAll feed ok
-    @GetMapping("/feeds")
+
+    @GetMapping("/feedDTOs")
     public List<FeedDTO> listFeed(){
         try{
             return this.feedService.getAllFeed();
@@ -54,6 +56,16 @@ public class FeedController {
     public List<FeedType> listFeedType(){
         try{
             return this.feedTypeService.getAll();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    @GetMapping("/feeds")
+    public List<Feed> Feed(){
+        try{
+            return this.feedService.getAll();
         } catch (Exception e){
             System.out.println(e);
         }
@@ -142,6 +154,7 @@ public class FeedController {
         }
         return null;
     }
+
 
 
 }
