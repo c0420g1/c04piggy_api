@@ -196,7 +196,10 @@ public class CoteServiceImpl implements CoteService {
         List<Pig> pigList = new ArrayList<>();
         for (int idPig :
                 listIdPigSold) {
-            jpaStreamer.stream(Pig.class).forEach(
+            // in here must filter pig have isDelete = 1 because after sold then this pig hidden in table
+            jpaStreamer.stream(Pig.class).filter(
+                    h-> h.getIsDeleted() == 1
+            ).forEach(
                     g-> {
                         if (idPig == g.getId()){
                             pigList.add(g);

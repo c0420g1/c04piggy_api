@@ -29,10 +29,8 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     @Autowired
     private CoteServiceImpl coteService;
     private static List<HistoryExportDTO> exportDTOList;
-
-    @Autowired
-    private PigAssociateStatusServiceImpl pigAssociateStatusService;
-
+    private static List<Pig> pigList;
+    private static HistoryExportDTO historyExportDTO;
 
     @Override
     public List<HistoryExportDTO> getAllDTO(int pageNum, String search) {
@@ -51,22 +49,30 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                                 e.getCompany().toLowerCase().contains(search.toLowerCase()) ||
                                                 e.getExportDate().toString().contains(search))
                         )
-                        .forEach(g -> {
-                            List<Pig> pigList = coteService.getAllPigSold();
+                        .forEach(
+                                g -> {
+                                    //list all pig sold in pasiocate status
+                             pigList = coteService.getAllPigSold();
                             int weight = 0;
+                            int countPigInCoteSold = 0;
+                            // resolve weight total of pig in cote
                             for (int i = 0; i < pigList.size(); i++) {
-                                weight += pigList.get(i).getWeight();
+                                if (pigList.get(i).getCote().getId()==(g.getCote().getId())){
+                                    countPigInCoteSold++;
+                                    weight += pigList.get(i).getWeight();
+                                }
+
                             }
-                            HistoryExportDTO h = HistoryExportDTO.builder()
+                            historyExportDTO = HistoryExportDTO.builder()
                                     .id(g.getId())
                                     .coteCode(g.getCote().getCode())
                                     .company(g.getCompany())
                                     .employeeCode(g.getEmployee().getName())
                                     .exportDate(g.getExportDate())
-                                    .quantity(pigList.size())
+                                    .quantity(countPigInCoteSold)
                                     .weightTotal(weight)
                                     .total(weight * 80000).build();
-                            exportDTOList.add(h);
+                            exportDTOList.add(historyExportDTO);
                         });
             }
             jpaStreamer.stream(HistoryExport.class)
@@ -80,27 +86,37 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                     ).collect(Collectors.toList()).stream()
                     .skip((pageNum - 1) * pageSize).limit(pageSize)
                     .forEach(g -> {
-                        List<Pig> pigList = coteService.getAllPigSold();
+                         pigList = coteService.getAllPigSold();
                         int weight = 0;
+                        int countPigInCoteSold = 0;
                         for (int i = 0; i < pigList.size(); i++) {
-                            weight += pigList.get(i).getWeight();
+                            if (pigList.get(i).getCote().getId()==(g.getCote().getId())){
+                                countPigInCoteSold++;
+                                weight += pigList.get(i).getWeight();
+                            }
                         }
-                        HistoryExportDTO h = HistoryExportDTO.builder()
+                        historyExportDTO = HistoryExportDTO.builder()
                                 .id(g.getId())
                                 .coteCode(g.getCote().getCode())
                                 .company(g.getCompany())
                                 .employeeCode(g.getEmployee().getName())
                                 .exportDate(g.getExportDate())
-                                .quantity(pigList.size())
+                                .quantity(countPigInCoteSold)
                                 .weightTotal(weight)
                                 .total(weight * 80000).build();
-                        exportDTOList.add(h);
+                        exportDTOList.add(historyExportDTO);
                     });
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return exportDTOList;
+    }
+
+    @Override
+    public int addNewCoteExport(HistoryExport historyExportDTO) {
+        this.historyExportRepository.save(historyExportDTO);
+        return 0;
     }
 
 
