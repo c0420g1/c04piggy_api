@@ -1,5 +1,7 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.common.GlobalUtil;
+import com.example.demo.model.Cote;
 import com.example.demo.model.Notification;
 import com.example.demo.model.Notification$;
 import com.example.demo.repository.NotificationRepository;
@@ -63,15 +65,14 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public List<Notification> getData(int pageNum, int pageSize, String search) {
-        return getByPage(pageNum, pageSize, search);
-    }
-
-    private List<Notification> getByPage(int pageNum, int pageSize, String search){
         JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
-        List<Notification> res = jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).collect(Collectors.toList());
-        if(pageNum>=0)
-            res= res.stream().skip((pageNum-1)* pageSize).limit(pageSize).sorted(Notification$.id.reversed()).collect(Collectors.toList());
+        if(pageNum==-1)
+            return jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed()).collect(Collectors.toList());
+
+        List<Notification> notificationList= jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed())
+                .collect(Collectors.toList()).stream().skip((pageNum-1)* pageSize).limit(pageSize).collect(Collectors.toList());
+
         jpaStreamer.close();
-        return res;
+        return notificationList;
     }
 }
