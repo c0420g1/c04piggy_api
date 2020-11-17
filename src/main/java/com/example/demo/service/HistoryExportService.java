@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface HistoryExportService extends BaseService<HistoryExport> {
     List<HistoryExportDTO> getAllDTO(int pageNum, String search);
-    int addNewCoteExport(HistoryExport historyExportDTO);
 }
