@@ -9,6 +9,7 @@ import com.example.demo.service.impl.StockServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +26,8 @@ public class HistoryExportController {
     @Autowired
     private StockServiceImpl stockService;
 
-    @GetMapping("/export-management/{pageNum}")
+
+    @GetMapping("export-management/{pageNum}")
     public List<HistoryExportDTO> getAll(@PathVariable int pageNum , @RequestParam(defaultValue = "") String search){
         return this.historyExportService.getAllDTO(pageNum, search);
     }
@@ -40,6 +42,23 @@ public class HistoryExportController {
             e.printStackTrace();
         }
         return null;
+
+    @PutMapping("delCoteExport")
+    public int delete(@RequestBody int[] ids){
+        try {
+            this.historyExportService.delete(ids);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return 0;
+    }
+    @PostMapping("/exportCote")
+    public int exportCote(@RequestBody HistoryExport historyExport, @RequestParam int idCote){
+        return historyExportService.exportAllInCote(idCote,historyExport);
+    }
+    @PostMapping("/exportPigs")
+    public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam int[] ids){
+       return historyExportService.addPigExport(ids, historyExport);
     }
 
     //Creator Tuong
