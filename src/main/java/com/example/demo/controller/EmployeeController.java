@@ -19,6 +19,10 @@ public class EmployeeController {
     @Autowired
     AccountService accountService;
 
+    @GetMapping("allEmployees")
+    public List<Employee> getAll(){
+        return employeeService.getAll();
+    }
     @GetMapping("employees/{pageNum}")
     // creator: Viet
     //add, update, edit

@@ -71,6 +71,7 @@ public class NotificationServiceImpl implements NotificationService {
 
         List<Notification> notificationList= jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed())
                 .collect(Collectors.toList()).stream().skip((pageNum-1)* pageSize).limit(pageSize).collect(Collectors.toList());
+        jpaStreamer.close();
         return notificationList;
     }
 }
