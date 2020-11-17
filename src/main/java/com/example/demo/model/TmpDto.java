@@ -6,7 +6,10 @@ import lombok.Data;
 
 @Data
 @Builder
-@AllArgsConstructor
 public class TmpDto {
    private int[] ids;
+
+   public TmpDto(int[] ids) {
+      this.ids = ids;
+   }
 }

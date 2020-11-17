@@ -73,10 +73,10 @@ public class FeedController {
     //thinh
     //deleteFeed ok
     @PatchMapping("deleteFeed")
-    public List<Error> deleteFeed(@RequestBody TmpDto tmpDto){
+    public List<Error> deleteFeed(@RequestBody int[] ids){
         List<Error> errors = new ArrayList<>();
         try{
-            this.feedService.delete(tmpDto.getIds());
+            this.feedService.delete(ids);
             errors.add(new Error("success", "Delete success"));
             return errors;
         } catch (Exception e){
