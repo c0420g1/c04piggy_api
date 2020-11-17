@@ -120,11 +120,11 @@ public class FeedServiceImpl implements FeedService {
             } else
                 jpaStreamer.stream(Feed.class).filter(e ->
                         e.getIsDeleted() == 0 &&
-                                ( e.getFeedType().getName().toLowerCase().contains(s)
-                                || e.getHerd().getName().toLowerCase().contains(s)
-                                || e.getCode().toLowerCase().contains(s)
-                                || e.getUnit().toLowerCase().contains(s)
-                                || e.getDescription().toLowerCase().contains(s)))
+                                ( e.getFeedType().getName().toLowerCase().contains(s.toLowerCase())
+                                || e.getHerd().getName().toLowerCase().contains(s.toLowerCase())
+                                || e.getCode().toLowerCase().contains(s.toLowerCase())
+                                || e.getUnit().toLowerCase().contains(s.toLowerCase())
+                                || e.getDescription().toLowerCase().contains(s.toLowerCase())))
                         .sorted(Feed$.id.reversed()).collect(Collectors.toList()).stream().skip((pageNumber - 1) * pageSize).limit(pageSize)
                         .forEach(e -> {
                             FeedDTO feedDTO = new FeedDTO(e.getId(), e.getIsDeleted(), e.getDescription(), e.getCode(), e.getAmount(), e.getUnit(),  e.getFeedType().getName(),e.getFeedType().getId(), e.getHerd().getName(),e.getHerd().getId());
