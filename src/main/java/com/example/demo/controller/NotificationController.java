@@ -15,7 +15,7 @@ public class NotificationController {
     private NotificationService notificationService;
 
     @GetMapping("getNotification/{pageNum}")
-    public List<Notification> getData(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
+    public List<Notification> getNotification(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
         return notificationService.getData(pageNum,pageSize,search);
     }
 
