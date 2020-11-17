@@ -26,6 +26,9 @@ public class PigServiceImpl implements PigService {
     @Autowired
     private PigAssociateStatusRepository pigAssociateStatusRepository;
 
+    @Autowired
+    private HistoryExportServiceImpl historyExportService;
+
     //CRUD
     @Override
     public List<Pig> getAll() {
@@ -130,5 +133,7 @@ public class PigServiceImpl implements PigService {
         pig.setIsDeleted(1);
         pigRepository.save(pig);
         pigAssociateStatusRepository.save(pigAssociateStatus);
+
     }
+
 }
