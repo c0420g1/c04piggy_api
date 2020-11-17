@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -33,13 +35,18 @@ public class HistoryExportController {
         }
         return 0;
     }
-    @PostMapping("/exportCote")
+    @PutMapping("/exportCote")
     public int exportCote(@RequestBody HistoryExport historyExport, @RequestParam int idCote){
         return historyExportService.exportAllInCote(idCote,historyExport);
     }
-    @PostMapping("/exportPigs")
-    public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam int[] ids){
-       return historyExportService.addPigExport(ids, historyExport);
+    @PutMapping("/exportPigs")
+    public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam String ids){
+        String[] idPigs = ids.split(",");
+        int[] idSold = new int[ids.length()];
+        for (int i = 0; i < idPigs.length; i++) {
+            idSold[i] = Integer.parseInt(idPigs[i]);
+        }
+      return   historyExportService.addPigExport(idSold, historyExport);
     }
     
 
