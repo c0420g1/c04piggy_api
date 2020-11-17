@@ -108,6 +108,7 @@ public class FeedController {
     @PostMapping("createFeed")
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
+        String amount = Integer.toString(feed.getAmount());
         try{
             if (!regex.regexCode(feed.getCode())) {
                 errors.add(new Error("code", "code invalid format FEXXXX with X is number"));
@@ -118,9 +119,9 @@ public class FeedController {
             if (!regex.regexUnit(feed.getUnit())) {
                 errors.add(new Error("unit", "unit invalid format"));
             }
-            if (!regex.regexNumber(Integer.toString(feed.getAmount()))){
-                errors.add(new Error("amount", "amount invalid format is number"));
-            }
+//            if (!regex.regexNumber(amount)){
+//                errors.add(new Error("amount", "amount invalid format is number"));
+//            }
 
             if (errors.isEmpty()) {
                 this.feedService.save(feed);

@@ -13,7 +13,7 @@ public class Regex {
     private static final String PASSWORD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,20}$";
     private static final String SPECIAL_SIGN_REGEX = "/^[a-zA-Z0-9 ]+$/";
     private static final String DATE_MONTH_YEAR_REGEX = "^\\\\d{4}\\\\-(0?[1-9]|1[012])\\\\-(0?[1-9]|[12][0-9]|3[01])$";
-    private static final String NUMBER_REGEX = "/^[0-9]+$/";
+    private static final String NUMBER_REGEX = "[0-9]+";
     private static final String CODE_REGEX = "^(FE)[\\d]{4}$";
     private static final String UNIT_REGEX = "kg/ngay|kg/tuan|kg/thang";
     private static final String TRAILER_URL_REGEX = "^(https://www.youtube.com)[0-9a-zA-Z./?=&_-]+$";
