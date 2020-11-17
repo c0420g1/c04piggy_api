@@ -69,7 +69,7 @@ public class PigController {
     }
 
     @DeleteMapping("/deletePig")
-    public void deletePig(@PathVariable int[] ids){
+    public void deletePig(@RequestBody int[] ids){
         try {
             pigService.delete(ids);
         }catch (Exception e){
