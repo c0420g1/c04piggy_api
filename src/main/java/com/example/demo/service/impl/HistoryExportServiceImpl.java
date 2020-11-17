@@ -3,6 +3,8 @@ package com.example.demo.service.impl;
 import com.example.demo.common.GlobalUtil;
 import com.example.demo.model.*;
 import com.example.demo.repository.HistoryExportRepository;
+import com.example.demo.repository.PigAssociateStatusRepository;
+import com.example.demo.repository.PigRepository;
 import com.example.demo.service.BaseService;
 import com.example.demo.service.CoteService;
 import com.example.demo.service.HistoryExportService;
@@ -31,6 +33,10 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     private static List<HistoryExportDTO> exportDTOList;
     private static List<Pig> pigList;
     private static HistoryExportDTO historyExportDTO;
+    @Autowired
+    private PigRepository pigRepository;
+    @Autowired
+    private PigAssociateStatusRepository pigAssociateStatusRepository;
 
     @Override
     public List<HistoryExportDTO> getAllDTO(int pageNum, String search) {
@@ -199,23 +205,35 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     }
 
     public int addPigExport(int[] idPigs, HistoryExport historyExport){
-        for (int idPig:
-                idPigs) {
-            jpaStreamer.stream(Pig.class).filter(
-                    g-> g.getIsDeleted()==0
-            ).forEach(
-                    h-> {
-                        if (idPig== h.getId()){
-                            h.setIsDeleted(1);
-                            PigAssociateStatus.builder().pig(h)
-                                    .pigStatus(jpaStreamer.stream(PigStatus.class)
-                                            .filter(PigStatus$.name.equal("Sold")).findFirst().get());
-                        }
-                    }
-            );
+
+        List<Pig> pigListSold = jpaStreamer.stream(Pig.class).filter(g -> g.getIsDeleted()==0).collect(Collectors.toList());
+        List<Integer> pigIds = new ArrayList<>();
+        for (int i = 0; i < idPigs.length; i++) {
+            pigIds.add(idPigs[i]);
         }
-        //add to history export table
-        historyExportRepository.save(historyExport);
+        int weight = 0;
+        for (Pig h: pigListSold){
+            for (int id: pigIds) {
+                      if (id==h.getId()){
+                          PigAssociateStatus pigAssociateStatus = new PigAssociateStatus();
+                          pigAssociateStatus.setPig(h);
+                          pigAssociateStatus.setPigStatus(jpaStreamer.stream(PigStatus.class)
+                                  .filter(PigStatus$.name.equal("Sold")).findFirst().get());
+                          pigAssociateStatusRepository.save(pigAssociateStatus);
+                          h.setIsDeleted(1);
+                          System.out.println(weight);
+                          weight+= h.getWeight();
+                          pigRepository.save(h);
+                          historyExport.setCote(h.getCote());
+                          historyExport.setQuantity(idPigs.length);
+                          historyExport.setType("cote");
+                          historyExport.setReceivedEmployeeId(weight);
+                          historyExportRepository.save(historyExport);
+
+                      }
+            }
+        }
+
         return 0;
 
     }
