@@ -35,14 +35,15 @@ public class HistoryExportController {
     //Creator Tuong
     //getAllHistoryExport
     @GetMapping("/getAllHistoryStockDTO/{pageNum}")
-    public List<HistoryExportStockDTO> getAllHistoryStockDTO(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
+    public List<HistoryExportStockDTO> getAllHistoryStockDTO(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search) {
         try {
-            return historyExportService.getAllHistoryStockDTO(pageNum,pageSize, search);
+            return historyExportService.getAllHistoryStockDTO(pageNum, pageSize, search);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
-
+    }
+//
     @PutMapping("delCoteExport")
     public int delete(@RequestBody int[] ids){
         try {
@@ -60,14 +61,14 @@ public class HistoryExportController {
     public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam int[] ids){
        return historyExportService.addPigExport(ids, historyExport);
     }
-
+//
     //Creator Tuong
     //getAllHistoryExport
     @GetMapping("historyExport")
     public List<HistoryExport> getAllHistoryExport(){
         return this.historyExportService.getAll();
     }
-
+//
     //Creator Tuong
     // add new HistoryExport
     @PostMapping("/export-management")

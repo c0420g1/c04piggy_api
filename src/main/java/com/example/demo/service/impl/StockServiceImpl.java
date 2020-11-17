@@ -7,10 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import com.example.demo.model.*;
 import com.speedment.jpastreamer.application.JPAStreamer;
-import javafx.util.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.repository.StockRepository;
