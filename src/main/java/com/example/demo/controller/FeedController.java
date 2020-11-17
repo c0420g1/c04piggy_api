@@ -2,6 +2,7 @@ package com.example.demo.controller;
 import com.example.demo.model.Feed;
 import com.example.demo.model.FeedDTO;
 import com.example.demo.model.FeedType;
+import com.example.demo.model.TmpDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.service.FeedService;
@@ -25,7 +26,6 @@ public class FeedController {
 
     //thinh
     //getAll feed ok
-
     @GetMapping("/feedDTOs")
     public List<FeedDTO> listFeed(){
         try{
@@ -72,11 +72,11 @@ public class FeedController {
 
     //thinh
     //deleteFeed ok
-    @DeleteMapping("deleteFeed")
-    public List<Error> deleteFeed(@RequestBody int[] idf){
+    @PatchMapping("deleteFeed")
+    public List<Error> deleteFeed(@RequestBody TmpDto tmpDto){
         List<Error> errors = new ArrayList<>();
         try{
-            this.feedService.delete(idf);
+            this.feedService.delete(tmpDto.getIds());
             errors.add(new Error("success", "Delete success"));
             return errors;
         } catch (Exception e){
@@ -103,7 +103,6 @@ public class FeedController {
     //thinh
     //create feed ok
     @PostMapping("createFeed")
-
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
         try{
