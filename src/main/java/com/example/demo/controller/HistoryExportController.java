@@ -33,6 +33,14 @@ public class HistoryExportController {
         }
         return 0;
     }
+    @PostMapping("/exportCote")
+    public int exportCote(@RequestBody HistoryExport historyExport, @RequestParam int idCote){
+        return historyExportService.exportAllInCote(idCote,historyExport);
+    }
+    @PostMapping("/exportPigs")
+    public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam int[] ids){
+       return historyExportService.addPigExport(ids, historyExport);
+    }
     
 
 
