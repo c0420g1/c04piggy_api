@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,8 +27,8 @@ public class HistoryExport {
     private int quantity;
     private String unit;
     private String company;
-    @Column(name = "received_employee_id")
-    private int receivedEmployeeId;
+    @Column(name = "received_employee_id", columnDefinition = "integer default 0")
+    private int receivedEmployeeId = 0;
 
     @Column(columnDefinition="DATE", name = "export_date")
     private LocalDate exportDate;
@@ -36,12 +37,14 @@ public class HistoryExport {
     @JoinColumn(name = "stock_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+
     private Stock stock;
 
     @ManyToOne
     @JoinColumn(name = "cote_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonBackReference
     private Cote cote;
 
     @ManyToOne
@@ -49,4 +52,22 @@ public class HistoryExport {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Employee employee;
+
+    @Override
+    public String toString() {
+        return "HistoryExport{" +
+                "id=" + id +
+                ", isDeleted=" + isDeleted +
+                ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
+                ", quantity=" + quantity +
+                ", unit='" + unit + '\'' +
+                ", company='" + company + '\'' +
+                ", receivedEmployeeId=" + receivedEmployeeId +
+                ", exportDate=" + exportDate +
+                ", stock=" + stock +
+                ", cote=" + cote +
+                ", employee=" + employee +
+                '}';
+    }
 }

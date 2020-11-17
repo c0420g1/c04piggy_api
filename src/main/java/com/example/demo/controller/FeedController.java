@@ -1,16 +1,18 @@
 package com.example.demo.controller;
+import com.example.demo.common.Regex;
 import com.example.demo.model.Feed;
+import com.example.demo.model.FeedDTO;
 import com.example.demo.model.FeedType;
+import com.example.demo.model.TmpDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
 import com.example.demo.service.FeedService;
 import com.example.demo.service.FeedTypeService;
 import com.example.demo.common.Error;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 @RestController
@@ -23,26 +25,34 @@ public class FeedController {
     @Autowired
     private FeedTypeService feedTypeService;
 
-    @GetMapping("/feeds")
-    public List<Feed> listFeed(){
+    Regex regex = new Regex();
+
+    //thinh
+    //getAll feed ok
+    @GetMapping("/feedDTOs")
+    public List<FeedDTO> listFeed(){
         try{
-            return this.feedService.getAll();
+            return this.feedService.getAllFeed();
         } catch (Exception e){
             System.out.println(e);
         }
         return null;
     }
 
+    //thinh
+    // getFeed theo page ok
     @GetMapping("/feeds/{pageNum}")
-    public List<Feed> listFeedPage(@PathVariable int pageNum){
+    public List<FeedDTO> listFeedPage(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
         try{
-            return this.feedService.getFeedPage(pageNum);
+            return this.feedService.search(pageNum,pageSize, search);
         } catch (Exception e){
             System.out.println(e);
         }
         return null;
     }
 
+    //thinh
+    //getFeed Type ok
     @GetMapping("/feedsType")
     public List<FeedType> listFeedType(){
         try{
@@ -53,11 +63,23 @@ public class FeedController {
         return null;
     }
 
-    @DeleteMapping("deleteFeed")
-    public List<Error> deleteFeed(@RequestBody int[] idf){
+    @GetMapping("/feeds")
+    public List<Feed> Feed(){
+        try{
+            return this.feedService.getAll();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    //thinh
+    //deleteFeed ok
+    @PatchMapping("deleteFeed")
+    public List<Error> deleteFeed(@RequestBody int[] ids){
         List<Error> errors = new ArrayList<>();
         try{
-            this.feedService.delete(idf);
+            this.feedService.delete(ids);
             errors.add(new Error("success", "Delete success"));
             return errors;
         } catch (Exception e){
@@ -66,6 +88,8 @@ public class FeedController {
         return null;
     }
 
+    //thinh
+    // update Feed ok
     @PatchMapping("updateFeed")
     public List<Error> updateFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
@@ -79,23 +103,45 @@ public class FeedController {
         return null;
     }
 
+    //thinh
+    //create feed ok
     @PostMapping("createFeed")
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
+        String amount = Integer.toString(feed.getAmount());
         try{
-            this.feedService.save(feed);
-            errors.add(new Error("success", "Create success"));
+            if (!regex.regexCode(feed.getCode())) {
+                errors.add(new Error("code", "code invalid format FEXXXX with X is number"));
+            }
+            if (feed.getDescription().length() < 0) {
+                errors.add(new Error("description", "description is not null"));
+            }
+            if (!regex.regexUnit(feed.getUnit())) {
+                errors.add(new Error("unit", "unit invalid format"));
+            }
+//            if (!regex.regexNumber(amount)){
+//                errors.add(new Error("amount", "amount invalid format is number"));
+//            }
+
+            if (errors.isEmpty()) {
+                this.feedService.save(feed);
+                errors.add(new Error("success", "Create success"));
+            }
             return errors;
         }catch (Exception e){
             System.out.println(e);
+            errors.add(new Error("nullPoint", "Please input all information before edit Avatar !"));
+            return errors;
         }
-        return null;
     }
 
+
+    //thinh
+    //search ok
     @GetMapping("searchFeed/{properties}/{key}/{page}")
-    public List<Feed> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
+    public List<FeedDTO> searchFeed(@PathVariable String properties,@PathVariable String key,@PathVariable int page){
         try{
-            List<Feed> feedList;
+            List<FeedDTO> feedList;
             switch (properties){
                 case "description":
                     feedList = this.feedService.searchDescription(page,key);
@@ -116,8 +162,8 @@ public class FeedController {
                     feedList = this.feedService.searchFeedType(page,key);
                     return feedList;
                 case "all":
-                    feedList = this.feedService.search(page,key);
-                    return feedList;
+//                    feedList = this.feedService.search(page,key);
+//                    return feedList;
                 default:
                     break;
             }
@@ -126,6 +172,7 @@ public class FeedController {
         }
         return null;
     }
+
 
 
 }

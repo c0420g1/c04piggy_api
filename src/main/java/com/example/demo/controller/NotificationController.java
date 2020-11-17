@@ -20,12 +20,11 @@ public class NotificationController {
     }
 
     @PostMapping("addEditNotification")
-    public int addNotification(@RequestBody Notification notification){
-        System.out.println("test");
+    public int addEditNotification(@RequestBody Notification notification){
         return notificationService.save(notification);
     }
 
-    @PostMapping("deleteNotification")
+    @PutMapping("deleteNotification")
     public int deleteNotification(@RequestParam int[] ids){
         return notificationService.delete(ids);
     }

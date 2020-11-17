@@ -19,23 +19,24 @@ public class EmployeeController {
     @Autowired
     AccountService accountService;
 
+
     @GetMapping("allEmployees")
     public List<Employee> getAll(){
         return employeeService.getAll();
     }
-    @GetMapping("employees/{pageNum}")
+   
     // creator: Viet
     //add, update, edit
-    public List<EmployeeDTO> getAllEmployeeDTO(@RequestParam(defaultValue = "") String search,
-                                               @PathVariable int pageNum){
-        try{
-            List<EmployeeDTO> employeeList= employeeService.getAllEmployeeDTO(pageNum,search);
-            return employeeList;
+    @GetMapping("employees/{pageNum}")
+    public List<EmployeeDTO> getAllEmployeeDTO(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
+        try {
+            return employeeService.search(pageNum,pageSize, search);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
+
     @GetMapping("/employee/{id}")
     public Optional<EmployeeDTO> getDTO(@PathVariable int id){
         try{

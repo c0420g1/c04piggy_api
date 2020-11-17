@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 public class PigController {
-    private static final Log errorLog = LogFactory.getLog(PigController.class);;
+    private static final Log errorLog = LogFactory.getLog(PigController.class);
 
     @Autowired
     private PigService pigService;
@@ -69,7 +69,7 @@ public class PigController {
     }
 
     @DeleteMapping("/deletePig")
-    public void deletePig(@PathVariable int[] ids){
+    public void deletePig(@RequestBody int[] ids){
         try {
             pigService.delete(ids);
         }catch (Exception e){
@@ -84,10 +84,10 @@ public class PigController {
     }
 
     //sold pig
-    @PatchMapping("/soldPig")
-    public void soldPig(@RequestBody Pig soldPig) {
+    @GetMapping("/soldPig")
+    public void soldPig(@RequestParam int id) {
         try {
-            pigService.soldPig(soldPig);
+            pigService.soldPig(id);
         } catch (Exception e) {
             errorLog.error("Lỗi tại vị trí soldPig" + e.getMessage());
         }

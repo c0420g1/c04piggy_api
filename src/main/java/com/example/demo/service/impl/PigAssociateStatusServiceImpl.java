@@ -7,6 +7,7 @@ import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +34,20 @@ public class PigAssociateStatusServiceImpl implements PigAssociateStatusService 
         pigAssociateStatusList = jpaStreamer.stream(PigAssociateStatus.class)
                 .filter(f -> f.getPig().getId() == pigId).collect(Collectors.toList());
         return pigAssociateStatusList;
+    }
+
+    //creator Hieu
+    @Override
+    public List<Integer> getAllIdPigSoled() {
+        List<Integer> list = new ArrayList<>();
+        jpaStreamer.stream(PigAssociateStatus.class).filter(e ->
+            e.getPigStatus().getId() == 8
+        ).collect(Collectors.toList()).forEach(
+                g-> {
+                    list.add(g.getPig().getId());
+                }
+        );
+        return list;
     }
 
     @Override

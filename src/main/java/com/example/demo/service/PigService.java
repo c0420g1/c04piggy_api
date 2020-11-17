@@ -8,5 +8,5 @@ import java.util.List;
 public interface PigService extends BaseService<Pig> {
     List<PigDTO> listPigSearch(int pageNumber, String search);
     void saveNewPig(Pig pig);
-    void soldPig(Pig pig);
+    void soldPig(int id);
 }
