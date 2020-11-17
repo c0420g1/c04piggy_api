@@ -37,9 +37,9 @@ public class PigServiceImpl implements PigService {
     @Override
     public List<PigDTO> listPigSearch(int pageNumber, String search) {
         List<PigDTO> pigList = new ArrayList<>();
-        jpaStreamer.stream(Pig.class).filter(e -> e.getCode().contains(search) || e.getCote().getCode().contains(search) ||
-                e.getHerd().getName().contains(search)).skip(pageNumber).limit(pageSize).forEach(e -> {
-            PigDTO pigDTO = new PigDTO(e.getId(), e.getCote().getCode(), e.getImportDate(), e.getPigAssociateStatuses().stream().collect(Collectors.toList()), e.getWeight());
+        jpaStreamer.stream(Pig.class).filter(e -> e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                e.getHerd().getName().toLowerCase().contains(search)).skip(pageNumber).limit(pageSize).forEach(p -> {
+            PigDTO pigDTO = new PigDTO(p.getId(),p.getCode(),p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
             pigList.add(pigDTO);
                 });
         return pigList;

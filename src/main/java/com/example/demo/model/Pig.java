@@ -68,4 +68,25 @@ public class Pig {
     @ToString.Exclude
     @JsonIgnore
     private Set<TreatmentVacxin> treatmentVacxins;
+
+    @Override
+    public String toString() {
+        return "Pig{" +
+                "id=" + id +
+                ", isDeleted=" + isDeleted +
+                ", description='" + description + '\'' +
+                ", code='" + code +
+                ", spec='" + spec +
+                ", gender=" + gender +
+                ", weight=" + weight +
+                ", color=" + color +
+                ", fatherId=" + fatherId +
+                ", motherId=" + motherId +
+                ", importDate=" + importDate +
+                ", exportDate=" + exportDate +
+                ", feed=" + feed +
+                ", herd=" + herd +
+                ", cote=" + cote +
+                '}';
+    }
 }
