@@ -7,12 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import com.example.demo.model.Stock$;
+import com.example.demo.model.*;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.demo.model.Stock;
-import com.example.demo.model.StockDTO;
 import com.example.demo.repository.StockRepository;
 import com.example.demo.service.StockService;
 
@@ -29,8 +27,15 @@ public class StockServiceImpl implements StockService {
         return null;
     }
 
+    // lay ve 1 stock theo id
     @Override
     public Optional<Stock> getById(int id) {
+        try {
+            JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+            return jpaStreamer.stream(Stock.class).filter(e-> e.getId() == id).findFirst();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -62,6 +67,7 @@ public class StockServiceImpl implements StockService {
         }
     }
 
+    // lay ve 1 list StockDTO
     @Override
     public List<StockDTO> search(int pageNumber, int pageSize,  String search) {
         JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
@@ -70,24 +76,30 @@ public class StockServiceImpl implements StockService {
             if(pageNumber==-1){
                         jpaStreamer.stream(Stock.class).filter(e ->
                                 e.getIsDeleted()==0 &&
-                                        (e.getShipmentCode().contains(search) ||
-                                                e.getFeedType().getName().contains(search) || e.getVendor().getName().contains(search)
-                                                || e.getExpDate().toString().contains(search) || String.valueOf(e.getQuantity()).contains(search)
-                                                || e.getUnit().contains(search))).sorted(Stock$.id.reversed()).forEach(e -> {
+                                                   (e.getShipmentCode().toLowerCase().contains(search.toLowerCase())
+                                                || e.getFeedType().getName().toLowerCase().contains(search.toLowerCase())
+                                                || e.getVendor().getName().toLowerCase().contains(search.toLowerCase())
+                                                || e.getExpDate().toString().contains(search)
+                                                || String.valueOf(e.getQuantity()).contains(search)
+                                                || e.getUnit().toLowerCase().contains(search.toLowerCase()))).sorted(Stock$.id.reversed()).forEach(e -> {
                     StockDTO stockDTO = new StockDTO(e.getId(),e.getShipmentCode(), e.getFeedType().getName(),
-                            e.getVendor().getName(),e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate());
+                            e.getVendor().getName(),e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate(), e.getDescription(),
+                            e.getVendor().getId(), e.getFeedType().getId());
                     stockDTOList.add(stockDTO);
                 });
                 return stockDTOList;
             }
             jpaStreamer.stream(Stock.class).filter(e ->
                     e.getIsDeleted()==0 &&
-                            (e.getShipmentCode().contains(search) ||
-                                    e.getFeedType().getName().contains(search) || e.getVendor().getName().contains(search)
-                                    || e.getExpDate().toString().contains(search) || String.valueOf(e.getQuantity()).contains(search)
-                                    || e.getUnit().contains(search))).sorted(Stock$.id.reversed()).collect(Collectors.toList()).stream().skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+                                    (e.getShipmentCode().toLowerCase().contains(search.toLowerCase())
+                                    || e.getFeedType().getName().toLowerCase().contains(search.toLowerCase())
+                                    || e.getVendor().getName().toLowerCase().contains(search.toLowerCase())
+                                    || e.getExpDate().toString().contains(search)
+                                    || String.valueOf(e.getQuantity()).contains(search)
+                                    || e.getUnit().toLowerCase().contains(search.toLowerCase()))).sorted(Stock$.id.reversed()).collect(Collectors.toList()).stream().skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
                 StockDTO stockDTO = new StockDTO(e.getId(),e.getShipmentCode(), e.getFeedType().getName(),
-                        e.getVendor().getName(),e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate());
+                        e.getVendor().getName(),e.getMfgDate(), e.getExpDate(), e.getQuantity(), e.getUnit(), e.getImportDate(), e.getDescription(),
+                        e.getVendor().getId(), e.getFeedType().getId());
                 stockDTOList.add(stockDTO);
             });
             return stockDTOList;
@@ -99,4 +111,20 @@ public class StockServiceImpl implements StockService {
         }
         return null;
     }
+
+    // them hoac sua 1 record Stock
+    @Override
+    public void addEditStock(StockDTO stockDTO) {
+        try {
+            FeedType feedType= jpaStreamer.stream(FeedType.class).filter(FeedType$.id.equal(stockDTO.getFeedTypeId())).findFirst().get();
+            Vendor vendor= jpaStreamer.stream(Vendor.class).filter(Vendor$.id.equal(stockDTO.getVendorId())).findFirst().get();
+            Stock stock = Stock.builder().id(stockDTO.getId()).description(stockDTO.getDescription()).expDate(stockDTO.getExpDate())
+                    .isDeleted(0).importDate(stockDTO.getImportDate()).mfgDate((stockDTO.getMfgDate())).shipmentCode(stockDTO.getShipmentCode()).unit(stockDTO.getUnit())
+                    .quantity(stockDTO.getQuantity()).feedType(feedType).vendor(vendor).build();
+            stockRepository.save(stock);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

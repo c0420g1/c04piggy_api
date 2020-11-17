@@ -19,4 +19,7 @@ public class StockDTO {
         private int quantity;
         private String unit;
         private LocalDate importDate;
+        private String description;
+        private int vendorId;
+        private int feedTypeId;
 }
