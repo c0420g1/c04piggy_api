@@ -1,19 +1,18 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.common.GlobalUtil;
-import com.example.demo.model.*;
-import com.example.demo.repository.CoteRepository;
-import com.example.demo.service.CoteService;
-import com.example.demo.service.HistoryExportService;
+
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import com.example.demo.model.*;
+import com.example.demo.repository.CoteRepository;
+import com.example.demo.service.CoteService;
+
 
 import static com.example.demo.common.GlobalUtil.pageSize;
 
@@ -30,6 +29,7 @@ public class CoteServiceImpl implements CoteService {
     // Trả về danh sách chuồng heo đầy đủ
     @Override
     public List<Cote> getAll() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Cote> coteList;
         coteList = jpaStreamer.stream(Cote.class).sorted(Cote$.importDate.reversed().thenComparing(Cote$.exportDate)).collect(Collectors.toList());
         return coteList;
@@ -43,7 +43,7 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public int save(Cote cote) {
-
+        System.out.println(cote);
         try{
             coteRepository.save(cote);
             return 1;
@@ -74,6 +74,7 @@ public class CoteServiceImpl implements CoteService {
     // Trả về danh sách chuồng heo rút gọn
     @Override
     public List<CoteDTO> searchCote(int pageNum, String search){
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<CoteDTO> coteList = new ArrayList<>();
         String temp ="";
         try{
@@ -155,6 +156,7 @@ public class CoteServiceImpl implements CoteService {
     // Tra ve so lượng chuồng.
     @Override
     public List<Cote> searchCoteNoPagination(String search) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Cote> coteList = new ArrayList<>();
         String temp ="";
         try{
@@ -187,28 +189,20 @@ public class CoteServiceImpl implements CoteService {
     }
 
     // Tra ve tình trạng sức khỏe của heo
-//    @Override
-//    public List getAllStatusOfPig(int pigId) {
-//        List<Integer> list = new ArrayList<>();
-//        jpaStreamer.stream(PigAssociateStatus.class).filter(e -> e.getPig().getId() == pigId).collect(Collectors.toList()).forEach(pig ->{
-//                list.add(pig.getPigStatus().getId());
-//        });
-//        return list;
-//    }
-
     @Override
     public List<PigDTO> getAllPigDTOAndStatus(String herdCode) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<PigDTO> list = new ArrayList<>();
 
         try{
-            jpaStreamer.stream(Pig.class).filter(e -> e.getHerd().getName().equals(herdCode))
+            jpaStreamer.stream(Pig.class).filter(e -> e.getHerd().getName().equals(herdCode) && e.getIsDeleted() == 0)
                     .collect(Collectors.toList())
                     .forEach(pig ->{
                         // List Status cho từng con heo
                         List<Integer> listStatus = new ArrayList<>();
                         jpaStreamer.stream(PigAssociateStatus.class).
                             filter(pigA -> pigA.getPig().getId() == pig.getId()).collect(Collectors.toList()).forEach(b ->{
-                                        listStatus.add(b.getPigStatus().getId());
+                                        listStatus.add(b.getPigStatus().getId()); // co the getName() để lấy tình trạng
                                     });
 
                 PigDTO pigDTO = PigDTO.builder()
@@ -226,7 +220,23 @@ public class CoteServiceImpl implements CoteService {
         return list;
     }
 
-    // tra ve trang thai nuoi cua heo
+    // Trả về danh sách chuồng có số lượng bằng 0;
+    @Override
+    public List<String> getCoteCode() {
+        List<String> coteCodeList = new ArrayList<>();
+        try {
+            jpaStreamer.stream(Cote.class).collect(Collectors.toList()).forEach( cote ->  {
+                    List<Pig> pigList = new ArrayList<>();
+                    pigList = getAllPig(cote.getHerd().getName());
+                    if (pigList.size() == 0) {
+                        coteCodeList.add(cote.getCode());
+                    }
+            });
+        }catch (Exception e){
+            System.out.println("Get Cote Code:" + e.getMessage());
+        }
+        return coteCodeList;
+    }
 
 
     //creator Hieu
