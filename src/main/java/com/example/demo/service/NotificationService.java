@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface NotificationService extends BaseService<Notification> {
     List<Notification> getData(int pageNum, int pageSize, String search);
+    void addNewNote(Notification notification);
 }

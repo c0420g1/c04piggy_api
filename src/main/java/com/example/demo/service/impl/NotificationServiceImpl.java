@@ -30,16 +30,15 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public Optional<Notification> getById(int id) {
-        return  jpaStreamer.stream(Notification.class).filter(Notification$.id.equal(id)).findFirst();
+        return jpaStreamer.stream(Notification.class).filter(Notification$.id.equal(id)).findFirst();
     }
 
     @Override
     public int save(Notification notification) {
-        try{
+        try {
             notificationRepository.save(notification);
             return 1;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
             return 0;
         }
@@ -48,7 +47,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public int delete(int[] ids) {
-        try{
+        try {
             Arrays.stream(ids).forEach(e ->
             {
                 Notification notification = jpaStreamer.stream(Notification.class).filter(f -> f.getId() == e).findFirst().get();
@@ -56,8 +55,7 @@ public class NotificationServiceImpl implements NotificationService {
                 notificationRepository.save(notification);
             });
             return 1;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
             return 0;
         }
@@ -65,14 +63,21 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public List<Notification> getData(int pageNum, int pageSize, String search) {
-        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
-        if(pageNum==-1)
-            return jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed()).collect(Collectors.toList());
+        JPAStreamer jpaStreamer = JPAStreamer.of("c04piggy");
+        if (pageNum == -1)
+            return jpaStreamer.stream(Notification.class).filter(e -> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed()).collect(Collectors.toList());
 
-        List<Notification> notificationList= jpaStreamer.stream(Notification.class).filter(e-> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed())
-                .collect(Collectors.toList()).stream().skip((pageNum-1)* pageSize).limit(pageSize).collect(Collectors.toList());
+        List<Notification> notificationList = jpaStreamer.stream(Notification.class).filter(e -> e.getContent().contains(search) || e.getTitle().contains(search)).sorted(Notification$.id.reversed())
+                .collect(Collectors.toList()).stream().skip((pageNum - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
 
         jpaStreamer.close();
         return notificationList;
+    }
+
+    @Override
+    public void addNewNote(Notification notification) {
+        Optional<Notification> newNote;
+        newNote = jpaStreamer.stream(Notification.class).filter(Notification$.id.equal(notification.getId())).findFirst();
+        notificationRepository.save(notification);
     }
 }
