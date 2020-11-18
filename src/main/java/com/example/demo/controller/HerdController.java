@@ -17,6 +17,16 @@ public class HerdController {
     @Autowired
     private HerdService herdService;
 
+    @GetMapping("herdListAll")
+    public List<Herd> getHerdListFull(){
+        try {
+            return herdService.getAll();
+        }catch (Exception e){
+            errorLog.error("lỗi tại herdListFull" + e.getMessage());
+            return null;
+        }
+    }
+
     @GetMapping("herdList/{pageNum}")
     public List<Herd> getHerdList(@PathVariable int pageNum){
         try {
