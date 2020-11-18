@@ -31,6 +31,9 @@ public class PigServiceImpl implements PigService {
     @Autowired
     private PigAssociateStatusRepository pigAssociateStatusRepository;
 
+    @Autowired
+    private HistoryExportServiceImpl historyExportService;
+
     //CRUD
     @Override
     public List<Pig> getAll() {
@@ -42,11 +45,30 @@ public class PigServiceImpl implements PigService {
     @Override
     public List<PigDTO> listPigSearch(int pageNumber, String search) {
         List<PigDTO> pigList = new ArrayList<>();
-        jpaStreamer.stream(Pig.class).filter(e -> e.getCode().contains(search) || e.getCote().getCode().contains(search) ||
-                e.getHerd().getName().contains(search)).skip(pageNumber).limit(pageSize).forEach(e -> {
-            PigDTO pigDTO = new PigDTO(e.getId(), e.getCote().getCode(), e.getImportDate(), e.getPigAssociateStatuses().stream().collect(Collectors.toList()), e.getWeight());
-            pigList.add(pigDTO);
+
+        try{
+            if(pageNumber==-1){
+                jpaStreamer.stream(Pig.class)
+                        //list pig for show at start
+                        .filter(e -> (e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                                e.getHerd().getName().toLowerCase().contains(search)) && e.getIsDeleted() ==0)
+                        .forEach(p -> {
+                            //filter into list entity pig for show
+                            PigDTO pigDTO = new PigDTO(p.getId(), p.getCode(), p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
+                            pigList.add(pigDTO);
+                        });
+            }else {
+                jpaStreamer.stream(Pig.class).filter(e -> (e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                                e.getHerd().getName().toLowerCase().contains(search)) && e.getIsDeleted() == 0)
+                        //begin pagenation
+                        .collect(Collectors.toList()).stream().skip((pageNumber - 1) * pageSize).limit(pageSize).forEach(p -> {
+                    PigDTO pigDTO = new PigDTO(p.getId(), p.getCode(), p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
+                    pigList.add(pigDTO);
                 });
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return pigList;
     }
 
