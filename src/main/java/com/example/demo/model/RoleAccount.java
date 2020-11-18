@@ -27,6 +27,14 @@ public class RoleAccount {
     @ToString.Exclude
     private Role role;
 
+    public Role getRole() {
+        return role;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
     @ManyToOne
     @JoinColumn(name = "account_id")
     @EqualsAndHashCode.Exclude
