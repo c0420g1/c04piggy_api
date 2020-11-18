@@ -68,7 +68,7 @@ public class PigController {
         }
     }
 
-    @DeleteMapping("/deletePig")
+    @PatchMapping("/deletePig")
     public void deletePig(@RequestBody int[] ids){
         try {
             pigService.delete(ids);
