@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static com.example.demo.common.GlobalUtil.pageSize;
+
 @Service
 public class HerdServiceImpl implements HerdService {
 
@@ -22,8 +24,13 @@ public class HerdServiceImpl implements HerdService {
     private HerdRepository herdRepository;
 
     @Override
+    public List<Herd> getAllHerdList(int pageNumber) {
+        return jpaStreamer.stream(Herd.class).collect(Collectors.toList()).stream().skip((pageNumber-1)*pageSize).limit(pageSize).collect(Collectors.toList());
+    }
+
+    @Override
     public List<Herd> getAll() {
-        return jpaStreamer.stream(Herd.class).collect(Collectors.toList());
+        return null;
     }
 
     @Override

@@ -40,11 +40,18 @@ public class PigServiceImpl implements PigService {
     @Override
     public List<PigDTO> listPigSearch(int pageNumber, String search) {
         List<PigDTO> pigList = new ArrayList<>();
-        jpaStreamer.stream(Pig.class).filter(e -> e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
-                e.getHerd().getName().toLowerCase().contains(search)).skip(pageNumber).limit(pageSize).forEach(p -> {
-            PigDTO pigDTO = new PigDTO(p.getId(),p.getCode(),p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
-            pigList.add(pigDTO);
-                });
+
+        try{
+            jpaStreamer.stream(Pig.class)
+                    .filter(e -> e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                    e.getHerd().getName().toLowerCase().contains(search))
+                    .collect(Collectors.toList()).stream().skip((pageNumber-1)*pageSize).limit(pageSize).forEach(p -> {
+                PigDTO pigDTO = new PigDTO(p.getId(),p.getCode(),p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
+                pigList.add(pigDTO);
+            });
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return pigList;
     }
 
