@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="" />
+    <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,6 +79,18 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.DemoApplication (1)">
     <configuration name="All in c04piggy_api" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="c04piggy_api" />
@@ -110,7 +125,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3eac2adc-1387-4a9f-8bc9-98fbef98815d" name="Default Changelist" comment="" />
+      <changelist id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="" />
       <created>1604559273224</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -143,18 +158,21 @@
       <workItem from="1605583942271" duration="186000" />
       <workItem from="1605584176765" duration="1485000" />
       <workItem from="1605593381937" duration="3713000" />
+      <workItem from="1605684506464" duration="1313000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -173,7 +191,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="280" y="4" key="#Project_Structure" timestamp="1605585237459">
@@ -316,7 +333,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/StockServiceImpl.java</url>
-          <line>89</line>
+          <line>100</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -326,7 +343,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/StockServiceImpl.java</url>
-          <line>71</line>
+          <line>77</line>
           <properties class="com.example.demo.service.impl.StockServiceImpl">
             <option name="EMULATED" value="true" />
           </properties>
