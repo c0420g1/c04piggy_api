@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.*;
+import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.service.EmployeeService;
 import com.speedment.jpastreamer.application.JPAStreamer;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,6 +22,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     JPAStreamer jpaStreamer;
     @Autowired
     EmployeeRepository employeeRepository;
+    @Autowired
+    AccountRepository accountRepository;
 
     @Override
     public List<Employee> getAll() {
@@ -45,31 +49,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public int delete(int[] ids) {
-        return 1;
+        try {
+            Arrays.stream(ids).forEach(e ->
+            {
+                Employee a = jpaStreamer.stream(Employee.class).filter(f -> f.getId() == e).findFirst().get();
+                Account b = jpaStreamer.stream(Account.class).filter(z -> z.getId()==a.getAccount().getId()).findFirst().get();
+                a.setIsDeleted(1);
+                b.setIsDeleted(1);
+                employeeRepository.save(a);
+                accountRepository.save(b);
+            });
+            return 1;
+        } catch (Exception e) {
+            return 0;
+        }
     }
-
-
-
-//    @Override
-//    public List<EmployeeDTO> getAllEmployeeDTO(int pageNumber, String search) {
-//
-//        List<EmployeeDTO> res = new ArrayList<>();
-//
-//        try {
-//            jpaStreamer.stream(Employee.class).filter(e -> e.getName().contains(search))
-//                    .skip((pageNumber-1)*pageSize)
-//                    .limit(pageSize).forEach(e->{
-//                  RoleAccount rc=  jpaStreamer.stream(RoleAccount.class).filter(r-> r.getAccount().getId()== e.getAccount().getId()).findFirst().get();
-//                EmployeeDTO employeeDTO = new EmployeeDTO(e.getAccount().getId(),e.getCode(),e.getAccount().getUsername(),
-//                        e.getAccount().getPassword(),e.getName(),e.getBirthday(),e.getEmail(),e.getGender(),e.getCardId(),rc.getRole().getName());
-//                res.add(employeeDTO);
-//            });
-//            return res;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//        }
 
     @Override
     public List<EmployeeDTO> search(int pageNumber, int pageSize, String search) {
@@ -81,7 +75,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                         e.getIsDeleted() == 0 &&
                                 (e.getAccount().getUsername().contains(search) ||
                                         e.getName().contains(search) || e.getDescription().contains(search)
-                                        )).sorted(Employee$.id.reversed()).forEach(e -> {
+                                )).sorted(Employee$.id.reversed()).forEach(e -> {
                     RoleAccount rc=  jpaStreamer.stream(RoleAccount.class).filter(r-> r.getAccount().getId()== e.getAccount().getId()).findFirst().get();
                     EmployeeDTO empoyeeDTO = new EmployeeDTO(e.getId(), e.getCode(), e.getAccount().getUsername(), e.getAccount().getPassword(),
                             e.getName(), e.getBirthday(), e.getEmail(), e.getGender(), e.getCardId(),rc.getRole().getName());
@@ -89,6 +83,18 @@ public class EmployeeServiceImpl implements EmployeeService {
                 });
                 return employeeDTOList;
             }
+
+            jpaStreamer.stream(Employee.class).filter(e ->
+                    e.getIsDeleted() == 0 &&
+                            (e.getAccount().getUsername().contains(search) ||
+                                    e.getName().contains(search) || e.getDescription().contains(search)
+                            )).sorted(Employee$.id.reversed()).collect(Collectors.toList()).stream().skip((pageNumber-1)*pageSize).limit(pageSize).forEach(e -> {
+                RoleAccount rc=  jpaStreamer.stream(RoleAccount.class).filter(r-> r.getAccount().getId()== e.getAccount().getId()).findFirst().get();
+                EmployeeDTO empoyeeDTO = new EmployeeDTO(e.getId(), e.getCode(), e.getAccount().getUsername(), e.getAccount().getPassword(),
+                        e.getName(), e.getBirthday(), e.getEmail(), e.getGender(), e.getCardId(),rc.getRole().getName());
+                employeeDTOList.add(empoyeeDTO);
+            });
+            return employeeDTOList;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
