@@ -1,13 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.common.SameParentException;
 import com.example.demo.model.Pig;
 import com.example.demo.model.PigDTO;
 import com.example.demo.service.PigService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -61,6 +59,8 @@ public class PigController {
 
     @PatchMapping("/editPig")
     public void editPig(@RequestBody Pig editPig) {
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println(editPig);
         try {
             pigService.save(editPig);
         }catch (Exception e){
@@ -68,7 +68,7 @@ public class PigController {
         }
     }
 
-    @DeleteMapping("/deletePig")
+    @PatchMapping("/deletePig")
     public void deletePig(@RequestBody int[] ids){
         try {
             pigService.delete(ids);

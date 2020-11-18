@@ -4,11 +4,13 @@ import com.example.demo.common.SameParentException;
 import com.example.demo.model.*;
 import com.example.demo.repository.PigAssociateStatusRepository;
 import com.example.demo.repository.PigRepository;
+import com.example.demo.service.HistoryExportService;
 import com.example.demo.service.PigService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -24,14 +26,17 @@ public class PigServiceImpl implements PigService {
     private PigRepository pigRepository;
 
     @Autowired
-    private PigAssociateStatusRepository pigAssociateStatusRepository;
+    private HistoryExportService historyExportService;
 
     @Autowired
-    private HistoryExportServiceImpl historyExportService;
+    private PigAssociateStatusRepository pigAssociateStatusRepository;
+
 
     //CRUD
     @Override
     public List<Pig> getAll() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+
         List<Pig> pigList;
             pigList = jpaStreamer.stream(Pig.class).collect(Collectors.toList());
             return pigList;
@@ -39,12 +44,32 @@ public class PigServiceImpl implements PigService {
 
     @Override
     public List<PigDTO> listPigSearch(int pageNumber, String search) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+
         List<PigDTO> pigList = new ArrayList<>();
-        jpaStreamer.stream(Pig.class).filter(e -> e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
-                e.getHerd().getName().toLowerCase().contains(search)).skip(pageNumber).limit(pageSize).forEach(p -> {
-            PigDTO pigDTO = new PigDTO(p.getId(),p.getCode(),p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
-            pigList.add(pigDTO);
+        try{
+            if(pageNumber==-1){
+                jpaStreamer.stream(Pig.class)
+                        //list pig for show at start
+                        .filter(e -> (e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                                e.getHerd().getName().toLowerCase().contains(search)) && e.getIsDeleted() ==0)
+                        .forEach(p -> {
+                            //filter into list entity pig for show
+                            PigDTO pigDTO = new PigDTO(p.getId(), p.getCode(), p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
+                            pigList.add(pigDTO);
+                        });
+            }else {
+                jpaStreamer.stream(Pig.class).filter(e -> (e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                                e.getHerd().getName().toLowerCase().contains(search)) && e.getIsDeleted() == 0)
+                        //begin pagenation
+                        .collect(Collectors.toList()).stream().skip((pageNumber - 1) * pageSize).limit(pageSize).forEach(p -> {
+                    PigDTO pigDTO = new PigDTO(p.getId(), p.getCode(), p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
+                    pigList.add(pigDTO);
                 });
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return pigList;
     }
 
@@ -73,6 +98,8 @@ public class PigServiceImpl implements PigService {
     //match pigs to breed new pig function
 
     public List<Pig> pickFemalePig(String filter) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+
         List<Pig> pigList = new ArrayList<>();
         long count;
         pigList = jpaStreamer.stream(Pig.class).filter(Pig$.gender.equal((byte) 0)).collect(Collectors.toList());
@@ -90,6 +117,7 @@ public class PigServiceImpl implements PigService {
     }
 
     public List<Pig> pickMalePig(String filter) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Pig> pigList = new ArrayList<>();
         double totalWeight = 0;
         List<Pig> checkWeight = new ArrayList<>();
@@ -134,6 +162,16 @@ public class PigServiceImpl implements PigService {
         pigRepository.save(pig);
         pigAssociateStatusRepository.save(pigAssociateStatus);
 
+        
+        Pig tempPig = jpaStreamer.stream(Pig.class).filter(e -> e.getId() == id).findFirst().get();
+        HistoryExport hi = new HistoryExport();
+        hi.setCote(tempPig.getCote());
+        hi.setEmployee(tempPig.getCote().getEmployee());
+        hi.setExportDate(LocalDate.now());
+        //
+
+        historyExportService.save(hi);
     }
+
 
 }
