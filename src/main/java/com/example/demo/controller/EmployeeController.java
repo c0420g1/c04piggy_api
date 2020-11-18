@@ -1,16 +1,14 @@
 package com.example.demo.controller;
-
-import com.example.demo.model.Account;
-import com.example.demo.model.Employee;
-import com.example.demo.model.EmployeeDTO;
+import com.example.demo.model.*;
 import com.example.demo.service.AccountService;
 import com.example.demo.service.EmployeeService;
+import com.example.demo.service.RoleAccountService;
+import com.example.demo.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 public class EmployeeController {
@@ -18,6 +16,10 @@ public class EmployeeController {
     EmployeeService employeeService;
     @Autowired
     AccountService accountService;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    RoleAccountService roleAccountService;
 
 
     @GetMapping("allEmployees")
@@ -36,31 +38,28 @@ public class EmployeeController {
         }
         return null;
     }
-
-    @GetMapping("/employee/{id}")
-    public Optional<EmployeeDTO> getDTO(@PathVariable int id){
+    @GetMapping("role")
+    public List<Role> getRole(){
+        return roleService.getAll();
+    }
+    @GetMapping("/employe/{id}")
+    public String getDTO(@PathVariable int id){
         try{
-            return employeeService.getByIdDTO(id);
+            return "r";
+//            return employeeService.getByIdDTO(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
     @PostMapping("employee")
-    public void addEmployee(@RequestBody Employee employee){
+    public int addEmployee(@RequestBody Employee employee){
         try {
             employeeService.save(employee);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    @PutMapping("employee")
-    public void editEmployee(@RequestBody Employee employee){
-        try {
-            employeeService.save(employee);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return 1;
     }
     @PostMapping("account")
     public void addAccount(@RequestBody Account account){
@@ -70,14 +69,37 @@ public class EmployeeController {
             e.printStackTrace();
         }
     }
-
-    @PutMapping("account")
-    public void editAccount(@RequestBody Account account){
+    @GetMapping("getRole/{id}")
+    public RoleAccount getRole(@PathVariable int id){
         try {
-            accountService.save(account);
+           return roleAccountService.getRoleByIdAccount(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
+    }
+    @PostMapping("roleaccount")
+    public void addRoleAccount(@RequestBody RoleAccount roleAccount){
+        try {
+            roleAccountService.save(roleAccount);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @GetMapping("findlast")
+    public Account find(){
+        return accountService.findLast();
+    }
+
+    @PutMapping("deleteEmployee")
+    public int deleteEm(@RequestBody int[] ids){
+        try {
+           employeeService.delete(ids);
+           return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 
