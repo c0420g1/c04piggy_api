@@ -1,19 +1,14 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.common.GlobalUtil;
 import com.example.demo.model.*;
 import com.example.demo.repository.HistoryExportRepository;
 import com.example.demo.repository.PigAssociateStatusRepository;
 import com.example.demo.repository.PigRepository;
-import com.example.demo.service.BaseService;
-import com.example.demo.service.CoteService;
 import com.example.demo.service.HistoryExportService;
 import com.speedment.jpastreamer.application.JPAStreamer;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,7 +37,35 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     public List<HistoryExportDTO> getAllDTO(int pageNum, String search) {
         JPAStreamer jpaStreamer = JPAStreamer.of("c04piggy");
         exportDTOList = new ArrayList<>();
-        if (pageNum == -1) {
+        try {
+            if (pageNum == -1) {
+                jpaStreamer.stream(HistoryExport.class)
+                        .filter(
+                                e ->
+                                        e.getIsDeleted() == 0 && e.getType().equals("cote")
+                                                && (e.getCote().getCode().toLowerCase().contains(search.toLowerCase()) ||
+                                                e.getEmployee().getName().toLowerCase().contains(search.toLowerCase()) ||
+                                                e.getCompany().toLowerCase().contains(search.toLowerCase()) ||
+                                                e.getExportDate().toString().contains(search))
+                        )
+                        .collect(Collectors.toList()).stream()
+                        .forEach(
+
+                                g -> {
+                                    historyExportDTO = HistoryExportDTO.builder()
+                                            .id(g.getId())
+                                            .coteCode(g.getCote().getCode())
+                                            .company(g.getCompany())
+                                            .employeeCode(g.getEmployee().getName())
+                                            .exportDate(g.getExportDate())
+                                            .quantity(g.getQuantity())
+                                            .weightTotal(g.getReceivedEmployeeId())
+                                            .total(g.getReceivedEmployeeId() * 80000).build();
+                                    exportDTOList.add(historyExportDTO);
+                                }
+                        );
+                return exportDTOList;
+            }
             jpaStreamer.stream(HistoryExport.class)
                     .filter(
                             e ->
@@ -52,6 +75,7 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                             e.getCompany().toLowerCase().contains(search.toLowerCase()) ||
                                             e.getExportDate().toString().contains(search))
                     ).collect(Collectors.toList()).stream()
+                    .skip((pageNum - 1) * pageSize).limit(pageSize)
                     .forEach(
 
                             g -> {
@@ -68,33 +92,11 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                             }
                     );
             return exportDTOList;
+        }catch (Exception e){
+            System.out.println("export list :" +e.getMessage());
         }
-        jpaStreamer.stream(HistoryExport.class)
-                .filter(
-                        e ->
-                                e.getIsDeleted() == 0 && e.getType().equals("cote")
-                                        && (e.getCote().getCode().toLowerCase().contains(search.toLowerCase()) ||
-                                        e.getEmployee().getName().toLowerCase().contains(search.toLowerCase()) ||
-                                        e.getCompany().toLowerCase().contains(search.toLowerCase()) ||
-                                        e.getExportDate().toString().contains(search))
-                ).collect(Collectors.toList()).stream()
-                .skip((pageNum - 1) * pageSize).limit(pageSize)
-                .forEach(
-
-                        g -> {
-                            historyExportDTO = HistoryExportDTO.builder()
-                                    .id(g.getId())
-                                    .coteCode(g.getCote().getCode())
-                                    .company(g.getCompany())
-                                    .employeeCode(g.getEmployee().getName())
-                                    .exportDate(g.getExportDate())
-                                    .quantity(g.getQuantity())
-                                    .weightTotal(g.getReceivedEmployeeId())
-                                    .total(g.getReceivedEmployeeId() * 80000).build();
-                            exportDTOList.add(historyExportDTO);
-                        }
-                );
         return exportDTOList;
+
     }
 
     // Tuong
@@ -184,28 +186,8 @@ public class HistoryExportServiceImpl implements HistoryExportService {
         return 1;
     }
 
-    public int exportAllInCote(int idCote, HistoryExport historyExport) {
-        //find all pig same id cote
-        this.jpaStreamer.stream(Pig.class)
-                .filter(h -> h.getIsDeleted() == 0 && h.getCote().getId() == idCote)
-                .forEach(
-                        g -> {
-                            //loop setIsDel  = 1 and set status
-                            g.setIsDeleted(1);
-                            PigAssociateStatus.builder().pig(g)
-                                    .pigStatus(jpaStreamer.stream(PigStatus.class)
-                                            .filter(PigStatus$.name.equal("Sold")).findFirst().get());
-
-
-                        }
-                );
-        // add to table history export
-        historyExportRepository.save(historyExport);
-        return 0;
-    }
 
     public int addPigExport(int[] idPigs, HistoryExport historyExport){
-
         List<Pig> pigListSold = jpaStreamer.stream(Pig.class).filter(g -> g.getIsDeleted()==0).collect(Collectors.toList());
         List<Integer> pigIds = new ArrayList<>();
         for (int i = 0; i < idPigs.length; i++) {
@@ -221,7 +203,6 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                   .filter(PigStatus$.name.equal("Sold")).findFirst().get());
                           pigAssociateStatusRepository.save(pigAssociateStatus);
                           h.setIsDeleted(1);
-                          System.out.println(weight);
                           weight+= h.getWeight();
                           pigRepository.save(h);
                           historyExport.setCote(h.getCote());

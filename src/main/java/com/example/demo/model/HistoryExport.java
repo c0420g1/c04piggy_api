@@ -51,23 +51,7 @@ public class HistoryExport {
     @JoinColumn(name = "employee_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonBackReference(value = "employee")
     private Employee employee;
 
-    @Override
-    public String toString() {
-        return "HistoryExport{" +
-                "id=" + id +
-                ", isDeleted=" + isDeleted +
-                ", description='" + description + '\'' +
-                ", type='" + type + '\'' +
-                ", quantity=" + quantity +
-                ", unit='" + unit + '\'' +
-                ", company='" + company + '\'' +
-                ", receivedEmployeeId=" + receivedEmployeeId +
-                ", exportDate=" + exportDate +
-                ", stock=" + stock +
-                ", cote=" + cote +
-                ", employee=" + employee +
-                '}';
-    }
 }
