@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+import com.example.demo.common.Regex;
 import com.example.demo.model.Feed;
 import com.example.demo.model.FeedDTO;
 import com.example.demo.model.FeedType;
@@ -23,6 +24,8 @@ public class FeedController {
 
     @Autowired
     private FeedTypeService feedTypeService;
+
+    Regex regex = new Regex();
 
     //thinh
     //getAll feed ok
@@ -105,14 +108,31 @@ public class FeedController {
     @PostMapping("createFeed")
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
+        String amount = Integer.toString(feed.getAmount());
         try{
-            this.feedService.save(feed);
-            errors.add(new Error("success", "Create success"));
+            if (!regex.regexCode(feed.getCode())) {
+                errors.add(new Error("code", "code invalid format FEXXXX with X is number"));
+            }
+            if (feed.getDescription().length() < 0) {
+                errors.add(new Error("description", "description is not null"));
+            }
+            if (!regex.regexUnit(feed.getUnit())) {
+                errors.add(new Error("unit", "unit invalid format"));
+            }
+//            if (!regex.regexNumber(amount)){
+//                errors.add(new Error("amount", "amount invalid format is number"));
+//            }
+
+            if (errors.isEmpty()) {
+                this.feedService.save(feed);
+                errors.add(new Error("success", "Create success"));
+            }
             return errors;
         }catch (Exception e){
             System.out.println(e);
+            errors.add(new Error("nullPoint", "Please input all information before edit Avatar !"));
+            return errors;
         }
-        return null;
     }
 
 

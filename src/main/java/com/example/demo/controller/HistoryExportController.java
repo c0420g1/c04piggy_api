@@ -2,18 +2,12 @@ package com.example.demo.controller;
 import com.example.demo.model.HistoryExport;
 import com.example.demo.model.HistoryExportDTO;
 import com.example.demo.model.HistoryExportStockDTO;
-import com.example.demo.model.StockDTO;
 import com.example.demo.service.impl.CoteServiceImpl;
 import com.example.demo.service.impl.HistoryExportServiceImpl;
 import com.example.demo.service.impl.StockServiceImpl;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-
+import com.speedment.common.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -53,13 +47,21 @@ public class HistoryExportController {
         }
         return 0;
     }
-    @PostMapping("/exportCote")
-    public int exportCote(@RequestBody HistoryExport historyExport, @RequestParam int idCote){
-        return historyExportService.exportAllInCote(idCote,historyExport);
-    }
-    @PostMapping("/exportPigs")
-    public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam int[] ids){
-       return historyExportService.addPigExport(ids, historyExport);
+    @PutMapping("/exportPigs")
+    public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam String ids){
+        System.out.println("export list pigs " + ids);
+        String[] idPigs = ids.split(",");
+        int[] idSold = new int[idPigs.length];
+        try {
+
+            for (int i = 0; i < idPigs.length; i++) {
+                idSold[i] = Integer.parseInt(idPigs[i]);
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+      return   historyExportService.addPigExport(idSold, historyExport);
     }
 //
     //Creator Tuong

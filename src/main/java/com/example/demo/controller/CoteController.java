@@ -1,16 +1,13 @@
 package com.example.demo.controller;
-
-import com.example.demo.model.Cote;
-import com.example.demo.model.CoteDTO;
-import com.example.demo.model.Pig;
-import com.example.demo.model.PigDTO;
-import com.example.demo.service.CoteService;
-import com.example.demo.service.PigService;
+import com.example.demo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.demo.service.CoteService;
+import com.example.demo.service.PigService;
+
 
 @RestController
 public class CoteController {
@@ -89,5 +86,29 @@ public class CoteController {
             System.out.println("Get Cote by Id + "+ e.getMessage());
         }
         return cote;
+    }
+
+    // Trả về danh sách chuồng có số lượng = 0
+    @GetMapping("/listCoteCode")
+    public List<String> getAllCoteCode(){
+        List<String> coteCodeList = new ArrayList<>();
+        try {
+            coteCodeList = coteService.getCoteCode();
+        }catch (Exception e){
+            System.out.println("Controller + Get Cote Code + "+ e.getMessage());
+        }
+        return coteCodeList;
+    }
+
+    // Trả về danh sách tên đàn
+    @GetMapping("/herdList")
+    public List<Herd> getAllHerdName(){
+        List<Herd> herdList = new ArrayList<>();
+        try {
+            herdList = coteService.getListHerd();
+        }catch (Exception e){
+            System.out.println("Get List Herd  + " + e.getMessage());
+        }
+        return herdList;
     }
 }

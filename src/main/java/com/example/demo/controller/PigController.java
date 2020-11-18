@@ -61,6 +61,8 @@ public class PigController {
 
     @PatchMapping("/editPig")
     public void editPig(@RequestBody Pig editPig) {
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println(editPig);
         try {
             pigService.save(editPig);
         }catch (Exception e){
@@ -68,8 +70,8 @@ public class PigController {
         }
     }
 
-    @DeleteMapping("/deletePig")
-    public void deletePig(@PathVariable int[] ids){
+    @PatchMapping("/deletePig")
+    public void deletePig(@RequestBody int[] ids){
         try {
             pigService.delete(ids);
         }catch (Exception e){
