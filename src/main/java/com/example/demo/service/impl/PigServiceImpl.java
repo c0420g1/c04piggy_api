@@ -4,11 +4,13 @@ import com.example.demo.common.SameParentException;
 import com.example.demo.model.*;
 import com.example.demo.repository.PigAssociateStatusRepository;
 import com.example.demo.repository.PigRepository;
+import com.example.demo.service.HistoryExportService;
 import com.example.demo.service.PigService;
 import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -24,10 +26,11 @@ public class PigServiceImpl implements PigService {
     private PigRepository pigRepository;
 
     @Autowired
-    private PigAssociateStatusRepository pigAssociateStatusRepository;
+    private HistoryExportService historyExportService;
 
     @Autowired
-    private HistoryExportServiceImpl historyExportService;
+    private PigAssociateStatusRepository pigAssociateStatusRepository;
+
 
     //CRUD
     @Override
@@ -159,6 +162,16 @@ public class PigServiceImpl implements PigService {
         pigRepository.save(pig);
         pigAssociateStatusRepository.save(pigAssociateStatus);
 
+        
+        Pig tempPig = jpaStreamer.stream(Pig.class).filter(e -> e.getId() == id).findFirst().get();
+        HistoryExport hi = new HistoryExport();
+        hi.setCote(tempPig.getCote());
+        hi.setEmployee(tempPig.getCote().getEmployee());
+        hi.setExportDate(LocalDate.now());
+        //
+
+        historyExportService.save(hi);
     }
+
 
 }
