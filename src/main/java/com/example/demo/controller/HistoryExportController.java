@@ -49,7 +49,6 @@ public class HistoryExportController {
     }
     @PutMapping("/exportPigs")
     public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam String ids){
-        System.out.println(ids);
         String[] idPigs = ids.split(",");
         int[] idSold = new int[idPigs.length];
         try {
