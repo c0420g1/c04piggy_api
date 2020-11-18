@@ -61,6 +61,8 @@ public class PigController {
 
     @PatchMapping("/editPig")
     public void editPig(@RequestBody Pig editPig) {
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println(editPig);
         try {
             pigService.save(editPig);
         }catch (Exception e){

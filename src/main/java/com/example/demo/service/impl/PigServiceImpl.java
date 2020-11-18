@@ -32,6 +32,8 @@ public class PigServiceImpl implements PigService {
     //CRUD
     @Override
     public List<Pig> getAll() {
+        jpaStreamer= JPAStreamer.of("c04piggy");
+
         List<Pig> pigList;
             pigList = jpaStreamer.stream(Pig.class).collect(Collectors.toList());
             return pigList;
@@ -39,8 +41,9 @@ public class PigServiceImpl implements PigService {
 
     @Override
     public List<PigDTO> listPigSearch(int pageNumber, String search) {
-        List<PigDTO> pigList = new ArrayList<>();
+        jpaStreamer= JPAStreamer.of("c04piggy");
 
+        List<PigDTO> pigList = new ArrayList<>();
         try{
             if(pageNumber==-1){
                 jpaStreamer.stream(Pig.class)
@@ -92,6 +95,8 @@ public class PigServiceImpl implements PigService {
     //match pigs to breed new pig function
 
     public List<Pig> pickFemalePig(String filter) {
+        jpaStreamer= JPAStreamer.of("c04piggy");
+
         List<Pig> pigList = new ArrayList<>();
         long count;
         pigList = jpaStreamer.stream(Pig.class).filter(Pig$.gender.equal((byte) 0)).collect(Collectors.toList());
@@ -109,6 +114,7 @@ public class PigServiceImpl implements PigService {
     }
 
     public List<Pig> pickMalePig(String filter) {
+
         List<Pig> pigList = new ArrayList<>();
         double totalWeight = 0;
         List<Pig> checkWeight = new ArrayList<>();
