@@ -42,13 +42,25 @@ public class PigServiceImpl implements PigService {
         List<PigDTO> pigList = new ArrayList<>();
 
         try{
-            jpaStreamer.stream(Pig.class)
-                    .filter(e -> e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
-                    e.getHerd().getName().toLowerCase().contains(search))
-                    .collect(Collectors.toList()).stream().skip((pageNumber-1)*pageSize).limit(pageSize).forEach(p -> {
-                PigDTO pigDTO = new PigDTO(p.getId(),p.getCode(),p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
-                pigList.add(pigDTO);
-            });
+            if(pageNumber==-1){
+                jpaStreamer.stream(Pig.class)
+                        .filter(e -> e.getIsDeleted() == 0 &&
+                                (e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                                e.getHerd().getName().toLowerCase().contains(search)))
+                        .forEach(p -> {
+                            PigDTO pigDTO = new PigDTO(p.getId(), p.getCode(), p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
+                            pigList.add(pigDTO);
+                        });
+            }else {
+                jpaStreamer.stream(Pig.class)
+                        .filter(e -> e.getIsDeleted() == 0 &&
+                                e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                                e.getHerd().getName().toLowerCase().contains(search))
+                        .collect(Collectors.toList()).stream().skip((pageNumber - 1) * pageSize).limit(pageSize).forEach(p -> {
+                    PigDTO pigDTO = new PigDTO(p.getId(), p.getCode(), p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
+                    pigList.add(pigDTO);
+                });
+            }
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

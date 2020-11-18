@@ -25,7 +25,16 @@ public class HerdServiceImpl implements HerdService {
 
     @Override
     public List<Herd> getAllHerdList(int pageNumber) {
-        return jpaStreamer.stream(Herd.class).collect(Collectors.toList()).stream().skip((pageNumber-1)*pageSize).limit(pageSize).collect(Collectors.toList());
+        try {
+            if (pageNumber == -1) {
+                return jpaStreamer.stream(Herd.class).filter(f -> f.getIsDeleted() == 0).collect(Collectors.toList());
+            } else {
+                return jpaStreamer.stream(Herd.class).filter(f -> f.getIsDeleted() == 0).collect(Collectors.toList()).stream().skip((pageNumber - 1) * pageSize).limit(pageSize).collect(Collectors.toList());
+            }
+        }catch (Exception e){
+            System.out.println("loi tai get herd Impl" + e.getMessage());
+            return null;
+        }
     }
 
     @Override
