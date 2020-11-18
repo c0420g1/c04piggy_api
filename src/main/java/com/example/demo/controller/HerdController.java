@@ -17,7 +17,7 @@ public class HerdController {
     @Autowired
     private HerdService herdService;
 
-    @GetMapping("herdListAll")
+    @GetMapping("/herdListAll")
     public List<Herd> getHerdListFull(){
         try {
             return herdService.getAll();
