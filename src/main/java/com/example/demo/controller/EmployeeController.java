@@ -1,11 +1,16 @@
 package com.example.demo.controller;
+import com.example.demo.configuration.TokenAuthenticator;
 import com.example.demo.model.*;
 import com.example.demo.service.AccountService;
 import com.example.demo.service.EmployeeService;
 import com.example.demo.service.RoleAccountService;
 import com.example.demo.service.RoleService;
+import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,7 +106,27 @@ public class EmployeeController {
         }
         return 0;
     }
+    @PostMapping("/login")
+    public JwtDTO getJwt(@RequestBody AccountDTO accountDTO, HttpServletResponse response){
+        JPAStreamer jpaStreamer = JPAStreamer.of("c04piggy");
+        System.out.println(accountDTO);
+        try {
+            Account account = jpaStreamer.stream(Account.class).filter(Account$.username.equal(accountDTO.getUsername())).findFirst().get();
 
+        System.out.println(account);
+
+        if(new BCryptPasswordEncoder().matches( accountDTO.getPassword(), account.getPassword()) && account!=null) {
+            RoleAccount rc =  jpaStreamer.stream(RoleAccount.class).filter(e-> e.getAccount().getId()== account.getId()).findFirst().get();
+            String roleName= rc.getRole().getName();
+            String token = TokenAuthenticator.addAuthentication( accountDTO.getUsername(),roleName);
+            return new JwtDTO(token,account.getUsername(),roleName);
+        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+
+    }
 
     // Hai
     @GetMapping("/employee")
