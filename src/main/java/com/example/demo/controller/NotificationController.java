@@ -28,4 +28,9 @@ public class NotificationController {
     public int deleteNotification(@RequestParam int[] ids){
         return notificationService.delete(ids);
     }
+
+    @PostMapping("/addNewNote")
+    public void addNewNote(@RequestBody Notification notification) {
+        notificationService.addNewNote(notification);
+    }
 }
