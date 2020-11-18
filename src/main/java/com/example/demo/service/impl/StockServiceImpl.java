@@ -118,6 +118,7 @@ public class StockServiceImpl implements StockService {
         try {
             FeedType feedType= jpaStreamer.stream(FeedType.class).filter(FeedType$.id.equal(stockDTO.getFeedTypeId())).findFirst().get();
             Vendor vendor= jpaStreamer.stream(Vendor.class).filter(Vendor$.id.equal(stockDTO.getVendorId())).findFirst().get();
+
             Stock stock = Stock.builder().id(stockDTO.getId()).description(stockDTO.getDescription()).expDate(stockDTO.getExpDate())
                     .isDeleted(0).importDate(stockDTO.getImportDate()).mfgDate((stockDTO.getMfgDate())).shipmentCode(stockDTO.getShipmentCode()).unit(stockDTO.getUnit())
                     .quantity(stockDTO.getQuantity()).feedType(feedType).vendor(vendor).build();
