@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/PigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/PigController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/PigServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/PigServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +76,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.DemoApplication (1)">
+  <component name="RunManager" selected="Spring Boot.DemoApplication">
     <configuration name="All in c04piggy_api" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="c04piggy_api" />
       <option name="PACKAGE_NAME" value="" />
@@ -102,8 +98,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="c04piggy_api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.DemoApplication" />
         <item itemvalue="Spring Boot.DemoApplication (1)" />
         <item itemvalue="JUnit.All in c04piggy_api" />
       </list>
@@ -180,11 +190,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="280" y="4" key="#Project_Structure" timestamp="1605585237459">
+    <state x="280" y="4" key="#Project_Structure" timestamp="1605693008599">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="239" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1605521435606" />
-    <state x="280" y="4" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1605585237459" />
+    <state x="280" y="4" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1605693008599" />
     <state x="254" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605585430698">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -345,7 +355,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/StockServiceImpl.java</url>
           <line>71</line>
-          <properties class="com.example.demo.service.impl.StockServiceImpl" method="search">
+          <properties class="com.example.demo.service.impl.StockServiceImpl">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="4" />
