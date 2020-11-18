@@ -39,12 +39,12 @@ public class HerdServiceImpl implements HerdService {
 
     @Override
     public List<Herd> getAll() {
-        return null;
+        return jpaStreamer.stream(Herd.class).filter(e -> e.getIsDeleted() == 0).collect(Collectors.toList());
     }
 
     @Override
     public Optional<Herd> getById(int id) {
-        return jpaStreamer.stream(Herd.class).filter(e -> e.getId() == id).findFirst();
+        return jpaStreamer.stream(Herd.class).filter(e ->e.getIsDeleted() == 0 && e.getId() == id).findFirst();
     }
 
     @Override
