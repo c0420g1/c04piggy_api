@@ -238,6 +238,17 @@ public class CoteServiceImpl implements CoteService {
         return coteCodeList;
     }
 
+    @Override
+    public List<Herd> getListHerd() {
+        List<Herd> herdList = new ArrayList<>();
+        try{
+            herdList = jpaStreamer.stream(Herd.class).collect(Collectors.toList());
+        }catch (Exception e){
+            System.out.println("Get list Herd" + e.getMessage());
+        }
+        return herdList;
+    }
+
 
     //creator Hieu
     @Override

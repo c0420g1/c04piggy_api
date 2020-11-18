@@ -31,8 +31,6 @@ public class PigServiceImpl implements PigService {
     @Autowired
     private PigAssociateStatusRepository pigAssociateStatusRepository;
 
-    @Autowired
-    private HistoryExportServiceImpl historyExportService;
 
     //CRUD
     @Override
