@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.common.SameParentException;
 import com.example.demo.model.*;
+import com.example.demo.repository.PigAssociateStatusRepository;
 import com.example.demo.repository.PigRepository;
 import com.example.demo.service.PigService;
 import com.speedment.jpastreamer.application.JPAStreamer;
@@ -22,6 +23,12 @@ public class PigServiceImpl implements PigService {
     @Autowired
     private PigRepository pigRepository;
 
+    @Autowired
+    private PigAssociateStatusRepository pigAssociateStatusRepository;
+
+    @Autowired
+    private HistoryExportServiceImpl historyExportService;
+
     //CRUD
     @Override
     public List<Pig> getAll() {
@@ -33,9 +40,9 @@ public class PigServiceImpl implements PigService {
     @Override
     public List<PigDTO> listPigSearch(int pageNumber, String search) {
         List<PigDTO> pigList = new ArrayList<>();
-        jpaStreamer.stream(Pig.class).filter(e -> e.getCode().contains(search) || e.getCote().getCode().contains(search) ||
-                e.getHerd().getName().contains(search)).skip(pageNumber).limit(pageSize).forEach(e -> {
-            PigDTO pigDTO = new PigDTO(e.getId(), e.getCote().getCode(), e.getImportDate(), e.getPigAssociateStatuses().stream().collect(Collectors.toList()), e.getWeight());
+        jpaStreamer.stream(Pig.class).filter(e -> e.getCode().toLowerCase().contains(search) || e.getCote().getCode().toLowerCase().contains(search) ||
+                e.getHerd().getName().toLowerCase().contains(search)).skip(pageNumber).limit(pageSize).forEach(p -> {
+            PigDTO pigDTO = new PigDTO(p.getId(),p.getCode(),p.getCote().getCode(), p.getImportDate(), p.getPigAssociateStatuses().stream().filter(f -> f.getPig().getId() == p.getId()).collect(Collectors.toList()), p.getWeight());
             pigList.add(pigDTO);
                 });
         return pigList;
@@ -118,11 +125,15 @@ public class PigServiceImpl implements PigService {
     }
 
     @Override
-    public void soldPig(Pig pig) {
+    public void soldPig(int id) {
+        Pig pig = pigRepository.getOne(id);
         PigAssociateStatus pigAssociateStatus = new PigAssociateStatus();
         pigAssociateStatus.setPig(pig);
         pigAssociateStatus.setPigStatus(jpaStreamer.stream(PigStatus.class).filter(PigStatus$.name.equal("Sold")).findFirst().get());
         pig.setIsDeleted(1);
         pigRepository.save(pig);
+        pigAssociateStatusRepository.save(pigAssociateStatus);
+
     }
+
 }

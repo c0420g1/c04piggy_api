@@ -20,6 +20,13 @@ public class EmployeeController {
     RoleService roleService;
     @Autowired
     RoleAccountService roleAccountService;
+
+
+    @GetMapping("allEmployees")
+    public List<Employee> getAll(){
+        return employeeService.getAll();
+    }
+   
     // creator: Viet
     //add, update, edit
     @GetMapping("employees/{pageNum}")
