@@ -1,13 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.common.SameParentException;
 import com.example.demo.model.Pig;
 import com.example.demo.model.PigDTO;
 import com.example.demo.service.PigService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
