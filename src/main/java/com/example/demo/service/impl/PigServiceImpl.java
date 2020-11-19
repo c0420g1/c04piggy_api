@@ -102,8 +102,8 @@ public class PigServiceImpl implements PigService {
 
         List<Pig> pigList = new ArrayList<>();
         long count;
-        pigList = jpaStreamer.stream(Pig.class).filter(Pig$.gender.equal((byte) 0)).collect(Collectors.toList());
-        if ("filter".equals(filter)) {
+        pigList = jpaStreamer.stream(Pig.class).filter(e -> (e.getGender() == 0) && (e.getIsDeleted() == 0)).collect(Collectors.toList());
+        if ("female".equals(filter)) {
             for (int i = 0; i <= pigList.size(); i++) {
                 count = jpaStreamer.stream(Pig.class)
                         .filter(Pig$.motherId.equal(pigList.get(i).getId()))
@@ -121,8 +121,8 @@ public class PigServiceImpl implements PigService {
         List<Pig> pigList = new ArrayList<>();
         double totalWeight = 0;
         List<Pig> checkWeight = new ArrayList<>();
-        pigList = jpaStreamer.stream(Pig.class).filter(Pig$.gender.equal((byte) 1)).collect(Collectors.toList());
-        if ("filter".equals(filter)) {
+        pigList = jpaStreamer.stream(Pig.class).filter(e -> (e.getGender() == 1) && (e.getIsDeleted() == 0)).collect(Collectors.toList());
+        if ("male".equals(filter)) {
             for (int i = 0; i <= pigList.size(); i++) {
                 checkWeight = (jpaStreamer.stream(Pig.class)
                         .filter(Pig$.fatherId.equal(pigList.get(i).getId())).collect(Collectors.toList()));
