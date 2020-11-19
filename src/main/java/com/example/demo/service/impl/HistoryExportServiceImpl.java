@@ -9,6 +9,7 @@ import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -187,7 +188,7 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     }
 
 
-    public int addPigExport(int[] idPigs, HistoryExport historyExport){
+    public int addPigExport(int[] idPigs, HistoryExport historyExport) {
         List<Pig> pigListSold = jpaStreamer.stream(Pig.class).filter(g -> g.getIsDeleted()==0).collect(Collectors.toList());
         List<Integer> pigIds = new ArrayList<>();
         for (int i = 0; i < idPigs.length; i++) {
@@ -203,6 +204,7 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                   .filter(PigStatus$.name.equal("Sold")).findFirst().get());
                           pigAssociateStatusRepository.save(pigAssociateStatus);
                           h.setIsDeleted(1);
+                          h.setExportDate(LocalDate.now());
                           weight+= h.getWeight();
                           pigRepository.save(h);
                           historyExport.setCote(h.getCote());

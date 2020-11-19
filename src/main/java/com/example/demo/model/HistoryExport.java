@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class HistoryExport {
     @Column(length = 1000)
     private String description;
     private String type;
+
     private int quantity;
     private String unit;
     private String company;
