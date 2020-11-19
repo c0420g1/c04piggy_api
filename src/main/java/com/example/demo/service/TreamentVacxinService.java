@@ -9,4 +9,5 @@ public interface TreamentVacxinService extends BaseService<TreatmentVacxin>{
     List<Pig> getListPig(int coteID);
     List<Diseases> getListDiseases();
     List<Vacxin> getListVacxin();
+    List<VaccineInfoDTO> getDataVaccine(int pageNumber, String search, String type);
 }

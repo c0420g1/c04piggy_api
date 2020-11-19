@@ -69,4 +69,8 @@ public class TreatmentVacxinController {
     public List<Vacxin> getListVacxin(){
         return treamentVacxinService.getListVacxin();
     }
+    @GetMapping("/vaccineInfoDTO/{pageNum}")
+    public List<VaccineInfoDTO> getDataVaccineDTO(@PathVariable int pageNum,@RequestParam(defaultValue = "") String search, @RequestParam String type){
+        return treamentVacxinService.getDataVaccine(pageNum,search,type);
+    }
 }
