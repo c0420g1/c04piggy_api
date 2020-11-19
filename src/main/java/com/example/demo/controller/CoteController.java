@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 import com.example.demo.model.*;
+import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.demo.service.CoteService;
 import com.example.demo.service.PigService;
@@ -44,12 +46,24 @@ public class CoteController {
 
     // Thêm 1 chuồng mới
     @PostMapping("cote")
-    public void addNewCote(@RequestBody Cote cote){
+    public int addNewCote(@RequestBody Cote cote){
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+        List<Herd> herdList = new ArrayList<>();
+        jpaStreamer.stream(Cote.class).collect(Collectors.toList()).forEach(e->{
+            herdList.add(e.getHerd());
+        });
+        for (Herd herd: herdList) {
+            if (herd.getId() == cote.getHerd().getId()){
+                return 0;
+            }
+        }
         try{
             coteService.save(cote);
+            return 1;
         }catch (Exception e){
             System.out.println("Save cote + "+ e.getMessage());
         }
+        return 0;
     }
 
     // Trả về danh sách heo có cùng mã đàn
