@@ -52,7 +52,7 @@ public class StockController {
     @PutMapping("exportOutStock/{id}")
     public int exportOutStock(@PathVariable int id, @RequestParam int quantity){
         Stock stock = stockService.getById(id).get();
-        if (stock.getQuantity() > quantity){
+        if (stock.getQuantity() >= quantity){
             stock.setQuantity(stock.getQuantity() - quantity);
             stockService.save(stock);
             return 1;
