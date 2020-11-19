@@ -84,7 +84,21 @@ public class NotificationServiceImpl implements NotificationService {
           .employee(employee).type(notificationDTO.getType()).createDate( LocalDate.parse(notificationDTO.getCreateDate())).build();
           notificationRepository.save(notification);
           Notification noti= jpaStreamer.stream(Notification.class).sorted(Notification$.id.reversed()).findFirst().get();
-          notificationDTO.getEmployees().forEach(f -> {
+        List<SelectedEmployee> exits= new ArrayList<>();
+          jpaStreamer.stream(NotificationEmployee.class).filter(fi-> fi.getNotification().getId()== noti.getId()).forEach(v->{
+              SelectedEmployee s= SelectedEmployee.builder().id(v.getEmployee().getId()).itemName(v.getEmployee().getName()).build();
+              exits.add(s);
+          });
+
+        List<SelectedEmployee> tmp= new ArrayList<>();
+          notificationDTO.getEmployees().forEach(fo -> {
+              if(!exits.contains(fo)){
+                  tmp.add(fo);
+              }
+          });
+
+
+        tmp.forEach(f -> {
               Employee emp= jpaStreamer.stream(Employee.class).filter(Employee$.id.equal(f.getId())).findFirst().get();
               NotificationEmployee notificationEmployee= NotificationEmployee.builder().notification(noti).employee(emp).build();
               notificationEmployeeRepository.save(notificationEmployee);
