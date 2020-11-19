@@ -3,12 +3,18 @@ package com.example.demo.controller;
 import com.example.demo.model.Pig;
 import com.example.demo.model.PigDTO;
 import com.example.demo.service.PigService;
+import jakarta.validation.Valid;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -38,6 +44,26 @@ public class PigController {
         }
     }
 
+    @GetMapping("/pigMale")
+    public List<Pig> getMalePigList(@RequestParam(defaultValue = "") String filter){
+        try {
+            return pigService.pickMalePig(filter);
+        }catch (Exception e){
+            errorLog.error("lỗi tại pigList" + e.getMessage());
+            return null;
+        }
+    }
+
+    @GetMapping("/pigFemale")
+    public List<Pig> getFemalePigList(@RequestParam(defaultValue = "") String filter){
+        try {
+            return pigService.pickFemalePig(filter);
+        }catch (Exception e){
+            errorLog.error("lỗi tại pigList" + e.getMessage());
+            return null;
+        }
+    }
+
     @GetMapping("/pigDetail")
     public Optional<Pig> getPigDetail(@RequestParam int id) {
         try {
@@ -59,8 +85,6 @@ public class PigController {
 
     @PatchMapping("/editPig")
     public void editPig(@RequestBody Pig editPig) {
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println(editPig);
         try {
             pigService.save(editPig);
         }catch (Exception e){
@@ -79,8 +103,20 @@ public class PigController {
 
     //add new born pig
     @PostMapping("/addNewBornPig")
-    public void addNewBornPig(@RequestBody Pig pigAdd) {
+    public void addNewBornPig(@Valid @RequestBody Pig pigAdd) {
         pigService.saveNewPig(pigAdd);
+    }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
     }
 
     //sold pig
@@ -92,4 +128,5 @@ public class PigController {
             errorLog.error("Lỗi tại vị trí soldPig" + e.getMessage());
         }
     }
+
 }
