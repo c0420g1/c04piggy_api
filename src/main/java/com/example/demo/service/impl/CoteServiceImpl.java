@@ -92,13 +92,19 @@ public class CoteServiceImpl implements CoteService {
                             }
                             int quantity = pigList.size();
                             String exportDate= "";
-                            if(cote.getExportDate() != null){
-                                exportDate = cote.getExportDate().toString();
-                            }
+
                             //  Tìm ra số ngày đã nuôi heo => trạng thái
                             LocalDate now = LocalDate.now();
                             int day = (int) ChronoUnit.DAYS.between(cote.getImportDate(),now);
                             String status = this.StatusPig(day);
+                            if(cote.getExportDate() != null){
+                                exportDate = cote.getExportDate().toString();
+                            }
+                            if (quantity == 0){
+                                day = 0;
+                                status = "Close";
+                            }
+
                             CoteDTO coteDTO = CoteDTO.builder()
                                     .id(cote.getId())
                                     .coteCode(cote.getCode())
@@ -134,6 +140,10 @@ public class CoteServiceImpl implements CoteService {
                             LocalDate now = LocalDate.now();
                             int day = (int) ChronoUnit.DAYS.between(cote.getImportDate(),now);
                             String status = this.StatusPig(day);
+                            if (quantity == 0){
+                                day = 0;
+                                status = "Close";
+                            }
                             CoteDTO coteDTO = CoteDTO.builder()
                                     .id(cote.getId())
                                     .coteCode(cote.getCode())
@@ -288,12 +298,12 @@ public class CoteServiceImpl implements CoteService {
         }
         return status;
     }
-
+//
 //    public static void main(String[] args) {
 //        LocalDate c = LocalDate.now();
-//        LocalDate a = LocalDate.of(2020,11,10);
+//        LocalDate a = LocalDate.of(2020,11,15);
 //        LocalDate b = LocalDate.of(2020,11,14);
-//        System.out.println(ChronoUnit.DAYS.between(a,c));
+//        System.out.println(a.compareTo(b));
 //            }
 
 }
