@@ -6,20 +6,22 @@ import com.example.demo.service.impl.CoteServiceImpl;
 import com.example.demo.service.impl.HistoryExportServiceImpl;
 import com.example.demo.service.impl.StockServiceImpl;
 import com.speedment.common.json.Json;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class HistoryExportController {
 
     @Autowired
     private HistoryExportServiceImpl historyExportService;
-    @Autowired
-    private CoteServiceImpl coteService;
-    @Autowired
-    private StockServiceImpl stockService;
-
 
     @GetMapping("export-management/{pageNum}")
     public List<HistoryExportDTO> getAll(@PathVariable int pageNum , @RequestParam(defaultValue = "") String search){
@@ -48,7 +50,8 @@ public class HistoryExportController {
         return 0;
     }
     @PutMapping("/exportPigs")
-    public int exportPigs(@RequestBody HistoryExport historyExport, @RequestParam String ids){
+    public int exportPigs(@Valid  @RequestBody HistoryExport historyExport, @RequestParam String ids){
+
         System.out.println("export list pigs " + ids);
         String[] idPigs = ids.split(",");
         int[] idSold = new int[idPigs.length];
@@ -80,6 +83,18 @@ public class HistoryExportController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
     }
 
 }

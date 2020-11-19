@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class HistoryExport {
 
     @Column(length = 1000)
     private String description;
+    @Column(name = "type", nullable = false)
     private String type;
 
     private int quantity;
@@ -41,7 +43,6 @@ public class HistoryExport {
     @ToString.Exclude
 
     private Stock stock;
-
     @ManyToOne
     @JoinColumn(name = "cote_id")
     @EqualsAndHashCode.Exclude
