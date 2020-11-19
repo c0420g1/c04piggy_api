@@ -92,13 +92,19 @@ public class CoteServiceImpl implements CoteService {
                             }
                             int quantity = pigList.size();
                             String exportDate= "";
-                            if(cote.getExportDate() != null){
-                                exportDate = cote.getExportDate().toString();
-                            }
+
                             //  Tìm ra số ngày đã nuôi heo => trạng thái
                             LocalDate now = LocalDate.now();
                             int day = (int) ChronoUnit.DAYS.between(cote.getImportDate(),now);
                             String status = this.StatusPig(day);
+                            if(cote.getExportDate() != null){
+                                exportDate = cote.getExportDate().toString();
+                            }
+                            if (quantity == 0){
+                                day = 0;
+                                status = "Close";
+                            }
+
                             CoteDTO coteDTO = CoteDTO.builder()
                                     .id(cote.getId())
                                     .coteCode(cote.getCode())
@@ -134,6 +140,10 @@ public class CoteServiceImpl implements CoteService {
                             LocalDate now = LocalDate.now();
                             int day = (int) ChronoUnit.DAYS.between(cote.getImportDate(),now);
                             String status = this.StatusPig(day);
+                            if (quantity == 0){
+                                day = 0;
+                                status = "Close";
+                            }
                             CoteDTO coteDTO = CoteDTO.builder()
                                     .id(cote.getId())
                                     .coteCode(cote.getCode())
@@ -179,6 +189,7 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public List<Pig> getAllPig(String herdCode) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Pig> pigList = new ArrayList<>();
         try{
             pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getHerd().getName().contains(herdCode) && e.getIsDeleted() == 0).collect(Collectors.toList());
@@ -199,10 +210,10 @@ public class CoteServiceImpl implements CoteService {
                     .collect(Collectors.toList())
                     .forEach(pig ->{
                         // List Status cho từng con heo
-                        List<Integer> listStatus = new ArrayList<>();
+                        List<String> listStatus = new ArrayList<>();
                         jpaStreamer.stream(PigAssociateStatus.class).
                             filter(pigA -> pigA.getPig().getId() == pig.getId()).collect(Collectors.toList()).forEach(b ->{
-                                        listStatus.add(b.getPigStatus().getId()); // co the getName() để lấy tình trạng
+                                        listStatus.add(b.getPigStatus().getName()); // co the getName() để lấy tình trạng
                                     });
 
                 PigDTO pigDTO = PigDTO.builder()
@@ -223,6 +234,7 @@ public class CoteServiceImpl implements CoteService {
     // Trả về danh sách chuồng có số lượng bằng 0;
     @Override
     public List<String> getCoteCode() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<String> coteCodeList = new ArrayList<>();
         try {
             jpaStreamer.stream(Cote.class).collect(Collectors.toList()).forEach( cote ->  {
@@ -240,6 +252,7 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public List<Herd> getListHerd() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Herd> herdList = new ArrayList<>();
         try{
             herdList = jpaStreamer.stream(Herd.class).collect(Collectors.toList());
@@ -253,6 +266,7 @@ public class CoteServiceImpl implements CoteService {
     //creator Hieu
     @Override
     public List<Pig> getAllPigSold() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Integer> listIdPigSold = pigAssociateStatusService.getAllIdPigSoled();
         List<Pig> pigList = new ArrayList<>();
         for (int idPig :
@@ -288,12 +302,12 @@ public class CoteServiceImpl implements CoteService {
         }
         return status;
     }
-
+//
 //    public static void main(String[] args) {
 //        LocalDate c = LocalDate.now();
-//        LocalDate a = LocalDate.of(2020,11,10);
+//        LocalDate a = LocalDate.of(2020,11,15);
 //        LocalDate b = LocalDate.of(2020,11,14);
-//        System.out.println(ChronoUnit.DAYS.between(a,c));
+//        System.out.println(a.compareTo(b));
 //            }
 
 }
