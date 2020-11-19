@@ -15,13 +15,8 @@ public class NotificationController {
     private NotificationService notificationService;
 
     @GetMapping("getNotification/{pageNum}")
-    public List<Notification> getData(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
-        return notificationService.getData(pageNum,pageSize,search);
-    }
-
-    @PostMapping("addEditNotification")
-    public int addEditNotification(@RequestBody Notification notification){
-        return notificationService.save(notification);
+    public List<NotificationDTO> getData(@PathVariable int pageNum, @RequestParam int pageSize, @RequestParam(defaultValue = "") String search){
+        return notificationService.getDataDTO(pageNum,pageSize,search);
     }
 
     @PutMapping("deleteNotification")
@@ -29,8 +24,8 @@ public class NotificationController {
         return notificationService.delete(ids);
     }
 
-    @PostMapping("/addNewNote")
-    public void addNewNote(@RequestBody Notification notification) {
-        notificationService.addNewNote(notification);
+    @PostMapping("addEditNotificationDTO")
+    public void addEditNotificationDTO(@RequestBody NotificationDTO notificationDTO) {
+        notificationService.addEditNotificationDTO(notificationDTO);
     }
 }
