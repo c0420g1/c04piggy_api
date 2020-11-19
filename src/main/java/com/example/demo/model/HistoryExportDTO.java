@@ -12,6 +12,7 @@ import java.time.LocalDate;
 public class HistoryExportDTO {
     private int id;
     private String coteCode;
+    private String herdCode;
     private String employeeCode;
     private String company;
     private LocalDate exportDate;
