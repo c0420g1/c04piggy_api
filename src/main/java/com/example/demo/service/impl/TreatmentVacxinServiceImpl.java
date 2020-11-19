@@ -120,7 +120,7 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
     public List<Pig> getListPig(int coteID) {
         JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         try {
-            List<Pig> pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getCote().getId() == coteID).collect(Collectors.toList());
+            List<Pig> pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getCote().getId() == coteID && e.getIsDeleted() == 0).collect(Collectors.toList());
             return pigList;
         }catch (Exception e){
             e.getMessage();
