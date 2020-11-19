@@ -32,7 +32,9 @@ public class CoteServiceImpl implements CoteService {
         JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Cote> coteList;
         coteList = jpaStreamer.stream(Cote.class).sorted(Cote$.importDate.reversed().thenComparing(Cote$.exportDate)).collect(Collectors.toList());
+        jpaStreamer.close();
         return coteList;
+
     }
 
 
@@ -43,18 +45,24 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public int save(Cote cote) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         System.out.println(cote);
+        Cote cote1 = jpaStreamer.stream(Cote.class).filter(e -> e.getCode().equals(cote.getCode())).findFirst().get();
         try{
+            cote.setId(cote1.getId());
             coteRepository.save(cote);
+
             return 1;
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+        jpaStreamer.close();
         return 0;
     }
 
     @Override
     public int delete(int[] ids) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         try {
             Arrays.stream(ids).forEach(e ->
             {
@@ -67,6 +75,7 @@ public class CoteServiceImpl implements CoteService {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+        jpaStreamer.close();
         return 0;
     }
 
@@ -160,6 +169,7 @@ public class CoteServiceImpl implements CoteService {
         }catch (Exception e){
             System.out.println("Get CoteDTO + "+ e.getMessage());
         }
+        jpaStreamer.close();
         return coteList;
     }
 
@@ -184,6 +194,7 @@ public class CoteServiceImpl implements CoteService {
         }catch (Exception e){
             System.out.println("Get size of Cote list + " + e.getMessage());
         }
+        jpaStreamer.close();
         return coteList;
     }
 
@@ -196,6 +207,7 @@ public class CoteServiceImpl implements CoteService {
         }catch (Exception e){
             System.out.println("get List Pig + "+ e.getMessage());
         }
+        jpaStreamer.close();
         return pigList;
     }
 
@@ -228,6 +240,7 @@ public class CoteServiceImpl implements CoteService {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        jpaStreamer.close();
         return list;
     }
 
@@ -247,6 +260,7 @@ public class CoteServiceImpl implements CoteService {
         }catch (Exception e){
             System.out.println("Get Cote Code:" + e.getMessage());
         }
+        jpaStreamer.close();
         return coteCodeList;
     }
 
@@ -259,6 +273,7 @@ public class CoteServiceImpl implements CoteService {
         }catch (Exception e){
             System.out.println("Get list Herd" + e.getMessage());
         }
+        jpaStreamer.close();
         return herdList;
     }
 
@@ -282,6 +297,7 @@ public class CoteServiceImpl implements CoteService {
                     }
             );
         }
+        jpaStreamer.close();
         return pigList;
     }
 
