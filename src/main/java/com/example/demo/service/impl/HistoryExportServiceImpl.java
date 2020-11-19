@@ -53,6 +53,7 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                     historyExportDTO = HistoryExportDTO.builder()
                                             .id(g.getId())
                                             .coteCode(g.getCote().getCode())
+                                            .herdCode(g.getCote().getHerd().getName())
                                             .company(g.getCompany())
                                             .employeeCode(g.getEmployee().getName())
                                             .exportDate(g.getExportDate())
@@ -80,6 +81,7 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                 historyExportDTO = HistoryExportDTO.builder()
                                         .id(g.getId())
                                         .coteCode(g.getCote().getCode())
+                                        .herdCode(g.getCote().getHerd().getName())
                                         .company(g.getCompany())
                                         .employeeCode(g.getEmployee().getName())
                                         .exportDate(g.getExportDate())
@@ -207,6 +209,7 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                           historyExport.setCote(h.getCote());
                           historyExport.setQuantity(idPigs.length);
                           historyExport.setType("cote");
+                          historyExport.setDescription(h.getHerd().getName());
                           historyExport.setReceivedEmployeeId(weight);
                           historyExportRepository.save(historyExport);
 
