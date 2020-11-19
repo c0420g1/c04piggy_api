@@ -189,6 +189,7 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public List<Pig> getAllPig(String herdCode) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Pig> pigList = new ArrayList<>();
         try{
             pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getHerd().getName().contains(herdCode) && e.getIsDeleted() == 0).collect(Collectors.toList());
@@ -233,6 +234,7 @@ public class CoteServiceImpl implements CoteService {
     // Trả về danh sách chuồng có số lượng bằng 0;
     @Override
     public List<String> getCoteCode() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<String> coteCodeList = new ArrayList<>();
         try {
             jpaStreamer.stream(Cote.class).collect(Collectors.toList()).forEach( cote ->  {
@@ -250,6 +252,7 @@ public class CoteServiceImpl implements CoteService {
 
     @Override
     public List<Herd> getListHerd() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Herd> herdList = new ArrayList<>();
         try{
             herdList = jpaStreamer.stream(Herd.class).collect(Collectors.toList());
@@ -263,6 +266,7 @@ public class CoteServiceImpl implements CoteService {
     //creator Hieu
     @Override
     public List<Pig> getAllPigSold() {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         List<Integer> listIdPigSold = pigAssociateStatusService.getAllIdPigSoled();
         List<Pig> pigList = new ArrayList<>();
         for (int idPig :
