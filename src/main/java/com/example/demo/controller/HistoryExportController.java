@@ -58,7 +58,7 @@ public class HistoryExportController {
                 idSold[i] = Integer.parseInt(idPigs[i]);
             }
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + "list pigs export has error or DTO input history export error !");
         }
 
       return   historyExportService.addPigExport(idSold, historyExport);

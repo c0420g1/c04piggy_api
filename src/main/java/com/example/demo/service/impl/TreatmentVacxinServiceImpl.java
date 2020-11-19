@@ -37,6 +37,7 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
 //      get treatment by id
     @Override
     public Optional<TreatmentVacxin> getById(int id) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         try{
             return jpaStreamer.stream(TreatmentVacxin.class).filter(e -> e.getId() == id).findFirst();
         }catch (Exception e){
@@ -119,7 +120,7 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
     public List<Pig> getListPig(int coteID) {
         JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         try {
-            List<Pig> pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getCote().getId() == coteID).collect(Collectors.toList());
+            List<Pig> pigList = jpaStreamer.stream(Pig.class).filter(e -> e.getCote().getId() == coteID && e.getIsDeleted() == 0).collect(Collectors.toList());
             return pigList;
         }catch (Exception e){
             e.getMessage();
@@ -137,5 +138,37 @@ public class TreatmentVacxinServiceImpl implements TreamentVacxinService {
     public List<Vacxin> getListVacxin() {
         JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
         return jpaStreamer.stream(Vacxin.class).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<VaccineInfoDTO> getDataVaccine(int pageNumber, String search, String type) {
+        JPAStreamer jpaStreamer= JPAStreamer.of("c04piggy");
+        List<VaccineInfoDTO> treatmentVacxinDTOList =new ArrayList<>();
+        try{
+            if (pageNumber == -1){
+                jpaStreamer.stream(TreatmentVacxin.class).filter(e->e.getIsDeleted()==0 && e.getType().equals(type) && (e.getVeterinary().contains(search)
+                         || e.getDiseases().getName().contains(search) || e.getTreatDate().toString().contains(search)
+                         || e.getCote().getCode().contains(search))
+                ).sorted(TreatmentVacxin$.id.reversed()).forEach(f->{
+                    VaccineInfoDTO t= VaccineInfoDTO.builder().id(f.getId()).treatDate(f.getTreatDate()).coteCode(f.getCote().getCode())
+                            .diseases(f.getDiseases().getName()).veterinarian(f.getVeterinary()).build();
+                    treatmentVacxinDTOList.add(t);
+                });
+                return treatmentVacxinDTOList;
+            }
+            jpaStreamer.stream(TreatmentVacxin.class).filter(e->e.getIsDeleted()==0 && e.getType().equals(type) && (e.getVeterinary().contains(search)
+                    || e.getDiseases().getName().contains(search) || e.getTreatDate().toString().contains(search)
+                    || e.getCote().getCode().contains(search))
+            ).sorted(TreatmentVacxin$.id.reversed()).collect(Collectors.toList()).stream().skip((pageNumber-1)* GlobalUtil.pageSize).limit(GlobalUtil.pageSize).forEach(f->{
+                VaccineInfoDTO t= VaccineInfoDTO.builder().id(f.getId()).treatDate(f.getTreatDate()).coteCode(f.getCote().getCode())
+                        .diseases(f.getDiseases().getName()).veterinarian(f.getVeterinary()).build();
+                treatmentVacxinDTOList.add(t);
+            });
+            jpaStreamer.close();
+            return treatmentVacxinDTOList;
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return null;
     }
 }

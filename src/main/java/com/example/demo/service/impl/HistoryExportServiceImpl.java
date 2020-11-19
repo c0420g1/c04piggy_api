@@ -185,7 +185,7 @@ public class HistoryExportServiceImpl implements HistoryExportService {
     }
 
 
-    public int addPigExport(int[] idPigs, HistoryExport historyExport){
+    public int addPigExport(int[] idPigs, HistoryExport historyExport) {
         List<Pig> pigListSold = jpaStreamer.stream(Pig.class).filter(g -> g.getIsDeleted()==0).collect(Collectors.toList());
         List<Integer> pigIds = new ArrayList<>();
         for (int i = 0; i < idPigs.length; i++) {
@@ -201,9 +201,7 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                   .filter(PigStatus$.name.equal("Sold")).findFirst().get());
                           pigAssociateStatusRepository.save(pigAssociateStatus);
                           h.setIsDeleted(1);
-                          //hai
                           h.setExportDate(LocalDate.now());
-                          //hai
                           weight+= h.getWeight();
                           pigRepository.save(h);
                           historyExport.setCote(h.getCote());
