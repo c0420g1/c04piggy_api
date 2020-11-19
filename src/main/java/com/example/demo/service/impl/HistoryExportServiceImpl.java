@@ -9,10 +9,8 @@ import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.example.demo.common.GlobalUtil.pageSize;
@@ -203,6 +201,9 @@ public class HistoryExportServiceImpl implements HistoryExportService {
                                   .filter(PigStatus$.name.equal("Sold")).findFirst().get());
                           pigAssociateStatusRepository.save(pigAssociateStatus);
                           h.setIsDeleted(1);
+                          //hai
+                          h.setExportDate(LocalDate.now());
+                          //hai
                           weight+= h.getWeight();
                           pigRepository.save(h);
                           historyExport.setCote(h.getCote());
@@ -215,6 +216,14 @@ public class HistoryExportServiceImpl implements HistoryExportService {
             }
         }
 
+        // hai
+        int pigId = idPigs[0];
+        Pig pig = jpaStreamer.stream(Pig.class).filter( e -> e.getId() == pigId).findFirst().get();
+        Cote cote = jpaStreamer.stream(Cote.class).filter( e -> e.getId() == pig.getCote().getId()).findFirst().get();
+        System.out.println(cote);
+        cote.setExportDate(LocalDate.now());
+        coteService.save(cote);
+        // hai
         return 0;
 
     }
