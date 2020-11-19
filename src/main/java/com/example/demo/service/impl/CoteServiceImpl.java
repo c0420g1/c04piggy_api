@@ -199,10 +199,10 @@ public class CoteServiceImpl implements CoteService {
                     .collect(Collectors.toList())
                     .forEach(pig ->{
                         // List Status cho từng con heo
-                        List<Integer> listStatus = new ArrayList<>();
+                        List<String> listStatus = new ArrayList<>();
                         jpaStreamer.stream(PigAssociateStatus.class).
                             filter(pigA -> pigA.getPig().getId() == pig.getId()).collect(Collectors.toList()).forEach(b ->{
-                                        listStatus.add(b.getPigStatus().getId()); // co the getName() để lấy tình trạng
+                                        listStatus.add(b.getPigStatus().getName()); // co the getName() để lấy tình trạng
                                     });
 
                 PigDTO pigDTO = PigDTO.builder()
