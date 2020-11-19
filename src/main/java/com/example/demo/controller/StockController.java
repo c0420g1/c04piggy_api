@@ -2,13 +2,22 @@
 //Creator Tuong
 package com.example.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.Stock;
 import com.example.demo.model.StockDTO;
 import com.example.demo.service.StockService;
+
+import javax.validation.Valid;
 
 @RestController
 public class StockController {
@@ -28,7 +37,7 @@ public class StockController {
 
     // them hoac sua 1 record Stock
     @PostMapping("addEditStock")
-    public int addEditStock(@RequestBody StockDTO stockDTO){
+    public int addEditStock(@Valid @RequestBody StockDTO stockDTO){
       stockService.addEditStock(stockDTO);
         return 1;
     }
@@ -57,4 +66,18 @@ public class StockController {
     public Stock getStockById(@PathVariable int id){
         return stockService.getById(id).get();
     }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
+    }
+
 }

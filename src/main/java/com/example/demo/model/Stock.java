@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.validation.UniqueShipmentCode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
@@ -26,6 +27,7 @@ public class Stock {
     @Column(length = 1000)
     private String description;
     @Column(name ="shipment_code")
+    @UniqueShipmentCode(message = "duplicate shipmentcode")
     private String shipmentCode;
     @Column(columnDefinition="DATE", name = "import_date")
     private LocalDate importDate;
