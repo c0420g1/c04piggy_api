@@ -78,6 +78,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public void addEditNotificationDTO(NotificationDTO notificationDTO) {
+        JPAStreamer jpaStreamer = JPAStreamer.of("c04piggy");
         Employee employee= jpaStreamer.stream(Employee.class).filter(Employee$.id.equal(notificationDTO.getCreateById())).findFirst().get();
           Notification notification= Notification.builder().id(notificationDTO.getId()).isDeleted(0).title(notificationDTO.getTitle()).content(notificationDTO.getContent())
           .employee(employee).type(notificationDTO.getType()).createDate( LocalDate.parse(notificationDTO.getCreateDate())).build();
