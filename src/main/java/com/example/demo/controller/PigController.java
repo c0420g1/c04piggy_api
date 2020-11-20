@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.model.Pig;
 import com.example.demo.model.PigDTO;
 import com.example.demo.service.PigService;
-import jakarta.validation.Valid;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,7 +102,7 @@ public class PigController {
 
     //add new born pig
     @PostMapping("/addNewBornPig")
-    public void addNewBornPig(@Valid @RequestBody Pig pigAdd) {
+    public void addNewBornPig(@RequestBody Pig pigAdd) {
         pigService.saveNewPig(pigAdd);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)

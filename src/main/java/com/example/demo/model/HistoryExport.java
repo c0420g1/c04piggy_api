@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 import javax.persistence.*;
