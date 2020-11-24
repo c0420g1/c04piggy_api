@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 import com.example.demo.common.Regex;
-import com.example.demo.model.Feed;
-import com.example.demo.model.FeedDTO;
-import com.example.demo.model.FeedType;
-import com.example.demo.model.TmpDto;
+import com.example.demo.model.*;
+import com.example.demo.service.HerdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.service.FeedService;
@@ -24,6 +22,10 @@ public class FeedController {
 
     @Autowired
     private FeedTypeService feedTypeService;
+
+
+    @Autowired
+    private HerdService herdService;
 
     Regex regex = new Regex();
 
@@ -109,6 +111,8 @@ public class FeedController {
     public List<Error> createFeed(@RequestBody Feed feed){
         List<Error> errors = new ArrayList<>();
         String amount = Integer.toString(feed.getAmount());
+        List<FeedType> feedTypeList = feedTypeService.getAll();
+        List<Herd> herdList = herdService.getAll();
         try{
             if (!regex.regexCode(feed.getCode())) {
                 errors.add(new Error("code", "code invalid format FEXXXX with X is number"));
@@ -122,15 +126,18 @@ public class FeedController {
 //            if (!regex.regexNumber(amount)){
 //                errors.add(new Error("amount", "amount invalid format is number"));
 //            }
-
-            if (errors.isEmpty()) {
-                this.feedService.save(feed);
-                errors.add(new Error("success", "Create success"));
+            for (FeedType feedType : feedTypeList) {
+                for (Herd herd : herdList) {
+                    if (errors.isEmpty() && herd.equals(feed.getHerd()) && feedType.equals(feed.getFeedType())) {
+                        this.feedService.save(feed);
+                        errors.add(new Error("success", "Create success"));
+                    }
+                }
             }
             return errors;
         }catch (Exception e){
             System.out.println(e);
-            errors.add(new Error("nullPoint", "Please input all information before edit Avatar !"));
+            errors.add(new Error("nullPoint", "System error !"));
             return errors;
         }
     }
