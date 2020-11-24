@@ -72,9 +72,10 @@ public class HistoryExportController {
     }
 //
     //Creator Tuong
-    // add new HistoryExport
+    // add new History of Stock Out
     @PostMapping("/export-management")
     public void addExportManagement(@RequestBody HistoryExport historyExport){
+        historyExport.setDescription(historyExport.getDescription().replaceAll("\\s+"," ").trim());
         try {
             historyExportService.save(historyExport);
         } catch (Exception e) {
