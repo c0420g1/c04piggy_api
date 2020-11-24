@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="925a5feb-dc8e-4807-bf44-b3d1d7ff54a1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/FeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/FeedController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +42,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
   </component>
   <component name="ProjectId" id="1k29wWaHdh3DJdoF0Mw4P1VjByZ" />
   <component name="ProjectLevelVcsManager">
@@ -91,6 +88,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -120,6 +125,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.DemoApplication (1)" />
+        <item itemvalue="JUnit.All in demo" />
         <item itemvalue="Spring Boot.DemoApplication" />
         <item itemvalue="JUnit.All in c04piggy_api" />
       </list>
@@ -169,6 +175,7 @@
       <workItem from="1605767807424" duration="4674000" />
       <workItem from="1606182972046" duration="629000" />
       <workItem from="1606184039104" duration="645000" />
+      <workItem from="1606185076013" duration="1935000" />
     </task>
     <servers />
   </component>
@@ -241,34 +248,34 @@
     </state>
     <state x="495" y="145" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605063716871" />
     <state x="580" y="171" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1605584888700" />
-    <state width="1323" height="230" key="GridCell.Tab.0.bottom" timestamp="1606184887967">
+    <state width="1323" height="215" key="GridCell.Tab.0.bottom" timestamp="1606185262971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606184887967" />
+    <state width="1323" height="215" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606185262971" />
     <state width="1323" height="232" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1605769166830" />
     <state width="1323" height="147" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1605694640015" />
     <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605510982589" />
     <state width="1557" height="232" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1605828503374" />
-    <state width="1323" height="230" key="GridCell.Tab.0.center" timestamp="1606184887966">
+    <state width="1323" height="215" key="GridCell.Tab.0.center" timestamp="1606185262970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606184887966" />
+    <state width="1323" height="215" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606185262970" />
     <state width="1323" height="232" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1605769166830" />
     <state width="1323" height="147" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1605694640015" />
     <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605510982589" />
     <state width="1557" height="232" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1605828503373" />
-    <state width="1323" height="230" key="GridCell.Tab.0.left" timestamp="1606184887966">
+    <state width="1323" height="215" key="GridCell.Tab.0.left" timestamp="1606185262970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606184887966" />
+    <state width="1323" height="215" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606185262970" />
     <state width="1323" height="232" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1605769166830" />
     <state width="1323" height="147" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1605694640015" />
     <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605510982589" />
     <state width="1557" height="232" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1605828503373" />
-    <state width="1323" height="230" key="GridCell.Tab.0.right" timestamp="1606184887967">
+    <state width="1323" height="215" key="GridCell.Tab.0.right" timestamp="1606185262970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="230" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606184887967" />
+    <state width="1323" height="215" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606185262970" />
     <state width="1323" height="232" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1605769166830" />
     <state width="1323" height="147" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1605694640015" />
     <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605510982589" />
@@ -388,11 +395,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/NotificationServiceImpl.java</url>
           <line>101</line>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/demo/controller/FeedController.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
