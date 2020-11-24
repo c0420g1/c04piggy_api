@@ -117,9 +117,9 @@ public class FeedController {
             if (!regex.regexCode(feed.getCode())) {
                 errors.add(new Error("code", "code invalid format FEXXXX with X is number"));
             }
-            if (feed.getDescription().length() < 0) {
-                errors.add(new Error("description", "description is not null"));
-            }
+//            if (feed.getDescription().length() < 0) {
+//                errors.add(new Error("description", "description is not null"));
+//            }
             if (!regex.regexUnit(feed.getUnit())) {
                 errors.add(new Error("unit", "unit invalid format"));
             }
