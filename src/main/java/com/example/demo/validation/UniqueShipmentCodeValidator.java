@@ -1,16 +1,14 @@
 package com.example.demo.validation;
 
-import com.example.demo.model.Stock;
-import com.example.demo.repository.StockRepository;
-import com.speedment.jpastreamer.application.JPAStreamer;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import com.example.demo.repository.StockRepository;
+
 public class UniqueShipmentCodeValidator implements ConstraintValidator<UniqueShipmentCode, String> {
     @Autowired
-    private JPAStreamer jpaStreamer;
+    private StockRepository stockRepository;
 
 
     @Override
@@ -19,15 +17,24 @@ public class UniqueShipmentCodeValidator implements ConstraintValidator<UniqueSh
     }
 
     @Override
-    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        if (jpaStreamer == null){
+    public boolean isValid(String shipmentCode, ConstraintValidatorContext constraintValidatorContext) {
+        if (stockRepository == null){
             return true;
         }else{
-            Stock stock = jpaStreamer.stream(Stock.class).filter(e -> e.getIsDeleted() == 0 && e.getShipmentCode().equals(s)).findFirst().get();
-            if(stock!=null) {
+            if(stockRepository.findAllByShipmentCodeAndIsDeletedIsFalse(shipmentCode)!=null) {
                 return false;
             }
         }
         return true;
+//
+//        if (stockRepository == null) {
+//            return true;
+//        }else{
+//            Stock stock1 = stockRepository.findAllByShipmentCodeAndIsDeletedIsFalse(shipmentCode);
+//            if (stock1 != null) {
+//                return false;
+//            }
+//        }
+//        return true;
     }
 }
