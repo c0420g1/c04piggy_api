@@ -115,13 +115,13 @@ public class FeedController {
         List<Herd> herdList = herdService.getAll();
         try{
             if (!regex.regexCode(feed.getCode())) {
-                errors.add(new Error("code", "code invalid format FEXXXX with X is number"));
+                errors.add(new Error("code", "code invalid format FEXXXX with X is number."));
             }
 //            if (feed.getDescription().length() < 0) {
 //                errors.add(new Error("description", "description is not null"));
 //            }
             if (!regex.regexUnit(feed.getUnit())) {
-                errors.add(new Error("unit", "unit invalid format"));
+                errors.add(new Error("unit", "unit invalid format."));
             }
 //            if (!regex.regexNumber(amount)){
 //                errors.add(new Error("amount", "amount invalid format is number"));
@@ -130,10 +130,12 @@ public class FeedController {
                 for (Herd herd : herdList) {
                     if (errors.isEmpty() && herd.getName().equals(feed.getHerd().getName()) && feedType.getName().equals(feed.getFeedType().getName())) {
                         this.feedService.save(feed);
-                        errors.add(new Error("success", "Create success"));
+                        errors.add(new Error("success", "Create success."));
+                        return errors;
                     }
                 }
             }
+            errors.add(new Error("notNull", "FeedType or herd is required. "));
             return errors;
         }catch (Exception e){
             System.out.println(e);
