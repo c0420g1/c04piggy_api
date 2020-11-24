@@ -128,7 +128,7 @@ public class FeedController {
 //            }
             for (FeedType feedType : feedTypeList) {
                 for (Herd herd : herdList) {
-                    if (errors.isEmpty() && herd.equals(feed.getHerd()) && feedType.equals(feed.getFeedType())) {
+                    if (errors.isEmpty() && herd.getName().equals(feed.getHerd().getName()) && feedType.getName().equals(feed.getFeedType().getName())) {
                         this.feedService.save(feed);
                         errors.add(new Error("success", "Create success"));
                     }
